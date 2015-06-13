@@ -1,0 +1,77 @@
+<%= form_for(@motherboard) do |f| %>
+  <% if @motherboard.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@motherboard.errors.count, "error") %> prohibited this motherboard from being saved:</h2>
+
+      <ul>
+      <% @motherboard.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :manufacturer %><br>
+    <%= f.text_field :manufacturer %>
+  </div>
+  <div class="field">
+    <%= f.label :part_no %><br>
+    <%= f.text_field :part_no %>
+  </div>
+  <div class="field">
+    <%= f.label :form_factor %><br>
+    <%= f.text_field :form_factor %>
+  </div>
+  <div class="field">
+    <%= f.label :cpu_socket %><br>
+    <%= f.text_field :cpu_socket %>
+  </div>
+  <div class="field">
+    <%= f.label :chipset %><br>
+    <%= f.text_field :chipset %>
+  </div>
+  <div class="field">
+    <%= f.label :memory_slots %><br>
+    <%= f.text_field :memory_slots %>
+  </div>
+  <div class="field">
+    <%= f.label :memory_type %><br>
+    <%= f.text_field :memory_type %>
+  </div>
+  <div class="field">
+    <%= f.label :max_memory %><br>
+    <%= f.text_field :max_memory %>
+  </div>
+  <div class="field">
+    <%= f.label :raid_support %><br>
+    <%= f.check_box :raid_support %>
+  </div>
+  <div class="field">
+    <%= f.label :onboard_video %><br>
+    <%= f.text_field :onboard_video %>
+  </div>
+  <div class="field">
+    <%= f.label :crossfire_support %><br>
+    <%= f.check_box :crossfire_support %>
+  </div>
+  <div class="field">
+    <%= f.label :sli_support %><br>
+    <%= f.check_box :sli_support %>
+  </div>
+  <div class="field">
+    <%= f.label :sata_6_gbs %><br>
+    <%= f.number_field :sata_6_gbs %>
+  </div>
+  <div class="field">
+    <%= f.label :onboard_ethernet %><br>
+    <%= f.text_field :onboard_ethernet %>
+  </div>
+  <div class="field">
+    <%= f.label :onboard_usb_3_headers %><br>
+    <%= f.check_box :onboard_usb_3_headers %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

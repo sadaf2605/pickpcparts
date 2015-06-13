@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manufacturer: MyString
+  part_no: MyString
+  form_factor: MyString
+  chipset: MyString
+  memory_slots: MyString
+  memory_type: MyString
+  max_memory: MyString
+  raid_support: false
+  onboard_video: MyString
+  crossfire_support: false
+  sli_support: false
+  sata_6_gbs: 1
+  onboard_ethernet: MyString
+  onboard_usb_3_headers: false
+
+two:
+  manufacturer: MyString
+  part_no: MyString
+  form_factor: MyString
+  chipset: MyString
+  memory_slots: MyString
+  memory_type: MyString
+  max_memory: MyString
+  raid_support: false
+  onboard_video: MyString
+  crossfire_support: false
+  sli_support: false
+  sata_6_gbs: 1
+  onboard_ethernet: MyString
+  onboard_usb_3_headers: false

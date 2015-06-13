@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manufacturer: MyString
+  model: MyString
+  part_no: MyString
+  data_width: MyString
+  speed: MyString
+  cores: 1
+  l1_cache: MyString
+  l2_cache: MyString
+  l3_cache: MyString
+  lithography: MyString
+  thermal_design_power: MyString
+  includes_cpu_cooler: false
+  hyper_threading: false
+  integrated_graphics: MyString
+
+two:
+  manufacturer: MyString
+  model: MyString
+  part_no: MyString
+  data_width: MyString
+  speed: MyString
+  cores: 1
+  l1_cache: MyString
+  l2_cache: MyString
+  l3_cache: MyString
+  lithography: MyString
+  thermal_design_power: MyString
+  includes_cpu_cooler: false
+  hyper_threading: false
+  integrated_graphics: MyString

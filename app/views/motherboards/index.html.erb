@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Motherboards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Manufacturer</th>
+      <th>Part no</th>
+      <th>Form factor</th>
+      <th>Socket</th>
+      <th>Chipset</th>
+      <th>Memory slots</th>
+      <th>Memory type</th>
+      <th>Max memory</th>
+      <th>Raid support</th>
+      <th>Onboard video</th>
+      <th>Crossfire support</th>
+      <th>Sli support</th>
+      <th>Sata 6 gbs</th>
+      <th>Onboard ethernet</th>
+      <th>Onboard usb 3 headers</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @motherboards.each do |motherboard| %>
+      <tr>
+        <td><%= motherboard.manufacturer %></td>
+        <td><%= motherboard.part_no %></td>
+        <td><%= motherboard.form_factor %></td>
+        <td><%= motherboard.cpu_socket.name %></td>
+        <td><%= motherboard.chipset %></td>
+        <td><%= motherboard.memory_slots %></td>
+        <td><%= motherboard.memory_type %></td>
+        <td><%= motherboard.max_memory %></td>
+        <td><%= motherboard.raid_support %></td>
+        <td><%= motherboard.onboard_video %></td>
+        <td><%= motherboard.crossfire_support %></td>
+        <td><%= motherboard.sli_support %></td>
+        <td><%= motherboard.sata_6_gbs %></td>
+        <td><%= motherboard.onboard_ethernet %></td>
+        <td><%= motherboard.onboard_usb_3_headers %></td>
+        <td><%= link_to 'Show', motherboard %></td>
+        <td><%= link_to 'Edit', edit_motherboard_path(motherboard) %></td>
+        <td><%= link_to 'Destroy', motherboard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Motherboard', new_motherboard_path %>

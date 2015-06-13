@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manufacturer: MyString
+  part_no: MyString
+  liquid_cooled: false
+  radiator_size: MyString
+  noise_level: MyString
+  fan_rpm: MyString
+
+two:
+  manufacturer: MyString
+  part_no: MyString
+  liquid_cooled: false
+  radiator_size: MyString
+  noise_level: MyString
+  fan_rpm: MyString

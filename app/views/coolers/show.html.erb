@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @cooler.manufacturer %>
+</p>
+
+<p>
+  <strong>Part no:</strong>
+  <%= @cooler.part_no %>
+</p>
+<p>
+  <strong>Supported sockets:</strong>
+  <% @cooler.cpu_sockets.each do |socket| %>
+    <%= socket.name %>
+  <% end %>
+</p>
+<p>
+  <strong>Liquid cooled:</strong>
+  <%= @cooler.liquid_cooled %>
+</p>
+
+<p>
+  <strong>Radiator size:</strong>
+  <%= @cooler.radiator_size %>
+</p>
+
+<p>
+  <strong>Noise level:</strong>
+  <%= @cooler.noise_level %>
+</p>
+
+<p>
+  <strong>Fan rpm:</strong>
+  <%= @cooler.fan_rpm %>
+</p>
+
+<%= link_to 'Edit', edit_cooler_path(@cooler) %> |
+<%= link_to 'Back', coolers_path %>

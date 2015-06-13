@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Cpu Sockets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cpu_sockets.each do |cpu_socket| %>
+      <tr>
+        <td><%= cpu_socket.name %></td>
+        <td><%= link_to 'Show', cpu_socket %></td>
+        <td><%= link_to 'Edit', edit_cpu_socket_path(cpu_socket) %></td>
+        <td><%= link_to 'Destroy', cpu_socket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cpu socket', new_cpu_socket_path %>

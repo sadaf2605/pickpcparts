@@ -1,0 +1,78 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @motherboard.manufacturer %>
+</p>
+
+<p>
+  <strong>Part no:</strong>
+  <%= @motherboard.part_no %>
+</p>
+
+<p>
+  <strong>Form factor:</strong>
+  <%= @motherboard.form_factor %>
+</p>
+<p>
+  <strong>Socket:</strong>
+  <%= @motherboard.cpu_socket.name %>
+</p>
+
+<p>
+  <strong>Chipset:</strong>
+  <%= @motherboard.chipset %>
+</p>
+
+<p>
+  <strong>Memory slots:</strong>
+  <%= @motherboard.memory_slots %>
+</p>
+
+<p>
+  <strong>Memory type:</strong>
+  <%= @motherboard.memory_type %>
+</p>
+
+<p>
+  <strong>Max memory:</strong>
+  <%= @motherboard.max_memory %>
+</p>
+
+<p>
+  <strong>Raid support:</strong>
+  <%= @motherboard.raid_support %>
+</p>
+
+<p>
+  <strong>Onboard video:</strong>
+  <%= @motherboard.onboard_video %>
+</p>
+
+<p>
+  <strong>Crossfire support:</strong>
+  <%= @motherboard.crossfire_support %>
+</p>
+
+<p>
+  <strong>Sli support:</strong>
+  <%= @motherboard.sli_support %>
+</p>
+
+<p>
+  <strong>Sata 6 gbs:</strong>
+  <%= @motherboard.sata_6_gbs %>
+</p>
+
+<p>
+  <strong>Onboard ethernet:</strong>
+  <%= @motherboard.onboard_ethernet %>
+</p>
+
+<p>
+  <strong>Onboard usb 3 headers:</strong>
+  <%= @motherboard.onboard_usb_3_headers %>
+</p>
+
+<%= link_to 'Edit', edit_motherboard_path(@motherboard) %> |
+<%= link_to 'Back', motherboards_path %>

@@ -1,0 +1,46 @@
+<%= form_for(@cooler) do |f| %>
+  <% if @cooler.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cooler.errors.count, "error") %> prohibited this cooler from being saved:</h2>
+
+      <ul>
+      <% @cooler.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :manufacturer %><br>
+    <%= f.text_field :manufacturer %>
+  </div>
+  <div class="field">
+    <%= f.label :part_no %><br>
+    <%= f.text_field :part_no %>
+  </div>
+  <div class="field">
+    <%= f.label :cpu_sockets %><br>
+    <%= f.text_field :cpu_sockets %>
+  </div>
+
+  <div class="field">
+    <%= f.label :liquid_cooled %><br>
+    <%= f.check_box :liquid_cooled %>
+  </div>
+  <div class="field">
+    <%= f.label :radiator_size %><br>
+    <%= f.text_field :radiator_size %>
+  </div>
+  <div class="field">
+    <%= f.label :noise_level %><br>
+    <%= f.text_field :noise_level %>
+  </div>
+  <div class="field">
+    <%= f.label :fan_rpm %><br>
+    <%= f.text_field :fan_rpm %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

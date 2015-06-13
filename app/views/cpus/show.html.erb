@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @cpu.manufacturer %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @cpu.model %>
+</p>
+
+<p>
+  <strong>Part no:</strong>
+  <%= @cpu.part_no %>
+</p>
+
+<p>
+  <strong>Data width:</strong>
+  <%= @cpu.data_width %>
+</p>
+<p>
+  <strong>Socket:</strong>
+  <%= @cpu.cpu_socket.name %>
+</p>
+<p>
+  <strong>Speed:</strong>
+  <%= @cpu.speed %>
+</p>
+
+<p>
+  <strong>Cores:</strong>
+  <%= @cpu.cores %>
+</p>
+
+<p>
+  <strong>L1 cache:</strong>
+  <%= @cpu.l1_cache %>
+</p>
+
+<p>
+  <strong>L2 cache:</strong>
+  <%= @cpu.l2_cache %>
+</p>
+
+<p>
+  <strong>L3 cache:</strong>
+  <%= @cpu.l3_cache %>
+</p>
+
+<p>
+  <strong>Lithography:</strong>
+  <%= @cpu.lithography %>
+</p>
+
+<p>
+  <strong>Thermal design power:</strong>
+  <%= @cpu.thermal_design_power %>
+</p>
+
+<p>
+  <strong>Includes cpu cooler:</strong>
+  <%= @cpu.includes_cpu_cooler %>
+</p>
+
+<p>
+  <strong>Hyper threading:</strong>
+  <%= @cpu.hyper_threading %>
+</p>
+
+<p>
+  <strong>Integrated graphics:</strong>
+  <%= @cpu.integrated_graphics %>
+</p>
+
+<%= link_to 'Edit', edit_cpu_path(@cpu) %> |
+<%= link_to 'Back', cpus_path %>
