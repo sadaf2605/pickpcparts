@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @memory.manufacturer %>
+</p>
+
+<p>
+  <strong>Part no:</strong>
+  <%= @memory.part_no %>
+</p>
+<p>
+  <strong>Memory Slot:</strong>
+  <%= @memory.memory_type.name %>
+</p>
+
+<p>
+  <strong>Speed:</strong>
+  <%= @memory.speed %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @memory.size %>
+</p>
+
+<p>
+  <strong>Price/gb:</strong>
+  <%= @memory.price_gb %>
+</p>
+
+<p>
+  <strong>Cas:</strong>
+  <%= @memory.cas %>
+</p>
+
+<p>
+  <strong>Voltage:</strong>
+  <%= @memory.voltage %>
+</p>
+
+<p>
+  <strong>Heat:</strong>
+  <%= @memory.heat %>
+</p>
+
+<p>
+  <strong>Spreader:</strong>
+  <%= @memory.spreader %>
+</p>
+
+<p>
+  <strong>Ecc:</strong>
+  <%= @memory.ecc %>
+</p>
+
+<p>
+  <strong>Registered:</strong>
+  <%= @memory.registered %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @memory.color %>
+</p>
+
+<%= link_to 'Edit', edit_memory_path(@memory) %> |
+<%= link_to 'Back', memories_path %>

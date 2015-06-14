@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150613141629) do
+ActiveRecord::Schema.define(version: 20150614153016) do
+
+  create_table "builds", force: :cascade do |t|
+    t.integer "cpu_id"
+    t.integer "motherboard_id"
+    t.integer "cooler_id"
+    t.integer "memory_id"
+  end
 
   create_table "coolers", force: :cascade do |t|
     t.string   "manufacturer"
@@ -35,6 +42,8 @@ ActiveRecord::Schema.define(version: 20150613141629) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "cpu_sockets", ["name"], name: "index_cpu_sockets_on_name", unique: true
+
   create_table "cpus", force: :cascade do |t|
     t.string   "manufacturer"
     t.string   "model"
@@ -56,12 +65,37 @@ ActiveRecord::Schema.define(version: 20150613141629) do
     t.integer  "cpu_socket_id"
   end
 
+  create_table "memories", force: :cascade do |t|
+    t.string   "manufacturer"
+    t.string   "part_no"
+    t.string   "speed"
+    t.string   "size"
+    t.string   "price_gb"
+    t.string   "cas"
+    t.string   "voltage"
+    t.string   "heat"
+    t.boolean  "spreader"
+    t.boolean  "ecc"
+    t.boolean  "registered"
+    t.string   "color"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "memory"
+    t.integer  "memory_slot_id"
+    t.integer  "build_id"
+  end
+
+  create_table "memory_slots", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "motherboards", force: :cascade do |t|
     t.string   "manufacturer"
     t.string   "part_no"
     t.string   "form_factor"
     t.string   "chipset"
-    t.string   "memory_slots"
     t.string   "memory_type"
     t.string   "max_memory"
     t.boolean  "raid_support"
@@ -75,6 +109,8 @@ ActiveRecord::Schema.define(version: 20150613141629) do
     t.datetime "updated_at",            null: false
     t.string   "motherboard"
     t.integer  "cpu_socket_id"
+    t.integer  "memory_slot_num"
+    t.integer  "memory_slot_id"
   end
 
 end

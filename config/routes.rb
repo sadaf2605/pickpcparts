@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :memories
+
+  resources :memory_slots
+
+  resources :builds
+
   resources :motherboards
 
   resources :coolers

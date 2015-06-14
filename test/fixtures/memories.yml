@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manufacturer: MyString
+  part_no: MyString
+  speed: MyString
+  size: MyString
+  price/gb: MyString
+  cas: MyString
+  voltage: MyString
+  heat: MyString
+  spreader: false
+  ecc: false
+  registered: false
+  color: MyString
+
+two:
+  manufacturer: MyString
+  part_no: MyString
+  speed: MyString
+  size: MyString
+  price/gb: MyString
+  cas: MyString
+  voltage: MyString
+  heat: MyString
+  spreader: false
+  ecc: false
+  registered: false
+  color: MyString

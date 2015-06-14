@@ -25,8 +25,15 @@ class MotherboardsController < ApplicationController
   # POST /motherboards.json
   def create
     @motherboard = Motherboard.new(motherboard_params)
+    
     @motherboard.cpu_socket = CpuSocket.find_by_name(params[:motherboard][:cpu_socket]) || CpuSocket.create({:name =>params[:motherboard][:cpu_socket]})
+    
+    num_slot = params[:motherboard][:memory_slot].split(" x ")
 
+    @motherboard.memory_slot_num=Integer(num_slot[0].strip) 
+    memory_slot_name=num_slot[1].strip
+    @motherboard.memory_slot = MemorySlot.find_by_name(memory_slot_name) || MemorySlot.create({:name => memory_slot_name})
+    
     respond_to do |format|
       if @motherboard.save
         format.html { redirect_to @motherboard, notice: 'Motherboard was successfully created.' }

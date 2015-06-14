@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Memory Slots</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @memory_slots.each do |memory_slot| %>
+      <tr>
+        <td><%= memory_slot.name %></td>
+        <td><%= link_to 'Show', memory_slot %></td>
+        <td><%= link_to 'Edit', edit_memory_slot_path(memory_slot) %></td>
+        <td><%= link_to 'Destroy', memory_slot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Memory slot', new_memory_slot_path %>

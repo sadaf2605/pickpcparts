@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cpu:</strong>
+  <%= @build.cpu.part_no %>
+</p>
+
+<p>
+  <strong>Motherboard:</strong>
+  <%= @build.motherboard.part_no %>
+</p>
+
+<p>
+  <strong>Cooler:</strong>
+  <%= @build.cooler.part_no %>
+</p>
+<p>
+  <strong>Memory:</strong>
+  <%= @build.memory.part_no %>
+</p>
+<p>
+  <strong>Concistancy:</strong>
+  <% @consistancies.each do |consistancy| %>
+  <li><%= consistancy %></li>
+  <% end %>
+</p>
+
+<p>
+  <strong>Conflicts:</strong>
+  <% @conflicts.each do |conflict| %>
+  <li><%= conflict %></li>
+  <% end %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_build_path(@build) %> |
+<%= link_to 'Back', builds_path %>

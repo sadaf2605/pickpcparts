@@ -26,9 +26,10 @@ class CoolersController < ApplicationController
   def create
     @cooler = Cooler.new(cooler_params)
 
-    params[:cooler][:cpu_socket].split(",").each do |name|
+    params[:cooler][:cpu_sockets].split(",").each do |name|
+      name=name.strip
       @cpu_socket=CpuSocket.find_by_name(name) || CpuSocket.create({:name => name})
-      @cooler.cpu_sockets <<@cpu_socket
+      @cooler.cpu_sockets << @cpu_socket
     end
 
     respond_to do |format|
