@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @storage.manufacturer %>
+</p>
+
+<p>
+  <strong>Part no:</strong>
+  <%= @storage.part_no %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @storage.capacity %>
+</p>
+
+<p>
+  <strong>Interface:</strong>
+  <%= @storage.interface %>
+</p>
+
+<p>
+  <strong>Cache:</strong>
+  <%= @storage.cache %>
+</p>
+
+<p>
+  <strong>Form factor:</strong>
+  <%= @storage.form_factor %>
+</p>
+
+<p>
+  <strong>Ssd controller:</strong>
+  <%= @storage.ssd_controller %>
+</p>
+
+<p>
+  <strong>Nand flash type:</strong>
+  <%= @storage.nand_flash_type %>
+</p>
+
+<p>
+  <strong>Gb 1:</strong>
+  <%= @storage.gb_1 %>
+</p>
+
+<p>
+  <strong>Price gb:</strong>
+  <%= @storage.price_gb %>
+</p>
+
+<%= link_to 'Edit', edit_storage_path(@storage) %> |
+<%= link_to 'Back', storages_path %>

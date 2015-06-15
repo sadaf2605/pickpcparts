@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manufacturer: MyString
+  part_no: MyString
+  capacity: MyString
+  interface: MyString
+  cache: MyString
+  form_factor: MyString
+  ssd_controller: MyString
+  nand_flash_type: MyString
+  gb_1: MyString
+  price_gb: MyString
+
+two:
+  manufacturer: MyString
+  part_no: MyString
+  capacity: MyString
+  interface: MyString
+  cache: MyString
+  form_factor: MyString
+  ssd_controller: MyString
+  nand_flash_type: MyString
+  gb_1: MyString
+  price_gb: MyString

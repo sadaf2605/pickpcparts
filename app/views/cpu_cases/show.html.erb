@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @cpu_case.manufacturer %>
+</p>
+
+<p>
+  <strong>Part no:</strong>
+  <%= @cpu_case.part_no %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @cpu_case.type %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @cpu_case.color %>
+</p>
+
+<p>
+  <strong>Includes power supply:</strong>
+  <%= @cpu_case.includes_power_supply %>
+</p>
+
+<p>
+  <strong>External 5 25 bays:</strong>
+  <%= @cpu_case.external_5_25_bays %>
+</p>
+
+<p>
+  <strong>Internal 2 5 bays:</strong>
+  <%= @cpu_case.internal_2_5_bays %>
+</p>
+
+<p>
+  <strong>Internal 3 5 bays:</strong>
+  <%= @cpu_case.internal_3_5_bays %>
+</p>
+
+<p>
+  <strong>Motherboard compatibility:</strong>
+  <%= @cpu_case.motherboard_compatibility %>
+</p>
+
+<p>
+  <strong>Front panel usb 3 0:</strong>
+  <%= @cpu_case.front_panel_usb_3_0 %>
+</p>
+
+<p>
+  <strong>Ports:</strong>
+  <%= @cpu_case.ports %>
+</p>
+
+<p>
+  <strong>Maximum video card length:</strong>
+  <%= @cpu_case.maximum_video_card_length %>
+</p>
+
+<p>
+  <strong>Dimensions:</strong>
+  <%= @cpu_case.dimensions %>
+</p>
+
+<%= link_to 'Edit', edit_cpu_case_path(@cpu_case) %> |
+<%= link_to 'Back', cpu_cases_path %>

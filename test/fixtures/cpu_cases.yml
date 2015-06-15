@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manufacturer: MyString
+  part_no: 
+  type: 
+  color: MyString
+  includes_power_supply: false
+  external_5_25_bays: 1
+  internal_2_5_bays: 1
+  internal_3_5_bays: 1
+  motherboard_compatibility: MyString
+  front_panel_usb_3_0: MyString
+  ports: false
+  maximum_video_card_length: MyString
+  dimensions: MyString
+
+two:
+  manufacturer: MyString
+  part_no: 
+  type: 
+  color: MyString
+  includes_power_supply: false
+  external_5_25_bays: 1
+  internal_2_5_bays: 1
+  internal_3_5_bays: 1
+  motherboard_compatibility: MyString
+  front_panel_usb_3_0: MyString
+  ports: false
+  maximum_video_card_length: MyString
+  dimensions: MyString

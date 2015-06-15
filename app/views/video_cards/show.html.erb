@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @video_card.manufacturer %>
+</p>
+
+<p>
+  <strong>Part no:</strong>
+  <%= @video_card.part_no %>
+</p>
+
+<p>
+  <strong>Interface:</strong>
+  <%= @video_card.interface %>
+</p>
+
+<p>
+  <strong>Chipset:</strong>
+  <%= @video_card.chipset %>
+</p>
+
+<p>
+  <strong>Memory size:</strong>
+  <%= @video_card.memory_size %>
+</p>
+
+<p>
+  <strong>Memory type:</strong>
+  <%= @video_card.memory_type %>
+</p>
+
+<p>
+  <strong>Core clock:</strong>
+  <%= @video_card.core_clock %>
+</p>
+
+<p>
+  <strong>Tdp:</strong>
+  <%= @video_card.tdp %>
+</p>
+
+<p>
+  <strong>Fan:</strong>
+  <%= @video_card.fan %>
+</p>
+
+<p>
+  <strong>Sli support:</strong>
+  <%= @video_card.sli_support %>
+</p>
+
+<p>
+  <strong>Crossfire support:</strong>
+  <%= @video_card.crossfire_support %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @video_card.length %>
+</p>
+
+<p>
+  <strong>Dvi d dual link:</strong>
+  <%= @video_card.dvi_d_dual_link %>
+</p>
+
+<p>
+  <strong>Display port:</strong>
+  <%= @video_card.display_port %>
+</p>
+
+<p>
+  <strong>Hdmi:</strong>
+  <%= @video_card.hdmi %>
+</p>
+
+<%= link_to 'Edit', edit_video_card_path(@video_card) %> |
+<%= link_to 'Back', video_cards_path %>

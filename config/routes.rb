@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :cpu_cases
+
+  resources :power_supplies
+
+  resources :video_cards
+
+  resources :storages
+
   resources :memories
 
   resources :memory_slots

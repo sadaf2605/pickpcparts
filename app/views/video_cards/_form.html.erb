@@ -1,0 +1,77 @@
+<%= form_for(@video_card) do |f| %>
+  <% if @video_card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@video_card.errors.count, "error") %> prohibited this video_card from being saved:</h2>
+
+      <ul>
+      <% @video_card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :manufacturer %><br>
+    <%= f.text_field :manufacturer %>
+  </div>
+  <div class="field">
+    <%= f.label :part_no %><br>
+    <%= f.text_field :part_no %>
+  </div>
+  <div class="field">
+    <%= f.label :interface %><br>
+    <%= f.text_field :interface %>
+  </div>
+  <div class="field">
+    <%= f.label :chipset %><br>
+    <%= f.text_field :chipset %>
+  </div>
+  <div class="field">
+    <%= f.label :memory_size %><br>
+    <%= f.text_field :memory_size %>
+  </div>
+  <div class="field">
+    <%= f.label :memory_type %><br>
+    <%= f.text_field :memory_type %>
+  </div>
+  <div class="field">
+    <%= f.label :core_clock %><br>
+    <%= f.text_field :core_clock %>
+  </div>
+  <div class="field">
+    <%= f.label :tdp %><br>
+    <%= f.text_field :tdp %>
+  </div>
+  <div class="field">
+    <%= f.label :fan %><br>
+    <%= f.check_box :fan %>
+  </div>
+  <div class="field">
+    <%= f.label :sli_support %><br>
+    <%= f.check_box :sli_support %>
+  </div>
+  <div class="field">
+    <%= f.label :crossfire_support %><br>
+    <%= f.text_field :crossfire_support %>
+  </div>
+  <div class="field">
+    <%= f.label :length %><br>
+    <%= f.text_field :length %>
+  </div>
+  <div class="field">
+    <%= f.label :dvi_d_dual_link %><br>
+    <%= f.number_field :dvi_d_dual_link %>
+  </div>
+  <div class="field">
+    <%= f.label :display_port %><br>
+    <%= f.number_field :display_port %>
+  </div>
+  <div class="field">
+    <%= f.label :hdmi %><br>
+    <%= f.number_field :hdmi %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

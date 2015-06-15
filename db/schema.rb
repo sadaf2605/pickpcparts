@@ -11,13 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614153016) do
+ActiveRecord::Schema.define(version: 20150615060335) do
 
   create_table "builds", force: :cascade do |t|
     t.integer "cpu_id"
     t.integer "motherboard_id"
     t.integer "cooler_id"
     t.integer "memory_id"
+    t.integer "storage_id"
+    t.integer "video_card_id"
+    t.integer "cpu_case_id"
+  end
+
+  create_table "cases", force: :cascade do |t|
+    t.string   "manufacturer"
+    t.string   "part_no"
+    t.string   "type"
+    t.string   "color"
+    t.boolean  "includes_power_supply"
+    t.integer  "external_5_25_bays"
+    t.integer  "internal_2_5_bays"
+    t.integer  "internal_3_5_bays"
+    t.string   "motherboard_compatibility"
+    t.string   "front_panel_usb_3_0"
+    t.boolean  "ports"
+    t.string   "maximum_video_card_length"
+    t.string   "dimensions"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "coolers", force: :cascade do |t|
@@ -34,6 +55,24 @@ ActiveRecord::Schema.define(version: 20150614153016) do
   create_table "coolers_cpu_sockets", id: false, force: :cascade do |t|
     t.integer "cpu_socket_id"
     t.integer "cooler_id"
+  end
+
+  create_table "cpu_cases", force: :cascade do |t|
+    t.string   "manufacturer"
+    t.string   "part_no"
+    t.string   "type"
+    t.string   "color"
+    t.boolean  "includes_power_supply"
+    t.integer  "external_5_25_bays"
+    t.integer  "internal_2_5_bays"
+    t.integer  "internal_3_5_bays"
+    t.string   "motherboard_compatibility"
+    t.string   "front_panel_usb_3_0"
+    t.boolean  "ports"
+    t.string   "maximum_video_card_length"
+    t.string   "dimensions"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "cpu_sockets", force: :cascade do |t|
@@ -111,6 +150,56 @@ ActiveRecord::Schema.define(version: 20150614153016) do
     t.integer  "cpu_socket_id"
     t.integer  "memory_slot_num"
     t.integer  "memory_slot_id"
+  end
+
+  create_table "power_supplies", force: :cascade do |t|
+    t.string   "manufacturer"
+    t.string   "part_no"
+    t.string   "type"
+    t.string   "wattage"
+    t.integer  "fans"
+    t.boolean  "modular"
+    t.string   "efficiency_certification"
+    t.string   "efficiency"
+    t.string   "output"
+    t.string   "pci_express_6_plus_2_pin_connectors"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  create_table "storages", force: :cascade do |t|
+    t.string   "manufacturer"
+    t.string   "part_no"
+    t.string   "capacity"
+    t.string   "interface"
+    t.string   "cache"
+    t.string   "form_factor"
+    t.string   "ssd_controller"
+    t.string   "nand_flash_type"
+    t.string   "gb_1"
+    t.string   "price_gb"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "video_cards", force: :cascade do |t|
+    t.string   "manufacturer"
+    t.string   "part_no"
+    t.string   "interface"
+    t.string   "chipset"
+    t.string   "memory_size"
+    t.string   "memory_type"
+    t.string   "core_clock"
+    t.string   "tdp"
+    t.boolean  "fan"
+    t.boolean  "sli_support"
+    t.string   "crossfire_support"
+    t.string   "length"
+    t.integer  "dvi_d_dual_link"
+    t.integer  "display_port"
+    t.integer  "hdmi"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
 end

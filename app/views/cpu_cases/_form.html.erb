@@ -1,0 +1,69 @@
+<%= form_for(@cpu_case) do |f| %>
+  <% if @cpu_case.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cpu_case.errors.count, "error") %> prohibited this cpu_case from being saved:</h2>
+
+      <ul>
+      <% @cpu_case.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :manufacturer %><br>
+    <%= f.text_field :manufacturer %>
+  </div>
+  <div class="field">
+    <%= f.label :part_no %><br>
+    <%= f.text_field :part_no %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br>
+    <%= f.text_field :color %>
+  </div>
+  <div class="field">
+    <%= f.label :includes_power_supply %><br>
+    <%= f.check_box :includes_power_supply %>
+  </div>
+  <div class="field">
+    <%= f.label :external_5_25_bays %><br>
+    <%= f.number_field :external_5_25_bays %>
+  </div>
+  <div class="field">
+    <%= f.label :internal_2_5_bays %><br>
+    <%= f.number_field :internal_2_5_bays %>
+  </div>
+  <div class="field">
+    <%= f.label :internal_3_5_bays %><br>
+    <%= f.number_field :internal_3_5_bays %>
+  </div>
+  <div class="field">
+    <%= f.label :motherboard_compatibility %><br>
+    <%= f.text_field :motherboard_compatibility %>
+  </div>
+  <div class="field">
+    <%= f.label :front_panel_usb_3_0 %><br>
+    <%= f.text_field :front_panel_usb_3_0 %>
+  </div>
+  <div class="field">
+    <%= f.label :ports %><br>
+    <%= f.check_box :ports %>
+  </div>
+  <div class="field">
+    <%= f.label :maximum_video_card_length %><br>
+    <%= f.text_field :maximum_video_card_length %>
+  </div>
+  <div class="field">
+    <%= f.label :dimensions %><br>
+    <%= f.text_field :dimensions %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

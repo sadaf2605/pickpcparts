@@ -39,6 +39,8 @@ class BuildsController < ApplicationController
     @build.cooler=Cooler.find_by_part_no(build_params[:cooler]) 
     @build.motherboard=Motherboard.find_by_part_no(build_params[:motherboard])
     @build.memory=Memory.find_by_part_no(build_params[:memory]) 
+    @build.storage=Memory.find_by_part_no(build_params[:storage])
+    @build.video_card=Memory.find_by_part_no(build_params[:video_card]) 
 
     respond_to do |format|
       if @build.save
@@ -83,6 +85,6 @@ class BuildsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def build_params
-      params.require(:build).permit(:cpu, :motherboard, :cooler, :memory)
+      params.require(:build).permit(:cpu, :motherboard, :cooler, :memory, :storage,:video_card)
     end
 end

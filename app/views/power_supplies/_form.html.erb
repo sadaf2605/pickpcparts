@@ -1,0 +1,57 @@
+<%= form_for(@power_supply) do |f| %>
+  <% if @power_supply.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@power_supply.errors.count, "error") %> prohibited this power_supply from being saved:</h2>
+
+      <ul>
+      <% @power_supply.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :manufacturer %><br>
+    <%= f.text_field :manufacturer %>
+  </div>
+  <div class="field">
+    <%= f.label :part_no %><br>
+    <%= f.text_field :part_no %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :wattage %><br>
+    <%= f.text_field :wattage %>
+  </div>
+  <div class="field">
+    <%= f.label :fans %><br>
+    <%= f.number_field :fans %>
+  </div>
+  <div class="field">
+    <%= f.label :modular %><br>
+    <%= f.check_box :modular %>
+  </div>
+  <div class="field">
+    <%= f.label :efficiency_certification %><br>
+    <%= f.text_field :efficiency_certification %>
+  </div>
+  <div class="field">
+    <%= f.label :efficiency %><br>
+    <%= f.text_field :efficiency %>
+  </div>
+  <div class="field">
+    <%= f.label :output %><br>
+    <%= f.text_field :output %>
+  </div>
+  <div class="field">
+    <%= f.label :pci_express_6_plus_2_pin_connectors %><br>
+    <%= f.text_field :pci_express_6_plus_2_pin_connectors %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

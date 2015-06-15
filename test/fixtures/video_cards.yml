@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manufacturer: MyString
+  part_no: MyString
+  interface: MyString
+  chipset: MyString
+  memory_size: MyString
+  memory_type: MyString
+  core_clock: MyString
+  tdp: MyString
+  fan: false
+  sli_support: false
+  crossfire_support: MyString
+  length: MyString
+  dvi_d_dual_link: 1
+  display_port: 1
+  hdmi: 1
+
+two:
+  manufacturer: MyString
+  part_no: MyString
+  interface: MyString
+  chipset: MyString
+  memory_size: MyString
+  memory_type: MyString
+  core_clock: MyString
+  tdp: MyString
+  fan: false
+  sli_support: false
+  crossfire_support: MyString
+  length: MyString
+  dvi_d_dual_link: 1
+  display_port: 1
+  hdmi: 1

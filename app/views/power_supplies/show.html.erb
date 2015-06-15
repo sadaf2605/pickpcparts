@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @power_supply.manufacturer %>
+</p>
+
+<p>
+  <strong>Part no:</strong>
+  <%= @power_supply.part_no %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @power_supply.type %>
+</p>
+
+<p>
+  <strong>Wattage:</strong>
+  <%= @power_supply.wattage %>
+</p>
+
+<p>
+  <strong>Fans:</strong>
+  <%= @power_supply.fans %>
+</p>
+
+<p>
+  <strong>Modular:</strong>
+  <%= @power_supply.modular %>
+</p>
+
+<p>
+  <strong>Efficiency certification:</strong>
+  <%= @power_supply.efficiency_certification %>
+</p>
+
+<p>
+  <strong>Efficiency:</strong>
+  <%= @power_supply.efficiency %>
+</p>
+
+<p>
+  <strong>Output:</strong>
+  <%= @power_supply.output %>
+</p>
+
+<p>
+  <strong>Pci express 6 plus 2 pin connectors:</strong>
+  <%= @power_supply.pci_express_6_plus_2_pin_connectors %>
+</p>
+
+<%= link_to 'Edit', edit_power_supply_path(@power_supply) %> |
+<%= link_to 'Back', power_supplies_path %>
