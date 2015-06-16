@@ -15,6 +15,7 @@ class CpuCasesController < ApplicationController
   # GET /cpu_cases/new
   def new
     @cpu_case = CpuCase.new
+
   end
 
   # GET /cpu_cases/1/edit
@@ -25,6 +26,9 @@ class CpuCasesController < ApplicationController
   # POST /cpu_cases.json
   def create
     @cpu_case = CpuCase.new(cpu_case_params)
+    @cpu_case.length=cpu_case_params[:dimensions].split(" x ")[0].strip.sub('\"', '').to_f
+    @cpu_case.width=cpu_case_params[:dimensions].split(" x ")[1].strip.sub('\"', '').to_f
+    @cpu_case.height=cpu_case_params[:dimensions].split(" x ")[2].strip.sub('\"', '').to_f
 
     respond_to do |format|
       if @cpu_case.save
@@ -69,6 +73,6 @@ class CpuCasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cpu_case_params
-      params.require(:cpu_case).permit(:manufacturer, :part_no, :type, :color, :includes_power_supply, :external_5_25_bays, :internal_2_5_bays, :internal_3_5_bays, :motherboard_compatibility, :front_panel_usb_3_0, :ports, :maximum_video_card_length, :dimensions)
+      params.require(:cpu_case).permit(:manufacturer, :part_no, :cpu_type, :color, :includes_power_supply, :external_5_25_bays, :internal_2_5_bays, :internal_3_5_bays, :motherboard_compatibility, :front_panel_usb_3_0, :ports, :maximum_video_card_length, :dimensions)
     end
 end

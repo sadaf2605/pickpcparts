@@ -10,7 +10,12 @@ class Motherboard < ActiveRecord::Base
 	def supports_cooler(cooler)
 		return cooler.supports_motherboard(self)
 	end
-	View Compatible Cases
+
+	def supports_case(cpu_case)
+		raise "yet to implement"
+		return true
+	end
+
 	def supports_memory(memory)
 		return memory_slot==memory.memory_type
 	end
@@ -31,9 +36,9 @@ class Motherboard < ActiveRecord::Base
 	end
 
 	def supports_video_card(video_card)
-		raise "yet to implement"
-		return true
+		return video_card supports_motherboard
 	end
+
 	def supports_wired_network_adapter(wired_network_adapter)
 		raise "yet to implement"
 		return true

@@ -12,7 +12,7 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @cpu_case.type %>
+  <%= @cpu_case.case_type %>
 </p>
 
 <p>
@@ -62,7 +62,9 @@
 
 <p>
   <strong>Dimensions:</strong>
-  <%= @cpu_case.dimensions %>
+  <%= @cpu_case.length %> x
+  <%= @cpu_case.width %> x
+  <%= @cpu_case.height %>
 </p>
 
 <%= link_to 'Edit', edit_cpu_case_path(@cpu_case) %> |

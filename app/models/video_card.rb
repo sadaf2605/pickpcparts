@@ -2,14 +2,17 @@ class VideoCard < ActiveRecord::Base
 	belongs_to :build
 
 
-	def supports_pc_case(pc_case)
-		raise "yet to implement"
-		return true
+	def supports_video_card(pc_case)
+		return pc_case.length >= self.length
 	end
+
 	def supports_motherboard(motherboard)
-		raise "yet to implement"
+
+		"It does for PCIe"
+		if self.crossfire_support || self.sli_support
+			return motherboard.sli_support || motherboard.crossfire_support
+		end
+			return false
 	end
-	def supports_power_supply(power_supply)
-		raise "yet to implement"
-	end
+
 end

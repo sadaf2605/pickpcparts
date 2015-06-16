@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615060335) do
+ActiveRecord::Schema.define(version: 20150616135138) do
 
   create_table "builds", force: :cascade do |t|
     t.integer "cpu_id"
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 20150615060335) do
   create_table "cpu_cases", force: :cascade do |t|
     t.string   "manufacturer"
     t.string   "part_no"
-    t.string   "type"
     t.string   "color"
     t.boolean  "includes_power_supply"
     t.integer  "external_5_25_bays"
@@ -70,9 +69,12 @@ ActiveRecord::Schema.define(version: 20150615060335) do
     t.string   "front_panel_usb_3_0"
     t.boolean  "ports"
     t.string   "maximum_video_card_length"
-    t.string   "dimensions"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "case_type"
+    t.float    "length"
+    t.float    "width"
+    t.float    "height"
   end
 
   create_table "cpu_sockets", force: :cascade do |t|
@@ -193,13 +195,13 @@ ActiveRecord::Schema.define(version: 20150615060335) do
     t.string   "tdp"
     t.boolean  "fan"
     t.boolean  "sli_support"
-    t.string   "crossfire_support"
-    t.string   "length"
     t.integer  "dvi_d_dual_link"
     t.integer  "display_port"
     t.integer  "hdmi"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.float    "length"
+    t.boolean  "crossfire_support"
   end
 
 end

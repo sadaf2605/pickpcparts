@@ -25,6 +25,8 @@ class VideoCardsController < ApplicationController
   # POST /video_cards.json
   def create
     @video_card = VideoCard.new(video_card_params)
+    
+    @video_card.length = params[:video_card][:length].split('/"')[0].strip.to_f
 
     respond_to do |format|
       if @video_card.save
@@ -69,6 +71,6 @@ class VideoCardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_card_params
-      params.require(:video_card).permit(:manufacturer, :part_no, :interface, :chipset, :memory_size, :memory_type, :core_clock, :tdp, :fan, :sli_support, :crossfire_support, :length, :dvi_d_dual_link, :display_port, :hdmi)
+      params.require(:video_card).permit(:manufacturer, :part_no, :interface, :chipset, :memory_size, :memory_type, :core_clock, :tdp, :fan, :sli_support, :crossfire_support, :dvi_d_dual_link, :display_port, :hdmi)
     end
 end
