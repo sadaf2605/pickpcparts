@@ -1,0 +1,33 @@
+<%= form_for(@processor_performance) do |f| %>
+  <% if @processor_performance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@processor_performance.errors.count, "error") %> prohibited this processor_performance from being saved:</h2>
+
+      <ul>
+      <% @processor_performance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :no_of_cores %><br>
+    <%= f.number_field :no_of_cores %>
+  </div>
+  <div class="field">
+    <%= f.label :no_of_threads %><br>
+    <%= f.number_field :no_of_threads %>
+  </div>
+  <div class="field">
+    <%= f.label :processor_base_frequency_in_GHz %><br>
+    <%= f.text_field :processor_base_frequency_in_GHz %>
+  </div>
+  <div class="field">
+    <%= f.label :thermal_design_power_in_W %><br>
+    <%= f.text_field :thermal_design_power_in_W %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

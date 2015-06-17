@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Aes new nstructions:</strong>
+  <%= @processor_data_protection.AES_new_nstructions %>
+</p>
+
+<p>
+  <strong>Secure key:</strong>
+  <%= @processor_data_protection.secure_key %>
+</p>
+
+<%= link_to 'Edit', edit_processor_data_protection_path(@processor_data_protection) %> |
+<%= link_to 'Back', processor_data_protections_path %>

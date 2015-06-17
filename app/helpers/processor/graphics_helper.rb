@@ -1,0 +1,2 @@
+module Processor::GraphicsHelper
+end

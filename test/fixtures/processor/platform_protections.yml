@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trusted_execution_technology: false
+  execute_disable_bit: false
+
+two:
+  trusted_execution_technology: false
+  execute_disable_bit: false

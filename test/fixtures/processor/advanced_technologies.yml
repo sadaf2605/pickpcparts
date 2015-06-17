@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  turbo_boost_technology: false
+  vPro_technology: false
+  hyper_threading_technology: false
+  virtualization_technology_vtx: false
+  virtualization_technology_for_directed_IO_vtd: false
+  vtx_with_extended_page_tables_ept: false
+  TSX_NI: false
+  intel_64: false
+  idle_states: false
+  enhanced_speedstep_technology: false
+  thermal_monitoring_technologies: false
+  virtualization_technology_for_itanium_vti: false
+  stable_image_platform_program_SIPP: false
+
+two:
+  turbo_boost_technology: false
+  vPro_technology: false
+  hyper_threading_technology: false
+  virtualization_technology_vtx: false
+  virtualization_technology_for_directed_IO_vtd: false
+  vtx_with_extended_page_tables_ept: false
+  TSX_NI: false
+  intel_64: false
+  idle_states: false
+  enhanced_speedstep_technology: false
+  thermal_monitoring_technologies: false
+  virtualization_technology_for_itanium_vti: false
+  stable_image_platform_program_SIPP: false

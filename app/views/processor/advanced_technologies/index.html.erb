@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Processor Advanced Technologies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Turbo boost technology</th>
+      <th>Vpro technology</th>
+      <th>Hyper threading technology</th>
+      <th>Virtualization technology vtx</th>
+      <th>Virtualization technology for directed io vtd</th>
+      <th>Vtx with extended page tables ept</th>
+      <th>Tsx ni</th>
+      <th>Intel 64</th>
+      <th>Idle states</th>
+      <th>Enhanced speedstep technology</th>
+      <th>Thermal monitoring technologies</th>
+      <th>Virtualization technology for itanium vti</th>
+      <th>Stable image platform program sipp</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @processor_advanced_technologies.each do |processor_advanced_technology| %>
+      <tr>
+        <td><%= processor_advanced_technology.turbo_boost_technology %></td>
+        <td><%= processor_advanced_technology.vPro_technology %></td>
+        <td><%= processor_advanced_technology.hyper_threading_technology %></td>
+        <td><%= processor_advanced_technology.virtualization_technology_vtx %></td>
+        <td><%= processor_advanced_technology.virtualization_technology_for_directed_IO_vtd %></td>
+        <td><%= processor_advanced_technology.vtx_with_extended_page_tables_ept %></td>
+        <td><%= processor_advanced_technology.TSX_NI %></td>
+        <td><%= processor_advanced_technology.intel_64 %></td>
+        <td><%= processor_advanced_technology.idle_states %></td>
+        <td><%= processor_advanced_technology.enhanced_speedstep_technology %></td>
+        <td><%= processor_advanced_technology.thermal_monitoring_technologies %></td>
+        <td><%= processor_advanced_technology.virtualization_technology_for_itanium_vti %></td>
+        <td><%= processor_advanced_technology.stable_image_platform_program_SIPP %></td>
+        <td><%= link_to 'Show', processor_advanced_technology %></td>
+        <td><%= link_to 'Edit', edit_processor_advanced_technology_path(processor_advanced_technology) %></td>
+        <td><%= link_to 'Destroy', processor_advanced_technology, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Advanced technology', new_processor_advanced_technology_path %>

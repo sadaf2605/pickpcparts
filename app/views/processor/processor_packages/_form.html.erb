@@ -1,0 +1,41 @@
+<%= form_for(@processor_processor_package) do |f| %>
+  <% if @processor_processor_package.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@processor_processor_package.errors.count, "error") %> prohibited this processor_processor_package from being saved:</h2>
+
+      <ul>
+      <% @processor_processor_package.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :max_cpu_configuration %><br>
+    <%= f.number_field :max_cpu_configuration %>
+  </div>
+  <div class="field">
+    <%= f.label :TCASE_in_C %><br>
+    <%= f.number_field :TCASE_in_C %>
+  </div>
+  <div class="field">
+    <%= f.label :package_width_in_mn %><br>
+    <%= f.text_field :package_width_in_mn %>
+  </div>
+  <div class="field">
+    <%= f.label :package_length_in_mn %><br>
+    <%= f.text_field :package_length_in_mn %>
+  </div>
+  <div class="field">
+    <%= f.label :graphics_and_imc_lithography_in_nm %><br>
+    <%= f.number_field :graphics_and_imc_lithography_in_nm %>
+  </div>
+  <div class="field">
+    <%= f.label :low_halogen_options_available %><br>
+    <%= f.text_field :low_halogen_options_available %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  max_memory_size_GB: 1
+  max_no_of_memory_channels: 1
+  max_memory_bandwidth_in_GBs: 1.5
+  ecc_memory_supported: false
+
+two:
+  max_memory_size_GB: 1
+  max_no_of_memory_channels: 1
+  max_memory_bandwidth_in_GBs: 1.5
+  ecc_memory_supported: false

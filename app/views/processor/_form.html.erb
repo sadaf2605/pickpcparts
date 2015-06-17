@@ -1,0 +1,250 @@
+<%= form_for( @processor_processor) do |f| %>
+  <% if @processor_processor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@processor_processor.errors.count, "error") %> prohibited this processor_processor from being saved:</h2>
+
+      <ul>
+      <% @processor_processor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <h2>Processors</h2>
+
+  <div class="field">
+    <%= f.label :processor_number %><br>
+    <%= f.text_field :processor_number %>
+  </div>
+  <div class="field">
+    <%= f.label :cache_in_MB %><br>
+    <%= f.text_field :cache_in_MB %>
+  </div>
+  <div class="field">
+    <%= f.label :DMI2_in_GTs %><br>
+    <%= f.text_field :DMI2_in_GTs %>
+  </div>
+  <div class="field">
+    <%= f.label :instruction_set_in_bit %><br>
+    <%= f.number_field :instruction_set_in_bit %>
+  </div>
+  <div class="field">
+    <%= f.label :instruction_set_extensions %><br>
+    <%= f.text_field :instruction_set_extensions %>
+  </div>
+  <div class="field">
+    <%= f.label :embedded_options_available %><br>
+    <%= f.check_box :embedded_options_available %>
+  </div>
+  <div class="field">
+    <%= f.label :lithography_in_nm %><br>
+    <%= f.text_field :lithography_in_nm %>
+  </div>
+  <div class="field">
+    <%= f.label :scalability %><br>
+    <%= f.text_field :scalability %>
+  </div>
+
+
+
+
+    <h2>Performance</h2>
+
+    <div class="field">
+      <%= f.label :no_of_cores %><br>
+      <%= f.number_field :no_of_cores %>
+    </div>
+    <div class="field">
+      <%= f.label :no_of_threads %><br>
+      <%= f.number_field :no_of_threads %>
+    </div>
+    <div class="field">
+      <%= f.label :processor_base_frequency_in_GHz %><br>
+      <%= f.text_field :processor_base_frequency_in_GHz %>
+    </div>
+    <div class="field">
+      <%= f.label :thermal_design_power_in_W %><br>
+      <%= f.text_field :thermal_design_power_in_W %>
+    </div>
+
+
+
+    <h2>Memory</h2>
+
+    <div class="field">
+      <%= f.label :max_memory_size_GB %><br>
+      <%= f.number_field :max_memory_size_GB %>
+    </div>
+    <div class="field">
+      <%= f.label :max_no_of_memory_channels %><br>
+      <%= f.number_field :max_no_of_memory_channels %>
+    </div>
+    <div class="field">
+      <%= f.label :max_memory_bandwidth_in_GBs %><br>
+      <%= f.text_field :max_memory_bandwidth_in_GBs %>
+    </div>
+    <div class="field">
+      <%= f.label :ecc_memory_supported %><br>
+      <%= f.check_box :ecc_memory_supported %>
+    </div>
+
+
+
+
+<h2>Graphic</h2>
+
+    <div class="field">
+      <%= f.label :processor_graphics %><br>
+      <%= f.text_field :processor_graphics %>
+    </div>
+    <div class="field">
+      <%= f.label :graphics_base_frequency_in_MHz %><br>
+      <%= f.text_field :graphics_base_frequency_in_MHz %>
+    </div>
+    <div class="field">
+      <%= f.label :graphics_max_dynamic_frequency_GHz %><br>
+      <%= f.text_field :graphics_max_dynamic_frequency_GHz %>
+    </div>
+    <div class="field">
+      <%= f.label :graphics_video_max_memory_in_GB %><br>
+      <%= f.text_field :graphics_video_max_memory_in_GB %>
+    </div>
+    <div class="field">
+      <%= f.label :quick_sync_video %><br>
+      <%= f.check_box :quick_sync_video %>
+    </div>
+    <div class="field">
+      <%= f.label :wireless_display %><br>
+      <%= f.check_box :wireless_display %>
+    </div>
+    <div class="field">
+      <%= f.label :clear_video_hd_technology %><br>
+      <%= f.check_box :clear_video_hd_technology %>
+    </div>
+
+    <div class="field">
+      <%= f.label :no_of_display_supported %><br>
+      <%= f.number_field :no_of_display_supported %>
+    </div>
+
+
+
+<h2>Expansions</h2>
+    <div class="field">
+      <%= f.label :PCI_express_revision %><br>
+      <%= f.text_field :PCI_express_revision %>
+    </div>
+    <div class="field">
+      <%= f.label :max_no_of_PCI_express_lanes %><br>
+      <%= f.number_field :max_no_of_PCI_express_lanes %>
+    </div>
+
+
+
+<h2>Packages</h2>
+    <div class="field">
+      <%= f.label :max_cpu_configuration %><br>
+      <%= f.number_field :max_cpu_configuration %>
+    </div>
+    <div class="field">
+      <%= f.label :TCASE_in_C %><br>
+      <%= f.number_field :TCASE_in_C %>
+    </div>
+    <div class="field">
+      <%= f.label :package_width_in_mn %><br>
+      <%= f.text_field :package_width_in_mn %>
+    </div>
+    <div class="field">
+      <%= f.label :package_length_in_mn %><br>
+      <%= f.text_field :package_length_in_mn %>
+    </div>
+    <div class="field">
+      <%= f.label :graphics_and_imc_lithography_in_nm %><br>
+      <%= f.number_field :graphics_and_imc_lithography_in_nm %>
+    </div>
+    <div class="field">
+      <%= f.label :low_halogen_options_available %><br>
+      <%= f.text_field :low_halogen_options_available %>
+    </div>
+
+
+    <h2>Advanced Technology</h2>
+    <div class="field">
+      <%= f.label :turbo_boost_technology %><br>
+      <%= f.check_box :turbo_boost_technology %>
+    </div>
+    <div class="field">
+      <%= f.label :vPro_technology %><br>
+      <%= f.check_box :vPro_technology %>
+    </div>
+    <div class="field">
+      <%= f.label :hyper_threading_technology %><br>
+      <%= f.check_box :hyper_threading_technology %>
+    </div>
+    <div class="field">
+      <%= f.label :virtualization_technology_vtx %><br>
+      <%= f.check_box :virtualization_technology_vtx %>
+    </div>
+    <div class="field">
+      <%= f.label :virtualization_technology_for_directed_IO_vtd %><br>
+      <%= f.check_box :virtualization_technology_for_directed_IO_vtd %>
+    </div>
+    <div class="field">
+      <%= f.label :vtx_with_extended_page_tables_ept %><br>
+      <%= f.check_box :vtx_with_extended_page_tables_ept %>
+    </div>
+    <div class="field">
+      <%= f.label :TSX_NI %><br>
+      <%= f.check_box :TSX_NI %>
+    </div>
+    <div class="field">
+      <%= f.label :intel_64 %><br>
+      <%= f.check_box :intel_64 %>
+    </div>
+    <div class="field">
+      <%= f.label :idle_states %><br>
+      <%= f.check_box :idle_states %>
+    </div>
+    <div class="field">
+      <%= f.label :enhanced_speedstep_technology %><br>
+      <%= f.check_box :enhanced_speedstep_technology %>
+    </div>
+    <div class="field">
+      <%= f.label :thermal_monitoring_technologies %><br>
+      <%= f.check_box :thermal_monitoring_technologies %>
+    </div>
+    <div class="field">
+      <%= f.label :virtualization_technology_for_itanium_vti %><br>
+      <%= f.check_box :virtualization_technology_for_itanium_vti %>
+    </div>
+    <div class="field">
+      <%= f.label :stable_image_platform_program_SIPP %><br>
+      <%= f.check_box :stable_image_platform_program_SIPP %>
+    </div>
+
+    <h2>Data protection technology</h2>
+    <div class="field">
+      <%= f.label :AES_new_nstructions %><br>
+      <%= f.check_box :AES_new_nstructions %>
+    </div>
+    <div class="field">
+      <%= f.label :secure_key %><br>
+      <%= f.check_box :secure_key %>
+    </div>
+
+
+    <h2>Platform protection technology</h2>
+    <div class="field">
+      <%= f.label :trusted_execution_technology %><br>
+      <%= f.check_box :trusted_execution_technology %>
+    </div>
+    <div class="field">
+      <%= f.label :execute_disable_bit %><br>
+      <%= f.check_box :execute_disable_bit %>
+    </div>
+
+    <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

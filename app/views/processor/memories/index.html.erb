@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Processor Memories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Max memory size gb</th>
+      <th>Max no of memory channels</th>
+      <th>Max memory bandwidth in gbs</th>
+      <th>Ecc memory supported</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @processor_memories.each do |processor_memory| %>
+      <tr>
+        <td><%= processor_memory.max_memory_size_GB %></td>
+        <td><%= processor_memory.max_no_of_memory_channels %></td>
+        <td><%= processor_memory.max_memory_bandwidth_in_GBs %></td>
+        <td><%= processor_memory.ecc_memory_supported %></td>
+        <td><%= link_to 'Show', processor_memory %></td>
+        <td><%= link_to 'Edit', edit_processor_memory_path(processor_memory) %></td>
+        <td><%= link_to 'Destroy', processor_memory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Memory', new_processor_memory_path %>

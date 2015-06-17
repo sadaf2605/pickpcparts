@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Processor Performances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>No of cores</th>
+      <th>No of threads</th>
+      <th>Processor base frequency in ghz</th>
+      <th>Thermal design power in w</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @processor_performances.each do |processor_performance| %>
+      <tr>
+        <td><%= processor_performance.no_of_cores %></td>
+        <td><%= processor_performance.no_of_threads %></td>
+        <td><%= processor_performance.processor_base_frequency_in_GHz %></td>
+        <td><%= processor_performance.thermal_design_power_in_W %></td>
+        <td><%= link_to 'Show', processor_performance %></td>
+        <td><%= link_to 'Edit', edit_processor_performance_path(processor_performance) %></td>
+        <td><%= link_to 'Destroy', processor_performance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Performance', new_processor_performance_path %>

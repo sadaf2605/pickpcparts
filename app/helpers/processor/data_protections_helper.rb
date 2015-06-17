@@ -1,0 +1,2 @@
+module Processor::DataProtectionsHelper
+end

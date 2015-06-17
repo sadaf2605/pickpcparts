@@ -1,0 +1,49 @@
+<%= form_for(@processor_processor) do |f| %>
+  <% if @processor_processor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@processor_processor.errors.count, "error") %> prohibited this processor_processor from being saved:</h2>
+
+      <ul>
+      <% @processor_processor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :processor_number %><br>
+    <%= f.text_field :processor_number %>
+  </div>
+  <div class="field">
+    <%= f.label :cache_in_MB %><br>
+    <%= f.text_field :cache_in_MB %>
+  </div>
+  <div class="field">
+    <%= f.label :DMI2_in_GTs %><br>
+    <%= f.text_field :DMI2_in_GTs %>
+  </div>
+  <div class="field">
+    <%= f.label :instruction_set_in_bit %><br>
+    <%= f.number_field :instruction_set_in_bit %>
+  </div>
+  <div class="field">
+    <%= f.label :instruction_set_extensions %><br>
+    <%= f.text_field :instruction_set_extensions %>
+  </div>
+  <div class="field">
+    <%= f.label :embedded_options_available %><br>
+    <%= f.check_box :embedded_options_available %>
+  </div>
+  <div class="field">
+    <%= f.label :lithography_in_nm %><br>
+    <%= f.text_field :lithography_in_nm %>
+  </div>
+  <div class="field">
+    <%= f.label :scalability %><br>
+    <%= f.text_field :scalability %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

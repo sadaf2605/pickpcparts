@@ -1,0 +1,69 @@
+<%= form_for(@processor_advanced_technology) do |f| %>
+  <% if @processor_advanced_technology.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@processor_advanced_technology.errors.count, "error") %> prohibited this processor_advanced_technology from being saved:</h2>
+
+      <ul>
+      <% @processor_advanced_technology.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :turbo_boost_technology %><br>
+    <%= f.check_box :turbo_boost_technology %>
+  </div>
+  <div class="field">
+    <%= f.label :vPro_technology %><br>
+    <%= f.check_box :vPro_technology %>
+  </div>
+  <div class="field">
+    <%= f.label :hyper_threading_technology %><br>
+    <%= f.check_box :hyper_threading_technology %>
+  </div>
+  <div class="field">
+    <%= f.label :virtualization_technology_vtx %><br>
+    <%= f.check_box :virtualization_technology_vtx %>
+  </div>
+  <div class="field">
+    <%= f.label :virtualization_technology_for_directed_IO_vtd %><br>
+    <%= f.check_box :virtualization_technology_for_directed_IO_vtd %>
+  </div>
+  <div class="field">
+    <%= f.label :vtx_with_extended_page_tables_ept %><br>
+    <%= f.check_box :vtx_with_extended_page_tables_ept %>
+  </div>
+  <div class="field">
+    <%= f.label :TSX_NI %><br>
+    <%= f.check_box :TSX_NI %>
+  </div>
+  <div class="field">
+    <%= f.label :intel_64 %><br>
+    <%= f.check_box :intel_64 %>
+  </div>
+  <div class="field">
+    <%= f.label :idle_states %><br>
+    <%= f.check_box :idle_states %>
+  </div>
+  <div class="field">
+    <%= f.label :enhanced_speedstep_technology %><br>
+    <%= f.check_box :enhanced_speedstep_technology %>
+  </div>
+  <div class="field">
+    <%= f.label :thermal_monitoring_technologies %><br>
+    <%= f.check_box :thermal_monitoring_technologies %>
+  </div>
+  <div class="field">
+    <%= f.label :virtualization_technology_for_itanium_vti %><br>
+    <%= f.check_box :virtualization_technology_for_itanium_vti %>
+  </div>
+  <div class="field">
+    <%= f.label :stable_image_platform_program_SIPP %><br>
+    <%= f.check_box :stable_image_platform_program_SIPP %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

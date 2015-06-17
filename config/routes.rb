@@ -1,4 +1,46 @@
 Rails.application.routes.draw do
+  resources :processor
+
+  namespace :processor do
+    resources :performances
+  end
+
+  namespace :processor do
+    resources :memories
+  end
+
+  namespace :processor do
+    resources :graphics
+  end
+
+  namespace :processor do
+    resources :expansions
+  end
+
+  namespace :processor do
+    resources :packages
+  end
+
+  namespace :processor do
+    resources :data_protections
+  end
+
+  namespace :processor do
+    resources :platform_protections
+  end
+
+  namespace :processor do
+    resources :advanced_technologies
+  end
+
+  namespace :processor do
+    resources :processor_packages
+  end
+
+  namespace :processor do
+    resources :processors
+  end
+
   resources :cpu_cases
 
   resources :power_supplies

@@ -1,0 +1,25 @@
+<%= form_for(@processor_data_protection) do |f| %>
+  <% if @processor_data_protection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@processor_data_protection.errors.count, "error") %> prohibited this processor_data_protection from being saved:</h2>
+
+      <ul>
+      <% @processor_data_protection.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :AES_new_nstructions %><br>
+    <%= f.check_box :AES_new_nstructions %>
+  </div>
+  <div class="field">
+    <%= f.label :secure_key %><br>
+    <%= f.check_box :secure_key %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

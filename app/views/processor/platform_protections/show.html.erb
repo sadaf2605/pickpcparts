@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Trusted execution technology:</strong>
+  <%= @processor_platform_protection.trusted_execution_technology %>
+</p>
+
+<p>
+  <strong>Execute disable bit:</strong>
+  <%= @processor_platform_protection.execute_disable_bit %>
+</p>
+
+<%= link_to 'Edit', edit_processor_platform_protection_path(@processor_platform_protection) %> |
+<%= link_to 'Back', processor_platform_protections_path %>

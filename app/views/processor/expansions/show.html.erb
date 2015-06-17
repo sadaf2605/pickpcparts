@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pci express revision:</strong>
+  <%= @processor_expansion.PCI_express_revision %>
+</p>
+
+<p>
+  <strong>Max no of pci express lanes:</strong>
+  <%= @processor_expansion.max_no_of_PCI_express_lanes %>
+</p>
+
+<%= link_to 'Edit', edit_processor_expansion_path(@processor_expansion) %> |
+<%= link_to 'Back', processor_expansions_path %>

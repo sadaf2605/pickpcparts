@@ -1,0 +1,77 @@
+processor \
+processor_number:string \
+cache_in_MB:float \
+DMI2_in_GTs:float \
+instruction_set_in_bit:integer \
+instruction_set_extensions:string \
+embedded_options_available:boolean \
+lithography_in_nm:float \
+scalability:string \
+thermal_solution_specification:string \
+
+-Performance
+no_of_cores:integer \
+no_of_threads:integer \
+processor_base_frequency_in_GHz:float \
+thermal_design_power_in_W:float \
+
+-Memory Specifications \
+max_memory_size_GB:integer \
+
+*memory_types:string (DDR3 and DDR3L 1333 at 1.5V)
+
+max_no_of_memory_channels:integer \
+max_memory_bandwidth_in_GBs:float \
+ecc_memory_supported:boolean \
+
+-Graphics Specifications
+processor_graphics:string \
+graphics_base_frequency_in_MHz:float \
+graphics_max_dynamic_frequency_GHz:float \
+graphics_video_max_memory_in_GB:float \
+quick_sync_video:boolean \
+wireless_display:boolean \
+clear_video_hd_technology:boolean
+
+-Expansion Options
+PCI_express_revision:float
+
+*PCI_express_configurations:Up to 1x16, 2x8, 1x8/2x4
+
+max_no_of_PCI_express_lanes:integer
+
+-Package Specifications
+max_cpu_configuration:integer \
+TCASE_in_C:integer \
+package_width_in_mn:float \
+package_length_in_mn:float \
+graphics_and_imc_lithography_in_nm:integer \
+
+*sockets_supported:string
+
+low_halogen_options_available:string \
+
+-Advanced Technologies
+turbo_boost_technology:boolean \
+vPro_technology:boolean \
+hyper_threading_technology:boolean \
+virtualization_technology_vtx:boolean \
+virtualization_technology_for_directed_IO_vtd:boolean \
+vtx_with_extended_page_tables_ept:boolean \
+TSX_NI:boolean \
+intel_64:boolean \
+idle_states:boolean \
+enhanced_speedstep_technology:boolean \
+thermal_monitoring_technologies:boolean \
+virtualization_technology_for_itanium_vti:boolean \
+stable_image_platform_program_SIPP:boolean \
+
+Data_protection_technology
+AES_new_nstructions:boolean \
+secure_key:boolean \
+
+platform_protection_technology
+
+
+trusted_execution_technology:boolean \
+execute_disable_bit:boolean \

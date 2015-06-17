@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Processor number:</strong>
+  <%= @processor_processor.processor_number %>
+</p>
+
+<p>
+  <strong>Cache in mb:</strong>
+  <%= @processor_processor.cache_in_MB %>
+</p>
+
+<p>
+  <strong>Dmi2 in gts:</strong>
+  <%= @processor_processor.DMI2_in_GTs %>
+</p>
+
+<p>
+  <strong>Instruction set in bit:</strong>
+  <%= @processor_processor.instruction_set_in_bit %>
+</p>
+
+<p>
+  <strong>Instruction set extensions:</strong>
+  <%= @processor_processor.instruction_set_extensions %>
+</p>
+
+<p>
+  <strong>Embedded options available:</strong>
+  <%= @processor_processor.embedded_options_available %>
+</p>
+
+<p>
+  <strong>Lithography in nm:</strong>
+  <%= @processor_processor.lithography_in_nm %>
+</p>
+
+<p>
+  <strong>Scalability:</strong>
+  <%= @processor_processor.scalability %>
+</p>
+
+<p>
+  <strong>Scalability:</strong>
+  <%= @processor_processor.processor_memory.max_memory_size_GB %>
+</p>
+
+
+
+
+<%= link_to 'Edit', edit_processor_processor_path(@processor_processor) %> |
+<%= link_to 'Back', processor_processors_path %>

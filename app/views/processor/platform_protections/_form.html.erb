@@ -1,0 +1,25 @@
+<%= form_for(@processor_platform_protection) do |f| %>
+  <% if @processor_platform_protection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@processor_platform_protection.errors.count, "error") %> prohibited this processor_platform_protection from being saved:</h2>
+
+      <ul>
+      <% @processor_platform_protection.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :trusted_execution_technology %><br>
+    <%= f.check_box :trusted_execution_technology %>
+  </div>
+  <div class="field">
+    <%= f.label :execute_disable_bit %><br>
+    <%= f.check_box :execute_disable_bit %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

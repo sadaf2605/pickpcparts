@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  max_cpu_configuration: 1
+  TCASE_in_C: 1
+  package_width_in_mn: 1.5
+  package_length_in_mn: 1.5
+  graphics_and_imc_lithography_in_nm: 1
+  low_halogen_options_available: MyString
+
+two:
+  max_cpu_configuration: 1
+  TCASE_in_C: 1
+  package_width_in_mn: 1.5
+  package_length_in_mn: 1.5
+  graphics_and_imc_lithography_in_nm: 1
+  low_halogen_options_available: MyString

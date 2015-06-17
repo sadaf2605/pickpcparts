@@ -36,7 +36,7 @@ class Motherboard < ActiveRecord::Base
 	end
 
 	def supports_video_card(video_card)
-		return video_card supports_motherboard
+		return video_card supports_motherboard self
 	end
 
 	def supports_wired_network_adapter(wired_network_adapter)
