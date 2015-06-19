@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617152304) do
+ActiveRecord::Schema.define(version: 20150619111921) do
 
   create_table "builds", force: :cascade do |t|
     t.integer "cpu_id"
@@ -84,27 +84,6 @@ ActiveRecord::Schema.define(version: 20150617152304) do
   end
 
   add_index "cpu_sockets", ["name"], name: "index_cpu_sockets_on_name", unique: true
-
-  create_table "cpus", force: :cascade do |t|
-    t.string   "manufacturer"
-    t.string   "model"
-    t.string   "part_no"
-    t.string   "data_width"
-    t.string   "speed"
-    t.integer  "cores"
-    t.string   "l1_cache"
-    t.string   "l2_cache"
-    t.string   "l3_cache"
-    t.string   "lithography"
-    t.string   "thermal_design_power"
-    t.boolean  "includes_cpu_cooler"
-    t.boolean  "hyper_threading"
-    t.string   "integrated_graphics"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.string   "cpu"
-    t.integer  "cpu_socket_id"
-  end
 
   create_table "memories", force: :cascade do |t|
     t.string   "manufacturer"
@@ -232,6 +211,7 @@ ActiveRecord::Schema.define(version: 20150617152304) do
     t.string   "low_halogen_options_available"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.integer  "cpu_socket_id"
   end
 
   create_table "processor_performances", force: :cascade do |t|

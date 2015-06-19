@@ -32,6 +32,11 @@ class ProcessorController < ApplicationController
     @processor_advanced_technology = Processor::AdvancedTechnology.create(processor_advanced_technology_params)
     @processor_expansion = Processor::Expansion.create(processor_expansion_params)
     @processor_package = Processor::Package.create(processor_package_params)
+
+
+    @processor_package.cpu_socket = CpuSocket.create({:name => params[:processor_processor][:cpu_socket]})
+
+
     @processor_data_protection = Processor::DataProtection.create(processor_data_protection_params)
     @processor_platform_protection = Processor::PlatformProtection.create(processor_platform_protection_params)
 

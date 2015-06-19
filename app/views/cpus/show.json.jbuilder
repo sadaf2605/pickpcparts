@@ -1,1 +1,0 @@
-json.extract! @cpu, :id, :manufacturer, :model, :part_no, :data_width, :speed, :cores, :l1_cache, :l2_cache, :l3_cache, :lithography, :thermal_design_power, :includes_cpu_cooler, :hyper_threading, :integrated_graphics, :created_at, :updated_at

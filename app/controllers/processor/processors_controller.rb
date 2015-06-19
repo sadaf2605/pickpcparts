@@ -34,6 +34,13 @@ class Processor::ProcessorsController < ApplicationController
     @processor_data_protection = Processor::DataProtection.create(processor_data_protection_params)
     @processor_platform_protection = Processor::PlatformProtection.create(processor_platform_protection_params)
 
+
+
+
+    @processor_package.cpu_socket = CpuSocket.find_by_name(params[:processor_processor][:name]) || CpuSocket.create({:name => params[:processor_processor][:cpu_socket]})
+
+
+
     @processor_processor.processor_performance = @processor_performance
     @processor_processor.processor_memory = @processor_memory
     @processor_processor.processor_graphic = @processor_graphic

@@ -20,4 +20,18 @@ class Processor::Processor < ActiveRecord::Base
   attr_accessor :turbo_boost_technology, :vPro_technology, :hyper_threading_technology, :virtualization_technology_vtx, :virtualization_technology_for_directed_IO_vtd, :vtx_with_extended_page_tables_ept, :TSX_NI, :intel_64, :idle_states, :enhanced_speedstep_technology, :thermal_monitoring_technologies, :virtualization_technology_for_itanium_vti, :stable_image_platform_program_SIPP
   attr_accessor :AES_new_nstructions,:secure_key
   attr_accessor :trusted_execution_technology, :execute_disable_bit
+
+
+  attr_accessor :cpu_socket
+
+  def supports_cooler(cooler)
+    return cooler.cpu_sockets.include? self.processor_package.cpu_socket
+  end
+
+  def supports_motherboard(motherboad)
+    return motherboad.cpu_socket==self.processor_package.cpu_socket
+  end
+
+
+
 end
