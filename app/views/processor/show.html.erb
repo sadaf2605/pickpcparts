@@ -40,12 +40,189 @@
   <%= @processor_processor.scalability %>
 </p>
 
+
+
+
+<h2>Peroformance</h2>
 <p>
-  <strong>Scalability:</strong>
-  <%= @processor_processor.processor_memory.max_memory_size_GB %>
+  <strong>No of cores:</strong>
+  <%= @processor_processor.processor_performance.no_of_cores %>
+</p>
+<p>
+  <strong>No of threads:</strong>
+  <%= @processor_processor.processor_performance.no_of_threads %>
+</p>
+<p>
+  <strong>Base Frequency:</strong>
+  <%= @processor_processor.processor_performance.processor_base_frequency_in_GHz %>
+</p>
+<p>
+  <strong>Thermal design power:</strong>
+  <%= @processor_processor.processor_performance.thermal_design_power_in_W %>
 </p>
 
 
+
+
+<h2>Memory</h2>
+<p>
+  <strong>Max memory size:</strong>
+  <%= @processor_processor.processor_memory.max_memory_size_GB %>
+</p>
+<p>
+  <strong>Max no of memory channels:</strong>
+  <%= @processor_processor.processor_memory.max_no_of_memory_channels %>
+</p>
+<p>
+  <strong>Max memory bandwidth:</strong>
+  <%= @processor_processor.processor_memory.max_memory_bandwidth_in_GBs %>
+</p>
+<p>
+  <strong>ECC memory supported:</strong>
+  <%= @processor_processor.processor_memory.ecc_memory_supported %>
+</p>
+
+
+<h2>Graphic</h2>
+<p>
+  <strong>Processor graphics:</strong>
+  <%= @processor_processor.processor_graphic.processor_graphics %>
+</p>
+<p>
+  <strong>Graphic base frequency:</strong>
+  <%= @processor_processor.processor_graphic.graphics_base_frequency_in_MHz %>
+</p>
+<p>
+  <strong>Graphics max dynamic frequency:</strong>
+  <%= @processor_processor.processor_graphic.graphics_max_dynamic_frequency_GHz %>
+</p>
+<p>
+  <strong>Graphics video max memory:</strong>
+  <%= @processor_processor.processor_graphic.graphics_video_max_memory_in_GB %>
+</p>
+<p>
+  <strong>Quick sync video:</strong>
+  <%= @processor_processor.processor_graphic.quick_sync_video %>
+</p>
+<p>
+  <strong>Wireless display:</strong>
+  <%= @processor_processor.processor_graphic.wireless_display %>
+</p>
+<p>
+  <strong>Clear Video HD Technology:</strong>
+  <%= @processor_processor.processor_graphic.clear_video_hd_technology %>
+</p>
+<p>
+  <strong>No of display supported:</strong>
+  <%= @processor_processor.processor_graphic.no_of_displays_supported %>
+</p>
+
+
+
+<h2>Expansions</h2>
+<p>
+  <strong>PCI Express revision:</strong>
+  <%= @processor_processor.processor_expansion.PCI_express_revision %>
+</p>
+<p>
+  <strong>Max no of PCI express lanes:</strong>
+  <%= @processor_processor.processor_expansion.max_no_of_PCI_express_lanes %>
+</p>
+
+<h2>Packages</h2>
+<p>
+  <strong>Max cpu configuration:</strong>
+  <%= @processor_processor.processor_package.max_cpu_configuration %>
+</p>
+<p>
+  <strong>TCASE:</strong>
+  <%= @processor_processor.processor_package.TCASE_in_C %>
+</p>
+<p>
+  <strong>Package width:</strong>
+  <%= @processor_processor.processor_package.package_width_in_mn %>
+</p>
+<p>
+  <strong>Package length:</strong>
+  <%= @processor_processor.processor_package.package_length_in_mn %>
+</p>
+<p>
+  <strong>Clear Video HD Technology:</strong>
+  <%= @processor_processor.processor_package.graphics_and_imc_lithography_in_nm %>
+</p>
+
+<h2>Advanced Technology</h2>
+<p>
+  <strong>Turbo boost technology:</strong>
+  <%= @processor_processor.processor_advanced_technology.turbo_boost_technology %>
+</p>
+<p>
+  <strong>vPro technology:</strong>
+  <%= @processor_processor.processor_advanced_technology.vPro_technology %>
+</p>
+<p>
+  <strong>Hyper threading technology:</strong>
+  <%= @processor_processor.processor_advanced_technology.hyper_threading_technology %>
+</p>
+<p>
+  <strong>Virtualization technology vtx:</strong>
+  <%= @processor_processor.processor_advanced_technology.virtualization_technology_vtx %>
+</p>
+<p>
+  <strong>Virtualization technology for directed IO vtd:</strong>
+  <%= @processor_processor.processor_advanced_technology.virtualization_technology_for_directed_IO_vtd %>
+</p><p>
+  <strong>vtx with extended page tables ept:</strong>
+  <%= @processor_processor.processor_advanced_technology.vtx_with_extended_page_tables_ept %>
+</p><p>
+  <strong>TSX NI:</strong>
+  <%= @processor_processor.processor_advanced_technology.TSX_NI %>
+</p><p>
+  <strong>intel 64</strong>
+  <%= @processor_processor.processor_advanced_technology.intel_64 %>
+</p>
+<p>
+  <strong>Idle states:</strong>
+  <%= @processor_processor.processor_advanced_technology.idle_states %>
+</p>
+<p>
+  <strong>Enhanced speedstep technology:</strong>
+  <%= @processor_processor.processor_advanced_technology.enhanced_speedstep_technology %>
+</p>
+<p>
+  <strong>Thermal monitoring technology:</strong>
+  <%= @processor_processor.processor_advanced_technology.thermal_monitoring_technologies %>
+</p>
+<p>
+  <strong>Virtualization technology for itanium vti:</strong>
+  <%= @processor_processor.processor_advanced_technology.virtualization_technology_for_itanium_vti %>
+</p>
+<p>
+  <strong>Stable image platform program SIPP:</strong>
+  <%= @processor_processor.processor_advanced_technology.stable_image_platform_program_SIPP %>
+</p>
+
+
+
+<h2>Data protection technology</h2>
+<p>
+  <strong>AES new instructions:</strong>
+  <%= @processor_processor.processor_data_protection.AES_new_nstructions %>
+</p>
+<p>
+  <strong>Security key:</strong>
+  <%= @processor_processor.processor_data_protection.secure_key %>
+</p>
+
+<h2>Platform protection technology</h2>
+<p>
+  <strong>Trusted execution technology:</strong>
+  <%= @processor_processor.processor_platform_protection.trusted_execution_technology %>
+</p>
+<p>
+  <strong>Execture disable bit:</strong>
+  <%= @processor_processor.processor_platform_protection.execute_disable_bit %>
+</p>
 
 
 <%= link_to 'Edit', edit_processor_processor_path(@processor_processor) %> |
