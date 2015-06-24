@@ -15,8 +15,7 @@ class Motherboard < ActiveRecord::Base
 	end
 
 	def supports_case(cpu_case)
-		cpu_case.
-		return true
+		return cpu_case.supports_motherboard(self)
 	end
 
 	def supports_memory(memory)
