@@ -25,7 +25,7 @@ class MemoriesController < ApplicationController
   # POST /memories.json
   def create
     @memory = Memory.new(memory_params)
-    @memory.memory_slot= MemorySlot.find_by_name(params[:memory][:memory_type]) || MemorySlot.create({:name => params[:memory][:memory_type]})
+    @memory.memory_type= MemorySlot.find_by_name(params[:memory][:memory_type]) || MemorySlot.create({:name => params[:memory][:memory_type]})
 
     respond_to do |format|
       if @memory.save
@@ -70,6 +70,6 @@ class MemoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def memory_params
-      params.require(:memory).permit(:manufacturer, :part_no, :speed, :size, :price_gb, :cas, :voltage, :heat, :spreader, :ecc, :registered, :color)
+      params.require(:memory).permit(:manufacturer, :part_no, :speed, :size, :price_gb, :cas, :voltage, :heat_spreader, :ecc, :registered, :color)
     end
 end

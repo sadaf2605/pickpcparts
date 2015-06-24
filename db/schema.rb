@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624080537) do
+ActiveRecord::Schema.define(version: 20150624105539) do
 
   create_table "builds", force: :cascade do |t|
     t.integer "cpu_id"
@@ -122,8 +122,7 @@ ActiveRecord::Schema.define(version: 20150624080537) do
     t.string   "price_gb"
     t.string   "cas"
     t.string   "voltage"
-    t.string   "heat"
-    t.boolean  "spreader"
+    t.boolean  "heat_spreader"
     t.boolean  "ecc"
     t.boolean  "registered"
     t.string   "color"
