@@ -34,7 +34,9 @@ class ProcessorController < ApplicationController
     @processor_package = Processor::Package.create(processor_package_params)
 
 
-    @processor_package.cpu_socket = CpuSocket.create({:name => params[:processor_processor][:cpu_socket]})
+    puts "___________________________________________________"
+    puts params[:cpu_socket]
+    @processor_package.cpu_socket = CpuSocket.create({:name=>params[:cpu_socket]})
 
 
     @processor_data_protection = Processor::DataProtection.create(processor_data_protection_params)

@@ -30,6 +30,10 @@ class CpuCasesController < ApplicationController
     @cpu_case.width=cpu_case_params[:dimensions].split(" x ")[1].strip.sub('\"', '').to_f
     @cpu_case.height=cpu_case_params[:dimensions].split(" x ")[2].strip.sub('\"', '').to_f
 
+    params[:cpu_case][:motherboard_compatibility].split(",").each do |form_factor|
+      @cpu_case.motherboard_compatibility << FormFactor.find_by_name(form_factor) || FormFactor.create({ :name => form_factor})
+    end
+
     respond_to do |format|
       if @cpu_case.save
         format.html { redirect_to @cpu_case, notice: 'Cpu case was successfully created.' }
@@ -73,6 +77,6 @@ class CpuCasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cpu_case_params
-      params.require(:cpu_case).permit(:manufacturer, :part_no, :cpu_type, :color, :includes_power_supply, :external_5_25_bays, :internal_2_5_bays, :internal_3_5_bays, :motherboard_compatibility, :front_panel_usb_3_0, :ports, :maximum_video_card_length, :dimensions)
+      params.require(:cpu_case).permit(:manufacturer, :part_no, :cpu_type, :color, :includes_power_supply, :external_5_25_bays, :internal_2_5_bays, :internal_3_5_bays, :front_panel_usb_3_0, :ports, :maximum_video_card_length, :dimensions)
     end
 end

@@ -30,9 +30,12 @@ class MotherboardsController < ApplicationController
     
     num_slot = params[:motherboard][:memory_slot].split(" x ")
 
+
     @motherboard.memory_slot_num=Integer(num_slot[0].strip) 
     memory_slot_name=num_slot[1].strip
     @motherboard.memory_slot = MemorySlot.find_by_name(memory_slot_name) || MemorySlot.create({:name => memory_slot_name})
+
+    @motherboard.form_factor =FormFactor.find_by_name(params[:motherboard][:form_factor_str]) || FormFactor.create({:name=> params[:motherboard][:form_factor_str]})
     
     respond_to do |format|
       if @motherboard.save

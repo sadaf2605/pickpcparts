@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :cpus
+
+  resources :form_factors
+
   resources :processor
 
   namespace :processor do

@@ -2,6 +2,9 @@ class Motherboard < ActiveRecord::Base
 	belongs_to :cpu_socket
 	has_many :build
 	belongs_to :memory_slot
+	belongs_to :form_factor
+
+	attr_accessor :form_factor_str
 
 	def supports_cpu(cpu)
 		return cpu.supports_motherboard(self)
@@ -12,7 +15,7 @@ class Motherboard < ActiveRecord::Base
 	end
 
 	def supports_case(cpu_case)
-		raise "yet to implement"
+		cpu_case.
 		return true
 	end
 

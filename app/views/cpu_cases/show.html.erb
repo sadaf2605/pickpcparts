@@ -42,7 +42,9 @@
 
 <p>
   <strong>Motherboard compatibility:</strong>
-  <%= @cpu_case.motherboard_compatibility %>
+  <% @cpu_case.motherboard_compatibility.each do |form_factor| %>
+  <%= form_factor.name %>,
+  <%end%>
 </p>
 
 <p>

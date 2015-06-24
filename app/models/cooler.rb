@@ -7,8 +7,7 @@ class Cooler < ActiveRecord::Base
 	end
 
 	def supports_cases(pc_cases)
-		raise 'not implemented'
-		return true
+		return pc_cases.motherboard_compatibility.include? self.form_factor
 	end
 	def supports_motherboard(motherboard)
 		return self.cpu_sockets.include? motherboard.cpu_socket

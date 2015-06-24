@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Cpus</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Manufacturer</th>
+      <th>Model</th>
+      <th>Part no</th>
+      <th>Data width</th>
+      <th>Speed</th>
+      <th>Cores</th>
+      <th>L1 cache</th>
+      <th>L2 cache</th>
+      <th>L3 cache</th>
+      <th>Lithography</th>
+      <th>Thermal design power</th>
+      <th>Includes cpu cooler</th>
+      <th>Hyper threading</th>
+      <th>Integrated graphics</th>
+      <th>Cpu socket</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cpus.each do |cpu| %>
+      <tr>
+        <td><%= cpu.manufacturer %></td>
+        <td><%= cpu.model %></td>
+        <td><%= cpu.part_no %></td>
+        <td><%= cpu.data_width %></td>
+        <td><%= cpu.speed %></td>
+        <td><%= cpu.cores %></td>
+        <td><%= cpu.l1_cache %></td>
+        <td><%= cpu.l2_cache %></td>
+        <td><%= cpu.l3_cache %></td>
+        <td><%= cpu.lithography %></td>
+        <td><%= cpu.thermal_design_power %></td>
+        <td><%= cpu.includes_cpu_cooler %></td>
+        <td><%= cpu.hyper_threading %></td>
+        <td><%= cpu.integrated_graphics %></td>
+        <td><%= cpu.cpu_socket_id %></td>
+        <td><%= link_to 'Show', cpu %></td>
+        <td><%= link_to 'Edit', edit_cpu_path(cpu) %></td>
+        <td><%= link_to 'Destroy', cpu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cpu', new_cpu_path %>

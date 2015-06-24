@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619111921) do
+ActiveRecord::Schema.define(version: 20150624080537) do
 
   create_table "builds", force: :cascade do |t|
     t.integer "cpu_id"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 20150619111921) do
     t.float    "length"
     t.float    "width"
     t.float    "height"
+    t.integer  "form_factor_id"
+    t.string   "type"
   end
 
   create_table "cpu_sockets", force: :cascade do |t|
@@ -84,6 +86,33 @@ ActiveRecord::Schema.define(version: 20150619111921) do
   end
 
   add_index "cpu_sockets", ["name"], name: "index_cpu_sockets_on_name", unique: true
+
+  create_table "cpus", force: :cascade do |t|
+    t.string   "manufacturer"
+    t.string   "model"
+    t.string   "part_no"
+    t.string   "data_width"
+    t.string   "speed"
+    t.integer  "cores"
+    t.string   "l1_cache"
+    t.string   "l2_cache"
+    t.string   "l3_cache"
+    t.string   "lithography"
+    t.string   "thermal_design_power"
+    t.boolean  "includes_cpu_cooler"
+    t.boolean  "hyper_threading"
+    t.string   "integrated_graphics"
+    t.integer  "cpu_socket_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "form_factors", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "name"
+    t.integer  "cpu_case_id"
+  end
 
   create_table "memories", force: :cascade do |t|
     t.string   "manufacturer"
@@ -114,7 +143,6 @@ ActiveRecord::Schema.define(version: 20150619111921) do
   create_table "motherboards", force: :cascade do |t|
     t.string   "manufacturer"
     t.string   "part_no"
-    t.string   "form_factor"
     t.string   "chipset"
     t.string   "memory_type"
     t.string   "max_memory"
@@ -131,6 +159,7 @@ ActiveRecord::Schema.define(version: 20150619111921) do
     t.integer  "cpu_socket_id"
     t.integer  "memory_slot_num"
     t.integer  "memory_slot_id"
+    t.integer  "form_factor_id"
   end
 
   create_table "power_supplies", force: :cascade do |t|
