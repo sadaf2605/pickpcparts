@@ -25,6 +25,8 @@ class CpusController < ApplicationController
   # POST /cpus.json
   def create
     @cpu = Cpu.new(cpu_params)
+    @cpu.cpu_socket = CpuSocket.find_by_name(params[:cpu][:cpu_socket_str]) ||
+                      CpuSocket.create({ :name => params[:cpu][:cpu_socket_str] })
 
     respond_to do |format|
       if @cpu.save
