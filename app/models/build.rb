@@ -11,36 +11,40 @@ class Build < ActiveRecord::Base
 	def concistency_check
 		@consistancies =[]
 		@conflicts = []
-		if self.cpu.supports_motherboard self.motherboard
-	      @consistancies << "cpu and motherboard both supports socket " + self.cpu.cpu_socket.name
-	    else
-	      @conflicts << "cpu and motherboard has conflict on socket " + self.cpu.cpu_socket.name     
-	    end
+
+		def combine_report(report)
+			_consistency,_conflicts=report[0],report[1]
+			@consistancies.concat(_consistency)
+			@conflicts.concat _conflicts
+		end
+
+		if self.cpu
+			combine_report(self.cpu.report_consistency(self))
+		end
+
+		if self.cooler
+			combine_report(self.cooler.report_consistency(self))
+		end
+
+		if self.motherboard
+		 #combine_report(self.motherboard.report_consistency(self))
+		end
 
 
-	    if self.cooler.supports_motherboard self.motherboard
-	      @consistancies << "cpu and cooler both supports socket " + self.cpu.cpu_socket.name  
-	    else
-	      @conflicts << "cpu and cooler has conflicts on socket " + self.cpu.cpu_socket.name
-	      @conflicts << "cooler only supports: "+self.cooler.cpu_sockets.map{|i| i.name}.join(",")
-	    end
+		if self.memory
+			combine_report(self.memory.report_consistency(self))
+		end
 
-	    if self.cooler.supports_cpu self.cpu
-	      @consistancies << "motherboard and cooler both supports on socket " + self.cpu.cpu_socket.name  
-	    else
-	      @conflicts << "motherboard and cooler has conflicts on socket " + self.cpu.cpu_socket.name
-	    end
+		if self.cpu_case
+		#_consistancy,_conflicts =	self.cpu_case.report_consistency(self)
+		#@consistancies<<_consistancy
+		#@conflicts<<_conflicts
+		end
 
-	    if self.motherboard.supports_memory self.memory
-	      @consistancies << "motherboard and cooler both supports on memory slot " + self.motherboard.memory_slot.name  
-	    else
-	      @conflicts << "motherboard and cooler has conflict on memory slot " + self.motherboard.memory_slot.name
-	    end
-	    if self.motherboard.supports_storage self.storage
-	      @consistancies << "motherboard and storage both supports SATA gb/s"
-	    else
-	      @conflicts << "motherboard and storage has conflicts on SATA gb/s"
-	    end
+		if self.video_card
+			combine_report(self.video_card.report_consistency(self))
+		end
+
 
 		return @consistancies, @conflicts
 	end
