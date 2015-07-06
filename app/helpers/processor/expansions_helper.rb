@@ -1,2 +1,0 @@
-module Processor::ExpansionsHelper
-end

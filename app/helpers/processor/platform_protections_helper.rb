@@ -1,2 +1,0 @@
-module Processor::PlatformProtectionsHelper
-end

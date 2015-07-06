@@ -1,2 +1,0 @@
-module Processor::AdvancedTechnologiesHelper
-end
