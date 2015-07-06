@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  AES_new_nstructions: false
-  secure_key: false
-
-two:
-  AES_new_nstructions: false
-  secure_key: false

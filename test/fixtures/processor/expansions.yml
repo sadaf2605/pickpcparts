@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  PCI_express_revision: 1.5
-  max_no_of_PCI_express_lanes: 1
-
-two:
-  PCI_express_revision: 1.5
-  max_no_of_PCI_express_lanes: 1
