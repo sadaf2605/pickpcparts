@@ -3,48 +3,6 @@ Rails.application.routes.draw do
 
   resources :form_factors
 
-  resources :processor
-
-  namespace :processor do
-    resources :performances
-  end
-
-  namespace :processor do
-    resources :memories
-  end
-
-  namespace :processor do
-    resources :graphics
-  end
-
-  namespace :processor do
-    resources :expansions
-  end
-
-  namespace :processor do
-    resources :packages
-  end
-
-  namespace :processor do
-    resources :data_protections
-  end
-
-  namespace :processor do
-    resources :platform_protections
-  end
-
-  namespace :processor do
-    resources :advanced_technologies
-  end
-
-  namespace :processor do
-    resources :processor_packages
-  end
-
-  namespace :processor do
-    resources :processors
-  end
-
   resources :cpu_cases
 
   resources :power_supplies
@@ -64,6 +22,18 @@ Rails.application.routes.draw do
   resources :coolers
 
   resources :cpu_sockets
+
+  root 'builds#index'
+
+  get 'current_build' => 'builds#current_build', :as=>'current_build'
+  post 'builds/cpu/:cpu_id' => 'builds#add_cpu', :as => 'add_cpu'
+  post 'builds/motherboard/:motherboard_id' => 'builds#add_motherboard', :as => 'add_motherboard'
+  post 'builds/cooler/:cooler_id' => 'builds#add_cooler', :as => 'add_cooler'
+  post 'builds/memory/:memory_id' => 'builds#add_memory', :as => 'add_memory'
+  post 'builds/storage/:storage_id' => 'builds#add_storage', :as => 'add_storage'
+  post 'builds/video_card/:video_card_id' => 'builds#add_video_card', :as => 'add_video_card'
+  post 'builds/cpu_case/:cpu_case_id' => 'builds#add_cpu_case', :as => 'add_cpu_case'
+  post 'builds/power_supply/:power_supply_id' => 'builds#add_power_supply', :as => 'add_power_supply'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

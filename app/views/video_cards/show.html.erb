@@ -75,5 +75,8 @@
   <%= @video_card.hdmi %>
 </p>
 
+
+
+<%= link_to 'Add to build', add_video_card_path(@video_card), :method => "Post" %> |
 <%= link_to 'Edit', edit_video_card_path(@video_card) %> |
 <%= link_to 'Back', video_cards_path %>

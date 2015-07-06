@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624105539) do
+ActiveRecord::Schema.define(version: 20150706163455) do
 
   create_table "builds", force: :cascade do |t|
     t.integer "cpu_id"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20150624105539) do
     t.integer "storage_id"
     t.integer "video_card_id"
     t.integer "cpu_case_id"
+    t.string  "token"
+    t.integer "power_supply_id"
   end
 
   create_table "cases", force: :cascade do |t|
@@ -164,7 +166,7 @@ ActiveRecord::Schema.define(version: 20150624105539) do
   create_table "power_supplies", force: :cascade do |t|
     t.string   "manufacturer"
     t.string   "part_no"
-    t.string   "type"
+    t.string   "power_supply_type"
     t.string   "wattage"
     t.integer  "fans"
     t.boolean  "modular"

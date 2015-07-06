@@ -75,5 +75,7 @@
   <%= @cpu.cpu_socket.name %>
 </p>
 
+
+<%= link_to 'Add to build', add_cpu_path(@cpu), :method => "Post" %> |
 <%= link_to 'Edit', edit_cpu_path(@cpu) %> |
 <%= link_to 'Back', cpus_path %>

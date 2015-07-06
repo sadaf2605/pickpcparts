@@ -131,7 +131,9 @@
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v4.2.0, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v4.2.0, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v6.0.0, ruby-2.1.2-p95) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="autoprefixer-rails (v5.2.1, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="binding_of_caller (v0.7.2, ruby-2.1.2-p95) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bootstrap-sass (v3.3.5.1, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.2, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.9.4, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="byebug (v5.0.0, ruby-2.1.2-p95) [gem]" level="application" />
@@ -142,6 +144,7 @@
     <orderEntry type="library" scope="PROVIDED" name="debug_inspector (v0.0.2, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.5.2, ruby-2.1.2-p95) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="font-awesome-rails (v4.3.0.0, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.3.5, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.7.0, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.2.16, ruby-2.1.2-p95) [gem]" level="application" />

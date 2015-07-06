@@ -69,6 +69,6 @@ class PowerSuppliesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def power_supply_params
-      params.require(:power_supply).permit(:manufacturer, :part_no, :type, :wattage, :fans, :modular, :efficiency_certification, :efficiency, :output, :pci_express_6_plus_2_pin_connectors)
+      params.require(:power_supply).permit(:manufacturer, :part_no, :power_supply_type, :wattage, :fans, :modular, :efficiency_certification, :efficiency, :output, :pci_express_6_plus_2_pin_connectors)
     end
 end

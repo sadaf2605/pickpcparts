@@ -60,5 +60,6 @@
   <%= @memory.color %>
 </p>
 
+<%= link_to 'Add to build', add_memory_path(@memory), :method => "Post" %> |
 <%= link_to 'Edit', edit_memory_path(@memory) %> |
 <%= link_to 'Back', memories_path %>

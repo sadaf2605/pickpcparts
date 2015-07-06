@@ -35,5 +35,6 @@
   <%= @cooler.fan_rpm %>
 </p>
 
+<%= link_to 'Add to build', add_cooler_path(@cooler), :method => "Post" %> |
 <%= link_to 'Edit', edit_cooler_path(@cooler) %> |
 <%= link_to 'Back', coolers_path %>

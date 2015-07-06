@@ -69,5 +69,6 @@
   <%= @cpu_case.height %>
 </p>
 
+<%= link_to 'Add to build', add_cpu_case_path(@cpu_case), :method => "Post" %> |
 <%= link_to 'Edit', edit_cpu_case_path(@cpu_case) %> |
 <%= link_to 'Back', cpu_cases_path %>

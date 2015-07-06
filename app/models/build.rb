@@ -6,7 +6,61 @@ class Build < ActiveRecord::Base
 	belongs_to :storage
 	belongs_to :cpu_case
 	belongs_to :video_card
+	belongs_to :power_supply
+  def add_cpu(cpu)
+		if cpu
+			self.cpu=cpu
+			save
+		end
+	end
+  def add_motherboard(motherboard)
+		if motherboard
+			self.motherboard=motherboard
+			save
+		end
+	end
 
+  def add_cooler(cooler)
+		if cooler
+			self.cooler=cooler
+			save
+		end
+	end
+
+  def add_memory(memory)
+		if memory
+			self.memory=memory
+			save
+		end
+	end
+
+	def add_storage(storage)
+		if storage
+			self.storage=storage
+			save
+		end
+	end
+
+  def add_video_card(video_card)
+		if video_card
+			self.video_card=video_card
+			save
+		end
+	end
+
+  def add_cpu_case(cpu_case)
+		if cpu_case
+			self.cpu_case=cpu_case
+			save
+		end
+	end
+
+  def add_power_supply(power_supply)
+		if power_supply
+			self.power_supply=power_supply
+			save
+		end
+	end
 
 	def concistency_check
 		@consistancies =[]

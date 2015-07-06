@@ -74,5 +74,6 @@
   <%= @motherboard.onboard_usb_3_headers %>
 </p>
 
+<%= link_to 'Add to build', add_motherboard_path(@motherboard), :method => "Post" %> |
 <%= link_to 'Edit', edit_motherboard_path(@motherboard) %> |
 <%= link_to 'Back', motherboards_path %>

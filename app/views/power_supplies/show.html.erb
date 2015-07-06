@@ -12,7 +12,7 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @power_supply.type %>
+  <%= @power_supply.power_supply_type %>
 </p>
 
 <p>
@@ -50,5 +50,7 @@
   <%= @power_supply.pci_express_6_plus_2_pin_connectors %>
 </p>
 
+
+<%= link_to 'Add to build', add_power_supply_path(@power_supply), :method => "Post" %> |
 <%= link_to 'Edit', edit_power_supply_path(@power_supply) %> |
 <%= link_to 'Back', power_supplies_path %>

@@ -1,10 +1,78 @@
 class BuildsController < ApplicationController
   before_action :set_build, only: [:show, :edit, :update, :destroy]
 
+
+
+
+  def current_build
+    @current_build = get_current_build()
+    end
+
+
+
+
+
   # GET /builds
   # GET /builds.json
   def index
     @builds = Build.all
+  end
+
+
+  def add_cpu
+    @current_build = get_current_build
+    cpu=Cpu.find(params[:cpu_id])
+    @current_build.add_cpu(cpu)
+    redirect_to current_build
+  end
+
+
+  def add_motherboard
+    @current_build = get_current_build
+    motherboard = Motherboard.find(params[:motherboard_id])
+    @current_build.add_motherboard(motherboard)
+    redirect_to current_build
+  end
+
+  def add_cooler
+    @current_build =get_current_build
+    cooler = Cooler.find(params[:cooler_id])
+    @current_build.add_cooler(cooler)
+    redirect_to current_build
+  end
+
+  def add_memory
+    @current_build =get_current_build
+    memory = Memory.find(params[:memory_id])
+    @current_build.add_memory(memory)
+    redirect_to current_build
+  end
+
+  def add_storage
+    @current_build =get_current_build
+    storage = Storage.find(params[:storage_id])
+    @current_build.add_storage(storage)
+    redirect_to current_build
+  end
+
+def add_video_card
+  @current_build =get_current_build
+  video_card = VideoCard.find(params[:video_card_id])
+  @current_build.add_video_card(video_card)
+  redirect_to current_build
+end
+
+  def add_cpu_case
+    @current_build =get_current_build
+    cpu_case = CpuCase.find(params[:cpu_case_id])
+    @current_build.add_cpu_case(cpu_case)
+    redirect_to current_build
+  end
+  def add_power_supply
+    @current_build =get_current_build
+    power_supply = PowerSupply.find(params[:power_supply_id])
+    @current_build.add_power_supply(power_supply)
+    redirect_to current_build
   end
 
   # GET /builds/1
@@ -87,4 +155,22 @@ class BuildsController < ApplicationController
     def build_params
       params.require(:build).permit(:cpu, :motherboard, :cooler, :memory, :storage,:video_card)
     end
+
+  private
+  def get_current_build
+    builds = Build.find_by_token(session[:build_token])
+    if not builds
+      build=Build.create
+      build.token=rand(36**8).to_s(36)
+      session[:build_token]=build.token
+      build.save
+      return build
+    end
+    return builds
+  end
+
+
+
 end
+
+
