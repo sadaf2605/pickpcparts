@@ -2,6 +2,20 @@
 
 
 <div class="container">
+  <div class="owl-carousel">
+    <style>
+      .owl-carousel div img {height:200px;}
+    </style>
+
+    <div> <img src="http://archive.benchmarkreviews.com/images/reviews/processor/AMD_X2-7850/amd_athlon_x2_kuma_7850.jpg"> </div>
+    <div> <img src="http://essentialit.co.za/blog/wp-content/uploads/2012/12/MSI-FM2-A85XA-G65-motherboard-boxed.jpg"> </div>
+    <div> <img src="http://www.play3r.net/wp-content/uploads/2014/02/Cooler-Master-Nepton-Boxes-670x723.jpg"> </div>
+    <div> <img src="http://www.kitguru.net/wp-content/uploads/2013/04/IMG_0747.jpg"> </div>
+    <div> <img src="http://ecx.images-amazon.com/images/I/51E9qnkfxEL._SX425_.jpg"> </div>
+    <div> Your Content </div>
+    <div> Your Content </div>
+    ...
+  </div>
 
   <div class="col-md-8">
 
@@ -10,7 +24,7 @@
 
     <div class="input-group">
       <span class="input-group-addon">Permalink: </span>
-      <input type="text" class="form-control" value="http://pcparts.com.bd/p/<%=@current_build.token%>" aria-describedby="basic-addon2"  style="background-color: white" readonly>
+      <input type="text" class="form-control" value="<%=request.base_url%>/builds/<%=@current_build.token%>" aria-describedby="basic-addon2"  style="background-color: white" readonly>
       <span class="input-group-addon">Share it on
 
       </span>
@@ -35,135 +49,36 @@
       </span>
     </div>
 
+    <%= render 'select_or_show_build' %>
 
 
-    <table class="table table-condensed">
-        <thead>
-        <tr>
-            <th>Component</th>
-            <th>Selection</th>
-            <th>Price</th>
-            <th>Shop</th>
-        </tr>
-        </thead>
-
-        <tbody>
-
-        <tr>
-
-            <td>CPU</td>
-
-            <td>
-              <% if @current_build.cpu %>
-                  <%= link_to @current_build.cpu.model , cpu_path(@current_build.cpu) %>
-              <% else %>
-                  <%= link_to "add cpu", cpus_url, {:class =>"btn btn-xs btn-primary"} %>
-              <% end %>
-            </td>
-
-            <td>0 BDT</td>
-            <td>None</td>
-        </tr>
-        <tr>
-            <td>Motherboard</td>
-            <td>
-                <% if @current_build.motherboard %>
-                  <%= link_to @current_build.motherboard.part_no , motherboard_path(@current_build.motherboard) %>
-                <% else %>
-                  <%= link_to "add motherboard", motherboards_url, {:class =>"btn btn-xs btn-primary"} %>
-                <% end %>
-            </td>
-
-          <td>0 BDT</td>
-          <td>None</td>
-        </tr>
-        <tr>
-            <td>Cooler</td>
-              <td>
-                <% if @current_build.cooler %>
-                    <%= link_to @current_build.cooler.part_no , cooler_path(@current_build.cooler) %>
-                <% else %>
-                    <%= link_to "add cooler", coolers_url, {:class =>"btn btn-xs btn-primary"} %>
-                <% end %>
-              </td>
-          <td>0 BDT</td>
-          <td>None</td>
-        </tr>
-        <tr>
-          <td>Memory</td>
-          <td>
-            <% if @current_build.memory %>
-                <%= link_to @current_build.memory.part_no , memory_path(@current_build.memory) %>
-            <% else %>
-                <%= link_to "add memory", memories_url, {:class =>"btn btn-xs btn-primary"} %>
-            <% end %>
-          </td>
-          <td>0 BDT</td>
-          <td>None</td>
-        </tr>
-        <tr>
-          <td>Storage</td>
-          <td>
-              <% if @current_build.storage %>
-                  <%= link_to @current_build.storage.part_no , storage_path(@current_build.storage) %>
-              <% else %>
-                  <%= link_to "add storage", storages_url, {:class =>"btn btn-xs btn-primary"} %>
-              <% end %>
-          </td>
-          <td>0 BDT</td>
-          <td>None</td>
-        </tr>
-
-
-        <tr>
-          <td>Video Card</td>
-          <td>
-            <% if @current_build.video_card %>
-                <%= link_to @current_build.video_card.part_no , video_card_path(@current_build.video_card) %>
-            <% else %>
-                <%= link_to "add video card", video_cards_url, {:class =>"btn btn-xs btn-primary"} %>
-            <% end %>
-          </td>
-          <td>0 BDT</td>
-          <td>None</td>
-        </tr>
-
-        <tr>
-          <td>PC Case</td>
-          <td>
-            <% if @current_build.cpu_case %>
-                <%= link_to @current_build.cpu_case.part_no , cpu_case_path(@current_build.cpu_case) %>
-            <% else %>
-                <%= link_to "add PC case", cpu_cases_url, {:class =>"btn btn-xs btn-primary"} %>
-            <% end %>
-          </td>
-          <td>0 BDT</td>
-          <td>None</td>
-        </tr>
-
-        <tr>
-          <td>Power supply</td>
-          <td>
-            <% if @current_build.power_supply %>
-                <%= link_to @current_build.power_supply.part_no , power_supply_path(@current_build.power_supply) %>
-            <% else %>
-                <%= link_to "add Power supply", power_supplies_url, {:class =>"btn btn-xs btn-primary"} %>
-            <% end %>
-          </td>
-          <td>0 BDT</td>
-          <td>None</td>
-        </tr>
-
-
-
-        </tbody>
-    </table>
 
     <br>
   </div>
 
   <div class="col-md-4 ad">
-    <img data-src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.8.0/holder.js/300x450" class="img-thumbnail" alt="300x450" data-holder-rendered="true" style="width: 300px; height: 450px;background-color:grey">
+    <div>
+        <img src="http://adoptserver.com/adopt/www/images/ada8f633c293374803b92588fe450108.gif">
+    </div>
+    <div>
+      <img src="https://tpc.googlesyndication.com/simgad/9559968863477504625">
+    </div>
+    <div>
+      <img src="https://tpc.googlesyndication.com/simgad/14990911941625155800">
+    </div>
+    <div>
+        <img src="https://tpc.googlesyndication.com/simgad/6154479667724423085">
+    </div>
+    <div>
+      <img src="https://s0.2mdn.net/dot.gif">
+      </div>
+    <div>
+      <img src="http://pagead2.googlesyndication.com/simgad/12922809820373678081">
+    </div>
+    <div>
+      <img src="http://revive.bdnews24.com/www/images/4637492b5a5743234b95535baeae16b3.gif">
+    </div>
+
   </div>
 
 </div>
@@ -171,3 +86,13 @@
 
 
 
+<script>
+    $('.dropdown').click(function() {
+        alert("hi")
+        $(this).find('.dropdown-menu').first().stop(true, true).slideToggle(400);
+    }, function() {
+        $(this).find('.dropdown-menu').first().stop(true, true).slideToggle(400)
+    });
+    $(".owl-carousel").owlCarousel({autoPlay: true});
+
+</script>>

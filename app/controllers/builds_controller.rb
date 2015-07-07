@@ -18,6 +18,10 @@ class BuildsController < ApplicationController
     @builds = Build.all
   end
 
+  def token_build
+    @current_build=Build.find_by_token(params[:token])
+  end
+
 
   def add_cpu
     @current_build = get_current_build

@@ -13,8 +13,26 @@
  *= require_tree .
  *= require_self
  *= require bootstrap-social
+ *= require yamm
+ *= require navbar
+ *= require owl.carousel
+ *= require owl.theme
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "navbar";
+
+.ad{
+  text-align: center;
+}
+.ad div {
+  padding-bottom: 5px;
+  padding-top:5px;
+}
+
+.menu-parts-icon{color:white;text-align: center}
+.menu-parts-icon img{
+  width: 100%;
+}

@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+
+  <div class="col-md-8">
+
+    <h1>Selected Build</h1>
+
+
+    <div class="input-group">
+      <span class="input-group-addon">Permalink: </span>
+      <input type="text" class="form-control" value="http://pcparts.com.bd/p/<%=@current_build.token%>" aria-describedby="basic-addon2"  style="background-color: white" readonly>
+      <span class="input-group-addon">Share it on
+
+      </span>
+      <style>
+          .share-button-group{padding:0 0 0 0;}
+          .share-button{height: 33px; width:31px;}
+      </style>
+      <span class="input-group-addon share-button-group">
+          <a class=" btn btn-block btn-facebook btn-social share-button">
+            <i class="fa fa-facebook"></i>
+          </a>
+      </span>
+            <span class="input-group-addon share-button-group">
+          <a class=" btn btn-block btn-twitter btn-social share-button">
+            <i class="fa fa-twitter"></i>
+          </a>
+      </span>
+      <span class="input-group-addon share-button-group">
+      <a class=" btn btn-block btn-google btn-social share-button">
+        <i class="fa fa-google"></i>
+      </a>
+      </span>
+    </div>
+
+    <%= render 'select_or_show_build' %>
+
+
+
+    <br>
+  </div>
+
+  <div class="col-md-4 ad">
+    <img data-src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.8.0/holder.js/300x450" class="img-thumbnail" alt="300x450" data-holder-rendered="true" style="width: 300px; height: 450px;background-color:grey">
+  </div>
+
+</div>
+<%= link_to 'New Build', new_build_path %>
+
+
+

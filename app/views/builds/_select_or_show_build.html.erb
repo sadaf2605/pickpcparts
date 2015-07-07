@@ -1,0 +1,121 @@
+<table class="table table-condensed">
+  <thead>
+  <tr>
+    <th>Component</th>
+    <th>Selection</th>
+    <th>Price</th>
+    <th>Shop</th>
+  </tr>
+  </thead>
+
+  <tbody>
+
+  <tr>
+
+    <td>CPU</td>
+
+    <td>
+      <% if @current_build.cpu %>
+          <%= link_to @current_build.cpu.model , cpu_path(@current_build.cpu) %>
+      <% else %>
+          <%= link_to "add cpu", cpus_url, {:class =>"btn btn-xs btn-primary"} %>
+      <% end %>
+    </td>
+
+    <td>0 BDT</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>Motherboard</td>
+    <td>
+      <% if @current_build.motherboard %>
+          <%= link_to @current_build.motherboard.part_no , motherboard_path(@current_build.motherboard) %>
+      <% else %>
+          <%= link_to "add motherboard", motherboards_url, {:class =>"btn btn-xs btn-primary"} %>
+      <% end %>
+    </td>
+
+    <td>0 BDT</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>Cooler</td>
+    <td>
+      <% if @current_build.cooler %>
+          <%= link_to @current_build.cooler.part_no , cooler_path(@current_build.cooler) %>
+      <% else %>
+          <%= link_to "add cooler", coolers_url, {:class =>"btn btn-xs btn-primary"} %>
+      <% end %>
+    </td>
+    <td>0 BDT</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>Memory</td>
+    <td>
+      <% if @current_build.memory %>
+          <%= link_to @current_build.memory.part_no , memory_path(@current_build.memory) %>
+      <% else %>
+          <%= link_to "add memory", memories_url, {:class =>"btn btn-xs btn-primary"} %>
+      <% end %>
+    </td>
+    <td>0 BDT</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>Storage</td>
+    <td>
+      <% if @current_build.storage %>
+          <%= link_to @current_build.storage.part_no , storage_path(@current_build.storage) %>
+      <% else %>
+          <%= link_to "add storage", storages_url, {:class =>"btn btn-xs btn-primary"} %>
+      <% end %>
+    </td>
+    <td>0 BDT</td>
+    <td>None</td>
+  </tr>
+
+
+  <tr>
+    <td>Video Card</td>
+    <td>
+      <% if @current_build.video_card %>
+          <%= link_to @current_build.video_card.part_no , video_card_path(@current_build.video_card) %>
+      <% else %>
+          <%= link_to "add video card", video_cards_url, {:class =>"btn btn-xs btn-primary"} %>
+      <% end %>
+    </td>
+    <td>0 BDT</td>
+    <td>None</td>
+  </tr>
+
+  <tr>
+    <td>PC Case</td>
+    <td>
+      <% if @current_build.cpu_case %>
+          <%= link_to @current_build.cpu_case.part_no , cpu_case_path(@current_build.cpu_case) %>
+      <% else %>
+          <%= link_to "add PC case", cpu_cases_url, {:class =>"btn btn-xs btn-primary"} %>
+      <% end %>
+    </td>
+    <td>0 BDT</td>
+    <td>None</td>
+  </tr>
+
+  <tr>
+    <td>Power supply</td>
+    <td>
+      <% if @current_build.power_supply %>
+          <%= link_to @current_build.power_supply.part_no , power_supply_path(@current_build.power_supply) %>
+      <% else %>
+          <%= link_to "add Power supply", power_supplies_url, {:class =>"btn btn-xs btn-primary"} %>
+      <% end %>
+    </td>
+    <td>0 BDT</td>
+    <td>None</td>
+  </tr>
+
+
+
+  </tbody>
+</table>
