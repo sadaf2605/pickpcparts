@@ -77,5 +77,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.assets.precompile = ['*.js', '*.css', '*.css.erb']
+  config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico)
+  config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
 end
