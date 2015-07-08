@@ -78,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico)
-  config.assets.precompile << /\A(?!active_admin).*\.(js)\z/
+  config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
 end
