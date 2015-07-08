@@ -136,7 +136,6 @@
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.10, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="binding_of_caller (v0.7.2, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootstrap-sass (v3.3.5.1, ruby-2.1.2-p95) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bourbon (v4.2.3, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.2, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.9.4, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="byebug (v5.0.0, ruby-2.1.2-p95) [gem]" level="application" />
@@ -164,7 +163,6 @@
     <orderEntry type="library" scope="PROVIDED" name="json (v1.8.3, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="kaminari (v0.16.3, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="less (v2.6.0, ruby-2.1.2-p95) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="libv8 (v3.16.14.9, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.0.2, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.6.3, ruby-2.1.2-p95) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v2.6.1, ruby-2.1.2-p95) [gem]" level="application" />
