@@ -66,7 +66,7 @@ GEM
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
-    bourbon (4.1.1)
+    bourbon (3.2.4)
       sass (~> 3.4)
       thor
     builder (3.2.2)
