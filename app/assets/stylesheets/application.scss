@@ -24,6 +24,13 @@
 @import "font-awesome";
 @import "navbar";
 
+.btn a{
+  text-decoration: none;
+}
+.btn a:visited{
+  color:white;
+  text-decoration: none;
+}
 .ad{
   text-align: center;
 }
