@@ -36,3 +36,18 @@
 .menu-parts-icon img{
   width: 100%;
 }
+.owl-carousel{
+  padding-top: 52px;
+}
+.owl-carousel .owl-controls{
+  margin-top: 2px !important;
+}
+
+#owl-carousel .item{
+  margin: 3px;
+}
+#owl-carousel .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}

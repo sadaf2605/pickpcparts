@@ -20,6 +20,10 @@ class BuildsController < ApplicationController
 
   def token_build
     @current_build=Build.find_by_token(params[:token])
+    respond_to do |format|
+      format.html { render :template => "builds/current_build" }
+    end
+
   end
 
 

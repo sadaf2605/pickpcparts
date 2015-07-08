@@ -1,98 +1,41 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="container">
-  <div class="owl-carousel">
-    <style>
-      .owl-carousel div img {height:200px;}
-    </style>
 
-    <div> <img src="http://archive.benchmarkreviews.com/images/reviews/processor/AMD_X2-7850/amd_athlon_x2_kuma_7850.jpg"> </div>
-    <div> <img src="http://essentialit.co.za/blog/wp-content/uploads/2012/12/MSI-FM2-A85XA-G65-motherboard-boxed.jpg"> </div>
-    <div> <img src="http://www.play3r.net/wp-content/uploads/2014/02/Cooler-Master-Nepton-Boxes-670x723.jpg"> </div>
-    <div> <img src="http://www.kitguru.net/wp-content/uploads/2013/04/IMG_0747.jpg"> </div>
-    <div> <img src="http://ecx.images-amazon.com/images/I/51E9qnkfxEL._SX425_.jpg"> </div>
-    <div> Your Content </div>
-    <div> Your Content </div>
-    ...
-  </div>
-
-  <div class="col-md-8">
-
-    <h1>Current Build</h1>
+  <h3>Current Build</h3>
 
 
-    <div class="input-group">
-      <span class="input-group-addon">Permalink: </span>
-      <input type="text" class="form-control" value="<%=request.base_url%>/builds/<%=@current_build.token%>" aria-describedby="basic-addon2"  style="background-color: white" readonly>
-      <span class="input-group-addon">Share it on
 
-      </span>
-      <style>
-        .share-button-group{padding:0 0 0 0;}
-              .share-button{height: 33px; width:31px;}
-        </style>
-      <span class="input-group-addon share-button-group">
-          <a class=" btn btn-block btn-facebook btn-social share-button">
-            <i class="fa fa-facebook"></i>
+
+    <div style="margin-bottom:20px;">
+        <div class="input-group">
+          <span class="input-group-addon build-share">Permalink: </span>
+          <input type="text" class="form-control" value="<%=request.base_url%>/builds/<%=@current_build.token%>" aria-describedby="basic-addon2"  style="background-color: white" readonly>
+          <span class="input-group-addon build-share">Share it on
+
+          </span>
+          <style>
+            .share-button-group{padding:0 0 0 0;}
+                  .share-button{height: 33px; width:31px;}
+            </style>
+          <span class="input-group-addon share-button-group">
+              <a class=" btn btn-block btn-facebook btn-social share-button">
+                <i class="fa fa-facebook"></i>
+              </a>
+          </span>
+                <span class="input-group-addon share-button-group">
+              <a class=" btn btn-block btn-twitter btn-social share-button">
+                <i class="fa fa-twitter"></i>
+              </a>
+          </span>
+          <span class="input-group-addon share-button-group">
+          <a class=" btn btn-block btn-google btn-social share-button">
+            <i class="fa fa-google"></i>
           </a>
-      </span>
-            <span class="input-group-addon share-button-group">
-          <a class=" btn btn-block btn-twitter btn-social share-button">
-            <i class="fa fa-twitter"></i>
-          </a>
-      </span>
-      <span class="input-group-addon share-button-group">
-      <a class=" btn btn-block btn-google btn-social share-button">
-        <i class="fa fa-google"></i>
-      </a>
-      </span>
+          </span>
+        </div>
     </div>
-
     <%= render 'select_or_show_build' %>
 
 
 
-    <br>
-  </div>
-
-  <div class="col-md-4 ad">
-    <div>
-        <img src="http://adoptserver.com/adopt/www/images/ada8f633c293374803b92588fe450108.gif">
-    </div>
-    <div>
-      <img src="https://tpc.googlesyndication.com/simgad/9559968863477504625">
-    </div>
-    <div>
-      <img src="https://tpc.googlesyndication.com/simgad/14990911941625155800">
-    </div>
-    <div>
-        <img src="https://tpc.googlesyndication.com/simgad/6154479667724423085">
-    </div>
-    <div>
-      <img src="https://s0.2mdn.net/dot.gif">
-      </div>
-    <div>
-      <img src="http://pagead2.googlesyndication.com/simgad/12922809820373678081">
-    </div>
-    <div>
-      <img src="http://revive.bdnews24.com/www/images/4637492b5a5743234b95535baeae16b3.gif">
-    </div>
-
-  </div>
-
-</div>
-<%= link_to 'New Build', new_build_path %>
-
-
-
-<script>
-    $('.dropdown').click(function() {
-        alert("hi")
-        $(this).find('.dropdown-menu').first().stop(true, true).slideToggle(400);
-    }, function() {
-        $(this).find('.dropdown-menu').first().stop(true, true).slideToggle(400)
-    });
-    $(".owl-carousel").owlCarousel({autoPlay: true});
-
-</script>>

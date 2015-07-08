@@ -8,3 +8,24 @@ table
   width: 100%;
 }
 table tr td { width:25%; }
+table tr:first-child th{
+  color:white;
+  border-color:#4A83C1;
+}
+
+table tr:first-child th:nth-child(even){
+  background-color: #2793C8;
+}
+table tr:first-child th:nth-child(odd){
+  background-color: #4A83C1;;
+}
+td{
+  border-color: #BEE3F6 !important;
+}
+
+
+.build-share{
+  background-color: #4A83C1 !important ;
+  color: white !important;
+}
+
