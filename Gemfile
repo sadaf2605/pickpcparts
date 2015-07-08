@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 #gem "twitter-bootstrap-rails"
 
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass', "~> 3.2.5"
 
 gem 'font-awesome-rails', '~> 4.3.0.0'
 
