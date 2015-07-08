@@ -39,6 +39,7 @@ gem 'draper'
 gem 'pundit'
 
 gem 'owlcarousel-rails'
+gem 'therubyracer'
 
 group :assets do
   gem 'less'
