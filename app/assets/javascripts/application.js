@@ -16,3 +16,23 @@
 //= require bootstrap
 //= require_tree .
 //= require owl.carousel
+
+$('.dropdown').click(function() {
+    alert("hi")
+    $(this).find('.dropdown-menu').first().stop(true, true).slideToggle(400);
+}, function() {
+    $(this).find('.dropdown-menu').first().stop(true, true).slideToggle(400)
+});
+
+$(document).ready(function() {
+
+    $(".owl-carousel").owlCarousel({
+
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,3]
+
+    });
+
+});
