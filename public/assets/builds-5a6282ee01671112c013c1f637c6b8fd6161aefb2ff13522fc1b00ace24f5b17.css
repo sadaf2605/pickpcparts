@@ -1,0 +1,38 @@
+/* line 4, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/builds.scss */
+table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* line 10, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/builds.scss */
+table tr td {
+  width: 25%;
+}
+
+/* line 11, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/builds.scss */
+table tr:first-child th {
+  color: white;
+  border-color: #4A83C1;
+}
+
+/* line 16, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/builds.scss */
+table tr:first-child th:nth-child(even) {
+  background-color: #2793C8;
+}
+
+/* line 19, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/builds.scss */
+table tr:first-child th:nth-child(odd) {
+  background-color: #4A83C1;
+}
+
+/* line 22, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/builds.scss */
+td {
+  border-color: #BEE3F6 !important;
+}
+
+/* line 27, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/builds.scss */
+.build-share {
+  background-color: #4A83C1 !important;
+  color: white !important;
+}

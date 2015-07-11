@@ -1,0 +1,194 @@
+/* line 1, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar {
+  margin-bottom: 0px;
+}
+
+/* line 2, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-fixed-top {
+  padding-bottom: 50px;
+}
+
+/* line 3, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.dropdown-menu {
+  background-color: #39689B;
+}
+
+/* line 7, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-header a, .nav a {
+  text-decoration: none;
+}
+
+/* navbar */
+/* line 14, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default {
+  background-color: #F8F8F8;
+  border-color: #E7E7E7;
+}
+
+/* title */
+/* line 19, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-brand {
+  color: #777;
+}
+
+/* line 22, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #5E5E5E;
+}
+
+/* link */
+/* line 27, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-nav > li > a {
+  color: #777;
+}
+
+/* line 30, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #333;
+}
+
+/* line 34, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #555;
+  background-color: #E7E7E7;
+}
+
+/* line 40, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #555;
+  background-color: #D5D5D5;
+}
+
+/* caret */
+/* line 47, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+  border-top-color: #777;
+  border-bottom-color: #777;
+}
+
+/* line 51, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #333;
+  border-bottom-color: #333;
+}
+
+/* line 56, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-nav > .open > a .caret,
+.navbar-default .navbar-nav > .open > a:hover .caret,
+.navbar-default .navbar-nav > .open > a:focus .caret {
+  border-top-color: #555;
+  border-bottom-color: #555;
+}
+
+/* mobile version */
+/* line 63, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-toggle {
+  border-color: #DDD;
+}
+
+/* line 66, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #DDD;
+}
+
+/* line 70, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #CCC;
+}
+
+@media (max-width: 767px) {
+  /* line 74, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #777;
+  }
+
+  /* line 77, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #333;
+  }
+}
+/* line 99, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default {
+  background-color: #2793C8;
+  border-color: #4A83C1;
+}
+/* line 102, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
+}
+/* line 104, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #BEE3F6;
+}
+/* line 106, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-text {
+  color: #ecf0f1;
+}
+/* line 110, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-nav > li > a {
+  color: #ecf0f1;
+}
+/* line 112, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #BEE3F6;
+}
+/* line 115, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #BEE3F6;
+  background-color: #4A83C1;
+}
+/* line 119, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #BEE3F6;
+  background-color: #4A83C1;
+}
+/* line 122, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-toggle {
+  border-color: #4A83C1;
+}
+/* line 124, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #4A83C1;
+}
+/* line 126, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ecf0f1;
+}
+/* line 128, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ecf0f1;
+}
+/* line 131, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-link {
+  color: #ecf0f1;
+}
+/* line 133, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+.navbar-default .navbar-link:hover {
+  color: #BEE3F6;
+}
+
+@media (max-width: 767px) {
+  /* line 137, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1;
+  }
+  /* line 139, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #BEE3F6;
+  }
+  /* line 142, /media/sadaf2605/18de6904-1e2b-4dff-a6b2-cf079b0b51a5/projects/pickpcparts/app/assets/stylesheets/navbar.scss */
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #BEE3F6;
+    background-color: #4A83C1;
+  }
+}

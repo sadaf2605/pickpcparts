@@ -82,4 +82,5 @@ Rails.application.configure do
 
   config.assets.css_compressor = :yui
   config.assets.js_compressor = :yui
+
 end
