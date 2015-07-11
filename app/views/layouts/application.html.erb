@@ -1,28 +1,25 @@
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pickpcparts</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-<div class="customNavigation">
-  <a class="btn prev">Previous</a>
-  <a class="btn next">Next</a>
+  <%= csrf_meta_tags %>
+
+
+  <%= render 'layouts/global_nav' %>
+  <%= render 'layouts/carousel' %>
+
+</head>
+<body>
+<div class="container">
+  <div class="col-md-8">
+    <%= yield %>
+  </div>
+  <div class="col-md-4 ad">
+    <%= render 'layouts/commercials'%>
+  </div>
 </div>
-
-<div id="owl-demo" class="owl-carousel owl-theme">
-  <div class="item"><h1>1</h1></div>
-  <div class="item"><h1>2</h1></div>
-  <div class="item"><h1>3</h1></div>
-  <div class="item"><h1>4</h1></div>
-  <div class="item"><h1>5</h1></div>
-  <div class="item"><h1>6</h1></div>
-  <div class="item"><h1>7</h1></div>
-  <div class="item"><h1>8</h1></div>
-  <div class="item"><h1>9</h1></div>
-  <div class="item"><h1>10</h1></div>
-  <div class="item"><h1>11</h1></div>
-  <div class="item"><h1>12</h1></div>
-  <div class="item"><h1>13</h1></div>
-  <div class="item"><h1>14</h1></div>
-  <div class="item"><h1>15</h1></div>
-  <div class="item"><h1>16</h1></div>
-</div>
-
-
+</body>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</html>
