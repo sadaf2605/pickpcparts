@@ -26,13 +26,19 @@ $(document).ready(function() {
         $(this).find('.dropdown-menu').first().stop(true, true).slideToggle(400)
     });
 
-    $(".owl-carousel").owlCarousel({
 
-        autoPlay: 3000, //Set AutoPlay to 3 seconds
 
-        itemsDesktop : [1199,3],
-        itemsDesktopSmall : [979,3]
+        var owl = $("#owl-demo");
 
-    });
+        owl.owlCarousel();
+
+        // Custom Navigation Events
+        $(".next").click(function(){
+            owl.trigger('owl.next');
+        })
+        $(".prev").click(function(){
+            owl.trigger('owl.prev');
+        })
+
 
 });
