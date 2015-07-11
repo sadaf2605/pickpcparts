@@ -21,11 +21,11 @@
 
 $(document).ready(function() {
     $('.dropdown').click(function() {
-        alert("hi")
         $(this).find('.dropdown-menu').first().stop(true, true).slideToggle(400);
     }, function() {
         $(this).find('.dropdown-menu').first().stop(true, true).slideToggle(400)
     });
+
     $(".owl-carousel").owlCarousel({
 
         autoPlay: 3000, //Set AutoPlay to 3 seconds
