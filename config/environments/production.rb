@@ -78,4 +78,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.serve_static_files = true
+
+
+  config.assets.css_compressor = :yui
+  config.assets.js_compressor = :yui
 end
