@@ -45,7 +45,7 @@
 .btn a{
   text-decoration: none;
 }
-a.btn:visited{
+a, a:link, a:visited,a.btn:visited{
   color:white !important;
   text-decoration: none !important;
 }
