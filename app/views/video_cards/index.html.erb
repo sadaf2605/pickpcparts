@@ -5,46 +5,26 @@
 <table>
   <thead>
     <tr>
-      <th>Manufacturer</th>
       <th>Part no</th>
       <th>Interface</th>
       <th>Chipset</th>
       <th>Memory size</th>
-      <th>Memory type</th>
+
       <th>Core clock</th>
-      <th>Tdp</th>
-      <th>Fan</th>
-      <th>Sli support</th>
-      <th>Crossfire support</th>
-      <th>Length</th>
-      <th>Dvi d dual link</th>
-      <th>Display port</th>
-      <th>Hdmi</th>
-      <th colspan="3"></th>
+      <th >Price</th>
     </tr>
   </thead>
 
   <tbody>
     <% @video_cards.each do |video_card| %>
       <tr>
-        <td><%= video_card.manufacturer %></td>
-        <td><%= video_card.part_no %></td>
+
+        <td><%= link_to video_card.part_no, video_card%></td>
         <td><%= video_card.interface %></td>
         <td><%= video_card.chipset %></td>
         <td><%= video_card.memory_size %></td>
-        <td><%= video_card.memory_type %></td>
+
         <td><%= video_card.core_clock %></td>
-        <td><%= video_card.tdp %></td>
-        <td><%= video_card.fan %></td>
-        <td><%= video_card.sli_support %></td>
-        <td><%= video_card.crossfire_support %></td>
-        <td><%= video_card.length %></td>
-        <td><%= video_card.dvi_d_dual_link %></td>
-        <td><%= video_card.display_port %></td>
-        <td><%= video_card.hdmi %></td>
-        <td><%= link_to 'Show', video_card %></td>
-        <td><%= link_to 'Edit', edit_video_card_path(video_card) %></td>
-        <td><%= link_to 'Destroy', video_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

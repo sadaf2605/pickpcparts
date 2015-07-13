@@ -5,36 +5,23 @@
 <table>
   <thead>
     <tr>
-      <th>Manufacturer</th>
       <th>Part no</th>
       <th>Type</th>
       <th>Wattage</th>
-      <th>Fans</th>
       <th>Modular</th>
-      <th>Efficiency certification</th>
       <th>Efficiency</th>
-      <th>Output</th>
-      <th>Pci express 6 plus 2 pin connectors</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @power_supplies.each do |power_supply| %>
       <tr>
-        <td><%= power_supply.manufacturer %></td>
-        <td><%= power_supply.part_no %></td>
+        <td><%= link_to power_supply.part_no, power_supply %></td>
         <td><%= power_supply.power_supply_type %></td>
         <td><%= power_supply.wattage %></td>
-        <td><%= power_supply.fans %></td>
         <td><%= power_supply.modular %></td>
-        <td><%= power_supply.efficiency_certification %></td>
         <td><%= power_supply.efficiency %></td>
-        <td><%= power_supply.output %></td>
-        <td><%= power_supply.pci_express_6_plus_2_pin_connectors %></td>
-        <td><%= link_to 'Show', power_supply %></td>
-        <td><%= link_to 'Edit', edit_power_supply_path(power_supply) %></td>
-        <td><%= link_to 'Destroy', power_supply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

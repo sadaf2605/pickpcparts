@@ -1,79 +1,88 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @motherboard.manufacturer %>
-</p>
+<div class="col-md-8">
 
-<p>
-  <strong>Part no:</strong>
-  <%= @motherboard.part_no %>
-</p>
+  <p id="notice"><%= notice %></p>
+  <h3>Specification of <%= @motherboard.part_no %>:</h3>
+  <table class="parts" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
 
-<p>
-  <strong>Form factor:</strong>
-  <%= @motherboard.form_factor.name %>
-</p>
-<p>
-  <strong>Socket:</strong>
-  <%= @motherboard.cpu_socket.name %>
-</p>
+      <th>Feature</th>
+      <th>Specifications</th>
 
-<p>
-  <strong>Chipset:</strong>
-  <%= @motherboard.chipset %>
-</p>
+    </tr>
+    </thead>
 
-<p>
-  <strong>Memory slots:</strong>
-  <%= @motherboard.memory_slot.name %>
-</p>
+    <tbody>
+    <tr>
+      <td>Manufacturer:</td>
+      <td><%= @motherboard.manufacturer %></td>
+    </tr>
+    <tr>
+      <td>Part no:</td>
+      <td><%= @motherboard.part_no %></td>
+    </tr>
+    <tr>
+      <td>Form factor: </td>
+      <td><%= @motherboard.form_factor.name  %></td>
+    </tr>
+    <tr>
+      <td>Socket: </td>
+      <td><%= @motherboard.cpu_socket.name  %></td>
+    </tr>
+    <tr>
+      <td>Chipset:</td>
+      <td><%= @motherboard.chipset  %></td>
+    </tr>
+    <tr>
+      <td> Memory slots:</td>
+      <td><%= @motherboard.memory_slot.name  %></td>
+    </tr>
+    <tr>
+      <td> Memory type: </td>
+      <td><%= @motherboard.memory_type  %></td>
+    </tr>
+    <tr>
+      <td>Max memory:</td>
+      <td><%= @motherboard.max_memory  %></td>
+    </tr>
+    <tr>
+      <td>Raid support: </td>
+      <td><%= @motherboard.raid_support  %></td>
+    </tr>
+    <tr>
+      <td>Onboard video: </td>
+      <td><%= @motherboard.onboard_video  %></td>
+    </tr>
+    <tr>
+      <td>Crossfire support:</td>
+      <td><%= @motherboard.crossfire_support  %></td>
+    </tr>
+    <tr>
+      <td>Sli support: </td>
+      <td><%= @motherboard.sli_support  %></td>
+    </tr>
+    <tr>
+      <td>Sata 6 gbs: </td>
+      <td><%= @motherboard.sata_6_gbs  %></td>
+    </tr>
+    <tr>
+      <td>Onboard ethernet: </td>
+      <td><%= @motherboard.onboard_ethernet  %></td>
+    </tr>
+    <tr>
+      <td>Onboard usb 3 headers: </td>
+      <td><%= @motherboard.onboard_usb_3_headers %></td>
+    </tr>
 
-<p>
-  <strong>Memory type:</strong>
-  <%= @motherboard.memory_type %>
-</p>
+    <tbody>
+  </table>
+</div>
 
-<p>
-  <strong>Max memory:</strong>
-  <%= @motherboard.max_memory %>
-</p>
-
-<p>
-  <strong>Raid support:</strong>
-  <%= @motherboard.raid_support %>
-</p>
-
-<p>
-  <strong>Onboard video:</strong>
-  <%= @motherboard.onboard_video %>
-</p>
-
-<p>
-  <strong>Crossfire support:</strong>
-  <%= @motherboard.crossfire_support %>
-</p>
-
-<p>
-  <strong>Sli support:</strong>
-  <%= @motherboard.sli_support %>
-</p>
-
-<p>
-  <strong>Sata 6 gbs:</strong>
-  <%= @motherboard.sata_6_gbs %>
-</p>
-
-<p>
-  <strong>Onboard ethernet:</strong>
-  <%= @motherboard.onboard_ethernet %>
-</p>
-
-<p>
-  <strong>Onboard usb 3 headers:</strong>
-  <%= @motherboard.onboard_usb_3_headers %>
-</p>
-
-<%= link_to 'Add to build', add_motherboard_path(@motherboard), :method => "Post" %> |
-<%= link_to 'Edit', edit_motherboard_path(@motherboard) %> |
-<%= link_to 'Back', motherboards_path %>
+<div class="col-md-4">
+  <div class="add_build">
+    You can add this item to your current build to see if it is compatable with other parts or not.
+    <%= button_to 'Add to build', add_motherboard_path(@motherboard), :method => "Post", :class => "btn btn-primary" %>
+    or <%= link_to 'back to current build', current_build_url %>
+  </div>
+</div>

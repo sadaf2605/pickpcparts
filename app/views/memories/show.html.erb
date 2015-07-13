@@ -1,65 +1,74 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-8">
 
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @memory.manufacturer %>
-</p>
+  <p id="notice"><%= notice %></p>
+  <h3>Specification of <%= @memory.part_no %>:</h3>
+  <table class="parts" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
 
-<p>
-  <strong>Part no:</strong>
-  <%= @memory.part_no %>
-</p>
-<p>
-  <strong>Memory Slot:</strong>
-  <%= @memory.memory_type.name %>
-</p>
+      <th>Feature</th>
+      <th>Specifications</th>
 
-<p>
-  <strong>Speed:</strong>
-  <%= @memory.speed %>
-</p>
+    </tr>
+    </thead>
 
-<p>
-  <strong>Size:</strong>
-  <%= @memory.size %>
-</p>
+    <tbody>
+    <tr>
+      <td>Manufacturer:</td>
+      <td><%= @memory.manufacturer  %></td>
+    </tr>
+    <tr>
+      <td>Part no: </td>
+      <td><%= @memory.part_no  %></td>
+    </tr>
+    <tr>
+      <td>Memory Slot: </td>
+      <td><%= @memory.memory_type.name  %></td>
+    </tr>
+    <tr>
+      <td>Speed: </td>
+      <td><%= @memory.speed  %></td>
+    </tr>
+    <tr>
+      <td>Size:</td>
+      <td><%= @memory.size  %></td>
+    </tr>
+    <tr>
+      <td> Price/gb: </td>
+      <td><%= @memory.price_gb %></td>
+    </tr>
+    <tr>
+      <td>Cas:</td>
+      <td><%= @memory.cas  %></td>
+    </tr>
+    <tr>
+      <td>Voltage: </td>
+      <td><%= @memory.voltage   %></td>
+    </tr>
+    <tr>
+      <td>Heat Spreader: </td>
+      <td><%= @memory.heat_spreader %></td>
+    </tr>
+    <tr>
+      <td>Ecc:</td>
+      <td><%= @memory.ecc   %></td>
+    </tr>
+    <tr>
+      <td>Registered:</td>
+      <td><%= @memory.registered   %></td>
+    </tr>
+    <tr>
+      <td>Color:</td>
+      <td><%= @memory.color %></td>
+    </tr>
+    <tbody>
+  </table>
+</div>
 
-<p>
-  <strong>Price/gb:</strong>
-  <%= @memory.price_gb %>
-</p>
-
-<p>
-  <strong>Cas:</strong>
-  <%= @memory.cas %>
-</p>
-
-<p>
-  <strong>Voltage:</strong>
-  <%= @memory.voltage %>
-</p>
-
-
-<p>
-  <strong>Heat Spreader:</strong>
-  <%= @memory.heat_spreader %>
-</p>
-
-<p>
-  <strong>Ecc:</strong>
-  <%= @memory.ecc %>
-</p>
-
-<p>
-  <strong>Registered:</strong>
-  <%= @memory.registered %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @memory.color %>
-</p>
-
-<%= link_to 'Add to build', add_memory_path(@memory), :method => "Post" %> |
-<%= link_to 'Edit', edit_memory_path(@memory) %> |
-<%= link_to 'Back', memories_path %>
+<div class="col-md-4">
+  <div class="add_build">
+    You can add this item to your current build to see if it is compatable with other parts or not.
+    <%= button_to 'Add to build', add_memory_path(@memory), :method => "Post", :class => "btn btn-primary" %>
+    or <%= link_to 'back to current build', current_build_url %>
+  </div>
+</div>

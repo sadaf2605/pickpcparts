@@ -1,81 +1,82 @@
+<div class="col-md-8">
+
 <p id="notice"><%= notice %></p>
+<h3>Specification of <%= @cpu.model %>:</h3>
+<table class="parts" class="display" cellspacing="0" width="100%">
+<thead>
+<tr>
 
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @cpu.manufacturer %>
-</p>
+  <th>Feature</th>
+  <th>Specifications</th>
 
-<p>
-  <strong>Model:</strong>
-  <%= @cpu.model %>
-</p>
+</tr>
+</thead>
 
-<p>
-  <strong>Part no:</strong>
-  <%= @cpu.part_no %>
-</p>
+<tbody>
+    <tr>
+      <td>Manufacturer:</td>
+      <td><%= @cpu.manufacturer %></td>
+    </tr>
+    <tr>
+      <td>Model:</td>
+      <td><%= @cpu.model %></td>
+    </tr>
+    <tr>
+      <td>Data width:</td>
+      <td><%= @cpu.data_width %></td>
+    </tr>
+    <tr>
+      <td>Speed:</td>
+      <td><%= @cpu.speed %></td>
+    </tr>
+    <tr>
+      <td>Cores:</td>
+      <td><%= @cpu.cores %></td>
+    </tr>
+    <tr>
+      <td>L1 cache:</td>
+      <td><%= @cpu.l1_cache %></td>
+    </tr>
+    <tr>
+      <td>L2 cache:</td>
+      <td><%= @cpu.l2_cache %></td>
+    </tr>
+    <tr>
+      <td>L3 cache:</td>
+      <td><%= @cpu.l3_cache %></td>
+    </tr>
+    <tr>
+      <td>Lithography:</td>
+      <td><%= @cpu.lithography %></td>
+    </tr>
+    <tr>
+      <td>Thermal design power:</td>
+      <td><%= @cpu.thermal_design_power %></td>
+    </tr>
+    <tr>
+      <td>Includes cpu cooler:</td>
+      <td><%= @cpu.includes_cpu_cooler %></td>
+    </tr>
+    <tr>
+      <td>Hyper threading:</td>
+      <td><%= @cpu.hyper_threading %></td>
+    </tr>
+    <tr>
+      <td>Integrated graphics:</td>
+      <td><%= @cpu.integrated_graphics %></td>
+    </tr>
+    <tr>
+      <td>Cpu socket:</td>
+      <td><%= @cpu.cpu_socket.name %></td>
+    </tr>
+<tbody>
+</table>
+</div>
 
-<p>
-  <strong>Data width:</strong>
-  <%= @cpu.data_width %>
-</p>
-
-<p>
-  <strong>Speed:</strong>
-  <%= @cpu.speed %>
-</p>
-
-<p>
-  <strong>Cores:</strong>
-  <%= @cpu.cores %>
-</p>
-
-<p>
-  <strong>L1 cache:</strong>
-  <%= @cpu.l1_cache %>
-</p>
-
-<p>
-  <strong>L2 cache:</strong>
-  <%= @cpu.l2_cache %>
-</p>
-
-<p>
-  <strong>L3 cache:</strong>
-  <%= @cpu.l3_cache %>
-</p>
-
-<p>
-  <strong>Lithography:</strong>
-  <%= @cpu.lithography %>
-</p>
-
-<p>
-  <strong>Thermal design power:</strong>
-  <%= @cpu.thermal_design_power %>
-</p>
-
-<p>
-  <strong>Includes cpu cooler:</strong>
-  <%= @cpu.includes_cpu_cooler %>
-</p>
-
-<p>
-  <strong>Hyper threading:</strong>
-  <%= @cpu.hyper_threading %>
-</p>
-
-<p>
-  <strong>Integrated graphics:</strong>
-  <%= @cpu.integrated_graphics %>
-</p>
-
-<p>
-  <strong>Cpu socket:</strong>
-  <%= @cpu.cpu_socket.name %>
-</p>
-
-
-<%= link_to 'Add to build', add_cpu_path(@cpu), :method => "Post" %> |
-<%= link_to 'Edit', edit_cpu_path(@cpu) %> |
-<%= link_to 'Back', cpus_path %>
+<div class="col-md-4">
+  <div class="add_build">
+    You can add this item to your current build to see if it is compatable with other parts or not.
+    <%= button_to 'Add to build', add_cpu_path(@cpu), :method => "Post", :class => "btn btn-primary" %>
+    or <%= link_to 'back to current build', current_build_url %>
+  </div>
+</div>

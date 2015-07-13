@@ -12,7 +12,7 @@
 
   <tr>
 
-    <td>CPU</td>
+    <td> <%= link_to "CPU", cpus_url %></td>
 
     <td>
       <% if @current_build.cpu %>
@@ -26,7 +26,7 @@
     <td>None</td>
   </tr>
   <tr>
-    <td>Motherboard</td>
+    <td><%= link_to "Motherboard", motherboards_url %></td>
     <td>
       <% if @current_build.motherboard %>
           <%= link_to @current_build.motherboard.part_no , motherboard_path(@current_build.motherboard) %>
@@ -39,7 +39,7 @@
     <td>None</td>
   </tr>
   <tr>
-    <td>Cooler</td>
+    <td><%= link_to "Cooler", coolers_url%></td>
     <td>
       <% if @current_build.cooler %>
           <%= link_to @current_build.cooler.part_no , cooler_path(@current_build.cooler) %>
@@ -51,7 +51,7 @@
     <td>None</td>
   </tr>
   <tr>
-    <td>Memory</td>
+    <td><%= link_to "Memory", memories_url%></td>
     <td>
       <% if @current_build.memory %>
           <%= link_to @current_build.memory.part_no , memory_path(@current_build.memory) %>
@@ -63,7 +63,7 @@
     <td>None</td>
   </tr>
   <tr>
-    <td>Storage</td>
+    <td><%= link_to "Storage", storages_url %></td>
     <td>
       <% if @current_build.storage %>
           <%= link_to @current_build.storage.part_no , storage_path(@current_build.storage) %>
@@ -77,7 +77,7 @@
 
 
   <tr>
-    <td>Video Card</td>
+    <td><%= link_to "Video card", video_cards_url %></td>
     <td>
       <% if @current_build.video_card %>
           <%= link_to @current_build.video_card.part_no , video_card_path(@current_build.video_card) %>
@@ -90,7 +90,7 @@
   </tr>
 
   <tr>
-    <td>PC Case</td>
+    <td><%= link_to "PC Case", cpu_cases_url %></td>
     <td>
       <% if @current_build.cpu_case %>
           <%= link_to @current_build.cpu_case.part_no , cpu_case_path(@current_build.cpu_case) %>
@@ -103,7 +103,7 @@
   </tr>
 
   <tr>
-    <td>Power supply</td>
+    <td><%= link_to "Power supply", power_supplies_url %></td>
     <td>
       <% if @current_build.power_supply %>
           <%= link_to @current_build.power_supply.part_no , power_supply_path(@current_build.power_supply) %>

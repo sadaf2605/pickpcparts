@@ -5,37 +5,27 @@
 <table>
   <thead>
     <tr>
-      <th>Manufacturer</th>
+
       <th>Part no</th>
       <th>Capacity</th>
-      <th>Interface</th>
+
       <th>Cache</th>
       <th>Form factor</th>
-      <th>Ssd controller</th>
-      <th>Nand flash type</th>
-      <th>Gb 1</th>
+
       <th>Price gb</th>
-      <th colspan="3"></th>
+      <th >Price</th>
     </tr>
   </thead>
 
   <tbody>
     <% @storages.each do |storage| %>
       <tr>
-        <td><%= storage.manufacturer %></td>
-        <td><%= storage.part_no %></td>
+        <td><%= link_to storage.part_no, storage %></td>
         <td><%= storage.capacity %></td>
-        <td><%= storage.interface %></td>
         <td><%= storage.cache %></td>
         <td><%= storage.form_factor %></td>
-        <td><%= storage.ssd_controller %></td>
-        <td><%= storage.nand_flash_type %></td>
-        <td><%= storage.gb_1 %></td>
         <td><%= storage.price_gb %></td>
-        <td><%= link_to 'Show', storage %></td>
-        <td><%= link_to 'Edit', edit_storage_path(storage) %></td>
-        <td><%= link_to 'Destroy', storage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <tr>
     <% end %>
   </tbody>
 </table>

@@ -1,55 +1,66 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-8">
 
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @storage.manufacturer %>
-</p>
+  <p id="notice"><%= notice %></p>
+  <h3>Specification of <%= @storage.part_no %>:</h3>
+  <table class="parts" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
 
-<p>
-  <strong>Part no:</strong>
-  <%= @storage.part_no %>
-</p>
+      <th>Feature</th>
+      <th>Specifications</th>
 
-<p>
-  <strong>Capacity:</strong>
-  <%= @storage.capacity %>
-</p>
+    </tr>
+    </thead>
 
-<p>
-  <strong>Interface:</strong>
-  <%= @storage.interface %>
-</p>
+    <tbody>
+    <tr>
+      <td>Manufacturer:</td>
+      <td><%= @storage.manufacturer   %></td>
+    </tr>
+    <tr>
+      <td>Part no: </td>
+      <td><%= @storage.part_no   %></td>
+    </tr>
+    <tr>
+      <td>Capacity:</td>
+      <td><%= @storage.capacity   %></td>
+    </tr>
+    <tr>
+      <td>Interface: </td>
+      <td><%= @storage.interface   %></td>
+    </tr>
+    <tr>
+      <td>Cache:</td>
+      <td><%= @storage.cache   %></td>
+    </tr>
+    <tr>
+      <td> Form factor: </td>
+      <td><%= @storage.form_factor %></td>
+    </tr>
+    <tr>
+      <td>Ssd controller:</td>
+      <td><%= @storage.ssd_controller   %></td>
+    </tr>
+    <tr>
+      <td>Nand flash type: </td>
+      <td><%= @storage.nand_flash_type    %></td>
+    </tr>
+    <tr>
+      <td>Gb 1: </td>
+      <td><%= @storage.gb_1  %></td>
+    </tr>
+    <tr>
+      <td>Price gb:</td>
+      <td><%= @storage.price_gb   %></td>
+    </tr>
+    <tbody>
+  </table>
+</div>
 
-<p>
-  <strong>Cache:</strong>
-  <%= @storage.cache %>
-</p>
-
-<p>
-  <strong>Form factor:</strong>
-  <%= @storage.form_factor %>
-</p>
-
-<p>
-  <strong>Ssd controller:</strong>
-  <%= @storage.ssd_controller %>
-</p>
-
-<p>
-  <strong>Nand flash type:</strong>
-  <%= @storage.nand_flash_type %>
-</p>
-
-<p>
-  <strong>Gb 1:</strong>
-  <%= @storage.gb_1 %>
-</p>
-
-<p>
-  <strong>Price gb:</strong>
-  <%= @storage.price_gb %>
-</p>
-
-<%= link_to 'Add to build', add_storage_path(@storage), :method => "Post" %> |
-<%= link_to 'Edit', edit_storage_path(@storage) %> |
-<%= link_to 'Back', storages_path %>
+<div class="col-md-4">
+  <div class="add_build">
+    You can add this item to your current build to see if it is compatable with other parts or not.
+    <%= button_to 'Add to build', add_storage_path(@storage), :method => "Post", :class => "btn btn-primary" %>
+    or <%= link_to 'back to current build', current_build_url %>
+  </div>
+</div>

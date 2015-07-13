@@ -5,19 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Manufacturer</th>
       <th>Part no</th>
       <th>Type</th>
-      <th>Color</th>
       <th>Includes power supply</th>
       <th>External 5 25 bays</th>
-      <th>Internal 2 5 bays</th>
       <th>Internal 3 5 bays</th>
-      <th>Motherboard compatibility</th>
-      <th>Front panel usb 3 0</th>
-      <th>Ports</th>
-      <th>Maximum video card length</th>
-      <th>Dimensions</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,22 +17,11 @@
   <tbody>
     <% @cpu_cases.each do |cpu_case| %>
       <tr>
-        <td><%= cpu_case.manufacturer %></td>
-        <td><%= cpu_case.part_no %></td>
+        <td><%= link_to cpu_case.part_no, cpu_case %></td>
         <td><%= cpu_case.type %></td>
-        <td><%= cpu_case.color %></td>
         <td><%= cpu_case.includes_power_supply %></td>
         <td><%= cpu_case.external_5_25_bays %></td>
-        <td><%= cpu_case.internal_2_5_bays %></td>
         <td><%= cpu_case.internal_3_5_bays %></td>
-        <td><%= cpu_case.motherboard_compatibility %></td>
-        <td><%= cpu_case.front_panel_usb_3_0 %></td>
-        <td><%= cpu_case.ports %></td>
-        <td><%= cpu_case.maximum_video_card_length %></td>
-        <td><%= cpu_case.dimensions %></td>
-        <td><%= link_to 'Show', cpu_case %></td>
-        <td><%= link_to 'Edit', edit_cpu_case_path(cpu_case) %></td>
-        <td><%= link_to 'Destroy', cpu_case, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

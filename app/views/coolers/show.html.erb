@@ -1,40 +1,67 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @cooler.manufacturer %>
-</p>
 
-<p>
-  <strong>Part no:</strong>
-  <%= @cooler.part_no %>
-</p>
-<p>
-  <strong>Supported sockets:</strong>
-  <% @cooler.cpu_sockets.each do |socket| %>
-    <%= socket.name %>
-  <% end %>
-</p>
-<p>
-  <strong>Liquid cooled:</strong>
-  <%= @cooler.liquid_cooled %>
-</p>
 
-<p>
-  <strong>Radiator size:</strong>
-  <%= @cooler.radiator_size %>
-</p>
 
-<p>
-  <strong>Noise level:</strong>
-  <%= @cooler.noise_level %>
-</p>
 
-<p>
-  <strong>Fan rpm:</strong>
-  <%= @cooler.fan_rpm %>
-</p>
 
-<%= link_to 'Add to build', add_cooler_path(@cooler), :method => "Post" %> |
-<%= link_to 'Edit', edit_cooler_path(@cooler) %> |
-<%= link_to 'Back', coolers_path %>
+<div class="col-md-8">
+
+  <p id="notice"><%= notice %></p>
+  <h3>Specification of <%= @cooler.part_no %>:</h3>
+  <table class="parts" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+
+      <th>Feature</th>
+      <th>Specifications</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td>Manufacturer:</td>
+      <td><%= @cooler.manufacturer %></td>
+    </tr>
+    <tr>
+      <td> Part no:</td>
+      <td><%= @cooler.part_no %></td>
+    </tr>
+    <tr>
+      <td>Supported sockets: </td>
+      <td><% @cooler.cpu_sockets.each do |socket| %>
+            <%= socket.name %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>Liquid cooled: </td>
+      <td><%= @cooler.liquid_cooled  %></td>
+    </tr>
+    <tr>
+      <td>Radiator size:</td>
+
+
+
+      <td><%= @cooler.radiator_size  %></td>
+    </tr>
+    <tr>
+      <td> Noise level:</td>
+      <td><%= @cooler.noise_level  %></td>
+    </tr>
+    <tr>
+      <td> Fan rpm: </td>
+      <td><%= @cooler.fan_rpm  %></td>
+    </tr>
+
+    <tbody>
+  </table>
+</div>
+
+<div class="col-md-4">
+  <div class="add_build">
+    You can add this item to your current build to see if it is compatable with other parts or not.
+    <%= button_to 'Add to build', add_cooler_path(@cooler), :method => "Post", :class => "btn btn-primary" %>
+    or <%= link_to 'back to current build', current_build_url %>
+  </div>
+</div>

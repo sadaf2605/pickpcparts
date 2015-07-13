@@ -1,74 +1,81 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @cpu_case.manufacturer %>
-</p>
 
-<p>
-  <strong>Part no:</strong>
-  <%= @cpu_case.part_no %>
-</p>
+<div class="col-md-8">
 
-<p>
-  <strong>Type:</strong>
-  <%= @cpu_case.case_type %>
-</p>
+  <p id="notice"><%= notice %></p>
+  <h3>Specification of <%= @cpu_case.part_no %>:</h3>
+  <table class="parts" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
 
-<p>
-  <strong>Color:</strong>
-  <%= @cpu_case.color %>
-</p>
+      <th>Feature</th>
+      <th>Specifications</th>
 
-<p>
-  <strong>Includes power supply:</strong>
-  <%= @cpu_case.includes_power_supply %>
-</p>
+    </tr>
+    </thead>
 
-<p>
-  <strong>External 5 25 bays:</strong>
-  <%= @cpu_case.external_5_25_bays %>
-</p>
+    <tbody>
+    <tr>
+      <td>Manufacturer:</td>
+      <td><%=  @cpu_case.manufacturer   %></td>
+    </tr>
+    <tr>
+      <td>Type: </td>
+      <td><%= @cpu_case.type   %></td>
+    </tr>
+    <tr>
+      <td>Color: </td>
+      <td><%= @cpu_case.color   %></td>
+    </tr>
+    <tr>
+      <td>Includes power supply: </td>
+      <td><%= @cpu_case.includes_power_supply  %></td>
+    </tr>
+    <tr>
+      <td>External 5 25 bays:</td>
+      <td><%=@cpu_case.external_5_25_bays     %></td>
+    </tr>
+    <tr>
+      <td>Internal 2 5 bays:  </td>
+      <td><%=  @cpu_case.internal_2_5_bays     %></td>
+    </tr>
+    <tr>
+      <td>Internal 3 5 bays: </td>
+      <td><%= @cpu_case.internal_3_5_bays   %></td>
+    </tr>
+    <tr>
+      <td> Motherboard compatibility:  </td>
+      <td><% @cpu_case.motherboard_compatibility.each do |form_factor| %>
+            <%= form_factor.name %>,
+        <%end%></td>
+    </tr>
+    <tr>
+      <td>Front panel usb 3 0: </td>
+      <td><%= @cpu_case.front_panel_usb_3_0 %></td>
+    </tr>
+    <tr>
+      <td>Ports: </td>
+      <td><%= @cpu_case.ports     %></td>
+    </tr>
+    <tr>
+      <td>Maximum video card length: </td>
+      <td><%=  @cpu_case.maximum_video_card_length    %></td>
+    </tr>
+    <tr>
+      <td>Dimensions: </td>
+      <td>  <%= @cpu_case.length %> x
+        <%= @cpu_case.width %> x
+        <%= @cpu_case.height %>
+      </td>
+    </tr>
+    <tbody>
+  </table>
+</div>
 
-<p>
-  <strong>Internal 2 5 bays:</strong>
-  <%= @cpu_case.internal_2_5_bays %>
-</p>
-
-<p>
-  <strong>Internal 3 5 bays:</strong>
-  <%= @cpu_case.internal_3_5_bays %>
-</p>
-
-<p>
-  <strong>Motherboard compatibility:</strong>
-  <% @cpu_case.motherboard_compatibility.each do |form_factor| %>
-  <%= form_factor.name %>,
-  <%end%>
-</p>
-
-<p>
-  <strong>Front panel usb 3 0:</strong>
-  <%= @cpu_case.front_panel_usb_3_0 %>
-</p>
-
-<p>
-  <strong>Ports:</strong>
-  <%= @cpu_case.ports %>
-</p>
-
-<p>
-  <strong>Maximum video card length:</strong>
-  <%= @cpu_case.maximum_video_card_length %>
-</p>
-
-<p>
-  <strong>Dimensions:</strong>
-  <%= @cpu_case.length %> x
-  <%= @cpu_case.width %> x
-  <%= @cpu_case.height %>
-</p>
-
-<%= link_to 'Add to build', add_cpu_case_path(@cpu_case), :method => "Post" %> |
-<%= link_to 'Edit', edit_cpu_case_path(@cpu_case) %> |
-<%= link_to 'Back', cpu_cases_path %>
+<div class="col-md-4">
+  <div class="add_build">
+    You can add this item to your current build to see if it is compatable with other parts or not.
+    <%= button_to 'Add to build', add_cpu_case_path(@cpu_case), :method => "Post", :class => "btn btn-primary" %>
+    or <%= link_to 'back to current build', current_build_url %>
+  </div>
+</div>

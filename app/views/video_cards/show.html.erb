@@ -1,82 +1,86 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-8">
 
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @video_card.manufacturer %>
-</p>
+  <p id="notice"><%= notice %></p>
+  <h3>Specification of <%= @video_card.part_no %>:</h3>
+  <table class="parts" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
 
-<p>
-  <strong>Part no:</strong>
-  <%= @video_card.part_no %>
-</p>
+      <th>Feature</th>
+      <th>Specifications</th>
 
-<p>
-  <strong>Interface:</strong>
-  <%= @video_card.interface %>
-</p>
+    </tr>
+    </thead>
 
-<p>
-  <strong>Chipset:</strong>
-  <%= @video_card.chipset %>
-</p>
+    <tbody>
+    <tr>
+      <td>Manufacturer:</td>
+      <td><%=  @video_card.manufacturer   %></td>
+    </tr>
+    <tr>
+      <td>Part no: </td>
+      <td><%= @video_card.part_no   %></td>
+    </tr>
+    <tr>
+      <td>Interface: </td>
+      <td><%= @video_card.interface   %></td>
+    </tr>
+    <tr>
+      <td>Chipset: </td>
+      <td><%= @video_card.chipset  %></td>
+    </tr>
+    <tr>
+      <td>Memory size:</td>
+      <td><%= @video_card.memory_size    %></td>
+    </tr>
+    <tr>
+      <td>Memory type: </td>
+      <td><%= @video_card.memory_type     %></td>
+    </tr>
+    <tr>
+      <td>Core clock:</td>
+      <td><%= @video_card.core_clock    %></td>
+    </tr>
+    <tr>
+      <td> Tdp: </td>
+      <td><%=  @video_card.tdp   %></td>
+    </tr>
+    <tr>
+      <td>Fan:</td>
+      <td><%= @video_card.fan     %></td>
+    </tr>
+    <tr>
+      <td>Sli support: </td>
+      <td><%= @video_card.sli_support      %></td>
+    </tr>
+    <tr>
+      <td>Crossfire support: </td>
+      <td><%= @video_card.crossfire_support    %></td>
+    </tr>
+    <tr>
+      <td>Length:</td>
+      <td><%= @video_card.length   %></td>
+    </tr>
+    <tr>
+      <td>Dvi d dual link:</td>
+      <td><%= @video_card.dvi_d_dual_link    %></td>
+    </tr>
+    <tr>
+      <td>Display port:</td>
+      <td><%= @video_card.display_port    %></td>
+    </tr>
+    <tr>
+      <td>Hdmi:</td>
+      <td><%= @video_card.hdmi   %></td>
+    </tr>
+    <tbody>
+  </table>
+</div>
 
-<p>
-  <strong>Memory size:</strong>
-  <%= @video_card.memory_size %>
-</p>
-
-<p>
-  <strong>Memory type:</strong>
-  <%= @video_card.memory_type %>
-</p>
-
-<p>
-  <strong>Core clock:</strong>
-  <%= @video_card.core_clock %>
-</p>
-
-<p>
-  <strong>Tdp:</strong>
-  <%= @video_card.tdp %>
-</p>
-
-<p>
-  <strong>Fan:</strong>
-  <%= @video_card.fan %>
-</p>
-
-<p>
-  <strong>Sli support:</strong>
-  <%= @video_card.sli_support %>
-</p>
-
-<p>
-  <strong>Crossfire support:</strong>
-  <%= @video_card.crossfire_support %>
-</p>
-
-<p>
-  <strong>Length:</strong>
-  <%= @video_card.length %>
-</p>
-
-<p>
-  <strong>Dvi d dual link:</strong>
-  <%= @video_card.dvi_d_dual_link %>
-</p>
-
-<p>
-  <strong>Display port:</strong>
-  <%= @video_card.display_port %>
-</p>
-
-<p>
-  <strong>Hdmi:</strong>
-  <%= @video_card.hdmi %>
-</p>
-
-
-
-<%= link_to 'Add to build', add_video_card_path(@video_card), :method => "Post" %> |
-<%= link_to 'Edit', edit_video_card_path(@video_card) %> |
-<%= link_to 'Back', video_cards_path %>
+<div class="col-md-4">
+  <div class="add_build">
+    You can add this item to your current build to see if it is compatable with other parts or not.
+    <%= button_to 'Add to build', add_video_card_path(@video_card), :method => "Post", :class => "btn btn-primary" %>
+    or <%= link_to 'back to current build', current_build_url %>
+  </div>
+</div>

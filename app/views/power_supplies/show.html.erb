@@ -1,56 +1,64 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @power_supply.manufacturer %>
-</p>
-
-<p>
-  <strong>Part no:</strong>
-  <%= @power_supply.part_no %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @power_supply.power_supply_type %>
-</p>
-
-<p>
-  <strong>Wattage:</strong>
-  <%= @power_supply.wattage %>
-</p>
-
-<p>
-  <strong>Fans:</strong>
-  <%= @power_supply.fans %>
-</p>
-
-<p>
-  <strong>Modular:</strong>
-  <%= @power_supply.modular %>
-</p>
-
-<p>
-  <strong>Efficiency certification:</strong>
-  <%= @power_supply.efficiency_certification %>
-</p>
-
-<p>
-  <strong>Efficiency:</strong>
-  <%= @power_supply.efficiency %>
-</p>
-
-<p>
-  <strong>Output:</strong>
-  <%= @power_supply.output %>
-</p>
-
-<p>
-  <strong>Pci express 6 plus 2 pin connectors:</strong>
-  <%= @power_supply.pci_express_6_plus_2_pin_connectors %>
-</p>
 
 
-<%= link_to 'Add to build', add_power_supply_path(@power_supply), :method => "Post" %> |
-<%= link_to 'Edit', edit_power_supply_path(@power_supply) %> |
-<%= link_to 'Back', power_supplies_path %>
+<div class="col-md-8">
+
+  <p id="notice"><%= notice %></p>
+  <h3>Specification of <%= @power_supply.part_no %>:</h3>
+  <table class="parts" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+
+      <th>Feature</th>
+      <th>Specifications</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td>Manufacturer:</td>
+      <td><%=  @power_supply.manufacturer   %></td>
+    </tr>
+    <tr>
+      <td>Type: </td>
+      <td><%= @power_supply.power_supply_type   %></td>
+    </tr>
+    <tr>
+      <td>Wattage: </td>
+      <td><%= @power_supply.wattage  %></td>
+    </tr>
+    <tr>
+      <td>Fans: </td>
+      <td><%=@power_supply.fans      %></td>
+    </tr>
+    <tr>
+      <td>Modular:  </td>
+      <td><%=  @power_supply.modular      %></td>
+    </tr>
+    <tr>
+      <td>Efficiency certification:  </td>
+      <td><%= @power_supply.efficiency_certification    %></td>
+    </tr>
+    <tr>
+      <td> Efficiency:   </td>
+      <td><%=@power_supply.efficiency %></td>
+    </tr>
+    <tr>
+      <td>Output: </td>
+      <td><%= @power_supply.output  %></td>
+    </tr>
+    <tr>
+      <td>Pci express 6 plus 2 pin connectors: </td>
+      <td><%= @power_supply.pci_express_6_plus_2_pin_connectors     %></td>
+    </tr>
+    <tbody>
+  </table>
+</div>
+
+<div class="col-md-4">
+  <div class="add_build">
+    You can add this item to your current build to see if it is compatable with other parts or not.
+    <%= button_to 'Add to build', add_power_supply_path(@power_supply), :method => "Post", :class => "btn btn-primary" %>
+    or <%= link_to 'back to current build', current_build_url %>
+  </div>
+</div>

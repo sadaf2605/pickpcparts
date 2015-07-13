@@ -17,12 +17,30 @@
  *= require navbar
  *= require owl.carousel
  *= require owl.theme
+ *= require jquery.dataTables
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
 @import "navbar";
+
+.add_build {
+  background-color:#BEE3F6;
+  border-radius: 5px;
+  padding: 10px;
+  padding-left: 15px;
+  margin-top: 30px;
+}
+.add_build .btn{
+  margin-top:10px;
+  margin-bottom: 5px;
+}
+.add_build .button_to{
+  text-align: right;
+}
+
+
 
 .btn a{
   text-decoration: none;
