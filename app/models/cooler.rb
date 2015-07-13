@@ -14,7 +14,9 @@ class Cooler < ActiveRecord::Base
 		if pc_cases.nil?
 			return false
 		else
-			raise "not implemented"
+			#todo
+			#raise "not implemented"
+			return true
 		end
 	end
 

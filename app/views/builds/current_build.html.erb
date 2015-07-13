@@ -37,5 +37,19 @@
     </div>
     <%= render 'select_or_show_build' %>
 
-
-
+<div>
+  <h3>Consistancy report</h3>
+  <div style="color:green">
+        <h4>Checked:</h4>
+        <% concistancies,conflicts=@current_build.concistency_check %>
+        <% concistancies.each do |consistancy| %>
+              <li><%=consistancy%></li>
+        <%end%>
+  </div>
+  <div style="color:red">
+      <h4>Conflicts</h4>
+      <% conflicts.each do |conflict| %>
+          <li><%=conflict%></li>
+      <%end%>
+  </div>
+</div>

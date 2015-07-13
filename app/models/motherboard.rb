@@ -23,12 +23,14 @@ class Motherboard < ActiveRecord::Base
 	end
 
 	def supports_optical_drive(drive)
-		raise "yet to implement"
+		#todo
+		#raise "yet to implement"
 		return true
 	end
 
 	def supports_sound_card(sound_card)
-		raise "yet to implement"
+		#todo
+		#raise "yet to implement"
 		return true
 	end
 
@@ -42,11 +44,13 @@ class Motherboard < ActiveRecord::Base
 	end
 
 	def supports_wired_network_adapter(wired_network_adapter)
-		raise "yet to implement"
+		#todo
+		#raise "yet to implement"
 		return true
 	end
 	def supports_wireless_network_adapters(wireless_network_adapters)
-		raise "yet to implement"
+		#todo
+		#raise "yet to implement"
 		return true
 	end
 

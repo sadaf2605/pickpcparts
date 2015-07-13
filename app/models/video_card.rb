@@ -3,7 +3,11 @@ class VideoCard < ActiveRecord::Base
 
 
 	def supports_case(cpu_case)
-		return cpu_case.length >= self.length
+		if cpu_case.nil? || self.length.nil?
+			return false
+		else
+			return cpu_case.length >= self.length
+		end
 	end
 
 	def supports_motherboard(motherboard)
@@ -22,7 +26,7 @@ class VideoCard < ActiveRecord::Base
 		if supports_case(build.cpu_case)
 			consistancies << "video card supports cpu case length"
 		else
-			conflicts << "Video card needs at least length at case " + self.length
+			conflicts << "Video card needs at least length at case "
 		end
 
 
