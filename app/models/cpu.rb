@@ -4,7 +4,7 @@ class Cpu < ActiveRecord::Base
   attr_accessor :cpu_socket_str
 
   def supports_cooler(cooler)
-
+    
     if cooler.nil?
       return false
     else
