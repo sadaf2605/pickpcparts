@@ -31,7 +31,7 @@ class CpuCasesController < ApplicationController
     @cpu_case.height=cpu_case_params[:dimensions].split(" x ")[2].strip.sub('\"', '').to_f
 
     params[:cpu_case][:motherboard_compatibility].split(",").each do |form_factor|
-      @cpu_case.motherboard_compatibility << FormFactor.find_by_name(form_factor) || FormFactor.create({ :name => form_factor})
+      @cpu_case.motherboard_compatibility << FormFactor.find_or_create(name: form_factor)
     end
 
     respond_to do |format|
