@@ -81,7 +81,7 @@ class Build < ActiveRecord::Base
 		end
 
 		if self.motherboard
-		 #combine_report(self.motherboard.report_consistency(self))
+		 combine_report(self.motherboard.report_consistency(self))
 		end
 
 
