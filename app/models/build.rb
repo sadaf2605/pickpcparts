@@ -73,7 +73,7 @@ class Build < ActiveRecord::Base
 		end
 
 		if self.cpu
-#			combine_report(self.cpu.report_consistency(self))
+			combine_report(self.cpu.report_consistency(self))
 		end
 
 		if self.cooler

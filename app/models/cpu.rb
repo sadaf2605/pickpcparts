@@ -4,7 +4,7 @@ class Cpu < ActiveRecord::Base
   attr_accessor :cpu_socket_str
 
   def supports_cooler(cooler)
-    
+
     if cooler.nil?
       return false
     else
@@ -36,7 +36,7 @@ class Cpu < ActiveRecord::Base
       consistancies << "cpu and motherboard both support socket " + self.cpu_socket.name
     else
       conflicts << "cpu and motherboard has conflicted on socket " + self.cpu_socket.name
-      conflicts << "cpu only support" + self.cpu.cpu_socket.name
+      conflicts << "cpu only support" + self.cpu_socket.name
     end
 
 
