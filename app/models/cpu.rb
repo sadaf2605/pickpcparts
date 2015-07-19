@@ -1,4 +1,6 @@
 class Cpu < ActiveRecord::Base
+  has_and_belongs_to_many :builds
+  
   belongs_to :cpu_socket
 
   attr_accessor :cpu_socket_str

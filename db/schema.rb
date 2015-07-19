@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719195850) do
+ActiveRecord::Schema.define(version: 20150719220058) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -78,7 +78,11 @@ ActiveRecord::Schema.define(version: 20150719195850) do
     t.string   "fan_rpm"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.integer  "build_id"
+  end
+
+  create_table "coolers_builds", id: false, force: :cascade do |t|
+    t.integer "cooler_id"
+    t.integer "build_id"
   end
 
   create_table "coolers_cpu_sockets", id: false, force: :cascade do |t|
@@ -106,7 +110,11 @@ ActiveRecord::Schema.define(version: 20150719195850) do
     t.float    "height"
     t.integer  "form_factor_id"
     t.string   "type"
-    t.integer  "build_id"
+  end
+
+  create_table "cpu_cases_builds", id: false, force: :cascade do |t|
+    t.integer "cpu_case_id"
+    t.integer "build_id"
   end
 
   create_table "cpu_sockets", force: :cascade do |t|
@@ -135,7 +143,11 @@ ActiveRecord::Schema.define(version: 20150719195850) do
     t.integer  "cpu_socket_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.integer  "build_id"
+  end
+
+  create_table "cpus_builds", id: false, force: :cascade do |t|
+    t.integer "cpu_id"
+    t.integer "build_id"
   end
 
   create_table "form_factors", force: :cascade do |t|
@@ -161,7 +173,11 @@ ActiveRecord::Schema.define(version: 20150719195850) do
     t.datetime "updated_at",     null: false
     t.string   "memory"
     t.integer  "memory_slot_id"
-    t.integer  "build_id"
+  end
+
+  create_table "memories_builds", id: false, force: :cascade do |t|
+    t.integer "memory_id"
+    t.integer "build_id"
   end
 
   create_table "memory_slots", force: :cascade do |t|
@@ -190,7 +206,11 @@ ActiveRecord::Schema.define(version: 20150719195850) do
     t.integer  "memory_slot_num"
     t.integer  "memory_slot_id"
     t.integer  "form_factor_id"
-    t.integer  "build_id"
+  end
+
+  create_table "motherboards_builds", id: false, force: :cascade do |t|
+    t.integer "motherboard_id"
+    t.integer "build_id"
   end
 
   create_table "power_supplies", force: :cascade do |t|
@@ -206,7 +226,11 @@ ActiveRecord::Schema.define(version: 20150719195850) do
     t.string   "pci_express_6_plus_2_pin_connectors"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "build_id"
+  end
+
+  create_table "power_supplies_builds", id: false, force: :cascade do |t|
+    t.integer "power_supply_id"
+    t.integer "build_id"
   end
 
   create_table "processor_advanced_technologies", force: :cascade do |t|
@@ -354,7 +378,11 @@ ActiveRecord::Schema.define(version: 20150719195850) do
     t.string   "price_gb"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "build_id"
+  end
+
+  create_table "storages_builds", id: false, force: :cascade do |t|
+    t.integer "storage_id"
+    t.integer "build_id"
   end
 
   create_table "video_cards", force: :cascade do |t|
@@ -375,7 +403,11 @@ ActiveRecord::Schema.define(version: 20150719195850) do
     t.datetime "updated_at",        null: false
     t.float    "length"
     t.boolean  "crossfire_support"
-    t.integer  "build_id"
+  end
+
+  create_table "video_cards_builds", id: false, force: :cascade do |t|
+    t.integer "video_card_id"
+    t.integer "build_id"
   end
 
 end

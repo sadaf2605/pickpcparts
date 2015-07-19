@@ -30,7 +30,10 @@ class BuildsController < ApplicationController
   def add_cpu
     @current_build = get_current_build
     cpu=Cpu.find(params[:cpu_id])
-    @current_build.add_cpu(cpu)
+    qty=params[:qty]
+    Integer(qty).times do
+      @current_build.add_cpu(cpu)
+    end
     redirect_to current_build_url
   end
   
@@ -44,7 +47,10 @@ class BuildsController < ApplicationController
   def add_motherboard
     @current_build = get_current_build
     motherboard = Motherboard.find(params[:motherboard_id])
-    @current_build.add_motherboard(motherboard)
+    qty=params[:qty]
+    Integer(qty).times do
+      @current_build.add_motherboard(motherboard)
+    end
     redirect_to current_build_url
   end
 
@@ -59,7 +65,10 @@ class BuildsController < ApplicationController
   def add_cooler
    @current_build = get_current_build
     motherboard = Cooler.find(params[:cooler_id])
-    @current_build.add_motherboard(motherboard)
+    qty=params[:qty]
+    Integer(qty).times do
+      @current_build.add_motherboard(motherboard)
+    end
     redirect_to current_build_url
   end
   
@@ -73,7 +82,10 @@ class BuildsController < ApplicationController
   def add_memory
     @current_build =get_current_build
     memory = Memory.find(params[:memory_id])
-    @current_build.add_memory(memory)
+    qty=params[:qty]
+    Integer(qty).times do
+      @current_build.add_memory(memory)
+    end
     redirect_to current_build_url
   end
   def remove_memory
@@ -87,7 +99,10 @@ class BuildsController < ApplicationController
   def add_storage
     @current_build =get_current_build
     storage = Storage.find(params[:storage_id])
-    @current_build.add_storage(storage)
+    qty=params[:qty]
+    Integer(qty).times do
+      @current_build.add_storage(storage)
+    end
     redirect_to current_build_url
   end
   def remove_storage
@@ -100,7 +115,10 @@ class BuildsController < ApplicationController
   def add_video_card
     @current_build =get_current_build
     video_card = VideoCard.find(params[:video_card_id])
-    @current_build.add_video_card(video_card)
+    qty=params[:qty]
+    Integer(qty).times do
+      @current_build.add_video_card(video_card)
+    end
     redirect_to current_build_url
   end
   def remove_video_card
@@ -113,7 +131,10 @@ class BuildsController < ApplicationController
   def add_cpu_case
     @current_build =get_current_build
     cpu_case = CpuCase.find(params[:cpu_case_id])
-    @current_build.add_cpu_case(cpu_case)
+    qty=params[:qty]
+    Integer(qty).times do
+      @current_build.add_cpu_case(cpu_case)
+    end
     redirect_to current_build_url
   end
   def remove_cpu_case
@@ -127,7 +148,10 @@ class BuildsController < ApplicationController
   def add_power_supply
     @current_build =get_current_build
     power_supply = PowerSupply.find(params[:power_supply_id])
-    @current_build.add_power_supply(power_supply)
+    qty=params[:qty]
+    Integer(qty).times do
+      @current_build.add_power_supply(power_supply)
+    end
     redirect_to current_build_url
   end
     def remove_power_supply

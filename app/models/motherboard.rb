@@ -3,6 +3,7 @@ class Motherboard < ActiveRecord::Base
 	has_many :build
 	belongs_to :memory_slot
 	belongs_to :form_factor
+	has_and_belongs_to_many :builds
 
 	attr_accessor :form_factor_str
 

@@ -1,12 +1,12 @@
 class Build < ActiveRecord::Base
-	has_many :cpus
-	has_many :coolers
-	has_many :motherboards
-	has_many :memories
-	has_many :storages
-	has_many :cpu_cases
-	has_many :video_cards
-	has_many :power_supplies
+	has_and_belongs_to_many :cpus, :join_table => 'cpus_builds'
+	has_and_belongs_to_many :coolers, :join_table => 'coolers_builds'
+	has_and_belongs_to_many :motherboards, :join_table => 'motherboards_builds'
+	has_and_belongs_to_many :memories, :join_table => 'memories_builds'
+	has_and_belongs_to_many :storages,:join_table => 'storages_builds'
+	has_and_belongs_to_many :cpu_cases,:join_table => 'cpu_cases_builds'
+	has_and_belongs_to_many :video_cards, :join_table => 'video_cards_builds'
+	has_and_belongs_to_many :power_supplies, :join_table => 'power_supplies_builds'
 
   def add_cpu(cpu)
 		if cpu

@@ -1,5 +1,5 @@
 class VideoCard < ActiveRecord::Base
-	belongs_to :build
+	has_and_belongs_to_many :builds
 
 
 	def supports_case(cpu_case)

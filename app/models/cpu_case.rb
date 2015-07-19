@@ -5,5 +5,7 @@ class CpuCase < ActiveRecord::Base
 
 	attr_accessor :dimensions
 	attr_accessor :form_factor
+	
+	has_and_belongs_to_many :builds
 
 end
