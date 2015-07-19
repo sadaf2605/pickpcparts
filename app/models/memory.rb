@@ -13,11 +13,15 @@ class Memory < ActiveRecord::Base
   def report_consistency(build)
 		consistancies=[]
 		conflicts=[]
-		if supports_motherboard(build.motherboard)
-			consistancies << "memory and motherboard both supports each other"
-		else
-			conflicts << "memory does not support motherboard"
-		end
+		
+		self.motherboards do |motherboard|
+  		if supports_motherboard(motherboard)
+  			consistancies << "memory and motherboard both supports each other"
+  		else
+  			conflicts << "memory does not support motherboard"
+  		end
+  	end
+  	
 		return consistancies, conflicts
 	end
 end

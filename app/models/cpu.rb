@@ -24,21 +24,23 @@ class Cpu < ActiveRecord::Base
   def report_consistency(build)
     consistancies=[]
     conflicts=[]
-
-    if supports_cooler(build.cooler)
-        consistancies << "cpu and cooler both support socket " + self.cpu_socket.name
-    else
-        conflicts << "cpu and cooler has conflicted on socket " + self.cpu_socket.name
+    
+    build.coolers do |cooler|
+      if supports_cooler(cooler)
+          consistancies << "cpu and cooler both support socket " + self.cpu_socket.name
+      else
+          conflicts << "cpu and cooler has conflicted on socket " + self.cpu_socket.name
+      end
     end
 
-
-    if supports_motherboard(build.motherboard)
-      consistancies << "cpu and motherboard both support socket " + self.cpu_socket.name
-    else
-      conflicts << "cpu and motherboard has conflicted on socket " + self.cpu_socket.name
-      conflicts << "cpu only support" + self.cpu_socket.name
+    build.motherboards do |motherboard|
+      if supports_motherboard(motherboard)
+        consistancies << "cpu and motherboard both support socket " + self.cpu_socket.name
+      else
+        conflicts << "cpu and motherboard has conflicted on socket " + self.cpu_socket.name
+        conflicts << "cpu only support" + self.cpu_socket.name
+      end
     end
-
 
     return consistancies,conflicts
   end

@@ -31,23 +31,32 @@ class Cooler < ActiveRecord::Base
 	def report_consistency(build)
 		consistancy=[]
 		conflict=[]
-		if self.supports_cpu(build.cpu)
-			consistancy << "Cooler and cpu both supports socket "+build.cpu.cpu_socket
-		else
-			conflict << "Cooler does not support socket of cpu, socket "+build.cpu.cpu_socket
-		end
+		
+		
+		build.cpus do |cpu|
+  		if self.supports_cpu(cpu)
+  			consistancy << "Cooler and cpu both supports socket "+build.cpu.cpu_socket
+  		else
+  			conflict << "Cooler does not support socket of cpu, socket "+build.cpu.cpu_socket
+  		end
+  	end
 
-		if self.supports_cases(build.cpu_case)
-			consistancy << "Cooler and case supports form factor "
-		else
-			conflict << "Cooler does not support form factor of case"
-		end
-
-		if self.supports_motherboard(build.motherboard)
-			consistancy << "Cooler and motherboard both supports socket "+build.cpu.cpu_socket
-		else
-			conflict << "Cooler does not support socket of motherboard, socket "+build.cpu.cpu_socket
-		end
+    build.cpu_case do |cpu_case|
+  		if self.supports_cases(cpu_case)
+  			consistancy << "Cooler and case supports form factor "
+  		else
+  			conflict << "Cooler does not support form factor of case"
+  		end
+  	end
+  	
+    build.motherboards do |motherboard|
+  		if self.supports_motherboard(motherboard)
+  			consistancy << "Cooler and motherboard both supports socket "+build.cpu.cpu_socket
+  		else
+  			conflict << "Cooler does not support socket of motherboard, socket "+build.cpu.cpu_socket
+  		end
+  	end
+  	
 		return consistancy, conflict
 	end
 
