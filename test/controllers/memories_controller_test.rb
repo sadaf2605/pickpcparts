@@ -18,7 +18,7 @@ class MemoriesControllerTest < ActionController::TestCase
 
   test "should create memory" do
     assert_difference('Memory.count') do
-      post :create, memory: { cas: @memory.cas, color: @memory.color, ecc: @memory.ecc, heat: @memory.heat, manufacturer: @memory.manufacturer, part_no: @memory.part_no, price/gb: @memory.price/gb, registered: @memory.registered, size: @memory.size, speed: @memory.speed, spreader: @memory.spreader, voltage: @memory.voltage }
+      post :create, memory: { cas: @memory.cas, color: @memory.color, ecc: @memory.ecc, heat: @memory.heat, manufacturer: @memory.manufacturer, part_no: @memory.part_no, price_gb: @memory.price_gb, registered: @memory.registered, size: @memory.size, speed: @memory.speed, spreader: @memory.spreader, voltage: @memory.voltage }
     end
 
     assert_redirected_to memory_path(assigns(:memory))

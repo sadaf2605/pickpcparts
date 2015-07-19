@@ -15,8 +15,21 @@
     <td> <%= link_to "CPU", cpus_url %></td>
 
     <td>
+      <style>
+        .cross {
+            background-color: #0088cc;
+            color: white;
+            padding: 1.5px;
+            border-radius: 3px;
+        }
+              .cross:hover{
+                  background-color: #005983;
+              }
+      </style>
       <% if @current_build.cpu %>
           <%= link_to @current_build.cpu.model , cpu_path(@current_build.cpu) %>
+
+          <%= link_to remove_cpu_path(@current_build.cpu), :method => :post do %><i class="fa fa-times cross"></i><% end %>
       <% else %>
           <%= link_to "add cpu", cpus_url, {:class =>"btn btn-xs btn-primary"} %>
       <% end %>
@@ -30,6 +43,7 @@
     <td>
       <% if @current_build.motherboard %>
           <%= link_to @current_build.motherboard.part_no , motherboard_path(@current_build.motherboard) %>
+          <%= link_to remove_motherboard_path(@current_build.motherboard) do %><i class="fa fa-times cross"></i><% end %>
       <% else %>
           <%= link_to "add motherboard", motherboards_url, {:class =>"btn btn-xs btn-primary"} %>
       <% end %>
@@ -43,6 +57,7 @@
     <td>
       <% if @current_build.cooler %>
           <%= link_to @current_build.cooler.part_no , cooler_path(@current_build.cooler) %>
+          <%= link_to remove_cooler_path(@current_build.cooler) do %><i class="fa fa-times cross"></i><% end %>
       <% else %>
           <%= link_to "add cooler", coolers_url, {:class =>"btn btn-xs btn-primary"} %>
       <% end %>
@@ -55,6 +70,7 @@
     <td>
       <% if @current_build.memory %>
           <%= link_to @current_build.memory.part_no , memory_path(@current_build.memory) %>
+          <%= link_to remove_memory_path(@current_build.memory) do %><i class="fa fa-times cross"></i><% end %>
       <% else %>
           <%= link_to "add memory", memories_url, {:class =>"btn btn-xs btn-primary"} %>
       <% end %>
@@ -67,6 +83,7 @@
     <td>
       <% if @current_build.storage %>
           <%= link_to @current_build.storage.part_no , storage_path(@current_build.storage) %>
+          <%= link_to remove_storage_path(@current_build.storage) do %><i class="fa fa-times cross"></i><% end %>
       <% else %>
           <%= link_to "add storage", storages_url, {:class =>"btn btn-xs btn-primary"} %>
       <% end %>
@@ -81,6 +98,7 @@
     <td>
       <% if @current_build.video_card %>
           <%= link_to @current_build.video_card.part_no , video_card_path(@current_build.video_card) %>
+          <%= link_to remove_video_card_path(@current_build.video_card) do %><i class="fa fa-times cross"></i><% end %>
       <% else %>
           <%= link_to "add video card", video_cards_url, {:class =>"btn btn-xs btn-primary"} %>
       <% end %>
@@ -94,6 +112,7 @@
     <td>
       <% if @current_build.cpu_case %>
           <%= link_to @current_build.cpu_case.part_no , cpu_case_path(@current_build.cpu_case) %>
+          <%= link_to remove_cpu_case_path(@current_build.cpu_case) do %><i class="fa fa-times cross"></i><% end %>
       <% else %>
           <%= link_to "add PC case", cpu_cases_url, {:class =>"btn btn-xs btn-primary"} %>
       <% end %>
@@ -107,6 +126,7 @@
     <td>
       <% if @current_build.power_supply %>
           <%= link_to @current_build.power_supply.part_no , power_supply_path(@current_build.power_supply) %>
+          <%= link_to remove_power_supply_path(@current_build.power_supply) do %><i class="fa fa-times cross"></i><% end %>
       <% else %>
           <%= link_to "add Power supply", power_supplies_url, {:class =>"btn btn-xs btn-primary"} %>
       <% end %>

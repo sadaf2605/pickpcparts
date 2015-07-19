@@ -33,7 +33,13 @@ class BuildsController < ApplicationController
     @current_build.add_cpu(cpu)
     redirect_to current_build_url
   end
-
+  
+  def remove_cpu
+    @current_build = get_current_build
+    cpu=Cpu.find(params[:cpu_id])
+    @current_build.remove_cpu(cpu)
+    redirect_to current_build_url
+  end
 
   def add_motherboard
     @current_build = get_current_build
@@ -42,10 +48,25 @@ class BuildsController < ApplicationController
     redirect_to current_build_url
   end
 
+  def remove_motherboard
+    @current_build = get_current_build
+    motherboard = Motherboard.find(params[:motherboard_id])
+    @current_build.remove_motherboard(motherboard)
+    redirect_to current_build_url
+  end
+  
+  
   def add_cooler
-    @current_build =get_current_build
-    cooler = Cooler.find(params[:cooler_id])
-    @current_build.add_cooler(cooler)
+   @current_build = get_current_build
+    motherboard = Cooler.find(params[:cooler_id])
+    @current_build.add_motherboard(motherboard)
+    redirect_to current_build_url
+  end
+  
+  def remove_cooler
+    @current_build = get_current_build
+    motherboard = Cooler.find(params[:cooler_id])
+    @current_build.remove_motherboard(motherboard)
     redirect_to current_build_url
   end
 
@@ -55,20 +76,39 @@ class BuildsController < ApplicationController
     @current_build.add_memory(memory)
     redirect_to current_build_url
   end
-
+  def remove_memory
+    @current_build =get_current_build
+    memory = Memory.find(params[:memory_id])
+    @current_build.remove_memory(memory)
+    redirect_to current_build_url
+  end
+   
+  
   def add_storage
     @current_build =get_current_build
     storage = Storage.find(params[:storage_id])
     @current_build.add_storage(storage)
     redirect_to current_build_url
   end
+  def remove_storage
+    @current_build =get_current_build
+    storage = Storage.find(params[:storage_id])
+    @current_build.remove_storage(storage)
+    redirect_to current_build_url
+  end
 
-def add_video_card
-  @current_build =get_current_build
-  video_card = VideoCard.find(params[:video_card_id])
-  @current_build.add_video_card(video_card)
-  redirect_to current_build_url
-end
+  def add_video_card
+    @current_build =get_current_build
+    video_card = VideoCard.find(params[:video_card_id])
+    @current_build.add_video_card(video_card)
+    redirect_to current_build_url
+  end
+  def remove_video_card
+    @current_build =get_current_build
+    video_card = VideoCard.find(params[:video_card_id])
+    @current_build.remove_video_card(video_card)
+    redirect_to current_build_url
+  end
 
   def add_cpu_case
     @current_build =get_current_build
@@ -76,10 +116,24 @@ end
     @current_build.add_cpu_case(cpu_case)
     redirect_to current_build_url
   end
+  def remove_cpu_case
+    @current_build =get_current_build
+    cpu_case = CpuCase.find(params[:cpu_case_id])
+    @current_build.remove_cpu_case(cpu_case)
+    redirect_to current_build_url
+
+  end
+  
   def add_power_supply
     @current_build =get_current_build
     power_supply = PowerSupply.find(params[:power_supply_id])
     @current_build.add_power_supply(power_supply)
+    redirect_to current_build_url
+  end
+    def remove_power_supply
+    @current_build =get_current_build
+    power_supply = PowerSupply.find(params[:power_supply_id])
+    @current_build.remove_power_supply(power_supply)
     redirect_to current_build_url
   end
 

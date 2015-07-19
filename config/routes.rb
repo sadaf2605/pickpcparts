@@ -6,15 +6,27 @@ Rails.application.routes.draw do
   scope :builds do
     get 'current' => 'builds#current_build', :as=>'current_build'
     get ':token' => 'builds#token_build', :as=>'token_build'
-
-    post 'cpu/:cpu_id' => 'builds#add_cpu', :as => 'add_cpu'
-    post 'motherboard/:motherboard_id' => 'builds#add_motherboard', :as => 'add_motherboard'
-    post 'cooler/:cooler_id' => 'builds#add_cooler', :as => 'add_cooler'
-    post 'memory/:memory_id' => 'builds#add_memory', :as => 'add_memory'
-    post 'storage/:storage_id' => 'builds#add_storage', :as => 'add_storage'
-    post 'video_card/:video_card_id' => 'builds#add_video_card', :as => 'add_video_card'
-    post 'cpu_case/:cpu_case_id' => 'builds#add_cpu_case', :as => 'add_cpu_case'
-    post 'power_supply/:power_supply_id' => 'builds#add_power_supply', :as => 'add_power_supply'
+    
+    scope :add do
+      post 'cpu/:cpu_id'                    => 'builds#add_cpu',          :as => 'add_cpu'
+      post 'motherboard/:motherboard_id'    => 'builds#add_motherboard',  :as => 'add_motherboard'
+      post 'cooler/:cooler_id'              => 'builds#add_cooler',       :as => 'add_cooler'
+      post 'memory/:memory_id'              => 'builds#add_memory',       :as => 'add_memory'
+      post 'storage/:storage_id'            => 'builds#add_storage',      :as => 'add_storage'
+      post 'video_card/:video_card_id'      => 'builds#add_video_card',   :as => 'add_video_card'
+      post 'cpu_case/:cpu_case_id'          => 'builds#add_cpu_case',     :as => 'add_cpu_case'
+      post 'power_supply/:power_supply_id'  => 'builds#add_power_supply', :as => 'add_power_supply'
+    end
+    scope :remove do
+      post 'cpu//:cpu_id'                 => 'builds#remove_cpu',           :as => 'remove_cpu'
+      post 'motherboard/:motherboard_id'  => 'builds#remove_motherboard',   :as => 'remove_motherboard'
+      post 'cooler/:cooler_id'            => 'builds#remove_cooler',        :as => 'remove_cooler'
+      post 'memory/:memory_id'            => 'builds#remove_memory',        :as => 'remove_memory'
+      post 'storage/:storage_id'          => 'builds#remove_storage',       :as => 'remove_storage'        
+      post 'video_card/:video_card_id'    => 'builds#remove_video_card',    :as => 'remove_video_card'
+      post 'cpu_case/:cpu_case_id'        => 'builds#remove_cpu_case',      :as => 'remove_cpu_case'
+      post 'power_supply/:power_supply_id'=> 'builds#remove_power_supply',  :as => 'remove_power_supply'
+    end 
   end
 
 

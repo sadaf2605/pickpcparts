@@ -7,17 +7,29 @@ class Build < ActiveRecord::Base
 	belongs_to :cpu_case
 	belongs_to :video_card
 	belongs_to :power_supply
+
   def add_cpu(cpu)
 		if cpu
 			self.cpu=cpu
 			save
 		end
 	end
+
+  def remove_cpu(cpu)
+		self.cpu=nil
+		save
+	end
+
   def add_motherboard(motherboard)
 		if motherboard
 			self.motherboard=motherboard
 			save
 		end
+	end
+	
+	def remove_motherboard(motherboard)
+	  self.motherboard=nil
+	  save
 	end
 
   def add_cooler(cooler)
@@ -26,6 +38,11 @@ class Build < ActiveRecord::Base
 			save
 		end
 	end
+	
+	def remove_cooler(cooler)
+    self.cooler=nil
+    save
+  end
 
   def add_memory(memory)
 		if memory
@@ -33,6 +50,10 @@ class Build < ActiveRecord::Base
 			save
 		end
 	end
+	def remove_memory(memory)
+    self.memory=nil
+    save
+  end
 
 	def add_storage(storage)
 		if storage
@@ -40,6 +61,10 @@ class Build < ActiveRecord::Base
 			save
 		end
 	end
+  def remove_storage(storage)
+    self.storage=nil
+    save
+  end
 
   def add_video_card(video_card)
 		if video_card
@@ -47,13 +72,21 @@ class Build < ActiveRecord::Base
 			save
 		end
 	end
-
+  def remove_video_card(video_card)
+    self.video_card=nil
+    save
+  end
+  
   def add_cpu_case(cpu_case)
 		if cpu_case
 			self.cpu_case=cpu_case
 			save
 		end
 	end
+  def remove_cpu_case(cpu_case)
+    self.cpu_case=nil
+    save
+  end
 
   def add_power_supply(power_supply)
 		if power_supply
@@ -61,6 +94,10 @@ class Build < ActiveRecord::Base
 			save
 		end
 	end
+	 def remove_power_supply(power_supply)
+    self.power_supply=nil
+    save
+  end
 
 	def concistency_check
 		@consistancies =[]
