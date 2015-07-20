@@ -1,5 +1,6 @@
 class Cpu < ActiveRecord::Base
-  has_and_belongs_to_many :builds
+  has_many :cpu_builds
+  has_many :builds, :through => :cpu_builds
   
   belongs_to :cpu_socket
 

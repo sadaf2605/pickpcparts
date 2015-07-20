@@ -1,5 +1,6 @@
 class VideoCard < ActiveRecord::Base
-	has_and_belongs_to_many :builds
+	has_many :video_card_builds
+	has_many :builds, :through => :video_card_builds
 
 
 	def supports_case(cpu_case)

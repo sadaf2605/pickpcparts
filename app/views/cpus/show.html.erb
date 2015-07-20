@@ -72,18 +72,7 @@
 <tbody>
 </table>
 </div>
-<style>
-.qty{padding:1px !important;width:36px !important}
-.add_build_col{  padding: 0px;}
-</style>
-<div class="col-md-4 add_build_col">
-  <div class="add_build">
-    You can add this item to your current build to see if it is compatable with other parts or not.
-    <%= form_tag(add_cpu_path(@cpu), :method => "Post") do %>
-	  <%= number_field_tag 'qty',1, class: "qty" %>
-	  <%= submit_tag 'Add to build', :class => "btn btn-primary" %>
-	<% end %>
 
-    or <%= link_to 'back to current build', current_build_url %>
-  </div>
+<div class="col-md-4 add_build_col">
+<%=render 'layouts/add_to_build', :form_link=>add_cpu_path(@cpu) %>
 </div>

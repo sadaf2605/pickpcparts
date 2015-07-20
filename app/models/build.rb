@@ -1,12 +1,29 @@
 class Build < ActiveRecord::Base
-	has_and_belongs_to_many :cpus, :join_table => 'cpus_builds'
-	has_and_belongs_to_many :coolers, :join_table => 'coolers_builds'
-	has_and_belongs_to_many :motherboards, :join_table => 'motherboards_builds'
-	has_and_belongs_to_many :memories, :join_table => 'memories_builds'
-	has_and_belongs_to_many :storages,:join_table => 'storages_builds'
-	has_and_belongs_to_many :cpu_cases,:join_table => 'cpu_cases_builds'
-	has_and_belongs_to_many :video_cards, :join_table => 'video_cards_builds'
-	has_and_belongs_to_many :power_supplies, :join_table => 'power_supplies_builds'
+  has_many :cpu_builds
+  has_many :cpus, :through => :cpu_builds
+  
+  has_many :cooler_builds
+  has_many :coolers, :through => :cooler_builds
+  
+  has_many :motherboard_builds
+  has_many :motherboards, :through => :motherboard_builds
+    
+    
+	has_many :memory_builds
+	has_many :memories, :through => :memory_builds
+	
+	has_many :storage_builds
+  has_many :storages, :through => :storage_builds
+
+  has_many :cpu_case_builds
+  has_many :cpu_cases, :through => :cpu_case_builds
+
+  has_many :video_card_builds
+  has_many :video_cards, :through => :video_card_builds
+
+  has_many :power_supply_builds
+  has_many :power_supplies, :through => :power_supply_builds
+  
 
   def add_cpu(cpu)
 		if cpu
@@ -16,7 +33,8 @@ class Build < ActiveRecord::Base
 	end
 
   def remove_cpu(cpu)
-		self.cpus.delete(cpu)
+    CpuBuild.where("cpu_id = ? AND build_id = ?", cpu.id, self.id).first.delete
+#		self.cpus.delete(cpu)
 		save
 	end
 
@@ -28,7 +46,7 @@ class Build < ActiveRecord::Base
 	end
 	
 	def remove_motherboard(motherboard)
-	  self.motherboards.delete(motherboard)
+	  MotherboardBuild.where("motherboard_id = ? AND build_id = ?", motherboard.id, self.id).first.delete
 	  save
 	end
 
@@ -40,7 +58,7 @@ class Build < ActiveRecord::Base
 	end
 	
 	def remove_cooler(cooler)
-    self.coolers.delete(cooler)
+    CoolerBuild.where("cooler_id = ? AND build_id = ?", cooler.id, self.id).first.delete
     save
   end
 
@@ -51,7 +69,7 @@ class Build < ActiveRecord::Base
 		end
 	end
 	def remove_memory(memory)
-    self.memories.delete(memory)
+	  MemoryBuild.where("memory_id = ? AND build_id = ?", memory.id, self.id).first.delete
     save
   end
 
@@ -62,7 +80,7 @@ class Build < ActiveRecord::Base
 		end
 	end
   def remove_storage(storage)
-    self.storages.delete(storage)
+    StorageBuild.where("storage_id = ? AND build_id = ?", storage.id, self.id).first.delete
     save
   end
 
@@ -73,7 +91,7 @@ class Build < ActiveRecord::Base
 		end
 	end
   def remove_video_card(video_card)
-    self.video_cards.delete(video_card)
+    VideoCardBuild.where("video_card_id = ? AND build_id = ?", video_card.id, self.id).first.delete    
     save
   end
   
@@ -84,7 +102,7 @@ class Build < ActiveRecord::Base
 		end
 	end
   def remove_cpu_case(cpu_case)
-    self.cpu_cases.delete(cpu_case)
+    CpuCaseBuild.where("cpu_case_id = ? AND build_id = ?", cpu_case.id, self.id).first.delete
     save
   end
 
@@ -95,7 +113,7 @@ class Build < ActiveRecord::Base
 		end
 	end
 	 def remove_power_supply(power_supply)
-    self.power_supplies.delete(power_supply)
+    PowerSupplyBuild.where("power_supply_id = ? AND build_id = ?", power_supply.id, self.id).first.delete
     save
   end
 

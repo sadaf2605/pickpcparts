@@ -51,7 +51,7 @@
       <% end %>
       <% @current_build.motherboards.each do |motherboard| %>
           <%= link_to motherboard.part_no , motherboard_path(motherboard) %>
-          <%= link_to remove_motherboard_path(motherboard) do %><i class="fa fa-times cross"></i><% end %>
+          <%= link_to remove_motherboard_path(motherboard), :method => :post do %><i class="fa fa-times cross"></i><% end %>
       <% end %>
     </td>
 
@@ -66,7 +66,7 @@
       <% end %>
       <% @current_build.coolers.each do |cooler| %>
           <%= link_to cooler.part_no , cooler_path(cooler) %>
-          <%= link_to remove_cooler_path(cooler) do %><i class="fa fa-times cross"></i><% end %>
+          <%= link_to remove_cooler_path(cooler), :method => :post do %><i class="fa fa-times cross"></i><% end %>
       <% end %>
     </td>
     <td>0 BDT</td>
@@ -80,7 +80,7 @@
       <% end %>
       <% @current_build.memories.each do |memory| %>
           <%= link_to memory.part_no , memory_path(memory) %>
-          <%= link_to remove_memory_path(memory) do %><i class="fa fa-times cross"></i><% end %>
+          <%= link_to remove_memory_path(memory), :method => :post do %><i class="fa fa-times cross"></i><% end %>
       <% end %>
 
     </td>
@@ -95,7 +95,7 @@
       <% end %>
       <% @current_build.storages.each do |storage| %>
           <%= link_to storage.part_no , storage_path(storage) %>
-          <%= link_to remove_storage_path(storage) do %><i class="fa fa-times cross"></i><% end %>
+          <%= link_to remove_storage_path(storage), :method => :post do %><i class="fa fa-times cross"></i><% end %>
       <% end %>
       
     </td>
@@ -112,7 +112,7 @@
       <% end %>
       <% @current_build.video_cards.each do |video_card| %>
           <%= link_to video_card.part_no , video_card_path(video_card) %>
-          <%= link_to remove_video_card_path(video_card) do %><i class="fa fa-times cross"></i><% end %>
+          <%= link_to remove_video_card_path(video_card), :method => :post do %><i class="fa fa-times cross"></i><% end %>
       <% end %>
 
     </td>
@@ -126,9 +126,9 @@
       <% if @current_build.cpu_cases.blank? %>
                 <%= link_to "add PC case", cpu_cases_url, {:class =>"btn btn-xs btn-primary"} %>
       <% end %>
-      <% @current_build.cpu_cases do |cpu_case| %>
+      <% @current_build.cpu_cases.each do |cpu_case| %>
           <%= link_to cpu_case.part_no , cpu_case_path(cpu_case) %>
-          <%= link_to remove_cpu_case_path(cpu_case) do %><i class="fa fa-times cross"></i><% end %>
+          <%= link_to remove_cpu_case_path(cpu_case), :method => :post do %><i class="fa fa-times cross"></i><% end %>
       <% end %>
 
     </td>
@@ -144,7 +144,7 @@
       <% end %>
       <% @current_build.power_supplies.each do |power_supply| %>
           <%= link_to power_supply.part_no , power_supply_path(power_supply) %>
-          <%= link_to remove_power_supply_path(power_supply) do %><i class="fa fa-times cross"></i><% end %>
+          <%= link_to remove_power_supply_path(power_supply), :method => :post do %><i class="fa fa-times cross"></i><% end %>
       <% end %>
     </td>
     <td>0 BDT</td>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  video_card_id: 1
+  build_id: 1
+
+two:
+  video_card_id: 1
+  build_id: 1

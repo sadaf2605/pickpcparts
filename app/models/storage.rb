@@ -1,5 +1,6 @@
 class Storage < ActiveRecord::Base
-  has_and_belongs_to_many :builds
+  has_many :storage_builds
+  has_many :builds, :through => :storage_builds
 
 	def supports_case(pc_case)
 		if self.form_factor=="3.5\""

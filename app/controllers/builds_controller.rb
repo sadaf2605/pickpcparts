@@ -64,18 +64,18 @@ class BuildsController < ApplicationController
   
   def add_cooler
    @current_build = get_current_build
-    motherboard = Cooler.find(params[:cooler_id])
+    cooler = Cooler.find(params[:cooler_id])
     qty=params[:qty]
     Integer(qty).times do
-      @current_build.add_motherboard(motherboard)
+      @current_build.add_cooler(cooler)
     end
     redirect_to current_build_url
   end
   
   def remove_cooler
     @current_build = get_current_build
-    motherboard = Cooler.find(params[:cooler_id])
-    @current_build.remove_motherboard(motherboard)
+    cooler = Cooler.find(params[:cooler_id])
+    @current_build.remove_cooler(cooler)
     redirect_to current_build_url
   end
 

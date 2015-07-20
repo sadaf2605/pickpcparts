@@ -77,10 +77,6 @@
   </table>
 </div>
 
-<div class="col-md-4">
-  <div class="add_build">
-    You can add this item to your current build to see if it is compatable with other parts or not.
-    <%= button_to 'Add to build', add_video_card_path(@video_card), :method => "Post", :class => "btn btn-primary" %>
-    or <%= link_to 'back to current build', current_build_url %>
-  </div>
+<div class="col-md-4 add_build_col">
+<%=render 'layouts/add_to_build', :form_link=>add_video_card_path(@video_card) %>
 </div>

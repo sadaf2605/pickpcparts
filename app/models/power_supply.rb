@@ -1,5 +1,6 @@
 class PowerSupply < ActiveRecord::Base
-  has_and_belongs_to_many :builds
+  has_many :power_supply_builds
+  has_many :builds, :through => :power_supply_builds
 
 	def supports_cpu_cases(cpu_case)
 		raise "yet to implement"

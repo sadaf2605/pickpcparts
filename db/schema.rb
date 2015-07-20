@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719220058) do
+ActiveRecord::Schema.define(version: 20150720103336) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -46,6 +46,12 @@ ActiveRecord::Schema.define(version: 20150719220058) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
+  create_table "build_cpus", force: :cascade do |t|
+    t.integer  "integer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "builds", force: :cascade do |t|
     t.string  "token"
     t.integer "power_supply_id"
@@ -69,6 +75,13 @@ ActiveRecord::Schema.define(version: 20150719220058) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "cooler_builds", force: :cascade do |t|
+    t.integer  "cooler_id"
+    t.integer  "build_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "coolers", force: :cascade do |t|
     t.string   "manufacturer"
     t.string   "part_no"
@@ -88,6 +101,20 @@ ActiveRecord::Schema.define(version: 20150719220058) do
   create_table "coolers_cpu_sockets", id: false, force: :cascade do |t|
     t.integer "cpu_socket_id"
     t.integer "cooler_id"
+  end
+
+  create_table "cpu_builds", force: :cascade do |t|
+    t.integer  "cpu_id"
+    t.integer  "build_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cpu_case_builds", force: :cascade do |t|
+    t.integer  "cpu_case_id"
+    t.integer  "build_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "cpu_cases", force: :cascade do |t|
@@ -180,10 +207,22 @@ ActiveRecord::Schema.define(version: 20150719220058) do
     t.integer "build_id"
   end
 
+  create_table "memory_builds", force: :cascade do |t|
+    t.integer  "memory_id"
+    t.integer  "build_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "memory_slots", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "motherboard_builds", force: :cascade do |t|
+    t.integer "motherboard_id"
+    t.integer "build_id"
   end
 
   create_table "motherboards", force: :cascade do |t|
@@ -231,6 +270,13 @@ ActiveRecord::Schema.define(version: 20150719220058) do
   create_table "power_supplies_builds", id: false, force: :cascade do |t|
     t.integer "power_supply_id"
     t.integer "build_id"
+  end
+
+  create_table "power_supply_builds", force: :cascade do |t|
+    t.integer  "power_supply_id"
+    t.integer  "build_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "processor_advanced_technologies", force: :cascade do |t|
@@ -365,6 +411,13 @@ ActiveRecord::Schema.define(version: 20150719220058) do
     t.integer "processor_platform_protection_id"
   end
 
+  create_table "storage_builds", force: :cascade do |t|
+    t.integer  "storage_id"
+    t.integer  "build_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "storages", force: :cascade do |t|
     t.string   "manufacturer"
     t.string   "part_no"
@@ -383,6 +436,13 @@ ActiveRecord::Schema.define(version: 20150719220058) do
   create_table "storages_builds", id: false, force: :cascade do |t|
     t.integer "storage_id"
     t.integer "build_id"
+  end
+
+  create_table "video_card_builds", force: :cascade do |t|
+    t.integer  "video_card_id"
+    t.integer  "build_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "video_cards", force: :cascade do |t|
