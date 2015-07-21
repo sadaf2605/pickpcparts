@@ -23,19 +23,22 @@ class VideoCard < ActiveRecord::Base
 	def report_consistency(build)
 		consistancies=[]
 		conflicts=[]
+    
+    build.cpu_cases.each do |cpu_case|
+   		if supports_case(cpu_case)
+  			consistancies << "video card supports cpu case length"
+  		else
+  			conflicts << "Video card needs at least length at case "
+  		end
+  	end
 
-		if supports_case(build.cpu_case)
-			consistancies << "video card supports cpu case length"
-		else
-			conflicts << "Video card needs at least length at case "
-		end
-
-
-		if supports_motherboard(build.motherboard)
-			consistancies << "video card supports motherboard"
-		else
-			conflicts << "Video card does not support"
-		end
+    build.motherboards.each do |motherboard|
+  		if supports_motherboard(motherboard)
+  			consistancies << "video card supports motherboard"
+  		else
+  			conflicts << "Video card does not support"
+  		end
+  	end
 
 		return consistancies,conflicts
 	end

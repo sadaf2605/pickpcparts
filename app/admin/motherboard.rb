@@ -29,9 +29,14 @@ ActiveAdmin.register Motherboard do
 
 
   form do |f|
-    inputs do
+    f.inputs do
       input :manufacturer
       input :part_no
+      
+      f.has_many :cpu_sockets do |a|
+        a.input :name
+      end
+      
       input :form_factor_str, :input_html => { :value => if f.object.form_factor then f.object.form_factor.name else "" end }
       input :cpu_socket_str, :input_html => { :value => if f.object.cpu_socket then f.object.cpu_socket.name else "" end }
       input :chipset

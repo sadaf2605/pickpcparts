@@ -127,30 +127,30 @@ class Build < ActiveRecord::Base
 			@conflicts.concat _conflicts
 		end
 
-		self.cpus do |cpu|
+		self.cpus.each do |cpu|
 			combine_report(cpu.report_consistency(self))
 		end
 
-		self.coolers do |cooler|
+		self.coolers.each do |cooler|
 			combine_report(cooler.report_consistency(self))
 		end
 
-		self.motherboards do |motherboard|
+		self.motherboards.each do |motherboard|
 		 combine_report(motherboard.report_consistency(self))
 		end
 
 
-		self.memories do |memory|
+		self.memories.each do |memory|
 			combine_report(memory.report_consistency(self))
 		end
 
-		self.cpu_cases do |cpu_case|
+		self.cpu_cases.each do |cpu_case|
 		#_consistancy,_conflicts =	self.cpu_case.report_consistency(self)
 		#@consistancies<<_consistancy
 		#@conflicts<<_conflicts
 		end
 
-		self.video_cards do |video_card|
+		self.video_cards.each do |video_card|
 			combine_report(video_card.report_consistency(self))
 		end
 

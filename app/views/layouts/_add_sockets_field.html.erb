@@ -1,0 +1,8 @@
+
+<%= semantic_form_for Cpu.new do |f| %>
+  <div class='nested-fields'>
+  <%= f.inputs do %>
+    <%= link_to_remove_association "remove task", f, :cpu_socket %>
+  <% end %>
+</div>
+<% end %>  

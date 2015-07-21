@@ -40,6 +40,7 @@ gem 'devise'
 gem 'cancan' # or cancancan
 gem 'draper'
 gem 'pundit'
+gem "cocoon"
 
 gem 'owlcarousel-rails'
 gem 'therubyracer'

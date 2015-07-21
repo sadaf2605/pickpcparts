@@ -60,5 +60,11 @@ class Motherboard < ActiveRecord::Base
 		return true
 	end
 
-
+  def report_consistency(build)
+    #todo
+    #raise "yet to implement"
+    consistancies=[]
+    conflicts=[]
+     return consistancies,conflicts
+  end
 end

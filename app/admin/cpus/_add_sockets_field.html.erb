@@ -1,0 +1,9 @@
+<div class='nested-fields'>
+<%= form_for :cpu_socket do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :description %>
+    <%= f.input :done, :as => :boolean %>
+    <%= link_to_remove_association "remove task", f %>
+  <% end %>
+<% end %>  
+</div>

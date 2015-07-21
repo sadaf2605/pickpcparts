@@ -17,7 +17,7 @@ class Memory < ActiveRecord::Base
 		consistancies=[]
 		conflicts=[]
 		
-		self.motherboards do |motherboard|
+		self.motherboards.each do |motherboard|
   		if supports_motherboard(motherboard)
   			consistancies << "memory and motherboard both supports each other"
   		else

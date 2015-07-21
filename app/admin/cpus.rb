@@ -12,9 +12,25 @@ ActiveAdmin.register Cpu do
 #   permitted << :other if resource.something?
 #   permitted
 # end
+permit_params :cpu
+
   form do |f|
-    inputs do
-      input :cpu_socket_str, :input_html => { :value => if f.object.cpu_socket then f.object.cpu_socket.name else "" end }
+    f.inputs do
+#      input :cpu_socket_str, :input_html => { :value => if f.object.cpu_socket then f.object.cpu_socket.name else "" end }
+      f.fields_for :cpu_sockets, heading: 'Themes', allow_destroy: true, new_record: true do |a|
+       
+        if a.object.nil?
+          a.input :name, :as => :select, :collection => CpuSocket.all.collect {|cpu_socket| [cpu_socket.name, cpu_socket.id] }
+          
+          a.input :names, :label => f.object.cpu_socket.name          
+        else
+          a.input :names, :label => a.object.cpu_socket.name
+          a.input :_destroy, :as => :boolean, :label => :delete
+        end
+       # a.collection_select(:cpu_id, CpuSocket.all, :id, :name)
+      end
+      #render 'layouts/add_sockets_field', cpu_socket: CpuSocket.new
+      
       input :manufacturer
       input :model
       input :part_no
@@ -35,8 +51,8 @@ ActiveAdmin.register Cpu do
   controller do
     def create
       @cpu = Cpu.new(cpu_params)
-      @cpu.cpu_socket = CpuSocket.find_by_name(params[:cpu][:cpu_socket_str]) ||
-          CpuSocket.create({ :name => params[:cpu][:cpu_socket_str] })
+      @cpu.cpu_socket = CpuSocket.find_by_name(params[:cpu][:cpu_sockets][:name]) ||
+          CpuSocket.create({ :name => params[:cpu][:cpu_sockets][:name] })
 
         respond_to do |format|
           if @cpu.save

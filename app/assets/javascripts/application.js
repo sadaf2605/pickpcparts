@@ -17,6 +17,7 @@
 //= require_tree .
 //= require owl.carousel
 //= require jquery.dataTables
+//= require cocoon
 
 
 

@@ -35,7 +35,7 @@ class Cooler < ActiveRecord::Base
 		conflict=[]
 		
 		
-		build.cpus do |cpu|
+		build.cpus.each do |cpu|
   		if self.supports_cpu(cpu)
   			consistancy << "Cooler and cpu both supports socket "+build.cpu.cpu_socket
   		else
@@ -43,7 +43,7 @@ class Cooler < ActiveRecord::Base
   		end
   	end
 
-    build.cpu_case do |cpu_case|
+    build.cpu_case.each do |cpu_case|
   		if self.supports_cases(cpu_case)
   			consistancy << "Cooler and case supports form factor "
   		else
@@ -51,7 +51,7 @@ class Cooler < ActiveRecord::Base
   		end
   	end
   	
-    build.motherboards do |motherboard|
+    build.motherboards.each do |motherboard|
   		if self.supports_motherboard(motherboard)
   			consistancy << "Cooler and motherboard both supports socket "+build.cpu.cpu_socket
   		else

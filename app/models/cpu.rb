@@ -5,6 +5,7 @@ class Cpu < ActiveRecord::Base
   belongs_to :cpu_socket
 
   attr_accessor :cpu_socket_str
+  
 
   def supports_cooler(cooler)
 
@@ -28,7 +29,7 @@ class Cpu < ActiveRecord::Base
     consistancies=[]
     conflicts=[]
     
-    build.coolers do |cooler|
+    build.coolers.each do |cooler|
       if supports_cooler(cooler)
           consistancies << "cpu and cooler both support socket " + self.cpu_socket.name
       else
@@ -36,7 +37,7 @@ class Cpu < ActiveRecord::Base
       end
     end
 
-    build.motherboards do |motherboard|
+    build.motherboards.each do |motherboard|
       if supports_motherboard(motherboard)
         consistancies << "cpu and motherboard both support socket " + self.cpu_socket.name
       else
