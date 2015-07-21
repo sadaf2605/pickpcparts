@@ -7,6 +7,6 @@ class DropCpuFromBuilds < ActiveRecord::Migration
     remove_column :builds, :storage_id
     remove_column :builds, :cpu_case_id
     remove_column :builds, :video_card_id
-    remove_column :builds, :power_supply
+    #remove_column :builds, :power_supply
   end
 end
