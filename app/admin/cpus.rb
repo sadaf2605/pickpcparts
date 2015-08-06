@@ -22,7 +22,7 @@ permit_params :cpu
         if a.object.nil?
           a.input :name, :as => :select, :collection => CpuSocket.all.collect {|cpu_socket| [cpu_socket.name, cpu_socket.id] }
           
-          a.input :names, :label => f.object.cpu_socket.name          
+          #a.input :names, :label => f.object.cpu_socket.name          
         else
           a.input :names, :label => a.object.cpu_socket.name
           a.input :_destroy, :as => :boolean, :label => :delete

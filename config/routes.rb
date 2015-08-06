@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  root 'builds#front'
+  
   scope :builds do
     get 'current' => 'builds#current_build', :as=>'current_build'
     get ':token' => 'builds#token_build', :as=>'token_build'
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
       post 'cpu_case/:cpu_case_id'          => 'builds#add_cpu_case',     :as => 'add_cpu_case'
       post 'power_supply/:power_supply_id'  => 'builds#add_power_supply', :as => 'add_power_supply'
     end
+
     scope :remove do
       post 'cpu//:cpu_id'                 => 'builds#remove_cpu',           :as => 'remove_cpu'
       post 'motherboard/:motherboard_id'  => 'builds#remove_motherboard',   :as => 'remove_motherboard'
@@ -27,6 +30,7 @@ Rails.application.routes.draw do
       post 'cpu_case/:cpu_case_id'        => 'builds#remove_cpu_case',      :as => 'remove_cpu_case'
       post 'power_supply/:power_supply_id'=> 'builds#remove_power_supply',  :as => 'remove_power_supply'
     end 
+
   end
 
 
@@ -54,7 +58,7 @@ Rails.application.routes.draw do
 
   resources :cpu_sockets
 
-  root 'builds#current_build'
+
 
 
 

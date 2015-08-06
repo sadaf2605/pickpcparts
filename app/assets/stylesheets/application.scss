@@ -24,8 +24,34 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "navbar";
+@import "animations";
 
 
+
+.panel-heading{
+    color: #FFFFFF;
+  background-color: #2793C8;
+  border-color: #4A83C1;
+  text-align:right;
+}
+.thumbnail{
+   padding: 0px;
+   margin-bottom: 0px;
+   margin-right:0px;
+ }
+ .feat{
+   padding:8px;
+ }
+ .thumbnail .caption {
+   padding-top:0px;
+ }
+  .thumbnail .caption h3,  .thumbnail .caption h4 {
+   margin-bottom:1px;
+   margin-top:2px;
+ }
+body{margin-top: 56px;}
+.thumbnail .caption h3{margin-top:0px}
+.feat-thumb{padding:0}
 .qty{padding:1px !important;width:36px !important}
 .add_build_col{  padding: 0px;}
 
@@ -60,17 +86,14 @@ a.btn{
 .ad{
   text-align: center;
 }
-.ad div {
+.ad {
   padding-bottom: 5px;
   padding-top:5px;
 }
 
-.menu-parts-icon{color:white;text-align: center}
+.menu-parts-icon{color:white !important;align: center}
 .menu-parts-icon img{
   width: 100%;
-}
-.owl-carousel{
-  padding-top: 52px;
 }
 .owl-carousel .owl-controls{
   margin-top: 2px !important;
@@ -86,6 +109,9 @@ a.btn{
 }
 
 
+ .hvr-box-shadow-outset:hover .hvr-box-shadow-outset:hover{
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 1) !important;
+}
 
 
 

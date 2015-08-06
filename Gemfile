@@ -42,7 +42,7 @@ gem 'draper'
 gem 'pundit'
 gem "cocoon"
 
-gem 'owlcarousel-rails'
+#gem 'owlcarousel-rails'
 gem 'therubyracer'
 
 group :assets do

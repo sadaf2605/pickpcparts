@@ -17,6 +17,10 @@ class BuildsController < ApplicationController
   def index
     @builds = Build.all
   end
+  
+  def front
+    @build = Build.all[0]
+  end
 
   def token_build
     @current_build=Build.find_by_token(params[:token])

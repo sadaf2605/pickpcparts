@@ -18,7 +18,7 @@
 //= require owl.carousel
 //= require jquery.dataTables
 //= require cocoon
-
+//= require css3-animate-it
 
 
 
@@ -26,15 +26,17 @@ $(document).ready(function() {
     $('.dropdown').click(function() {
         $(this).find('.dropdown-menu').first().stop(true, true).slideToggle(400);
     }, function() {
-        $(this).find('.dropdown-menu').first().stop(true, true).slideToggle(400)
+        $(this).find('.dropdown-menu').first().stop(true, true).slideToggle(400);
     });
 
-
-
-        var owl = $("#owl-demo");
-
-        owl.owlCarousel();
-
-
-
+$('.owl-carousel').owlCarousel({
+         loop: false,
+         dots:false,
+         autoHeight:true,
+         autoWidth: true,
+         autoplay: true,
+         animateOut: 'fadeOut',
+         loop: true
+	});
 });
+
