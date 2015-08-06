@@ -49,6 +49,8 @@ group :assets do
   gem 'less'
 end
 
+gem "blogit"
+gem "acts-as-taggable-on"
 
 # Use ActiveModel has_secure_password
 

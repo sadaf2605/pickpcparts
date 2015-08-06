@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-
+  mount Blogit::Engine => "/blog"
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-
+  
+  
+  
   root 'builds#front'
   
   scope :builds do

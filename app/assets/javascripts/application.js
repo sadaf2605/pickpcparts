@@ -40,3 +40,15 @@ $('.owl-carousel').owlCarousel({
 	});
 });
 
+
+    $(document).ready(function(){
+	    	$('.same-height', this).each(function(){
+		        var highestBox = 0;
+		        $('.same-height-item', this).each(function(){
+		            if($(this).height() > highestBox) 
+		               highestBox = $(this).height(); 
+		        });  
+			//		alert(highestBox);
+		        $('.same-height-item',this).height(highestBox);
+			});
+		});
