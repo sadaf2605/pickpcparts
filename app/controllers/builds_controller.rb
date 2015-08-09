@@ -19,9 +19,17 @@ class BuildsController < ApplicationController
   end
   
   def front
+    def page_number
+      @page_number ||= params[Kaminari.config.param_name]
+    end
+    
+    @feat_posts ||= Blogit::Post.for_index.first(3)
+    @week_post ||= Blogit::Post.for_index.first(1)[0]
+    
     @build = Build.all[0]
+    
   end
-
+layout "front_page"
   def token_build
     @current_build=Build.find_by_token(params[:token])
     respond_to do |format|

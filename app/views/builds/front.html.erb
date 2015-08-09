@@ -12,8 +12,8 @@
 	        	
 	          <img data-src="holder.js/100%x200" alt="100%x200" src="http://cdn.vrworld.com/wp-content/uploads/2014/11/Gaming-PC.jpg" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
 	          <div class="caption">
-	            <h3>Thumbnail label</h3>
-	            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+	            <h3><%= @week_post.title%></h3>
+	            <p><%= truncate(@week_post.body, :length => 150, :omission => '... (continued)') %></p>
 	            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
 	          </div>
 	        </div>
@@ -23,53 +23,27 @@
 	<div class="col-md-7 feat animatedParent" data-sequence="100">
 		<div class="thumbnail hvr-box-shadow-outset">
 			<div class="animated bounceInLeft" data-id='1'>
-		<div class="panel-heading animated bounceInLeft" data-id='1'>This Week's featured builds</div>
-		
-	  
-	  
-	     <div class="hvr-box-shadow-outset" style="z-index: 991; position: relative">
-			<div class="col-md-12 thumbnail animated bounceInLeft" data-id='2'>
-				<div class="col-md-3 feat-thumb">
-					<img data-src="holder.js/100%x200" alt="100%x200" src="http://www.pto.hu/wp-content/uploads/2013/03/Hailstorm_II_021.jpg" data-holder-rendered="true" style="width: 100%; display: block;">
-				</div>
-	
-	        <div class="col-md-9 caption">	          
-	        	<h4>Build your own gaming desktop</h4>
-		        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-		        
-		     </div>
-	     </div>
-	  </div>
-	     
-	     <div class="hvr-box-shadow-outset" style="z-index: 990; position: relative">
-			<div class="col-md-12 thumbnail animated bounceInLeft" data-id='3'>
-				<div class="col-md-3 feat-thumb">
-					<img data-src="holder.js/100%x200" alt="100%x200" src="http://www.userfriendlyltd.co.uk/wp-content/uploads/catablog/originals/Multi%20media.jpg" data-holder-rendered="true" style="width: 100%; display: block;">
-				</div>
-	
-	        <div class="col-md-9 caption">	          
-	        	<h4>Build your desktop</h4>
-		        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-		        
-		     </div>
-	     </div>
-	  </div>
-	  <div class="hvr-box-shadow-outset" style="z-index: 899">
-	     <div class="col-md-12 thumbnail animated bounceInLeft" data-id='4'>
-			<div class="col-md-3">
-				<img data-src="holder.js/100%x200" alt="100%x200" src="http://www.lenovo.com/shop/americas/content/img_lib/test/one-web/laptop-splitter-lenovo-g40.png" data-holder-rendered="true" style="width: 100%; display: block;">
+				<div class="panel-heading animated bounceInLeft" data-id='1'>This Week's featured builds</div>
+				
+				  <%bounceseq=0%>
+				  <% for post in @feat_posts %>
+				    <div class="hvr-box-shadow-outset" style="z-index: <%= 991-bounceseq %>; position: relative">
+						<div class="col-md-12 thumbnail animated bounceInLeft" data-id='<%=bounceseq+2%>'>
+							<div class="col-md-3 feat-thumb">
+								<img data-src="holder.js/100%x200" alt="100%x200" src="http://www.pto.hu/wp-content/uploads/2013/03/Hailstorm_II_021.jpg" data-holder-rendered="true" style="width: 100%; display: block;">
+							</div>
+					        <div class="col-md-9 caption">
+					        	<h4><%= link_to(post.title, blogit.post_path(post)) %></h4>
+						        <p><%= truncate(post.body, :length => 150, :omission => '... (continued)') %> </p>
+						     </div>
+				     	</div>
+				  	</div>
+				  <% bounceseq=bounceseq+1%>
+				  <% end %>
+			        
+			   </div>
 			</div>
-	        <div class="col-md-9 caption">	          
-	        	<h4>Economy laptop Review</h4>
-		        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-		       
-		     </div>
-	     </div>
-	   </div>      
-      </div>
-      
-    </div>
- </div>
+		</div>
 
 
 </div>

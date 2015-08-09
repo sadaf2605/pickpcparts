@@ -42,6 +42,7 @@ $('.owl-carousel').owlCarousel({
 
 
     $(document).ready(function(){
+    	$(window).scrollTop(10);
 	    	$('.same-height', this).each(function(){
 		        var highestBox = 0;
 		        $('.same-height-item', this).each(function(){
