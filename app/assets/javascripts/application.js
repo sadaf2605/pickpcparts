@@ -43,6 +43,9 @@ $('.owl-carousel').owlCarousel({
 
     $(document).ready(function(){
     	$(window).scrollTop(10);
+    	
+    	
+    	window.setInterval(function(){
 	    	$('.same-height', this).each(function(){
 		        var highestBox = 0;
 		        $('.same-height-item', this).each(function(){
@@ -52,4 +55,6 @@ $('.owl-carousel').owlCarousel({
 			//		alert(highestBox);
 		        $('.same-height-item',this).height(highestBox);
 			});
-		});
+	
+		}, 2000);
+	});
