@@ -1,4 +1,5 @@
 class Cooler < ActiveRecord::Base
+  belongs_to :product
   has_many :cooler_builds
   has_many :builds, :through => :cooler_builds
 	

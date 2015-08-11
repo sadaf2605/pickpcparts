@@ -15,25 +15,19 @@ ActiveAdmin.register Cpu do
 permit_params :cpu
 
   form do |f|
+    
+    
     f.inputs do
-#      input :cpu_socket_str, :input_html => { :value => if f.object.cpu_socket then f.object.cpu_socket.name else "" end }
-      f.fields_for :cpu_sockets, heading: 'Themes', allow_destroy: true, new_record: true do |a|
-       
-        if a.object.nil?
-          a.input :name, :as => :select, :collection => CpuSocket.all.collect {|cpu_socket| [cpu_socket.name, cpu_socket.id] }
-          
-          #a.input :names, :label => f.object.cpu_socket.name          
-        else
-          a.input :names, :label => a.object.cpu_socket.name
-          a.input :_destroy, :as => :boolean, :label => :delete
-        end
-       # a.collection_select(:cpu_id, CpuSocket.all, :id, :name)
+      f.semantic_fields_for [:cpu_socket, f.object.cpu_socket || CpuSocket.new], heading: 'Themes', allow_destroy: true, new_record: true do |a|
+          a.input :name,:label=>"Socket", :as => :select, :collection => CpuSocket.all.collect {|cpu_socket| [cpu_socket.name, cpu_socket.id] }
       end
-      #render 'layouts/add_sockets_field', cpu_socket: CpuSocket.new
       
-      input :manufacturer
+      f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
+          p.input :manufacturer
+          p.input :part_no
+      end
+      
       input :model
-      input :part_no
       input :data_width
       input :speed
       input :cores
@@ -51,8 +45,10 @@ permit_params :cpu
   controller do
     def create
       @cpu = Cpu.new(cpu_params)
+      
       @cpu.cpu_socket = CpuSocket.find_by_name(params[:cpu][:cpu_sockets][:name]) ||
           CpuSocket.create({ :name => params[:cpu][:cpu_sockets][:name] })
+      @cpu.product = Product.create(product_params)
 
         respond_to do |format|
           if @cpu.save
@@ -67,9 +63,21 @@ permit_params :cpu
     def cpu_params
       params.require(:cpu).permit(:manufacturer, :model, :part_no, :data_width, :speed, :cores, :l1_cache, :l2_cache, :l3_cache, :lithography, :thermal_design_power, :includes_cpu_cooler, :hyper_threading, :integrated_graphics, :cpu_socket_id)
     end
+    
+    def product_params
+      params[:cpu][:product].permit(:manufacturer, :part_no)
+    end
 
   end
 
 
-
+ show do
+    attributes_table do
+      row :manufacturer do
+        cpu.product.manufacturer
+      end
+    end
+    active_admin_comments
+  end
+  
 end

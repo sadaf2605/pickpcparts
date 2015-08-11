@@ -30,14 +30,21 @@ ActiveAdmin.register Motherboard do
 
   form do |f|
     f.inputs do
-      input :manufacturer
-      input :part_no
-      
-      f.has_many :cpu_sockets do |a|
-        a.input :name
+     f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
+          p.input :manufacturer
+          p.input :part_no
       end
       
-      input :form_factor_str, :input_html => { :value => if f.object.form_factor then f.object.form_factor.name else "" end }
+     f.semantic_fields_for [:cpu_socket, f.object.cpu_socket || CpuSocket.new], heading: 'Themes', allow_destroy: true, new_record: true do |a|
+          a.input :name,:label=>"Socket", :as => :select, :collection => CpuSocket.all.collect {|cpu_socket| [cpu_socket.name, cpu_socket.id] }
+      end
+      
+      f.semantic_fields_for [:form_factor, f.object.form_factor || FormFactor.new], heading: 'Themes', allow_destroy: true, new_record: true do |a|
+          a.input :name,:label=>"Form Factor", :as => :select, :collection => FormFactor.all.collect {|form_factor| [form_factor.name, form_factor.id] }
+      end
+      
+#      input :form_factor_str, :input_html => { :value => if f.object.form_factor then f.object.form_factor.name else "" end }
+      
       input :cpu_socket_str, :input_html => { :value => if f.object.cpu_socket then f.object.cpu_socket.name else "" end }
       input :chipset
       input :memory_slot_str, :input_html => { :value => if f.object.memory_slot then f.object.memory_slot.name else "" end }
@@ -59,8 +66,8 @@ ActiveAdmin.register Motherboard do
 controller do
   def create
     @motherboard = Motherboard.new(motherboard_params)
-
-    @motherboard.cpu_socket = CpuSocket.find_by_name(params[:motherboard][:cpu_socket_str]) || CpuSocket.create({:name =>params[:motherboard][:cpu_socket_str]})
+    @motherboard.cpu_socket = CpuSocket.find_by_name(params[:motherboard][:cpu_socket][:name]) || CpuSocket.create({:name =>params[:motherboard][:cpu_socket][:name]})
+#    @motherboard.cpu_socket = CpuSocket.find_by_name(params[:motherboard][:cpu_socket_str]) || CpuSocket.create({:name =>params[:motherboard][:cpu_socket_str]})
 
     num_slot = params[:motherboard][:memory_slot_str].split(" x ")
 
@@ -69,8 +76,10 @@ controller do
     memory_slot_name=num_slot[1].strip
     @motherboard.memory_slot = MemorySlot.find_by_name(memory_slot_name) || MemorySlot.create({:name => memory_slot_name})
 
-    @motherboard.form_factor =FormFactor.find_by_name(params[:motherboard][:form_factor_str]) || FormFactor.create({:name=> params[:motherboard][:form_factor_str]})
-
+    #@motherboard.form_factor =FormFactor.find_by_name(params[:motherboard][:form_factor_str]) || FormFactor.create({:name=> params[:motherboard][:form_factor_str]})
+    @motherboard.form_factor = FormFactor.find_by_name(params[:motherboard][:form_factor][:name]) || FormFactor.create({:name=> params[:motherboard][:form_factor][:name]})
+    @motherboard.product = Product.create(product_params)
+    
     respond_to do |format|
       if @motherboard.save
         format.html { redirect_to [:admin,@motherboard], notice: 'Motherboard was successfully created.' }
@@ -83,6 +92,9 @@ controller do
   def motherboard_params
     params.require(:motherboard).permit(:manufacturer, :part_no, :form_factor, :chipset, :memory_slots, :memory_type, :max_memory, :raid_support, :onboard_video, :crossfire_support, :sli_support, :sata_6_gbs, :onboard_ethernet, :onboard_usb_3_headers)
   end
+    def product_params
+      params[:motherboard][:product].permit(:manufacturer, :part_no)
+    end
 end
 
 

@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  resources :products
+
   mount Blogit::Engine => "/blog" , :as => 'blogit'
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  
   
   
   root 'builds#front'

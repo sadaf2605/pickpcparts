@@ -1,0 +1,3 @@
+class PcPartAttachments < ApplicationController
+  
+end

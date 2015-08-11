@@ -24,7 +24,11 @@ ActiveAdmin.register CpuCase do
 
   form do |f|
     inputs do
-      input :manufacturer
+      f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
+          p.input :manufacturer
+          p.input :part_no
+      end
+      
       input :color
       input :includes_power_supply
       input :external_5_25_bays
@@ -48,7 +52,7 @@ ActiveAdmin.register CpuCase do
       params[:cpu_case][:motherboard_compatibility_str].split(",").each do |form_factor|
         @cpu_case.motherboard_compatibility << FormFactor.find_or_create_by(name: form_factor)
       end
-
+   @cpu_case.product= Product.create(product_params)
       respond_to do |format|
         if @cpu_case.save
           format.html { redirect_to @cpu_case, notice: 'Cpu case was successfully created.' }
@@ -62,6 +66,9 @@ ActiveAdmin.register CpuCase do
 
     def cpu_case_params
       params.require(:cpu_case).permit(:manufacturer, :part_no, :cpu_type, :color, :includes_power_supply, :external_5_25_bays, :internal_2_5_bays, :internal_3_5_bays, :front_panel_usb_3_0, :ports, :maximum_video_card_length, :dimensions, :width,:height, :length)
+    end
+    def product_params
+      params[:cpu_case][:product].permit(:manufacturer, :part_no)
     end
 
   end

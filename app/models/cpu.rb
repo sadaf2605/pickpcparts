@@ -1,4 +1,6 @@
 class Cpu < ActiveRecord::Base
+  belongs_to :product
+  
   has_many :cpu_builds
   has_many :builds, :through => :cpu_builds
   

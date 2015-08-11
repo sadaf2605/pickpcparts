@@ -29,9 +29,11 @@ ActiveAdmin.register Cooler do
     end
 
   form do |f|
-    inputs do
-      input :manufacturer
-      input :part_no
+    f.inputs do
+      f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
+          p.input :manufacturer
+          p.input :part_no
+      end
       input :supported_sockets_str , :input_html => { :value => f.object.cpu_sockets.join(" , ") }
       input :liquid_cooled
       input :liquid_cooled
@@ -53,6 +55,7 @@ ActiveAdmin.register Cooler do
         name=name.strip
         @cpu_socket=CpuSocket.find_by_name(name) || CpuSocket.create({:name => name})
         @cooler.cpu_sockets << @cpu_socket
+        @cooler.product = Product.create(product_params)
       end
 
       respond_to do |format|
@@ -67,6 +70,9 @@ ActiveAdmin.register Cooler do
 end
     def cooler_params
       params.require(:cooler).permit(:manufacturer, :part_no, :liquid_cooled, :radiator_size, :noise_level, :fan_rpm)
+    end
+    def product_params
+      params[:cooler][:product].permit(:manufacturer, :part_no)
     end
 
 

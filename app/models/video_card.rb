@@ -1,4 +1,5 @@
 class VideoCard < ActiveRecord::Base
+  belongs_to :product
 	has_many :video_card_builds
 	has_many :builds, :through => :video_card_builds
 

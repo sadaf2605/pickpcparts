@@ -1,0 +1,2 @@
+class PcPartsController < ApplicationController
+end

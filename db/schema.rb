@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150806112913) do
+ActiveRecord::Schema.define(version: 20150811143418) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -80,8 +80,7 @@ ActiveRecord::Schema.define(version: 20150806112913) do
   end
 
   create_table "builds", force: :cascade do |t|
-    t.string  "token"
-    t.integer "power_supply_id"
+    t.string "token"
   end
 
   create_table "cases", force: :cascade do |t|
@@ -118,6 +117,7 @@ ActiveRecord::Schema.define(version: 20150806112913) do
     t.string   "fan_rpm"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "product_id"
   end
 
   create_table "coolers_cpu_sockets", id: false, force: :cascade do |t|
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(version: 20150806112913) do
     t.float    "height"
     t.integer  "form_factor_id"
     t.string   "type"
+    t.integer  "product_id"
   end
 
   create_table "cpu_sockets", force: :cascade do |t|
@@ -170,9 +171,7 @@ ActiveRecord::Schema.define(version: 20150806112913) do
   add_index "cpu_sockets", ["name"], name: "index_cpu_sockets_on_name", unique: true
 
   create_table "cpus", force: :cascade do |t|
-    t.string   "manufacturer"
     t.string   "model"
-    t.string   "part_no"
     t.string   "data_width"
     t.string   "speed"
     t.integer  "cores"
@@ -187,6 +186,7 @@ ActiveRecord::Schema.define(version: 20150806112913) do
     t.integer  "cpu_socket_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "product_id"
   end
 
   create_table "form_factors", force: :cascade do |t|
@@ -212,6 +212,7 @@ ActiveRecord::Schema.define(version: 20150806112913) do
     t.datetime "updated_at",     null: false
     t.string   "memory"
     t.integer  "memory_slot_id"
+    t.integer  "product_id"
   end
 
   create_table "memory_builds", force: :cascade do |t|
@@ -252,6 +253,7 @@ ActiveRecord::Schema.define(version: 20150806112913) do
     t.integer  "memory_slot_num"
     t.integer  "memory_slot_id"
     t.integer  "form_factor_id"
+    t.integer  "product_id"
   end
 
   create_table "power_supplies", force: :cascade do |t|
@@ -267,6 +269,7 @@ ActiveRecord::Schema.define(version: 20150806112913) do
     t.string   "pci_express_6_plus_2_pin_connectors"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "product_id"
   end
 
   create_table "power_supply_builds", force: :cascade do |t|
@@ -408,6 +411,13 @@ ActiveRecord::Schema.define(version: 20150806112913) do
     t.integer "processor_platform_protection_id"
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string   "manufacturer"
+    t.string   "part_no"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "storage_builds", force: :cascade do |t|
     t.integer  "storage_id"
     t.integer  "build_id"
@@ -428,6 +438,7 @@ ActiveRecord::Schema.define(version: 20150806112913) do
     t.string   "price_gb"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "product_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -475,6 +486,7 @@ ActiveRecord::Schema.define(version: 20150806112913) do
     t.datetime "updated_at",        null: false
     t.float    "length"
     t.boolean  "crossfire_support"
+    t.integer  "product_id"
   end
 
 end

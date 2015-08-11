@@ -1,4 +1,6 @@
 class Motherboard < ActiveRecord::Base
+  belongs_to :product
+  
 	has_many :motherboard_builds
 	has_many :builds, :through => :motherboard_builds
 	
