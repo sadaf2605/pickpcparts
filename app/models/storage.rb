@@ -2,6 +2,10 @@ class Storage < ActiveRecord::Base
   belongs_to :product
   has_many :storage_builds
   has_many :builds, :through => :storage_builds
+  
+  def build_with_market_status(params)
+    Product.build_with_market_status(self,params[:storage])
+  end
 
 	def supports_case(pc_case)
 		if self.form_factor=="3.5\""

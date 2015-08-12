@@ -28,13 +28,20 @@ ActiveAdmin.register Cooler do
       end
     end
 
-  form do |f|
+  form(:html => { :multipart => true })  do |f|
     f.inputs do
       f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
           p.input :manufacturer
-          p.input :part_no
-      end
-      input :supported_sockets_str , :input_html => { :value => f.object.cpu_sockets.join(" , ") }
+          p.input :part_no 
+          p.input :avatar, :as => :file, :hint => image_tag(f.object.product.avatar) if not f.object.product.nil?
+      
+            p.has_many :market_statuses, for: [:market_statuses,  p.object.market_statuses || MarketStatus.new],allow_destroy: true do |a|
+              a.input :price
+              a.inputs :shop
+            end
+        end
+        inputs :cpu_sockets
+#      input :supported_sockets_str , :input_html => { :value => f.object.cpu_sockets.join(" , ") }
       input :liquid_cooled
       input :liquid_cooled
       input :radiator_size
@@ -51,13 +58,21 @@ ActiveAdmin.register Cooler do
     def create
       @cooler = Cooler.new(cooler_params)
 
-      params[:cooler][:supported_sockets_str].split(",").each do |name|
-        name=name.strip
-        @cpu_socket=CpuSocket.find_by_name(name) || CpuSocket.create({:name => name})
-        @cooler.cpu_sockets << @cpu_socket
-        @cooler.product = Product.create(product_params)
-      end
-
+#      params[:cooler][:supported_sockets_str].split(",").each do |name|
+#        name=name.strip
+#        @cpu_socket=CpuSocket.find_by_name(name) || CpuSocket.create({:name => name})
+#        @cooler.cpu_sockets << @cpu_socket
+#        @cooler.product = Product.create(product_params)
+#      end
+        @cooler.cpu_sockets=[]
+        params[:cooler][:cpu_socket_ids].each if not params[:cooler][:cpu_socket_ids].nil? do |id|
+          if not id == ""
+            @cooler.cpu_sockets << CpuSocket.find_by_id(id) 
+          end
+        end
+       @cooler.build_with_market_status(params)
+      
+      
       respond_to do |format|
         if @cooler.save
           format.html { redirect_to [:admin, @cooler], notice: 'Cooler was successfully created.' }
@@ -69,29 +84,9 @@ ActiveAdmin.register Cooler do
       end
 end
     def cooler_params
-      params.require(:cooler).permit(:manufacturer, :part_no, :liquid_cooled, :radiator_size, :noise_level, :fan_rpm)
-    end
-    def product_params
-      params[:cooler][:product].permit(:manufacturer, :part_no)
+      params.require(:cooler).permit(:manufacturer, :part_no, :liquid_cooled, :radiator_size, :noise_level, :fan_rpm, :cpu_socket_ids)
     end
 
 
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
   end
-
-
-
-

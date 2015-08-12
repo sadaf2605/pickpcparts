@@ -8,6 +8,10 @@ class CpuCase < ActiveRecord::Base
 
 	attr_accessor :dimensions
 	attr_accessor :form_factor
-	
+  
+  
+  def build_with_market_status(params)
+    Product.build_with_market_status(self,params[:cpu_case])
+  end	
 
 end

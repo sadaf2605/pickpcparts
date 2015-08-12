@@ -19,10 +19,16 @@ ActiveAdmin.register VideoCard do
     
     
     f.inputs do      
-      f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
+            f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
           p.input :manufacturer
-          p.input :part_no
-      end
+          p.input :part_no 
+          p.input :avatar, :as => :file, :hint => image_tag(f.object.product.avatar) if not f.object.product.nil?
+      
+            p.has_many :market_statuses, for: [:market_statuses,  p.object.market_statuses || MarketStatus.new],allow_destroy: true do |a|
+              a.input :price
+              a.inputs :shop
+            end
+          end
       
       input :interface
       input :chipset
@@ -45,8 +51,8 @@ ActiveAdmin.register VideoCard do
   controller do
     def create
       @video_card = VideoCard.new(video_card_params)
-      @video_card.product = Product.create(product_params)
-
+#      @video_card.product = Product.create(product_params)
+      @video_card.build_with_market_status(params)
         respond_to do |format|
           if @video_card.save
             format.html { redirect_to [:admin, @video_card], notice: 'Video Card was successfully created.' }

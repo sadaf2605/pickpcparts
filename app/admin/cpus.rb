@@ -14,18 +14,26 @@ ActiveAdmin.register Cpu do
 # end
 permit_params :cpu
 
-  form do |f|
+  form(:html => { :multipart => true })  do |f|
     
     
     f.inputs do
-      f.semantic_fields_for [:cpu_socket, f.object.cpu_socket || CpuSocket.new], heading: 'Themes', allow_destroy: true, new_record: true do |a|
-          a.input :name,:label=>"Socket", :as => :select, :collection => CpuSocket.all.collect {|cpu_socket| [cpu_socket.name, cpu_socket.id] }
-      end
+      f.inputs :cpu_socket, heading: 'Themes', allow_destroy: true, new_record: true
+#      f.semantic_fields_for [:cpu_socket, f.object.cpu_socket || CpuSocket.new], heading: 'Themes', allow_destroy: true, new_record: true do |a|
+#          a.input :name,:label=>"Socket", :as => :select, :collection => CpuSocket.all.collect {|cpu_socket| [cpu_socket.name, cpu_socket.id] }
+#      end
+
       
       f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
           p.input :manufacturer
-          p.input :part_no
-      end
+          p.input :part_no 
+          p.input :avatar, :as => :file, :hint => image_tag(f.object.product.avatar) if not f.object.product.nil?
+      
+            p.has_many :market_statuses, for: [:market_statuses,  p.object.market_statuses || MarketStatus.new],allow_destroy: true do |a|
+              a.input :price
+              a.inputs :shop
+            end
+          end
       
       input :model
       input :data_width
@@ -46,10 +54,9 @@ permit_params :cpu
     def create
       @cpu = Cpu.new(cpu_params)
       
-      @cpu.cpu_socket = CpuSocket.find_by_name(params[:cpu][:cpu_sockets][:name]) ||
-          CpuSocket.create({ :name => params[:cpu][:cpu_sockets][:name] })
-      @cpu.product = Product.create(product_params)
-
+#      @cpu.cpu_socket = CpuSocket.find(params[:cpu][:cpu_socket][:name])
+      @cpu.build_with_market_status(params)
+      
         respond_to do |format|
           if @cpu.save
             format.html { redirect_to [:admin, @cpu], notice: 'Cpu was successfully created.' }
@@ -61,11 +68,7 @@ permit_params :cpu
 
 
     def cpu_params
-      params.require(:cpu).permit(:manufacturer, :model, :part_no, :data_width, :speed, :cores, :l1_cache, :l2_cache, :l3_cache, :lithography, :thermal_design_power, :includes_cpu_cooler, :hyper_threading, :integrated_graphics, :cpu_socket_id)
-    end
-    
-    def product_params
-      params[:cpu][:product].permit(:manufacturer, :part_no)
+      params.require(:cpu).permit(:product, :cpu_socket, :model, :data_width, :speed, :cores, :l1_cache, :l2_cache, :l3_cache, :lithography, :thermal_design_power, :includes_cpu_cooler, :hyper_threading, :integrated_graphics, :cpu_socket_id)
     end
 
   end

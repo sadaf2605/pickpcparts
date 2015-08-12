@@ -2,7 +2,10 @@ class VideoCard < ActiveRecord::Base
   belongs_to :product
 	has_many :video_card_builds
 	has_many :builds, :through => :video_card_builds
-
+  
+  def build_with_market_status(params)
+    Product.build_with_market_status(self,params[:video_card])
+  end
 
 	def supports_case(cpu_case)
 		if cpu_case.nil? || self.length.nil?

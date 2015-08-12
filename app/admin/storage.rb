@@ -17,10 +17,16 @@ ActiveAdmin.register Storage do
     
     
     f.inputs do      
-      f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
+        f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
           p.input :manufacturer
-          p.input :part_no
-      end
+          p.input :part_no 
+          p.input :avatar, :as => :file, :hint => image_tag(f.object.product.avatar) if not f.object.product.nil?
+      
+            p.has_many :market_statuses, for: [:market_statuses,  p.object.market_statuses || MarketStatus.new],allow_destroy: true do |a|
+              a.input :price
+              a.inputs :shop
+            end
+          end
       
       input :capacity
       input :interface
@@ -38,12 +44,12 @@ ActiveAdmin.register Storage do
 
   controller do
     def create
-      @cpu = Storage.new(storage_params)
-      @cpu.product = Product.create(product_params)
-
+      @storage = Storage.new(storage_params)
+#      @storage.product = Product.create(product_params)
+      @storage.build_with_market_status(params)
         respond_to do |format|
-          if @cpu.save
-            format.html { redirect_to [:admin, @cpu], notice: 'Cpu was successfully created.' }
+          if @storage.save
+            format.html { redirect_to [:admin, @storage], notice: 'Cpu was successfully created.' }
           else
             format.html { render renderer_for(:edit) }
           end

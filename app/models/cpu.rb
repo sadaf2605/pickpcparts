@@ -8,7 +8,11 @@ class Cpu < ActiveRecord::Base
 
   attr_accessor :cpu_socket_str
 
-
+  
+  def build_with_market_status(params)
+    Product.build_with_market_status(self,params[:cpu])
+  end
+  
   def supports_cooler(cooler)
 
     if cooler.nil?
@@ -50,6 +54,8 @@ class Cpu < ActiveRecord::Base
 
     return consistancies,conflicts
   end
+  
+
 
 
 end

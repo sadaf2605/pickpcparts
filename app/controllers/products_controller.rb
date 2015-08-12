@@ -1,9 +1,8 @@
 class ProductsController < InheritedResources::Base
 
-  private
-
-    def product_params
-      params.require(:product).permit(:manufacturer, :part_no)
+public
+    def self.product_params(p=params)
+      p.require(:product).permit(:manufacturer, :part_no, :avatar)
     end
 end
 
