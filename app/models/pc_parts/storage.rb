@@ -1,5 +1,4 @@
-class Storage < ActiveRecord::Base
-  belongs_to :product
+class Storage < PcPart
   has_many :storage_builds
   has_many :builds, :through => :storage_builds
   

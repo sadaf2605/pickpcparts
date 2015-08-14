@@ -117,31 +117,24 @@ class Build < ActiveRecord::Base
     save
   end
 
-	def concistency_check
-		@consistancies =[]
-		@conflicts = []
-
-		def combine_report(report)
-			_consistency,_conflicts=report[0],report[1]
-			@consistancies.concat(_consistency)
-			@conflicts.concat _conflicts
-		end
+	def reports
+		reports=[]
 
 		self.cpus.each do |cpu|
-			combine_report(cpu.report_consistency(self))
+		  reports<<cpu.report(self)
 		end
 
 		self.coolers.each do |cooler|
-			combine_report(cooler.report_consistency(self))
+			reports << cooler.report(self)
 		end
 
 		self.motherboards.each do |motherboard|
-		 combine_report(motherboard.report_consistency(self))
+		 reports << motherboard.report(self)
 		end
 
 
 		self.memories.each do |memory|
-			combine_report(memory.report_consistency(self))
+			report << memory.report_consistency(self)
 		end
 
 		self.cpu_cases.each do |cpu_case|
@@ -151,10 +144,9 @@ class Build < ActiveRecord::Base
 		end
 
 		self.video_cards.each do |video_card|
-			combine_report(video_card.report_consistency(self))
+			reports<<video_card.report(self)
 		end
 
-
-		return @consistancies, @conflicts
+		return reports.flatten.uniq
 	end
 end
