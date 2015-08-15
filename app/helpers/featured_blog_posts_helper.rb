@@ -1,0 +1,2 @@
+module FeaturedBlogPostsHelper
+end

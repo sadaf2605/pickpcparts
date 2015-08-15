@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :blog_posts
+
+  resources :featured_blog_posts
+
   resources :products
 
   mount Blogit::Engine => "/blog" , :as => 'blogit'

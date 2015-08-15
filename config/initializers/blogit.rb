@@ -2,13 +2,14 @@
 Blogit.configure do |config|
 
   # What kind of comments do you want to add to your blog ? (:active_record, :disqus or :no)
+  
    config.include_comments = :active_record
 
   # When using disqus comments, what is the shortname of your forum ?
    config.disqus_shortname = "sadaf2605"
 
   # Should there be a share bar on every post ?
-   config.include_share_bar = false
+   config.include_share_bar = true
 
   # Twitter username used in the share bar
    config.twitter_username = "sadaf2605"
@@ -92,8 +93,5 @@ Blogit.configure do |config|
 
   # List of states that will hide the posts from the public.
    config.hidden_states = [:draft, :archive]
-   
-   config.include_share_bar=true
-   config.include_comments=:disqus
 
 end

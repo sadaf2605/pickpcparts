@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Blogit posts:</strong>
+  <%= @blog_post.blogit_posts_id %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= @blog_post.avatar %>
+</p>
+
+<p>
+  <strong>Build:</strong>
+  <%= @blog_post.build_id %>
+</p>
+
+<%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
+<%= link_to 'Back', blog_posts_path %>

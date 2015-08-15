@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Featured Blog Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @featured_blog_posts.each do |featured_blog_post| %>
+      <tr>
+        <td><%= link_to 'Show', featured_blog_post %></td>
+        <td><%= link_to 'Edit', edit_featured_blog_post_path(featured_blog_post) %></td>
+        <td><%= link_to 'Destroy', featured_blog_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Featured blog post', new_featured_blog_post_path %>
