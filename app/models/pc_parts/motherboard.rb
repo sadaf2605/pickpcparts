@@ -13,9 +13,6 @@ class Motherboard < PcPart
 
 	attr_accessor :form_factor_str
 	
-	def build_with_market_status(params)
-    Product.build_with_market_status(self,params[:motherboard])
-  end
   
   
   

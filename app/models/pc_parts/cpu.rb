@@ -5,11 +5,6 @@ class Cpu < PcPart
   belongs_to :cpu_socket
 
   attr_accessor :cpu_socket_str
-
-  
-  def build_with_market_status(params)
-    Product.build_with_market_status(self,params[:cpu])
-  end
   
   def supports_cooler(cooler)
     return cooler.supports_cpu(self)

@@ -4,11 +4,6 @@ class Cooler < PcPart
 	
 	has_and_belongs_to_many :cpu_sockets
 	
-	def build_with_market_status(params)
-    Product.build_with_market_status(self,params[:cooler])
-  end
-
-
       def supports_cpu(cpu)
         if cpu.nil?
           return "[uncompatable] No cpu attached!"
