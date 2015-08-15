@@ -23,6 +23,7 @@ class PcPart < ActiveRecord::Base
        
     def build_with_market_status(params)
          key=self.class.name.downcase
+         
          self.product=Product.create(ProductsController.product_params(params[key]))
          self.product.market_statuses =[]
          market_statuses=params[key][:product][:market_statuses_attributes]

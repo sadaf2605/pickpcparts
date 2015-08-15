@@ -32,7 +32,6 @@
     color: #FFFFFF;
   background-color: #2793C8;
   border-color: #4A83C1;
-  text-align:right;
 }
 .thumbnail{
    padding: 0px;
@@ -58,12 +57,12 @@ body{margin-top: 56px;}
 .add_build {
   background-color:#BEE3F6;
   border-radius: 5px;
-  padding: 10px;
-  padding-left: 15px;
-  margin-top: 30px;
+  padding: 5px;
+//  padding-left: 15px;
+//  margin-top: 30px;
 }
 .add_build .btn{
-  margin-top:10px;
+  margin-top: 5px;
   margin-bottom: 5px;
 }
 .add_build .button_to{

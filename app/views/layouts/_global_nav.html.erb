@@ -14,16 +14,23 @@
         <div id="navbar-collapse-1" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
           <ul class="nav navbar-nav">
 
-            <li><%= link_to "Your Build", url_helpers.current_build_path %></li>
-            <li><%= link_to "Featured Builds", url_helpers.root_path %></li>
-            <li><%= link_to "Blog Posts", url_helpers.blogit_path %></li>
+            <li><%= link_to url_helpers.current_build_path do %>
+            	<i class="fa fa-puzzle-piece menu-icon"></i> Your Build
+            	<% end %>
+            </li>
+            <li><%= link_to  url_helpers.root_path do%>
+            	<i class="fa fa-star menu-icon"></i> Featured Builds
+            	<%end%>
+            </li>
+            <li><%= link_to url_helpers.blogit_path do%>
+            	<i class="fa fa-bullhorn menu-icon"></i> Blog Posts
+            	<% end %>
+            </li>
             
-            <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false">Individual Parts<b class="caret"></b></a>
+            <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false"><i class="fa fa-cubes menu-icon"></i> Individual Parts<b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li>
-                  <div class="yamm-content">
-<div class="row">
-          <div class="col-md-12 text-center">
+                <li>              <div class="yamm-content">
+		<div class="row">        <div class="col-md-12 text-center">
               <div class="col-sm-1">
                 <%= link_to url_helpers.cpus_path, :class=> "menu-parts-icon" do %>
                 	<%= image_tag "https://pcpartpicker.com/static/forever/img/nav-cpu.png", alt: "CPU"%>
@@ -60,13 +67,16 @@
                 </li>
               </ul>
             </li>
-            <li><%= link_to "About Us", url_helpers.root_path %></li>
+            <li><%= link_to url_helpers.root_path do%>
+            	<i class="fa fa-users menu-icon"></i>About Us
+            	<%end%>
+            </li>
           </ul>
           <style>
           .contact{color:white;font-size:12px;}
           </style>
             <div class="pull-right">
-	            <div class="contact"><i class="fa fa-mobile"></i> <span>01758085078</span></div>
+	            <div class="contact"><i class="fa fa-phone"></i> <span>01758085078</span></div>
 	            <div class="contact"><i class="fa fa-envelope"></i> <span>contact@pcpartsbd.com</span></div>
 	            <div class="contact"><span>Follow us:</span> <i class="fa fa-facebook"></i> <i class="fa fa-twitter"></i></div>
 	        </div>

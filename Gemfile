@@ -53,7 +53,7 @@ gem "blogit", '1.0.0.rc1'
 gem "acts-as-taggable-on"
 
 gem 'carrierwave'
-
+gem "rails-erd"
 # Use ActiveModel has_secure_password
 
 # gem 'bcrypt', '~> 3.1.7'

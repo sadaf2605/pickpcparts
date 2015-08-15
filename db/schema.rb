@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812044444) do
+ActiveRecord::Schema.define(version: 20150814162954) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -285,138 +285,6 @@ ActiveRecord::Schema.define(version: 20150812044444) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "processor_advanced_technologies", force: :cascade do |t|
-    t.boolean  "turbo_boost_technology"
-    t.boolean  "vPro_technology"
-    t.boolean  "hyper_threading_technology"
-    t.boolean  "virtualization_technology_vtx"
-    t.boolean  "virtualization_technology_for_directed_IO_vtd"
-    t.boolean  "vtx_with_extended_page_tables_ept"
-    t.boolean  "TSX_NI"
-    t.boolean  "intel_64"
-    t.boolean  "idle_states"
-    t.boolean  "enhanced_speedstep_technology"
-    t.boolean  "thermal_monitoring_technologies"
-    t.boolean  "virtualization_technology_for_itanium_vti"
-    t.boolean  "stable_image_platform_program_SIPP"
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
-  end
-
-  create_table "processor_data_protections", force: :cascade do |t|
-    t.boolean  "AES_new_nstructions"
-    t.boolean  "secure_key"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-  end
-
-  create_table "processor_expansions", force: :cascade do |t|
-    t.float    "PCI_express_revision"
-    t.integer  "max_no_of_PCI_express_lanes"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-  end
-
-  create_table "processor_graphics", force: :cascade do |t|
-    t.string   "processor_graphics"
-    t.float    "graphics_base_frequency_in_MHz"
-    t.float    "graphics_max_dynamic_frequency_GHz"
-    t.float    "graphics_video_max_memory_in_GB"
-    t.boolean  "quick_sync_video"
-    t.boolean  "wireless_display"
-    t.boolean  "clear_video_hd_technology"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.integer  "no_of_displays_supported"
-  end
-
-  create_table "processor_memories", force: :cascade do |t|
-    t.integer  "max_memory_size_GB"
-    t.integer  "max_no_of_memory_channels"
-    t.float    "max_memory_bandwidth_in_GBs"
-    t.boolean  "ecc_memory_supported"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-  end
-
-  create_table "processor_packages", force: :cascade do |t|
-    t.integer  "max_cpu_configuration"
-    t.integer  "TCASE_in_C"
-    t.float    "package_width_in_mn"
-    t.float    "package_length_in_mn"
-    t.integer  "graphics_and_imc_lithography_in_nm"
-    t.string   "low_halogen_options_available"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.integer  "cpu_socket_id"
-  end
-
-  create_table "processor_performances", force: :cascade do |t|
-    t.integer  "no_of_cores"
-    t.integer  "no_of_threads"
-    t.float    "processor_base_frequency_in_GHz"
-    t.float    "thermal_design_power_in_W"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-  end
-
-  create_table "processor_platform_protections", force: :cascade do |t|
-    t.boolean  "trusted_execution_technology"
-    t.boolean  "execute_disable_bit"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
-
-  create_table "processor_processor_advanced_options", force: :cascade do |t|
-    t.boolean  "turbo_boost_technology"
-    t.boolean  "vPro_technology"
-    t.boolean  "hyper_threading_technology"
-    t.boolean  "virtualization_technology_vtx"
-    t.boolean  "virtualization_technology_for_directed_IO_vtd"
-    t.boolean  "vtx_with_extended_page_tables_ept"
-    t.boolean  "TSX_NI"
-    t.boolean  "intel_64"
-    t.boolean  "idle_states"
-    t.boolean  "enhanced_speedstep_technology"
-    t.boolean  "thermal_monitoring_technologies"
-    t.boolean  "virtualization_technology_for_itanium_vti"
-    t.boolean  "stable_image_platform_program_SIPP"
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
-  end
-
-  create_table "processor_processors", force: :cascade do |t|
-    t.string   "processor_number"
-    t.float    "cache_in_MB"
-    t.float    "DMI2_in_GTs"
-    t.integer  "instruction_set_in_bit"
-    t.string   "instruction_set_extensions"
-    t.boolean  "embedded_options_available"
-    t.float    "lithography_in_nm"
-    t.string   "scalability"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.integer  "processor_performance_id"
-    t.integer  "processor_memory_id"
-    t.integer  "processor_graphic_id"
-    t.integer  "processor_advanced_technology_id"
-    t.integer  "processor_data_protection_id"
-    t.integer  "processor_expansion_id"
-    t.integer  "processor_package_id"
-    t.integer  "processor_platform_protection_id"
-  end
-
-  create_table "processors", force: :cascade do |t|
-    t.integer "processor_performance_id"
-    t.integer "processor_memory_id"
-    t.integer "processor_graphic_id"
-    t.integer "processor_advanced_technology_id"
-    t.integer "processor_data_protection_id"
-    t.integer "processor_expansion_id"
-    t.integer "processor_package_id"
-    t.integer "processor_platform_protection_id"
-  end
-
   create_table "products", force: :cascade do |t|
     t.string   "manufacturer"
     t.string   "part_no"
@@ -429,6 +297,7 @@ ActiveRecord::Schema.define(version: 20150812044444) do
     t.string "name"
     t.string "location"
     t.string "contact"
+    t.string "avatar"
   end
 
   create_table "storage_builds", force: :cascade do |t|

@@ -1,5 +1,5 @@
-class AddProductIdToMarketStatuses < ActiveRecord::Migration
+class AddAvatarToProduct < ActiveRecord::Migration
   def change
-    add_column :market_statuses, :product_id, :integer
+    add_column :shops, :avatar, :string
   end
 end

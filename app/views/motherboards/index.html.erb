@@ -20,7 +20,7 @@
 
         <td><%= link_to motherboard.part_no, motherboard %></td>
         <td><%= if motherboard.form_factor then motherboard.form_factor.name end %></td>
-        <td><%= motherboard.cpu_socket.name %></td>
+        <td><%= motherboard.cpu_socket.name if motherboard.cpu_socket%></td>
         <td><%= motherboard.memory_slot_num  %></td>
         <td><%= motherboard.max_memory %></td>
       </tr>

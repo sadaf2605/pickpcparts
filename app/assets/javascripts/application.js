@@ -42,7 +42,7 @@ $('.owl-carousel').owlCarousel({
 
 
     $(document).ready(function(){
-    	$(window).scrollTop(10);
+    	$(window).scrollTop(1);
     	
     	
     	window.setInterval(function(){

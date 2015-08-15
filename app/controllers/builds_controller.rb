@@ -29,7 +29,8 @@ class BuildsController < ApplicationController
     @build = Build.all[0]
     
   end
-layout "front_page"
+  
+  layout "front_page"
   def token_build
     @current_build=Build.find_by_token(params[:token])
     respond_to do |format|
