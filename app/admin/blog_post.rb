@@ -13,6 +13,6 @@ ActiveAdmin.register BlogPost do
   #   permitted << :other if resource.something?
   #   permitted
   # end
-
+  permit_params :blog_post, :blogit_post_id, :build_id, :avatar, :is_featured
 
 end
