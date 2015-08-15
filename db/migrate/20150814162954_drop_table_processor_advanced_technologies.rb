@@ -1,6 +1,6 @@
 class DropTableProcessorAdvancedTechnologies < ActiveRecord::Migration
   def change
-    drop_table :processor_advanced_technologies
+#    drop_table :processor_advanced_technologies
     drop_table :processor_data_protections
     drop_table :processor_expansions
     drop_table :processor_graphics
