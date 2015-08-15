@@ -1,4 +1,5 @@
 ActiveAdmin.register Storage do
+  menu parent: "Parts", priority: 4
 
 
   # See permitted parameters documentation:

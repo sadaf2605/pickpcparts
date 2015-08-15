@@ -1,5 +1,5 @@
 ActiveAdmin.register Motherboard do
-
+  menu parent: "Parts", priority: 3
 
   show do
     attributes_table_for motherboard do

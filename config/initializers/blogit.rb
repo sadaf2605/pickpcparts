@@ -92,5 +92,8 @@ Blogit.configure do |config|
 
   # List of states that will hide the posts from the public.
    config.hidden_states = [:draft, :archive]
+   
+   config.include_share_bar=true
+   config.include_comments=:disqus
 
 end

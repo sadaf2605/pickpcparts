@@ -1,4 +1,5 @@
 ActiveAdmin.register PowerSupply do
+  menu parent: "Parts", priority: 6
 
 
   # See permitted parameters documentation:

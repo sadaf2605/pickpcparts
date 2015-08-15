@@ -1,4 +1,5 @@
 ActiveAdmin.register CpuCase do
+  menu parent: "Parts", priority: 7
 
 
   show do

@@ -1,4 +1,5 @@
 ActiveAdmin.register VideoCard do
+  menu parent: "Parts", priority: 5
 
 
   # See permitted parameters documentation:

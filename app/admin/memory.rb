@@ -1,4 +1,5 @@
 ActiveAdmin.register Memory do
+  menu parent: "Parts", priority: 3
 
 
   show do

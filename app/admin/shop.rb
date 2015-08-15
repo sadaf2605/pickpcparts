@@ -14,5 +14,13 @@ ActiveAdmin.register Shop do
   #   permitted
   # end
  permit_params :name, :location, :contact
-
+  form(:html => { :multipart => true })  do |f|
+    f.inputs do
+        input :name
+        input :location
+        input :contact
+        input :avatar, :as => :file, :hint => image_tag(f.object.avatar)
+        
+    end
+  end
 end
