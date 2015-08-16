@@ -40,15 +40,30 @@ class BuildsController < ApplicationController
   end
 
 
-  def add_cpu
-    @current_build = get_current_build
-    cpu=Cpu.find(params[:cpu_id])
-    qty=params[:qty]
-    Integer(qty).times do
-      @current_build.add_cpu(cpu)
+  def action_missing(m, *args, &block)
+    if m.starts_with? "add_"
+      k=(m.split "_") [1]
+      @current_build = get_current_build
+      qty=params[:qty]      
+      Integer(qty).times do
+        build= (Object.const_get "#{k.capitalize}Build").create({(k+"_id").to_sym => params[(k+"_id").to_sym], :market_status_id => params[:market_status]})
+        eval("@current_build.#{k}_builds << build")
+      end
+      redirect_to current_build_url
+    elsif m.starts_with? "remove_"
+      k=(m.split "_") [1]
+      @current_build = get_current_build
+      p=(Object.const_get "#{k.capitalize}") .find(params[("#{k}_id").to_sym])
+      @current_build.send("remove_#{k}",p)
+      redirect_to current_build_url
+    else
+      super
     end
-    redirect_to current_build_url
+    
   end
+
+
+
   
   def remove_cpu
     @current_build = get_current_build
@@ -57,15 +72,7 @@ class BuildsController < ApplicationController
     redirect_to current_build_url
   end
 
-  def add_motherboard
-    @current_build = get_current_build
-    motherboard = Motherboard.find(params[:motherboard_id])
-    qty=params[:qty]
-    Integer(qty).times do
-      @current_build.add_motherboard(motherboard)
-    end
-    redirect_to current_build_url
-  end
+
 
   def remove_motherboard
     @current_build = get_current_build
@@ -75,15 +82,7 @@ class BuildsController < ApplicationController
   end
   
   
-  def add_cooler
-   @current_build = get_current_build
-    cooler = Cooler.find(params[:cooler_id])
-    qty=params[:qty]
-    Integer(qty).times do
-      @current_build.add_cooler(cooler)
-    end
-    redirect_to current_build_url
-  end
+
   
   def remove_cooler
     @current_build = get_current_build
@@ -92,15 +91,6 @@ class BuildsController < ApplicationController
     redirect_to current_build_url
   end
 
-  def add_memory
-    @current_build =get_current_build
-    memory = Memory.find(params[:memory_id])
-    qty=params[:qty]
-    Integer(qty).times do
-      @current_build.add_memory(memory)
-    end
-    redirect_to current_build_url
-  end
   def remove_memory
     @current_build =get_current_build
     memory = Memory.find(params[:memory_id])
@@ -109,15 +99,7 @@ class BuildsController < ApplicationController
   end
    
   
-  def add_storage
-    @current_build =get_current_build
-    storage = Storage.find(params[:storage_id])
-    qty=params[:qty]
-    Integer(qty).times do
-      @current_build.add_storage(storage)
-    end
-    redirect_to current_build_url
-  end
+
   def remove_storage
     @current_build =get_current_build
     storage = Storage.find(params[:storage_id])
@@ -125,15 +107,7 @@ class BuildsController < ApplicationController
     redirect_to current_build_url
   end
 
-  def add_video_card
-    @current_build =get_current_build
-    video_card = VideoCard.find(params[:video_card_id])
-    qty=params[:qty]
-    Integer(qty).times do
-      @current_build.add_video_card(video_card)
-    end
-    redirect_to current_build_url
-  end
+
   def remove_video_card
     @current_build =get_current_build
     video_card = VideoCard.find(params[:video_card_id])
@@ -141,15 +115,7 @@ class BuildsController < ApplicationController
     redirect_to current_build_url
   end
 
-  def add_cpu_case
-    @current_build =get_current_build
-    cpu_case = CpuCase.find(params[:cpu_case_id])
-    qty=params[:qty]
-    Integer(qty).times do
-      @current_build.add_cpu_case(cpu_case)
-    end
-    redirect_to current_build_url
-  end
+
   def remove_cpu_case
     @current_build =get_current_build
     cpu_case = CpuCase.find(params[:cpu_case_id])
@@ -158,15 +124,7 @@ class BuildsController < ApplicationController
 
   end
   
-  def add_power_supply
-    @current_build =get_current_build
-    power_supply = PowerSupply.find(params[:power_supply_id])
-    qty=params[:qty]
-    Integer(qty).times do
-      @current_build.add_power_supply(power_supply)
-    end
-    redirect_to current_build_url
-  end
+
     def remove_power_supply
     @current_build =get_current_build
     power_supply = PowerSupply.find(params[:power_supply_id])

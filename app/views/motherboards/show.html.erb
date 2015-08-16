@@ -80,5 +80,5 @@
 </div>
 
 <div class="col-md-4 add_build_col">
-<%=render 'layouts/add_to_build', :form_link=>add_motherboard_path(@motherboard) %>
+<%=render 'layouts/add_to_build', :form_link=>add_motherboard_path(@motherboard), :product => @motherboard.product %>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150815234028) do
+ActiveRecord::Schema.define(version: 20150816135214) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -141,8 +141,9 @@ ActiveRecord::Schema.define(version: 20150815234028) do
   create_table "cpu_builds", force: :cascade do |t|
     t.integer  "cpu_id"
     t.integer  "build_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "market_status_id"
   end
 
   create_table "cpu_case_builds", force: :cascade do |t|
@@ -255,6 +256,7 @@ ActiveRecord::Schema.define(version: 20150815234028) do
   create_table "motherboard_builds", force: :cascade do |t|
     t.integer "motherboard_id"
     t.integer "build_id"
+    t.integer "market_status_id"
   end
 
   create_table "motherboards", force: :cascade do |t|

@@ -40,8 +40,8 @@
 	  
     </td>
 
-    <td>0 BDT</td>
-    <td>None</td>
+    <td><% @current_build.cpu_builds.each do |cpu_build| %><li> <%=cpu_build.market_status.price if cpu_build.market_status %> </li><%end%></td>
+    <td><% @current_build.cpu_builds.each do |cpu_build| %><li> <%=cpu_build.market_status.shop.name if cpu_build.market_status%></li><%end%></td>
   </tr>
   <tr>
     <td><%= link_to "Motherboard", motherboards_url %></td>
@@ -55,8 +55,8 @@
       <% end %>
     </td>
 
-    <td>0 BDT</td>
-    <td>None</td>
+    <td><% @current_build.motherboard_builds.each do |motherboard_build| %><li> <%=motherboard_build.market_status.price if motherboard_build.market_status %> </li><%end%></td>
+    <td><% @current_build.motherboard_builds.each do |motherboard_build| %><li> <%=motherboard_build.market_status.shop.name if motherboard_build.market_status%></li><%end%></td>
   </tr>
   <tr>
     <td><%= link_to "Cooler", coolers_url%></td>
