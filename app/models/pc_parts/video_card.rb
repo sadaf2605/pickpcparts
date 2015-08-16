@@ -1,4 +1,4 @@
-class VideoCard < PcPart
+class VideoCard < ParentProduct
 	has_many :video_card_builds
 	has_many :builds, :through => :video_card_builds
   

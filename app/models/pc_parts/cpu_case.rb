@@ -1,4 +1,4 @@
-class CpuCase < ActiveRecord::Base
+class CpuCase < ParentProduct
   has_many :cpu_case_builds
 	has_many :builds, :through => :cpu_case_builds
 	

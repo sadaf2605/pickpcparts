@@ -1,4 +1,3 @@
-class CoolerBuild < ActiveRecord::Base
+class CoolerBuild < ParentProductBuild
   belongs_to :cooler
-  belongs_to :build
 end

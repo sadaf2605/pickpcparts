@@ -1,4 +1,3 @@
-class PowerSupplyBuild < ActiveRecord::Base
+class PowerSupplyBuild < ParentProductBuild
   belongs_to :power_supply
-  belongs_to :builds
 end

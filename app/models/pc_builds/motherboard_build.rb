@@ -1,4 +1,3 @@
-class MotherboardBuild < ActiveRecord::Base
+class MotherboardBuild < ParentProductBuild
   belongs_to :motherboard
-  belongs_to :build
 end

@@ -1,5 +1,4 @@
-class StorageBuild < ActiveRecord::Base
+class StorageBuild < ParentProductBuild
   belongs_to :storage
-  belongs_to :build
   
 end

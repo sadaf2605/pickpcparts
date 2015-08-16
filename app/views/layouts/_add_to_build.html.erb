@@ -1,7 +1,7 @@
   <div class="add_build">
   	<div class="panel-heading" style="text-align: left"> <i class="fa fa-plug" style="font-size: 20px;"></i> <span class="pull-right">Add to build!</span></div>
   		<a href="#" class="thumbnail">
-	      <img src="https://cdn.pcpartpicker.com/static/forever/images/product/f6776a85afe4c2236d84eb42fe6da169.med.1600.jpg" alt="">
+			<%= image_tag product.avatar%> 
 	    </a>
 		
 			
@@ -12,14 +12,13 @@
 	      	<th>Shop Name</th>
 	      	<th>Base Price</th>
 	      </tr>
-		  <tr>
-		    <th><p><%= radio_button_tag(:age, "child") %> Ryans Computer </p></th>
-		    <th>2000/=</th>
+	      <% product.market_statuses.each do |market_status|%>
+		  <tr>	
+		    <th><p><%= radio_button_tag(:market_status, market_status.id) %> <%= market_status.shop.name %> </p></th>
+		    <th><%= market_status.price %></th>
 		  </tr>
-		  <tr>
-		    <th><p><%= radio_button_tag(:age, "child") %> Ryans Computer </p></th>
-		    <th>2000/=</th>
-		  </tr>
+		  <% end %>
+		  
 		</table>
 		
 		<div style="text-align:right">

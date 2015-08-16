@@ -1,4 +1,4 @@
-class Storage < PcPart
+class Storage < ParentProduct
   has_many :storage_builds
   has_many :builds, :through => :storage_builds
   

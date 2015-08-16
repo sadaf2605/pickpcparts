@@ -23,11 +23,11 @@ class BuildsController < ApplicationController
       @page_number ||= params[Kaminari.config.param_name]
     end
     
-    @feat_posts ||= Blogit::Post.for_index.first(3)
+    @feat_posts = FeaturedPost.singleton_instance.blog_posts
     @week_post ||= Blogit::Post.for_index.first(1)[0]
     
     @build = Build.all[0]
-    
+        
   end
   
   layout "front_page"

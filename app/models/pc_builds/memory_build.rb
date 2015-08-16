@@ -1,4 +1,3 @@
-class MemoryBuild < ActiveRecord::Base
+class MemoryBuild < ParentProductBuild
   belongs_to :memory
-  belongs_to :build
 end

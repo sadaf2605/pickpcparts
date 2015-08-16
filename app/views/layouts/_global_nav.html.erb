@@ -7,22 +7,21 @@
           	<span class="icon-bar"></span>
           	<span class="icon-bar"></span>
           	</button>
-          	<% url_helpers=Rails.application.routes.url_helpers%>
-          	<%= link_to "PCPARTSBD.com", url_helpers.root_path, :class=>"navbar-brand" %>
+          	<%= link_to "PCPARTSBD.com", root_path, :class=>"navbar-brand" %>
           	
         </div>
         <div id="navbar-collapse-1" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
           <ul class="nav navbar-nav">
 
-            <li><%= link_to url_helpers.current_build_path do %>
+            <li><%= link_to current_build_path do %>
             	<i class="fa fa-puzzle-piece menu-icon"></i> Your Build
             	<% end %>
             </li>
-            <li><%= link_to  url_helpers.root_path do%>
+            <li><%= link_to root_path do%>
             	<i class="fa fa-star menu-icon"></i> Featured Builds
             	<%end%>
             </li>
-            <li><%= link_to url_helpers.blogit_path do%>
+            <li><%= link_to blogit_path do%>
             	<i class="fa fa-bullhorn menu-icon"></i> Blog Posts
             	<% end %>
             </li>
@@ -32,7 +31,7 @@
                 <li>              <div class="yamm-content">
 		<div class="row">        <div class="col-md-12 text-center">
               <div class="col-sm-1">
-                <%= link_to url_helpers.cpus_path, :class=> "menu-parts-icon" do %>
+                <%= link_to cpus_path, :class=> "menu-parts-icon" do %>
                 	<%= image_tag "https://pcpartpicker.com/static/forever/img/nav-cpu.png", alt: "CPU"%>
 	                <p>CPU</p>
                 <% end %>
@@ -67,7 +66,7 @@
                 </li>
               </ul>
             </li>
-            <li><%= link_to url_helpers.root_path do%>
+            <li><%= link_to root_path do%>
             	<i class="fa fa-users menu-icon"></i>About Us
             	<%end%>
             </li>

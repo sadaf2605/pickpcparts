@@ -1,4 +1,3 @@
-class CpuCaseBuild < ActiveRecord::Base
+class CpuCaseBuild < ParentProductBuild
   belongs_to :cpu_case
-  belongs_to :build
 end

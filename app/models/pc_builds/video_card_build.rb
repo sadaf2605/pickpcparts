@@ -1,4 +1,3 @@
-class VideoCardBuild < ActiveRecord::Base
+class VideoCardBuild < ParentProductBuild
   belongs_to :video_card
-  belongs_to :build
 end

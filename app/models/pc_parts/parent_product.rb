@@ -1,4 +1,4 @@
-class PcPart < ActiveRecord::Base
+class ParentProduct < ActiveRecord::Base
   self.abstract_class = true
     
     belongs_to :product
@@ -27,10 +27,10 @@ class PcPart < ActiveRecord::Base
          self.product=Product.create(ProductsController.product_params(params[key]))
          self.product.market_statuses =[]
          market_statuses=params[key][:product][:market_statuses_attributes]
-          if market_statuses.length>0
+         if market_statuses.length>0
             market_statuses.sort.map{|k,v| v }.each  do |a|
               self.product.market_statuses << MarketStatus.create(MarketStatusController.market_status_params(a))
             end
-          end          
+         end
     end
 end
