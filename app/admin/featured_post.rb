@@ -1,4 +1,5 @@
 ActiveAdmin.register FeaturedPost do
+  menu url: "/admin/featured_posts/#{FeaturedPost.singleton_instance.id}/edit"
 
 
   # See permitted parameters documentation:
@@ -26,6 +27,7 @@ ActiveAdmin.register FeaturedPost do
     
     controller do
       def update
+        @page_title = "Select posts to feature"
         @featured_post = FeaturedPost.find(params[:id])
         @featured_post.blog_posts=[]
         params[:featured_post][:blog_post_ids].each do |blog_post_id|
@@ -33,7 +35,7 @@ ActiveAdmin.register FeaturedPost do
         end
             respond_to do |format|
         if @featured_post.save
-          format.html { redirect_to [:admin,@featured_post], notice: 'Featured post was successfully created.' }
+          format.html { redirect_to "/admin/featured_posts/#{@featured_post.id}/edit", notice: 'Featured post was successfully created.' }
           format.json { render  :show, status: :created, location: @featured_post }
         else
           format.html { render :new }

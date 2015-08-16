@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150815231406) do
+ActiveRecord::Schema.define(version: 20150815234028) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -49,12 +49,14 @@ ActiveRecord::Schema.define(version: 20150815231406) do
   create_table "blog_posts", force: :cascade do |t|
     t.string   "avatar"
     t.integer  "build_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "blogit_post_id"
-    t.boolean  "is_featured"
-    t.integer  "featured_post"
-    t.integer  "featured_post_id"
+  end
+
+  create_table "blog_posts_featured_posts", force: :cascade do |t|
+    t.integer "blog_post_id"
+    t.integer "featured_post_id"
   end
 
   create_table "blogit_comments", force: :cascade do |t|
@@ -200,12 +202,6 @@ ActiveRecord::Schema.define(version: 20150815231406) do
     t.integer  "product_id"
   end
 
-  create_table "featured_blog_posts", force: :cascade do |t|
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "blog_post_id"
-  end
-
   create_table "featured_posts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -343,11 +339,6 @@ ActiveRecord::Schema.define(version: 20150815231406) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "product_id"
-  end
-
-  create_table "table_blog_posts_featured_posts", id: false, force: :cascade do |t|
-    t.integer "blog_post_id"
-    t.integer "featured_post_id"
   end
 
   create_table "taggings", force: :cascade do |t|
