@@ -1,3 +1,17 @@
+<style>
+        .cross {
+            background-color: #0088cc;
+            color: white;
+            padding: 1.5px;
+            border-radius: 3px;
+        }
+              .cross:hover{
+                  background-color: #005983;
+              }
+              .parts_list{list-style: none}
+      </style>
+
+
 <table class="table table-condensed">
   <thead>
   <tr>
@@ -10,147 +24,31 @@
 
   <tbody>
 
-  <tr>
-
-    <td> <%= link_to "CPU", cpus_url %></td>
-
-    <td>
-      <style>
-        .cross {
-            background-color: #0088cc;
-            color: white;
-            padding: 1.5px;
-            border-radius: 3px;
-        }
-              .cross:hover{
-                  background-color: #005983;
-              }
-              .parts_list{list-style: none}
-      </style>
-      <% if @current_build.cpus.blank?%>
-                <%= link_to "add cpu", cpus_url, {:class =>"btn btn-xs btn-primary"} %>
-      <% end %>
+  
       
-      <% @current_build.cpus.each do |cpu| %>
-      <li class="parts_list">
-      	 <%= link_to cpu.model , cpu_path(cpu) %>
-          <%= link_to remove_cpu_path(cpu), :method => :post do %><i class="fa fa-times cross"></i><% end %>
-      </li>
-      <% end %>
+      
+  <% ["cpu","motherboard", "cooler","memory", "storage","video_card","cpu_case","power_supply"].each do |part| %>
+  	<tr>    
+      	<td> <%= link_to part, eval("#{part.pluralize}_url") %></td>
+
+    	<td>
+      		<% if @current_build.send("#{part.pluralize}").blank? %>
+            	<%= link_to "add #{part}", eval("#{part.pluralize}_url"), {:class =>"btn btn-xs btn-primary"} %>
+      		<% end %>
+      
+      		<% @current_build.send("#{part.pluralize}").each do |p| %>
+      			<li class="parts_list">
+      	 			<%= link_to p.product.part_no , eval("#{part}_path(p)") %>
+          			<%= link_to eval("remove_#{part}_path(p)"), :method => :post do %><i class="fa fa-times cross"></i><% end %>
+      			</li>
+      		<% end %>
 	  
-    </td>
+    	</td>
 
-    <td><% @current_build.cpu_builds.each do |cpu_build| %><li> <%=cpu_build.market_status.price if cpu_build.market_status %> </li><%end%></td>
-    <td><% @current_build.cpu_builds.each do |cpu_build| %><li> <%=cpu_build.market_status.shop.name if cpu_build.market_status%></li><%end%></td>
-  </tr>
-  <tr>
-    <td><%= link_to "Motherboard", motherboards_url %></td>
-    <td>
-      <% if @current_build.motherboards.blank? %>
-    	  <%= link_to "add motherboard", motherboards_url, {:class =>"btn btn-xs btn-primary"} %>
-      <% end %>
-      <% @current_build.motherboards.each do |motherboard| %>
-          <%= link_to motherboard.part_no , motherboard_path(motherboard) %>
-          <%= link_to remove_motherboard_path(motherboard), :method => :post do %><i class="fa fa-times cross"></i><% end %>
-      <% end %>
-    </td>
-
-    <td><% @current_build.motherboard_builds.each do |motherboard_build| %><li> <%=motherboard_build.market_status.price if motherboard_build.market_status %> </li><%end%></td>
-    <td><% @current_build.motherboard_builds.each do |motherboard_build| %><li> <%=motherboard_build.market_status.shop.name if motherboard_build.market_status%></li><%end%></td>
-  </tr>
-  <tr>
-    <td><%= link_to "Cooler", coolers_url%></td>
-    <td>
-   	 <% if @current_build.coolers.blank? %>
-    	          <%= link_to "add cooler", coolers_url, {:class =>"btn btn-xs btn-primary"} %>
-      <% end %>
-      <% @current_build.coolers.each do |cooler| %>
-          <%= link_to cooler.part_no , cooler_path(cooler) %>
-          <%= link_to remove_cooler_path(cooler), :method => :post do %><i class="fa fa-times cross"></i><% end %>
-      <% end %>
-    </td>
-    <td>0 BDT</td>
-    <td>None</td>
-  </tr>
-  <tr>
-    <td><%= link_to "Memory", memories_url%></td>
-    <td>
-      <%if @current_build.memories.blank? %>
-    	  <%= link_to "add memory", memories_url, {:class =>"btn btn-xs btn-primary"} %>
-      <% end %>
-      <% @current_build.memories.each do |memory| %>
-          <%= link_to memory.part_no , memory_path(memory) %>
-          <%= link_to remove_memory_path(memory), :method => :post do %><i class="fa fa-times cross"></i><% end %>
-      <% end %>
-
-    </td>
-    <td>0 BDT</td>
-    <td>None</td>
-  </tr>
-  <tr>
-    <td><%= link_to "Storage", storages_url %></td>
-    <td>
-      <% if @current_build.storages.blank? %>
-          <%= link_to "add storage", storages_url, {:class =>"btn btn-xs btn-primary"} %>
-      <% end %>
-      <% @current_build.storages.each do |storage| %>
-          <%= link_to storage.part_no , storage_path(storage) %>
-          <%= link_to remove_storage_path(storage), :method => :post do %><i class="fa fa-times cross"></i><% end %>
-      <% end %>
-      
-    </td>
-    <td>0 BDT</td>
-    <td>None</td>
-  </tr>
-
-
-  <tr>
-    <td><%= link_to "Video card", video_cards_url %></td>
-    <td>
-      <% if @current_build.video_cards.blank? %>
-          <%= link_to "add video card", video_cards_url, {:class =>"btn btn-xs btn-primary"} %>
-      <% end %>
-      <% @current_build.video_cards.each do |video_card| %>
-          <%= link_to video_card.part_no , video_card_path(video_card) %>
-          <%= link_to remove_video_card_path(video_card), :method => :post do %><i class="fa fa-times cross"></i><% end %>
-      <% end %>
-
-    </td>
-    <td>0 BDT</td>
-    <td>None</td>
-  </tr>
-
-  <tr>
-    <td><%= link_to "PC Case", cpu_cases_url %></td>
-    <td>
-      <% if @current_build.cpu_cases.blank? %>
-                <%= link_to "add PC case", cpu_cases_url, {:class =>"btn btn-xs btn-primary"} %>
-      <% end %>
-      <% @current_build.cpu_cases.each do |cpu_case| %>
-          <%= link_to cpu_case.part_no , cpu_case_path(cpu_case) %>
-          <%= link_to remove_cpu_case_path(cpu_case), :method => :post do %><i class="fa fa-times cross"></i><% end %>
-      <% end %>
-
-    </td>
-    <td>0 BDT</td>
-    <td>None</td>
-  </tr>
-
-  <tr>
-    <td><%= link_to "Power supply", power_supplies_url %></td>
-    <td>
-      <% if @current_build.power_supplies.blank? %>
-                <%= link_to "add Power supply", power_supplies_url, {:class =>"btn btn-xs btn-primary"} %>
-      <% end %>
-      <% @current_build.power_supplies.each do |power_supply| %>
-          <%= link_to power_supply.part_no , power_supply_path(power_supply) %>
-          <%= link_to remove_power_supply_path(power_supply), :method => :post do %><i class="fa fa-times cross"></i><% end %>
-      <% end %>
-    </td>
-    <td>0 BDT</td>
-    <td>None</td>
-  </tr>
-
+    	<td><% @current_build.send("#{part}_builds").each do |build| %><li> <%=build.market_status.price if build.market_status %> </li><%end%></td>
+    	<td><% @current_build.send("#{part}_builds").each do |build| %><li> <%=build.market_status.shop.name if build.market_status%></li><%end%></td>
+	</tr>
+  <%end%>
 
 
   </tbody>

@@ -66,5 +66,5 @@
 </div>
 
 <div class="col-md-4 add_build_col">
-<%=render 'layouts/add_to_build', :form_link=>add_memory_path(@memory) %>
+<%=render 'layouts/add_to_build', :form_link=>add_memory_path(@memory), :product => @memory.product %>
 </div>

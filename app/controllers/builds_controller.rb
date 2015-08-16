@@ -42,18 +42,18 @@ class BuildsController < ApplicationController
 
   def action_missing(m, *args, &block)
     if m.starts_with? "add_"
-      k=(m.split "_") [1]
+      k=(m.split "_", 2) [1]
       @current_build = get_current_build
       qty=params[:qty]      
       Integer(qty).times do
-        build= (Object.const_get "#{k.capitalize}Build").create({(k+"_id").to_sym => params[(k+"_id").to_sym], :market_status_id => params[:market_status]})
+        build= (Object.const_get "#{k.camelize}Build").create({(k+"_id").to_sym => params[(k+"_id").to_sym], :market_status_id => params[:market_status]})
         eval("@current_build.#{k}_builds << build")
       end
       redirect_to current_build_url
     elsif m.starts_with? "remove_"
       k=(m.split "_") [1]
       @current_build = get_current_build
-      p=(Object.const_get "#{k.capitalize}") .find(params[("#{k}_id").to_sym])
+      p=(Object.const_get "#{k.camelize}") .find(params[("#{k}_id").to_sym])
       @current_build.send("remove_#{k}",p)
       redirect_to current_build_url
     else
@@ -64,74 +64,7 @@ class BuildsController < ApplicationController
 
 
 
-  
-  def remove_cpu
-    @current_build = get_current_build
-    cpu=Cpu.find(params[:cpu_id])
-    @current_build.remove_cpu(cpu)
-    redirect_to current_build_url
-  end
-
-
-
-  def remove_motherboard
-    @current_build = get_current_build
-    motherboard = Motherboard.find(params[:motherboard_id])
-    @current_build.remove_motherboard(motherboard)
-    redirect_to current_build_url
-  end
-  
-  
-
-  
-  def remove_cooler
-    @current_build = get_current_build
-    cooler = Cooler.find(params[:cooler_id])
-    @current_build.remove_cooler(cooler)
-    redirect_to current_build_url
-  end
-
-  def remove_memory
-    @current_build =get_current_build
-    memory = Memory.find(params[:memory_id])
-    @current_build.remove_memory(memory)
-    redirect_to current_build_url
-  end
-   
-  
-
-  def remove_storage
-    @current_build =get_current_build
-    storage = Storage.find(params[:storage_id])
-    @current_build.remove_storage(storage)
-    redirect_to current_build_url
-  end
-
-
-  def remove_video_card
-    @current_build =get_current_build
-    video_card = VideoCard.find(params[:video_card_id])
-    @current_build.remove_video_card(video_card)
-    redirect_to current_build_url
-  end
-
-
-  def remove_cpu_case
-    @current_build =get_current_build
-    cpu_case = CpuCase.find(params[:cpu_case_id])
-    @current_build.remove_cpu_case(cpu_case)
-    redirect_to current_build_url
-
-  end
-  
-
-    def remove_power_supply
-    @current_build =get_current_build
-    power_supply = PowerSupply.find(params[:power_supply_id])
-    @current_build.remove_power_supply(power_supply)
-    redirect_to current_build_url
-  end
-
+ 
   # GET /builds/1
   # GET /builds/1.json
   def show

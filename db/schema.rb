@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150816135214) do
+ActiveRecord::Schema.define(version: 20150816183600) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -117,8 +117,9 @@ ActiveRecord::Schema.define(version: 20150816135214) do
   create_table "cooler_builds", force: :cascade do |t|
     t.integer  "cooler_id"
     t.integer  "build_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "market_status_id"
   end
 
   create_table "coolers", force: :cascade do |t|
@@ -243,8 +244,9 @@ ActiveRecord::Schema.define(version: 20150816135214) do
   create_table "memory_builds", force: :cascade do |t|
     t.integer  "memory_id"
     t.integer  "build_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "market_status_id"
   end
 
   create_table "memory_slots", force: :cascade do |t|
@@ -301,8 +303,9 @@ ActiveRecord::Schema.define(version: 20150816135214) do
   create_table "power_supply_builds", force: :cascade do |t|
     t.integer  "power_supply_id"
     t.integer  "build_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "market_status_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -323,8 +326,9 @@ ActiveRecord::Schema.define(version: 20150816135214) do
   create_table "storage_builds", force: :cascade do |t|
     t.integer  "storage_id"
     t.integer  "build_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "market_status_id"
   end
 
   create_table "storages", force: :cascade do |t|
@@ -366,8 +370,9 @@ ActiveRecord::Schema.define(version: 20150816135214) do
   create_table "video_card_builds", force: :cascade do |t|
     t.integer  "video_card_id"
     t.integer  "build_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "market_status_id"
   end
 
   create_table "video_cards", force: :cascade do |t|
