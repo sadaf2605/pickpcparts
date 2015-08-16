@@ -1,5 +1,5 @@
 ActiveAdmin.register FeaturedPost do
-  menu url: "/admin/featured_posts/#{FeaturedPost.singleton_instance.id}/edit"
+#  menu url: "/admin/featured_posts/#{FeaturedPost.singleton_instance.id}/edit"
 
 
   # See permitted parameters documentation:
