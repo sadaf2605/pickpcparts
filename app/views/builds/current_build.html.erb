@@ -7,17 +7,103 @@
 
 
 
-    <div style="margin-bottom:20px;">
+    <div style="margin-bottom:10px;">
         <div class="input-group">
-          <span class="input-group-addon build-share">Permalink: </span>
-          <input type="text" class="form-control" value="<%=request.base_url%>/builds/<%=@current_build.token%>" aria-describedby="basic-addon2"  style="background-color: white" readonly>
-          <span class="input-group-addon build-share">Share it on
-
+         <span class="input-group-addon share-button-group">
+              <div class=" btn btn-block build-share btn-social btn-social-right">
+          		Permalink:
+              </div>
           </span>
+          
+          <input id="build-url" type="text" class="input-group-addon form-control build-url" value="<%=request.base_url%>/builds/<%=@current_build.token%>" aria-describedby="basic-addon2"  style="margin-top: 1px" readonly>
+          <span id="copy-url" class="input-group-addon share-button-group">
+              <a class=" btn btn-block btn-vk btn-social share-button ">
+                <i class="fa fa-files-o"></i>
+              </a>
+          </span>
+          
+          <script>
+			document.getElementById('copy-url').addEventListener('click', function() {
+			
+			  clipboard.copy({
+			    'text/plain': document.getElementById('build-url').value,
+			  }).then(
+			    function(){console.log('success'); },
+			    function(err){console.log('failure', err);
+			  });
+			
+			});
+
+			$(".build-url").click(function () {
+			   $(this).select();
+			});
+          </script>
+          <span class="input-group-addon share-button-group">
+              <a class=" btn btn-block btn-pinterest btn-social share-button btn-social-left">
+          		<i class="fa fa-file-pdf-o"></i>
+              </a>
+          </span>
+
+
+          <span class="input-group-addon" style="padding:10px;width: 10px; background-color: white;"></span>
+          <span class="input-group-addon share-button-group">
+              <div class="btn btn-block build-share btn-social btn-social-right">
+          		Share:
+              </div>
+          </span>
+
           <style>
-            .share-button-group{padding:0 0 0 0;}
-                  .share-button{height: 33px; width:31px;}
+            	  .share-button-group{
+            	  	padding:0 0 0 0;
+            	  	padding-left: 0px;
+            	  	padding-right: 0px;
+            	  	margin: 0px;
+            	  	border-top-color: white !important;
+            	  	border-bottom-color: white !important;
+            	  	            	  	border-top-width: 1px;
+            	  	border-bottom-width: 1px;
+            	  	}
+            	  	.input-group-addon{
+            	  		border-color: transparent;
+            	  	}
+                  .share-button{
+                  	height: 33px; 
+                  	width:31px;
+                  	}
+                  .btn-social{
+                  	border-radius: 0px;
+                  	border: 0;
+                  	}
+                  .btn-social-left{
+                  	border-radius: 4px;
+                  	border-top-left-radius: 0px;
+                  	border-bottom-left-radius: 0px;
+                  	}
+                  .btn-social-right{
+                  	border-radius: 4px;
+                  	border-top-right-radius: 0px;
+                  	border-bottom-right-radius: 0px;
+                  	}
+                  	.build-url{
+                  		box-sizing:border-box;
+						  -moz-box-sizing:border-box;
+						  -webkit-box-sizing:border-box;
+						
+                  		border-top-width:1px;
+                  		border-bottom-width:1px;
+                  		border-top-color:#4A83C1;
+                  		border-bottom-color:#4A83C1;
+
+  outline: none;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+
+                  	}
             </style>
+
+
           <span class="input-group-addon share-button-group">
               <a class=" btn btn-block btn-facebook btn-social share-button">
                 <i class="fa fa-facebook"></i>
@@ -29,7 +115,7 @@
               </a>
           </span>
           <span class="input-group-addon share-button-group">
-          <a class=" btn btn-block btn-google btn-social share-button">
+          <a class=" btn btn-block btn-google btn-social share-button btn-social-left">
             <i class="fa fa-google"></i>
           </a>
           </span>

@@ -54,6 +54,8 @@ gem "acts-as-taggable-on"
 
 gem 'carrierwave'
 gem "rails-erd"
+
+gem 'wicked_pdf'
 # Use ActiveModel has_secure_password
 
 # gem 'bcrypt', '~> 3.1.7'

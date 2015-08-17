@@ -41,8 +41,7 @@
       	 			<%= link_to p.product.part_no , eval("#{part}_path(p)") %>
           			<%= link_to eval("remove_#{part}_path(p)"), :method => :post do %><i class="fa fa-times cross"></i><% end %>
       			</li>
-      		<% end %>
-	  
+      		<% end %>	  
     	</td>
 
     	<td><% @current_build.send("#{part}_builds").each do |build| %><li> <%=build.market_status.price if build.market_status %> </li><%end%></td>

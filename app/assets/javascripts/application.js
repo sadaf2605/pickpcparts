@@ -19,7 +19,7 @@
 //= require jquery.dataTables
 //= require cocoon
 //= require css3-animate-it
-
+//= require clipboard
 
 
 $(document).ready(function() {
