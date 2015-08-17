@@ -28,8 +28,10 @@
             
             <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false"><i class="fa fa-cubes menu-icon"></i> Individual Parts<b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li>              <div class="yamm-content">
-		<div class="row">        <div class="col-md-12 text-center">
+                <li>
+                	              <div class="yamm-content">
+		<div class="row">        
+			<div class="col-md-12 text-center">
               <div class="col-sm-1">
                 <%= link_to cpus_path, :class=> "menu-parts-icon" do %>
                 	<%= image_tag "https://pcpartpicker.com/static/forever/img/nav-cpu.png", alt: "CPU"%>
@@ -70,6 +72,23 @@
             	<i class="fa fa-users menu-icon"></i>About Us
             	<%end%>
             </li>
+            <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false"><i class="fa fa-search menu-icon"></i> Search<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                	<div class="yamm-content">
+						<div class="row">
+							<form>
+							  <div class="form-group">
+							    <label for="exampleInputEmail1">Search</label>
+							    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+							  </div>
+							  <button type="submit" class="btn btn-default">Search</button>
+							</form>
+						</div>
+					</div>
+				</li>
+			  </ul>
+			</li>
           </ul>
           <style>
           .contact{color:white;font-size:12px;}
