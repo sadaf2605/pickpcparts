@@ -1,4 +1,5 @@
 class AdminUser < ActiveRecord::Base
+
   blogs
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

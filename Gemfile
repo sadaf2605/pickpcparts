@@ -56,6 +56,8 @@ gem 'carrierwave'
 gem "rails-erd"
 
 gem 'wicked_pdf'
+gem 'scoped_search'
+
 # Use ActiveModel has_secure_password
 
 # gem 'bcrypt', '~> 3.1.7'

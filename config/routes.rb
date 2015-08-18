@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   
   root 'builds#front'
   
+  get 'search/auto_complete_search' => 'search#auto_complete_search', :as=>'auto_complete_search'
+  get 'search' => 'search#search', :as=>'search'
+  
+  
   scope :builds do
     get 'current' => 'builds#current_build', :as=>'current_build'
     get ':token' => 'builds#token_build', :as=>'token_build'

@@ -18,6 +18,7 @@
  *= require owl.carousel
  *= require owl.theme
  *= require jquery.dataTables
+ *= require jquery-ui/autocomplete
  */
 
 @import "bootstrap-sprockets";
@@ -25,7 +26,10 @@
 @import "font-awesome";
 @import "navbar";
 @import "animations";
-
+.ui-autocomplete{
+  z-index: 1030 !important;
+position: fixed !important;
+}
 
 
 .panel-heading{

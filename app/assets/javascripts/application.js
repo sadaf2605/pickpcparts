@@ -20,29 +20,47 @@
 //= require cocoon
 //= require css3-animate-it
 //= require clipboard
+//= require jquery-ui/autocomplete
 
 
 $(document).ready(function() {
    	drop=null;
+   	
     $('.dropdown').click(function(e) {
-    	
-	    	if(drop != null && drop != $(this) && drop.has($(target)) ){
-		    	drop.find('.dropdown-menu').first().stop(true, true).slideUp(400);
+	    	if($(e.target).hasClass("dropdown-toggle") ){
+	    		if(drop!=null && drop==this){
+		    		$(drop).find('.dropdown-menu').first().stop(true, true).slideUp(400);	
+		    	}
+		    	if(drop!=this){
+		    		if(drop!=null)
+				    	$(drop).find('.dropdown-menu').first().stop(true, true).slideUp(400);
+	            $(this).find('.dropdown-menu').first().stop(true, true).slideDown(400);
+	            drop=this
+	           }else drop=null
 		    }
-	        $(this).find('.dropdown-menu').first().stop(true, true).slideDown(400);
-	        //alert("down-2")
-	        drop=$(this);
-	     
+	        
     });
     
     $("body > div.container").click(function(e) {
-    	if(drop != null){
-	    	drop.find('.dropdown-menu').first().stop(true, true).slideUp(400);
-	    	drop=null;
-	    	//alert("up-2")
-	    }
+    	
+	    	$(drop).find('.dropdown-menu').first().stop(true, true).slideUp(400);
 	});
-    
+
+	$( "#search" ).autocomplete({
+      source: function( request, response ) {
+        $.ajax({
+          url: "search/auto_complete_search",
+          dataType: "json",
+          delay: 2000,
+          data: {
+            search: request
+          },
+          success: function( data ) {
+            response( data );
+          }
+        });
+      }
+      });
 
 	$('.owl-carousel').owlCarousel({
 	         loop: false,
