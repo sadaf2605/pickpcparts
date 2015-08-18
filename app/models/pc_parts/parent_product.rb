@@ -1,7 +1,22 @@
 class ParentProduct < ActiveRecord::Base
+  def self.descendants
+        ObjectSpace.each_object(Class).select { |klass| klass < self }
+  end
+  
   self.abstract_class = true
+  belongs_to :product
+  def self.init
+    scoped_search on: self.column_names - ["id"]
+   # belongs_to :product
+  end
+  
+  def self.inherited(subclass)
+    super
     
-    belongs_to :product
+    subclass.init
+  end
+ 
+    
   
     
     def report(build)

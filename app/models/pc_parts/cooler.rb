@@ -1,6 +1,7 @@
 class Cooler < ParentProduct
   has_many :cooler_builds
   has_many :builds, :through => :cooler_builds
+
 	
 	has_and_belongs_to_many :cpu_sockets
 	
