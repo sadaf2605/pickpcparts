@@ -76,10 +76,8 @@ ActiveAdmin.register Cooler do
       respond_to do |format|
         if @cooler.save
           format.html { redirect_to [:admin, @cooler], notice: 'Cooler was successfully created.' }
-
         else
           format.html { render :new }
-
         end
       end
 end

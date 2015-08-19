@@ -59,7 +59,7 @@ gem "rails-erd"
 gem 'wicked_pdf'
 gem 'scoped_search'
 
-gem 'will_paginate', "3.0.pre2"
+gem 'will_paginate'
 
 # Use ActiveModel has_secure_password
 
