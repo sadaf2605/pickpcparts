@@ -267,7 +267,7 @@ GEM
       sprockets-rails (>= 2.0, < 4.0)
     wicked_pdf (0.11.0)
       rails
-    will_paginate (3.0.7)
+    will_paginate (3.0.pre2)
     yui-compressor (0.12.0)
 
 PLATFORMS
@@ -305,5 +305,5 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
   wicked_pdf
-  will_paginate
+  will_paginate (= 3.0.pre2)
   yui-compressor
