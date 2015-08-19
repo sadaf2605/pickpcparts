@@ -1,11 +1,13 @@
 class SearchController < ApplicationController
   def search
     @search_key=params[:search]
-    @items=[]
+    @items=[];
     ParentProduct.descendants.each do |a|
         @items<<a.search_for(@search_key)
     end
+    
     @items=@items.flatten.uniq
+    @items=@items.paginate(:page =>params[:page],:per_page=>5)
     logger.debug @items
 
   end

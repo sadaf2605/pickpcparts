@@ -42,6 +42,7 @@ gem 'draper'
 gem 'pundit'
 gem "cocoon"
 
+
 #gem 'owlcarousel-rails'
 gem 'therubyracer'
 
@@ -57,6 +58,8 @@ gem "rails-erd"
 
 gem 'wicked_pdf'
 gem 'scoped_search'
+
+gem 'will_paginate'
 
 # Use ActiveModel has_secure_password
 
