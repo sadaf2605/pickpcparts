@@ -39,7 +39,7 @@
 								<%end%>
 							</div>
 					        <div class="col-md-9 caption">
-					        	<h4><%= link_to(post.blogit_post.title, blogit.post_path(post.blogit_post)) %></h4>
+					        	<h4><%= link_to(post.blogit_post.title, blogit.posts_path(post.blogit_post.id)) %></h4>
 						        <p><%= truncate(post.blogit_post.body, :length => 150, :omission => '... (continued)') %> </p>
 						     </div>
 				     	</div>

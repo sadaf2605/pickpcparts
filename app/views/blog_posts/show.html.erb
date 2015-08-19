@@ -1,19 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Blogit posts:</strong>
-  <%= @blog_post.blogit_posts_id %>
-</p>
+<% unless @blog_post.avatar.blank? %>
+	 <%=image_tag @blog_post.avatar %> 
+<% end %>
 
-<p>
-  <strong>Avatar:</strong>
-  <%= @blog_post.avatar %>
-</p>
 
-<p>
-  <strong>Build:</strong>
-  <%= @blog_post.build_id %>
-</p>
-
-<%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
-<%= link_to 'Back', blog_posts_path %>
+<%= render  @blog_post.blogit_post %>
+  <% unless @blog_post.build.nil? %>
+  	<%= render  'builds/select_or_show_build',  :@current_build => @blog_post.build %>
+  <% end %>
+<%= share_bar_for @blog_post.blogit_post %>
+<%= render "blogit/posts/post_footer", post: @blog_post.blogit_post %>
+<%= comments_for @blog_post.blogit_post %>

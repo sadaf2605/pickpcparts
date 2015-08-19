@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :featured_blog_posts
 
   resources :products
-
+  get 'blog/posts/:id' => "blog_posts#show"
   mount Blogit::Engine => "/blog" , :as => 'blogit'
   
   devise_for :admin_users, ActiveAdmin::Devise.config
