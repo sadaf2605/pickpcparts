@@ -1,5 +1,6 @@
 class FeaturedPost < ActiveRecord::Base
-  has_and_belongs_to_many :blog_posts
+  has_many :post_featurizations
+  has_many :blog_posts, through: :post_featurization
   
   validate :ensure_singleton, on: :create
   def ensure_singleton

@@ -61,6 +61,9 @@ gem 'scoped_search'
 
 gem 'will_paginate'
 
+gem "select2-rails"
+
+
 # Use ActiveModel has_secure_password
 
 # gem 'bcrypt', '~> 3.1.7'

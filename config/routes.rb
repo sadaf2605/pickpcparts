@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   mount Blogit::Engine => "/blog" , :as => 'blogit'
   
   devise_for :admin_users, ActiveAdmin::Devise.config
+match "/admin/featuredpost" => 'admin/featuredpost#add_event', via: :post, as: "featured_posts"
+  
+  #post 'admin/featuredpost' => ActiveAdmin::RoutesBuilder.routes.featuredpost, :as=>'admin_featuredpost'
   ActiveAdmin.routes(self)
   
   
+
   root 'builds#front'
   
   get 'search/auto_complete_search' => 'search#auto_complete_search', :as=>'auto_complete_search'

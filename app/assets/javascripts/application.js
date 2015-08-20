@@ -21,7 +21,7 @@
 //= require css3-animate-it
 //= require clipboard
 //= require jquery-ui/autocomplete
-
+//= require select2
 
 $(document).ready(function() {
    	drop=null;
