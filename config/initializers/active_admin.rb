@@ -181,7 +181,7 @@ ActiveAdmin.setup do |config|
   #
   # To load a javascript file:
   config.register_javascript "select2.js"
-    config.register_javascript "select2-run.js"
+  config.register_javascript "select2-run.js"
   
   # == CSV options
   #
