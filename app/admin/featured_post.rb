@@ -53,15 +53,14 @@ ActiveAdmin.register_page "featuredpost" do
   
 end
 
-class FeaturedPost < ActiveRecord::Base
-  has_many :blog_posts  
-  accepts_nested_attributes_for :blog_posts
+class FakeActiveRecord < ActiveRecord::Base
   def self.columns
     @columns ||= [];
   end
 
   def self.column(name, sql_type = nil, default = nil, null = true)
-    columns << ActiveRecord::ConnectionAdapters::Column.new(name.to_s, default,
+    @columns ||= [];
+    @columns << ActiveRecord::ConnectionAdapters::Column.new(name.to_s, default,
       sql_type.to_s, null)
   end
 
@@ -69,4 +68,9 @@ class FeaturedPost < ActiveRecord::Base
   def save(validate = true)
     validate ? valid? : true
   end
+end
+class FeaturedPost < FakeActiveRecord
+  column :rank
+  has_many :blog_posts  
+  accepts_nested_attributes_for :blog_posts
 end
