@@ -30,7 +30,7 @@ ActiveAdmin.register_page "featuredpost" do
             a.input :blogit_post, :input_html => { :disabled => a.object.new_record? ?false:true}
             a.input :priority,     :input_html => {:maxlength => 30, :style => "width:auto", :value=>a.object.priority.nil? ? 0 :a.object.priority}
           end
-          f.submit  
+          f.submit
         end
       end
     end
