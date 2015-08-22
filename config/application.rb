@@ -25,5 +25,6 @@ module Pickpcparts
     
 #    config.autoload_paths += Dir["#{config.root}/app/models/pc_builds","#{config.root}/app/models/pc_components","#{config.root}/app/models/pc_parts"]
     config.autoload_paths += Dir["#{config.root}/app/models/*"]
+    config.middleware.use PDFKit::Middleware
   end
 end

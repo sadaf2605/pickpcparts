@@ -56,14 +56,17 @@ gem "acts-as-taggable-on"
 gem 'carrierwave'
 gem "rails-erd"
 
-gem 'wicked_pdf'
 gem 'scoped_search'
 
 gem 'will_paginate'
 
 gem "select2-rails"
 
+gem "pdfkit"
+gem "wkhtmltopdf-binary"
 
+#gem 'puma'
+gem "unicorn-rails"
 # Use ActiveModel has_secure_password
 
 # gem 'bcrypt', '~> 3.1.7'

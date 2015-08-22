@@ -6,6 +6,17 @@ class BuildsController < ApplicationController
 
   def current_build
     @current_build = get_current_build()
+    
+    require 'net/http'
+    source = Net::HTTP.get('127.0.0.1', 'builds/current','3000')
+#    require 'open-uri'
+#     source = open("http://127.0.0.1:3000").read
+    kit = PDFKit.new(source)
+    #logger.debug source 
+    #logger.debug kit
+    #logger.debug kit.to_pdf
+#    render pdf: kit.to_pdf
+ send_data kit.to_pdf
   end
 
 
@@ -24,7 +35,9 @@ class BuildsController < ApplicationController
     end
     
     @feat_posts = BlogPost.where({is_featured:true})
-    @week_post ||= Blogit::Post.for_index.first(1)[0]
+  
+    @week_post ||= Blogit::Post.new #for_index.first(1)[0]
+  
     
     @build = Build.all[0]
         
