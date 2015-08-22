@@ -7,12 +7,12 @@ class BuildsController < ApplicationController
   def current_build
     @current_build = get_current_build()
     
-    require 'net/http'
-    source = Net::HTTP.get('127.0.0.1', 'builds/current','3000')
-#    require 'open-uri'
-#     source = open("http://127.0.0.1:3000").read
+#    require 'net/http'
+#   source = Net::HTTP.get('127.0.0.1', 'builds/current','3000')
+    require 'open-uri'
+     source = open("http://127.0.0.1:3000").read
     kit = PDFKit.new(source)
-    #logger.debug source 
+    logger.debug source 
     #logger.debug kit
     #logger.debug kit.to_pdf
 #    render pdf: kit.to_pdf
