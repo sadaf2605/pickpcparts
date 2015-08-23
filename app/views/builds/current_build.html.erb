@@ -14,7 +14,7 @@
           		Permalink:
               </div>
           </span>
-          
+
           <input id="build-url" type="text" class="input-group-addon form-control build-url" value="<%=request.base_url%>/builds/<%=@current_build.token%>" aria-describedby="basic-addon2"  style="margin-top: 1px" readonly>
           <span id="copy-url" class="input-group-addon share-button-group">
               <a class=" btn btn-block btn-vk btn-social share-button " title="Copy to clipboard">
@@ -23,19 +23,31 @@
           </span>
           
           <script>
-			document.getElementById('copy-url').addEventListener('click', function() {
-			
-			  clipboard.copy({
+          copy_to_clipboard=function(){ 			  
+          	clipboard.copy({
 			    'text/plain': document.getElementById('build-url').value,
 			  }).then(
 			    function(){console.log('success'); },
 			    function(err){console.log('failure', err);
 			  });
+		   }
+		   update_text_status=function(){
+		   	   $('.status-area').flash_message({
+			        text: 'Copied to clipboard!',
+			        how: 'append'
+			    });
+
+		   }
+		   
+			document.getElementById('copy-url').addEventListener('click', function() {
+				copy_to_clipboard()
+				update_text_status()
 			
 			});
 
 			$(".build-url").click(function () {
-			   $(this).select();
+				copy_to_clipboard()
+				update_text_status()
 			});
           </script>
           <span class="input-group-addon share-button-group">
@@ -120,6 +132,7 @@
           </a>
           </span>
         </div>
+        <span class="status-area pull-right"><span>
     </div>
     <%= render 'select_or_show_build' %>
 
