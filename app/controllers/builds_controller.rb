@@ -1,22 +1,14 @@
 class BuildsController < ApplicationController
   before_action :set_build, only: [:show, :edit, :update, :destroy]
-
+  layout "front_page"
 
 
 
   def current_build
     @current_build = get_current_build()
-    
-#    require 'net/http'
-#   source = Net::HTTP.get('127.0.0.1', 'builds/current','3000')
-    require 'open-uri'
-     source = open("http://127.0.0.1:3000").read
-    kit = PDFKit.new(source)
-    logger.debug source 
-    #logger.debug kit
-    #logger.debug kit.to_pdf
-#    render pdf: kit.to_pdf
- send_data kit.to_pdf
+    respond_to do |format|
+      format.html
+    end
   end
 
 
@@ -43,11 +35,20 @@ class BuildsController < ApplicationController
         
   end
   
-  layout "front_page"
+
   def token_build
     @current_build=Build.find_by_token(params[:token])
     respond_to do |format|
       format.html { render :template => "builds/current_build" }
+      format.pdf {
+        html = render_to_string(:layout => false , :action => "current_build.pdf.erb")
+        kit = PDFKit.new(html)
+  #      kit.stylesheets << "#{Rails.root}/public/stylesheets/pdf.css"
+  #      logger.debug kit
+        send_data(kit.to_pdf, :filename=>"pcpartsbd-#{@current_build}.pdf",
+          :type => 'application/pdf', :disposition => 'inline')
+    }
+
     end
 
   end
