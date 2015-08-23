@@ -69,7 +69,11 @@
               </ul>
             </li>
             <li><%= link_to root_path do%>
-            	<i class="fa fa-users menu-icon"></i>About Us
+            	<i class="fa fa-newspaper-o menu-icon"></i> About Us
+            	<%end%>
+            </li>
+            <li><%= link_to root_path do%>
+            	<i class="fa fa-users menu-icon"></i> Partner Shops
             	<%end%>
             </li>
             <li class="dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="false"><i class="fa fa-search menu-icon"></i> Search<b class="caret"></b></a>
@@ -79,7 +83,6 @@
 						<div class="row">
 							<form action="search">
 							  <div class="form-group">
-							    <label for="exampleInputEmail1">Search</label>
 							    <%= text_field_tag("search","",
 								                   :class => 'autocomplete-input form-control',
 								                   :autocomplete => 'on',

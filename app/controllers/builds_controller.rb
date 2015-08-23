@@ -63,17 +63,21 @@ class BuildsController < ApplicationController
         build= (Object.const_get "#{k.camelize}Build").create({(k+"_id").to_sym => params[(k+"_id").to_sym], :market_status_id => params[:market_status]})
         eval("@current_build.#{k}_builds << build")
       end
+      @current_build.save
+      session[:build_token]=@current_build.token
       redirect_to current_build_url
     elsif m.starts_with? "remove_"
       k=(m.split "_") [1]
       @current_build = get_current_build
       p=(Object.const_get "#{k.camelize}") .find(params[("#{k}_id").to_sym])
       @current_build.send("remove_#{k}",p)
+      session[:build_token]=@current_build.token
+      @current_build.save
       redirect_to current_build_url
     else
       super
     end
-    
+
   end
 
 
@@ -164,10 +168,8 @@ class BuildsController < ApplicationController
   def get_current_build
     builds = Build.find_by_token(session[:build_token])
     if not builds
-      build=Build.create
+      build=Build.new
       build.token=rand(36**8).to_s(36)
-      session[:build_token]=build.token
-      build.save
       return build
     end
     return builds

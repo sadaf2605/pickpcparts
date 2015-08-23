@@ -23,12 +23,13 @@ class Build < ActiveRecord::Base
 
   has_many :power_supply_builds
   has_many :power_supplies, :through => :power_supply_builds
-  
+    
 
   def add_cpu(cpu)
 		if cpu
 			self.cpus<<cpu
 			save
+			logger.debug self.cpus +"here I am"
 		end
 	end
 

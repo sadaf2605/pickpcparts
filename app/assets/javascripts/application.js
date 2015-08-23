@@ -26,7 +26,7 @@
 $(document).ready(function() {
    	drop=null;
    	
-    $('.dropdown').click(function(e) {
+    	$('.dropdown').click(function(e) {
 	    	if($(e.target).hasClass("dropdown-toggle") ){
 	    		if(drop!=null && drop==this){
 		    		$(drop).find('.dropdown-menu').first().stop(true, true).slideUp(400);	
@@ -75,7 +75,7 @@ $(document).ready(function() {
 
 
     $(document).ready(function(){
-    	$(window).scrollTop(1);
+    	$(window).scrollTop(5);
     	
     	
     	window.setInterval(function(){
