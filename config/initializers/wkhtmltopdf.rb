@@ -11,6 +11,8 @@ Rails.application.config.middleware.use PDFKit::Middleware
 #Rails.application.action_controller.asset_host = "http://127.0.0.1:3000"
 # In `config/environments/production.rb`
 #Rails.application.config.action_controller.asset_host = "http://127.0.0.1:3000"
-
-ActionController::Base.asset_host="http://127.0.0.1:3000"
-
+if Rails.env.production?
+  ActionController::Base.asset_host="http://pcpartsbd.herokuapp.com"
+else
+  ActionController::Base.asset_host="http://127.0.0.1:3000"
+end
