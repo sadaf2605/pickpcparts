@@ -23,32 +23,22 @@
           </span>
           
           <script>
-          copy_to_clipboard=function(){ 			  
-          	clipboard.copy({
-			    'text/plain': document.getElementById('build-url').value,
-			  }).then(
-			    function(){console.log('success'); },
-			    function(err){console.log('failure', err);
-			  });
-		   }
-		   update_text_status=function(){
-		   	   $('.status-area').flash_message({
-			        text: 'Copied to clipboard!',
-			        how: 'append'
-			    });
+          	
+		$( "#copy-url" ).click(function() {
 
-		   }
-		   
-			document.getElementById('copy-url').addEventListener('click', function() {
-				copy_to_clipboard()
-				update_text_status()
-			
-			});
+			select_and_focus("#build-url");
+			copy_to_clip_board("#build-url");
+			update_text_status(".status-area");
 
-			$(".build-url").click(function () {
-				copy_to_clipboard()
-				update_text_status()
-			});
+		});
+		$('#build-url').click( function() {
+			select_and_focus("#build-url");
+			copy_to_clip_board("#build-url");
+			update_text_status(".status-area");
+
+		});
+
+
           </script>
           <span class="input-group-addon share-button-group">
               <a class=" btn btn-block btn-pinterest btn-social share-button btn-social-left" target="_blank" href="<%= "#{request.base_url}/builds/#{@current_build.token}.pdf" %>" title="Save as PDF">
@@ -132,7 +122,7 @@
           </a>
           </span>
         </div>
-        <span class="status-area pull-right"><span>
+                  <span class="status-area pull-right"><span>
     </div>
     <%= render 'select_or_show_build' %>
 
