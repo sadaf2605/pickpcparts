@@ -38,12 +38,12 @@ Blogit.configure do |config|
   # If set to true, the create, edit, update and destroy actions
   # will be included. If set to false, you'll have to set these
   # yourself elsewhere in the app.
-   config.include_admin_actions = true
+   config.include_admin_actions = false
 
   # If set to true, links for new posts, editing posts and deleting comments
   # will be available. If set to false, you'll have to set these
   # yourself in the templates.
-   config.include_admin_links = true
+   config.include_admin_links = false
 
   # The default format for parsing the blog content.
    config.default_parser = :markdown

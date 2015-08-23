@@ -20,20 +20,7 @@ class BuildsController < ApplicationController
   def index
     @builds = Build.all
   end
-  
-  def front
-    def page_number
-      @page_number ||= params[Kaminari.config.param_name]
-    end
-    
-    @feat_posts = BlogPost.where({is_featured:true})
-  
-    @week_post ||= Blogit::Post.new #for_index.first(1)[0]
-  
-    
-    @build = Build.all[0]
-        
-  end
+ 
   
 
   def token_build

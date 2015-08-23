@@ -45,7 +45,7 @@ ActiveAdmin.register_page "featuredpost" do
     blogit_posts.each do |blog_hash|
           if blog_hash[:id]
             b=BlogPost.find(blog_hash[:id].to_i)
-            if blog_hash[:_destroy]
+            if blog_hash[:_destroy] && blog_hash[:_destroy].to_s=="1"
               b.is_featured=false
             end
             b.save

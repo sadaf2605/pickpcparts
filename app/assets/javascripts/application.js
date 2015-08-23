@@ -14,14 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require_tree .
 //= require owl.carousel
 //= require jquery.dataTables
 //= require cocoon
 //= require css3-animate-it
 //= require clipboard
 //= require jquery-ui/autocomplete
-//= require select2
+//= require_tree .
 
 $(document).ready(function() {
    	drop=null;
@@ -75,7 +74,7 @@ $(document).ready(function() {
 
 
     $(document).ready(function(){
-    	$(window).scrollTop(5);
+    	
     	
     	
     	window.setInterval(function(){

@@ -16,7 +16,9 @@ match "/admin/featuredpost" => 'admin/featuredpost#add_event', via: :post, as: "
   
   
 
-  root 'builds#front'
+  root 'pages#front'
+  resources :pages
+  get 'about' =>'pages#about'
   
   get 'search/auto_complete_search' => 'search#auto_complete_search', :as=>'auto_complete_search'
   get 'search' => 'search#search', :as=>'search'
