@@ -1,7 +1,5 @@
-function f(){
-alert("hello")
-
-<% js="#{datagrid_table @grid}"%>
-<% js+="#{will_paginate(@grid.assets)}" %>
-alert("<%=js%>")
+function update(){
+<% js="#{ escape_javascript datagrid_table @grid }"%>
+<% js+="#{  escape_javascript will_paginate(@grid.assets)}" %>
+$("#filtered").html("<%=js.html_safe%>")
 }

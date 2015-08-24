@@ -1,6 +1,6 @@
 class CpusController < ApplicationController
   before_action :set_cpu, only: [:show, :edit, :update, :destroy]
-
+ protect_from_forgery :except => :index
   # GET /cpus
   # GET /cpus.json
   def index
