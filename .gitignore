@@ -15,6 +15,7 @@
 /log/*
 !/log/.keep
 /tmp
+.metadata/*
 
 *.rbc
 capybara-*.html
