@@ -40,3 +40,11 @@
 	<%= datagrid_table @grid %>
 	<%= will_paginate(@grid.assets) %>
 </div>
+
+<script>
+var url = "cpus.js";
+$.getScript( url, function() {
+	alert("hello world")
+	f()
+  });
+</script>
