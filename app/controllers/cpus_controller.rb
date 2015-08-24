@@ -5,6 +5,9 @@ class CpusController < ApplicationController
   # GET /cpus.json
   def index
     @cpus = Cpu.all
+          @grid = CpusGrid.new(params[:cpus_grid]) do |scope|
+        scope.page(params[:page])
+      end
   end
 
   # GET /cpus/1
@@ -36,6 +39,7 @@ class CpusController < ApplicationController
         format.html { render :new }
         format.json { render json: @cpu.errors, status: :unprocessable_entity }
       end
+
     end
   end
 

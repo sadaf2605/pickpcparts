@@ -67,6 +67,8 @@ gem "wkhtmltopdf-binary"
 
 #gem 'puma'
 gem "unicorn-rails"
+
+gem "datagrid"
 # Use ActiveModel has_secure_password
 
 # gem 'bcrypt', '~> 3.1.7'
