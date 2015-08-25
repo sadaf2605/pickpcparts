@@ -1,17 +1,6 @@
-class CpusController < ApplicationController
+class CpusController < ParentProductController
   before_action :set_cpu, only: [:show, :edit, :update, :destroy]
- protect_from_forgery :except => :index
-  # GET /cpus
-  # GET /cpus.json
-  def index
-      @grid = CpusGrid.new(params[:cpus_grid]) do |scope|
-        scope.page(params[:page])
-      end
-      respond_to do |format|
-        format.html
-        format.js
-      end
-  end
+ 
 
   # GET /cpus/1
   # GET /cpus/1.json
