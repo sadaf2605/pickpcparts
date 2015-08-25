@@ -6,6 +6,7 @@ class Cpu < ParentProduct
 
   attr_accessor :cpu_socket_str
   
+  
   def supports_cooler(cooler)
     return cooler.supports_cpu(self)
   end
