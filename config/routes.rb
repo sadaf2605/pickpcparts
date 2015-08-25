@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :coolers
   resources :blog_posts
 
   resources :featured_blog_posts
@@ -73,7 +74,6 @@ match "/admin/featuredpost" => 'admin/featuredpost#add_event', via: :post, as: "
 
   resources :motherboards
 
-  resources :coolers
 
   resources :cpu_sockets
 

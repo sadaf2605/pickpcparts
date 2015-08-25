@@ -1,11 +1,9 @@
-class StoragesController < ApplicationController
+class StoragesController < ParentProductController
   before_action :set_storage, only: [:show, :edit, :update, :destroy]
 
   # GET /storages
   # GET /storages.json
-  def index
-    @storages = Storage.all
-  end
+
 
   # GET /storages/1
   # GET /storages/1.json

@@ -1,32 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Memories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Part no</th>
-      <th>Speed</th>
-      <th>Size</th>
-      <th>Cas</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @memories.each do |memory| %>
-      <tr>
-
-        <td><%= link_to memory.part_no, memory %></td>
-        <td><%= memory.speed %></td>
-        <td><%= memory.size %></td>
-        <td><%= memory.cas %></td>
-        <td>0BDT</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Memory', new_memory_path %>
+<div class="col-md-12"><h1>Listing Memories
+	<p id="loading"></p>
+	
+	</h1>
+	</div>
+<%=render "products/product_index", grid: @grid, product: Memory %>

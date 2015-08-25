@@ -1,5 +1,5 @@
 <div class="col-md-4">
-<% class_in_plu=product.to_s.downcase.pluralize%>
+<% class_in_plu=product.to_s.underscore.pluralize%>
 <%= datagrid_form_for grid, :method => :get, :url => eval("#{class_in_plu}_path") %>
 		<%= will_paginate(grid.assets) %>
 	

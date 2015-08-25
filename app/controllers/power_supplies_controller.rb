@@ -1,11 +1,5 @@
-class PowerSuppliesController < ApplicationController
+class PowerSuppliesController < ParentProductController
   before_action :set_power_supply, only: [:show, :edit, :update, :destroy]
-
-  # GET /power_supplies
-  # GET /power_supplies.json
-  def index
-    @power_supplies = PowerSupply.all
-  end
 
   # GET /power_supplies/1
   # GET /power_supplies/1.json

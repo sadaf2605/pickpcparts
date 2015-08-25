@@ -1,11 +1,6 @@
-class VideoCardsController < ApplicationController
+class VideoCardsController < ParentProductController
   before_action :set_video_card, only: [:show, :edit, :update, :destroy]
 
-  # GET /video_cards
-  # GET /video_cards.json
-  def index
-    @video_cards = VideoCard.all
-  end
 
   # GET /video_cards/1
   # GET /video_cards/1.json

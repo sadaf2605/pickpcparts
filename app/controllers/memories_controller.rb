@@ -1,11 +1,6 @@
-class MemoriesController < ApplicationController
+class MemoriesController < ParentProductController
   before_action :set_memory, only: [:show, :edit, :update, :destroy]
 
-  # GET /memories
-  # GET /memories.json
-  def index
-    @memories = Memory.all
-  end
 
   # GET /memories/1
   # GET /memories/1.json

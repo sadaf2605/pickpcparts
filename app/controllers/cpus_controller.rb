@@ -4,8 +4,7 @@ class CpusController < ApplicationController
   # GET /cpus
   # GET /cpus.json
   def index
-    @cpus = [] #Cpu.all
-          @grid = CpusGrid.new(params[:cpus_grid]) do |scope|
+      @grid = CpusGrid.new(params[:cpus_grid]) do |scope|
         scope.page(params[:page])
       end
       respond_to do |format|

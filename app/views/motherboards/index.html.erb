@@ -1,29 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Motherboards</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Part no</th>
-      <th>Form factor</th>
-      <th>Socket</th>
-      <th>Memory slots</th>
-      <th>Max Memory</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @motherboards.each do |motherboard| %>
-      <tr>
-
-        <td><%= link_to motherboard.part_no, motherboard %></td>
-        <td><%= if motherboard.form_factor then motherboard.form_factor.name end %></td>
-        <td><%= motherboard.cpu_socket.name if motherboard.cpu_socket%></td>
-        <td><%= motherboard.memory_slot_num  %></td>
-        <td><%= motherboard.max_memory %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="col-md-12"><h1>Listing Motherboard
+	<p id="loading"></p>
+	
+	</h1>
+	</div>
+<%=render "products/product_index", grid: @grid, product: Motherboard %>

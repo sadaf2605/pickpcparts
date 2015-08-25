@@ -1,31 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Coolers</h1>
-
-<table>
-  <thead>
-    <tr>
-
-      <th>Part no</th>
-      <th>Noise level</th>
-      <th>Fan rpm</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @coolers.each do |cooler| %>
-      <tr>
-
-        <td><%= link_to cooler.part_no, cooler %></td>
-        <td><%= cooler.noise_level %></td>
-        <td><%= cooler.fan_rpm %></td>
-        <td>0BDT</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Cooler', new_cooler_path %>
+<div class="col-md-12"><h1>Listing Cooler 
+	<p id="loading"></p>
+	
+	</h1>
+	</div>
+<%=render "products/product_index", grid: @grid, product: Cooler%>

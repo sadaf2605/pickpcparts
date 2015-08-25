@@ -1,35 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Storages</h1>
-
-<table>
-  <thead>
-    <tr>
-
-      <th>Part no</th>
-      <th>Capacity</th>
-
-      <th>Cache</th>
-      <th>Form factor</th>
-
-      <th>Price gb</th>
-      <th >Price</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @storages.each do |storage| %>
-      <tr>
-        <td><%= link_to storage.part_no, storage %></td>
-        <td><%= storage.capacity %></td>
-        <td><%= storage.cache %></td>
-        <td><%= storage.form_factor %></td>
-        <td><%= storage.price_gb %></td>
-      <tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Storage', new_storage_path %>
+<div class="col-md-12"><h1>Listing Storage
+	<p id="loading"></p>
+	
+	</h1>
+	</div>
+<%=render "products/product_index", grid: @grid, product: Storage %>

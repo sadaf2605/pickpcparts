@@ -1,32 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Power Supplies</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Part no</th>
-      <th>Type</th>
-      <th>Wattage</th>
-      <th>Modular</th>
-      <th>Efficiency</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @power_supplies.each do |power_supply| %>
-      <tr>
-        <td><%= link_to power_supply.part_no, power_supply %></td>
-        <td><%= power_supply.power_supply_type %></td>
-        <td><%= power_supply.wattage %></td>
-        <td><%= power_supply.modular %></td>
-        <td><%= power_supply.efficiency %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Power supply', new_power_supply_path %>
+<div class="col-md-12"><h1>Listing Power Supplies
+	<p id="loading"></p>
+	
+	</h1>
+	</div>
+<%=render "products/product_index", grid: @grid, product: PowerSupply %>

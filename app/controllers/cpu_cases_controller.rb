@@ -1,11 +1,6 @@
-class CpuCasesController < ApplicationController
+class CpuCasesController < ParentProductController
   before_action :set_cpu_case, only: [:show, :edit, :update, :destroy]
 
-  # GET /cpu_cases
-  # GET /cpu_cases.json
-  def index
-    @cpu_cases = CpuCase.all
-  end
 
   # GET /cpu_cases/1
   # GET /cpu_cases/1.json

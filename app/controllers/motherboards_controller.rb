@@ -1,11 +1,6 @@
-class MotherboardsController < ApplicationController
+class MotherboardsController < ParentProductController
   before_action :set_motherboard, only: [:show, :edit, :update, :destroy]
 
-  # GET /motherboards
-  # GET /motherboards.json
-  def index
-    @motherboards = Motherboard.all
-  end
 
   # GET /motherboards/1
   # GET /motherboards/1.json

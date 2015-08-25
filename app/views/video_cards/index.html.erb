@@ -1,35 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Video Cards</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Part no</th>
-      <th>Interface</th>
-      <th>Chipset</th>
-      <th>Memory size</th>
-
-      <th>Core clock</th>
-      <th >Price</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @video_cards.each do |video_card| %>
-      <tr>
-
-        <td><%= link_to video_card.part_no, video_card%></td>
-        <td><%= video_card.interface %></td>
-        <td><%= video_card.chipset %></td>
-        <td><%= video_card.memory_size %></td>
-
-        <td><%= video_card.core_clock %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Video card', new_video_card_path %>
+<div class="col-md-12"><h1>Listing Video Card
+	<p id="loading"></p>
+	
+	</h1>
+	</div>
+<%=render "products/product_index", grid: @grid, product: VideoCard %>
