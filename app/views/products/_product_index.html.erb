@@ -1,0 +1,36 @@
+<div class="col-md-4">
+<% class_in_plu=product.to_s.downcase.pluralize%>
+<%= datagrid_form_for grid, :method => :get, :url => eval("#{class_in_plu}_path") %>
+		<%= will_paginate(grid.assets) %>
+	
+</div>
+<div class="col-md-8">
+	<div id="filtered">
+		<%= datagrid_table grid %>
+		<%= will_paginate(grid.assets) %>
+	</div>
+</div>
+		
+<script>
+timer = 0;
+
+$("input").on('keyup', function(e){
+    if (timer) {
+        clearTimeout(timer);
+    }
+    timer = setTimeout(updatehtml, 1000); 
+});
+
+updatehtml=function(){
+	$("#loading").addClass("throbber-loader");
+	$.getScript( "<%= class_in_plu %>.js?"+$(".datagrid-form").serialize() )
+	  .done(function( script, textStatus ) {
+	    update();
+	    $("#loading").removeClass("throbber-loader");
+	  })
+	  .fail(function( jqxhr, settings, exception ) {
+	    alert("Triggered ajaxError handler."+exception+jqxhr );
+	});
+};
+</script>
+<link rel="stylesheet" href="http://css-spinners.com/css/spinner/throbber.css" type="text/css">

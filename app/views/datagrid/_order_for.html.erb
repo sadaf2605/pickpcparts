@@ -1,10 +1,23 @@
-<div class="order">
+<span class="order pull-right" >
   <%= link_to(
-      I18n.t("datagrid.table.order.asc").html_safe,
       url_for(grid.param_name => grid.as_query.merge(:order => column.name, :descending => false)),
-      :class => "asc") %>
-  <%= link_to(
-      I18n.t("datagrid.table.order.desc").html_safe,
-      url_for(grid.param_name => grid.as_query.merge(:order => column.name, :descending => true )),
-      :class => "desc") %>
-</div>
+      :class => "asc",:title=>"Sort ascending order") do%>
+            <%#I18n.t("datagrid.table.order.asc").html_safe %>
+            <i class='fa fa-sort-amount-asc'></i>
+      <% end %>
+  <%= link_to(url_for(grid.param_name => grid.as_query.merge(:order => column.name, :descending => true )),
+      :class => "desc", :title=>"Sort descending order") do%>
+      <i class='fa fa-sort-amount-desc'></i>
+      <% end %>
+</span>
+<style>
+table.datagrid td.ordered.asc a.asc, table.datagrid th.ordered.asc a.asc,
+table.datagrid td.ordered.asc a.desc, table.datagrid th.ordered.desc a.desc{color:#D8D8D8 !important}
+.order a{
+	margin-left:10px;
+	color:white;
+}
+.order a:hover{
+	color:#D8D8D8
+}
+</style>

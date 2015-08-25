@@ -12,3 +12,8 @@
     <%= link_to I18n.t('datagrid.form.reset').html_safe, url_for(grid.to_param => empty_parameter), :class => "datagrid-reset" %>
   </div>
 <% end -%>
+<style>
+.datagrid-filter .enum_filter.checkboxes{
+	margin-left:0px;
+}
+</style>
