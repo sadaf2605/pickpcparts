@@ -4,9 +4,12 @@ class ParentProduct < ActiveRecord::Base
   end
   
   self.abstract_class = true
+ 
   belongs_to :product
   def self.init
     scoped_search on: self.column_names - ["id"]
+  rescue 
+    return
    # belongs_to :product
   end
   

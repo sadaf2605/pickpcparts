@@ -79,6 +79,11 @@ gem "datagrid", :git => "git://github.com/sadaf2605/datagrid.git", :branch => "i
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+group :development, :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.0'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
