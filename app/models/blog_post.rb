@@ -1,6 +1,6 @@
 class BlogPost < ActiveRecord::Base
 
-  belongs_to :blogit_post, class_name: "Blogit::Post"
+  belongs_to :blogit_post, class_name: "Blogit::Post", :dependent => :delete
   belongs_to :build
   mount_uploader :avatar, ProductImageUploader
   
