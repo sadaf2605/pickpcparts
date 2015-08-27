@@ -31,7 +31,7 @@
 					<% if @feat_posts.empty? %>
 						<p>Yet, we don't have any featured post!</p>				
 					<% end %>
-					
+					<%= @feat_posts.length %>
 				  <%bounceseq=0%>
 				  <% for post in @feat_posts %>
 				    <div class="hvr-box-shadow-outset featured_posts" style="z-index: <%= 991-bounceseq %>; position: relative">

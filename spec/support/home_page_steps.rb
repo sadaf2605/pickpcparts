@@ -28,10 +28,23 @@ module HomePageSteps
   def when_i_click_navbar_menu_individual_parts
     click_on("Individual Parts")
   end
-  
-  def i_see_navbar_nested_menu
-    expect(page).to have_selector('.yamm-content')
+  def when_i_click_navbar_menu_search
+    click_on("Search")
   end
+  
+  def i_see_navbar_nested_menu_for_individual_parts
+    expect(page.find('.dropdown',text:"Individual Parts")).to have_selector('.yamm-content')
+  end
+  def i_dont_see_navbar_nested_menu_for_individual_parts 
+      expect(page.find('.dropdown',text:"Individual Parts")).not_to have_selector('.yamm-content')
+  end
+  def i_see_navbar_nested_menu_for_search
+    expect(page.find('.dropdown',text:"Search")).to have_selector('.yamm-content')
+  end
+  def i_dont_see_navbar_nested_menu_for_search 
+    expect(page.find('.dropdown',text:"Search")).not_to have_selector('.yamm-content')
+  end
+
   def i_see_individual_parts_menu_items
     expect(page.find('.yamm-content')).to have_content("CPU")
     expect(page.find('.yamm-content')).to have_content("CPU Cooler")
@@ -59,8 +72,9 @@ module HomePageSteps
   def when_i_create_feature_post_with_title(title)
     require "factories"
     blog_post=FactoryGirl.create(:blog_post)
-    blog_post.blogit_post.title="this is cool title"
+    blog_post.blogit_post.title=title
     blog_post.blogit_post.save
+    blog_post.save
   end 
 
   def when_i_create_featured_post_with_title(post_title)
