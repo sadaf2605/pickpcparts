@@ -1,11 +1,17 @@
 class ParentProduct < ActiveRecord::Base
+  self.abstract_class = true
+  
+  belongs_to :product  
+  
+  #validates :product, :presence => true
+  
   def self.descendants
         ObjectSpace.each_object(Class).select { |klass| klass < self }
   end
   
-  self.abstract_class = true
+  
  
-  belongs_to :product
+
   def self.init
     scoped_search on: self.column_names - ["id"]
   rescue 
@@ -41,9 +47,9 @@ class ParentProduct < ActiveRecord::Base
        
     def build_with_market_status(params)
          key=self.class.name.downcase
-         
          self.product=Product.create(ProductsController.product_params(params[key]))
          self.product.market_statuses =[]
+         
          market_statuses=params[key][:product][:market_statuses_attributes]
          if market_statuses.length>0
             market_statuses.sort.map{|k,v| v }.each  do |a|

@@ -82,11 +82,13 @@ gem "datagrid"
 group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
-  gem 'rspec-rails'
+  gem "rspec-rails"
   gem 'rspec-activemodel-mocks'
   gem 'factory_girl'
   
   gem 'headless'
+  
+  gem 'database_cleaner'
 
 end
 

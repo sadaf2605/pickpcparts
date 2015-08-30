@@ -44,17 +44,17 @@ RSpec.configure do |config|
     # ...rather than:
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
-    
+  end  
     config.before(:each) do |example|
       if example.metadata[:type] == :request and example.metadata[:js]
         Capybara.current_driver = :selenium
       end
     end
-  
     config.after(:each) do |example|
       Capybara.use_default_driver
     end
-  end
+        #config.use_transactional_fixtures = false
+  
 
   # rspec-mocks config goes here. You can use an alternate test double
   # library (such as bogus or mocha) by changing the `mock_with` option here.

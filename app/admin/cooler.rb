@@ -70,6 +70,7 @@ ActiveAdmin.register Cooler do
             @cooler.cpu_sockets << CpuSocket.find_by_id(id) 
           end
         end
+        
        @cooler.build_with_market_status(params)
       
       

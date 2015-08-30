@@ -1,4 +1,4 @@
 class MarketStatus < ActiveRecord::Base
   belongs_to :shop
-  has_one :product
+  belongs_to :product
 end
