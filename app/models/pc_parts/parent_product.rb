@@ -1,9 +1,9 @@
 class ParentProduct < ActiveRecord::Base
   self.abstract_class = true
   
-  belongs_to :product  
+  belongs_to :product, dependent: :destroy
   
-  #validates :product, :presence => true
+  validates :product, :presence => true
   
   def self.descendants
         ObjectSpace.each_object(Class).select { |klass| klass < self }

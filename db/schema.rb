@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821075405) do
+ActiveRecord::Schema.define(version: 20150831204333) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -152,16 +152,11 @@ ActiveRecord::Schema.define(version: 20150821075405) do
   end
 
   create_table "cpu_cases", force: :cascade do |t|
-    t.string   "manufacturer"
-    t.string   "part_no"
     t.string   "color"
     t.boolean  "includes_power_supply"
     t.integer  "external_5_25_bays"
     t.integer  "internal_2_5_bays"
     t.integer  "internal_3_5_bays"
-    t.string   "motherboard_compatibility"
-    t.string   "front_panel_usb_3_0"
-    t.boolean  "ports"
     t.string   "maximum_video_card_length"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -170,8 +165,8 @@ ActiveRecord::Schema.define(version: 20150821075405) do
     t.float    "width"
     t.float    "height"
     t.integer  "form_factor_id"
-    t.string   "type"
     t.integer  "product_id"
+    t.boolean  "front_panel_usb_3_0_ports"
   end
 
   create_table "cpu_sockets", force: :cascade do |t|
@@ -202,10 +197,9 @@ ActiveRecord::Schema.define(version: 20150821075405) do
   end
 
   create_table "form_factors", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "name"
-    t.integer  "cpu_case_id"
   end
 
   create_table "market_statuses", force: :cascade do |t|

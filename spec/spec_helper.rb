@@ -1,3 +1,5 @@
+require 'support/shared_example/child_product_shared_examples'
+
 if ENV['HEADLESS'] == 'true'
 #  require 'rubygems'
 
