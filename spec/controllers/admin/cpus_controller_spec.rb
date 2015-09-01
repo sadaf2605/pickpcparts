@@ -2,46 +2,79 @@
 require 'rails_helper'
 require 'spec_helper'
 require 'devise'
+load 'spec/support/shared_example/child_product_controller_shared_examples.rb'
 
 
 include Devise::TestHelpers
 
 describe Admin::CpusController, :type => :controller do
   # render_views
-
   before(:each) do
     require "factories"
     @user = FactoryGirl.create(:admin_user)
     sign_in @user
   end
-  after(:each) do
-    @user.destroy
-  end
-  
-  
-  describe "index" do
-    it 'returns posts when I create posts' do
-      cpu = FactoryGirl.create(:cpu)
-      get :index
-      expect(assigns(:cpus)).to eq( [cpu] )      
+    after(:each) do
+      @user.destroy
     end
+    
+  
+
+  describe "index" do
+#    it 'returns posts when I create posts' do
+#      cpu = FactoryGirl.create(:cpu)
+#      get :index
+#      expect(assigns(:cpus)).to eq( [cpu] )      
+#    end
   end
   
   
   describe "create"
-    subject{ post :create, cpu: FactoryGirl.nested_attributes(:cpu)}
+    subject{ post :create, cpu: cpu_params }
 
-    it 'redirect to correct cpu' do
-      expect(subject).to redirect_to admin_cpu_path( assigns(:cpu) )
-    end
 
-    it 'creates cpu' do
-      expect{subject}.to change(Cpu,:count).by(1)
+
+    let(:cpu_params){ FactoryGirl.nested_attributes(:cpu_with_market_status) }
+    
+    context "when there is product with market status"do
+    
+      it 'creates cpu' do
+        expect{subject}.to change(Cpu,:count).by(1)
+      end
+
+      it "creates product" do
+        expect{subject}.to change(Product,:count).by(1)
+      end
+      
+      it 'redirect to correct cpu' do
+        expect(subject).to redirect_to admin_cpu_path( assigns(:cpu) )
+      end
+
     end
     
+    context "when there is product but no market status" do
+      let(:cpu_params){FactoryGirl.nested_attributes(:cpu_with_product)}
+
+      it "creates no cpu" do
+        expect{subject}.to change(Cpu,:count).by(0)
+      end
+
+      it "creates no product" do
+        expect{subject}.to change(Product,:count).by(0)
+      end
+
+      it "renders new" do
+        subject    
+        expect(response).to render_template(:new)
+      end
+
+    end
+
     describe "has no socket" do
-      it "redirect to edit page"
-    end          
+      it "redirect to edit page" do 
+
+      end  
+    end     
     
 
       

@@ -42,10 +42,13 @@ FactoryGirl.define do
     manufacturer "Intel"
     
     trait :market_status do
-      after(:create) do |product|
+
+      after(:build) do |product|
         create(:market_status, product: product)
       end
     end
+
+    factory :product_with_single_market_status,    traits: [:market_status]
     
   end
   
@@ -56,7 +59,7 @@ FactoryGirl.define do
 
   
   factory :cpu, :class => Cpu do
-    association :product, factory: :product
+  #  association :product, factory: :product
    
     #association :cpu_socket, factory: :cpu_socket
     after(:build) do |s|
@@ -75,7 +78,28 @@ FactoryGirl.define do
     includes_cpu_cooler true
     hyper_threading false
     integrated_graphics "Intel HD Graphics 4600"
+
+    trait :with_product do
+      association :product, factory: :product
+    end
+    trait :with_market_status do
+      association :product, factory: :product_with_single_market_status
+    end
+
+    factory :cpu_with_product,    traits: [:with_product]
+    factory :cpu_with_market_status,    traits: [:with_market_status]
+
+
+#    factory :cpu_with_product, traits[:with_product]
+
+#    trait :with_product_with_single_market_status  do
+#      association :product, factory: :build_with_market_status
+#    end 
+
+#    factory :cpu_with_single_product_market_status, traits[:product_with_single_market_status]
+
   end
+  
 
 
   factory :form_factor, :class => FormFactor do

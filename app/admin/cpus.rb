@@ -56,13 +56,15 @@ permit_params :cpu
       @cpu = Cpu.new(cpu_params)
       
 #      @cpu.cpu_socket = CpuSocket.find(params[:cpu][:cpu_socket][:name])
-      @cpu.build_with_market_status(params)
-      
+      unless params[:cpu][:product][:market_statuses_attributes].nil?
+        @cpu.build_with_market_status(params)
+      end
+
         respond_to do |format|
           if @cpu.save
             format.html { redirect_to [:admin, @cpu], notice: 'Cpu was successfully created.' }
           else
-            format.html { render renderer_for(:edit) }
+            format.html { render :new }
           end
         end
       end
