@@ -53,7 +53,7 @@ FactoryGirl.define do
   end
   
   factory :cpu_socket, :class => CpuSocket do
-    name "LGA1150"
+    sequence(:name){|n| ["LGA775","LGA1155","LGA1156","LGA1366","LGA2011"][n%5] }
   end
   
     trait :without_product do
@@ -68,13 +68,18 @@ FactoryGirl.define do
   #  association :product, factory: :product
     #association :cpu_socket, factory: :cpu_socket
     after(:build) do |s|
-      s.cpu_socket  = CpuSocket.first  || create(:cpu_socket)
+
+      s.cpu_socket = CpuSocket.all[ Cpu.count % CpuSocket.count] || create(:cpu_socket)
+   
     end
     association :product, factory: :product     
     
-    model "Core i5-4690K"
-    data_width "64-bit"
-    speed "3.5GHz"
+    sequence(:model){|n| "Core i5-469#{n}K"} 
+    
+    sequence(:data_width){|n| ["64-bit","32-bit"][n%2]}
+
+    sequence(:speed){|n| "3.#{n}GHz"} 
+     
     cores 4
     l1_cache "4 x 32KB Instruction 4 x 32KB Data" 
     l2_cache "4 x 256KB"
@@ -85,10 +90,13 @@ FactoryGirl.define do
     hyper_threading false
     integrated_graphics "Intel HD Graphics 4600"
 
+    trait :without_socket do
+      socket =nil      
+    end
 
     factory :cpu_without_product,    traits: [:without_product]
     factory :cpu_with_market_status,    traits: [:with_market_status]
-
+    factory :cpu_without_socket,    traits: [:without_socket]
 #    factory :cpu_with_product, traits[:with_product]
 
 #    trait :with_product_with_single_market_status  do

@@ -1,10 +1,10 @@
 class Cpu < ParentProduct
   has_many :cpu_builds
-  has_many :builds, :through => :cpu_builds
-  
+  has_many :builds, :through => :cpu_builds  
   belongs_to :cpu_socket
 
-  attr_accessor :cpu_socket_str
+  validates :cpu_socket, :presence => true, presence: true
+
   
   
   def supports_cooler(cooler)

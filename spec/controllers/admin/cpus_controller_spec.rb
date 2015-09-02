@@ -21,7 +21,14 @@ describe Admin::CpusController, :type => :controller do
 
     let(:params_without_product){{:cpu => FactoryGirl.nested_attributes(:cpu_without_product)}}
   end
-    
+  
+  describe "individual properties" do
+    context "on create" do 
+      it "should not create without socket" do 
+        expect(FactoryGirl.build(:cpu_without_socket)).to be_invalid
+      end
+    end
+  end
   
 
   describe "index" do

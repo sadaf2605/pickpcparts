@@ -27,14 +27,20 @@ permit_params :cpu
       
       f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
           p.input :manufacturer
-          p.input :part_no 
-          p.input :avatar, :as => :file, :hint => image_tag(f.object.product.avatar) if not f.object.product.nil?
-      
-            p.has_many :market_statuses, for: [:market_statuses,  p.object.market_statuses || MarketStatus.new],allow_destroy: true do |a|
-              a.input :price
-              a.inputs :shop
-            end
+          p.input :part_no
+
+          p.has_many :pictures, for: [:pictures,  p.object.pictures || Picture.new],allow_destroy: true do |i|
+            i.input :image,:as => :file
+            #i.input :image
           end
+
+          p.input :avatar, :as => :file
+
+          p.has_many :market_statuses, for: [:market_statuses,  p.object.market_statuses || MarketStatus.new],allow_destroy: true do |a|
+            a.input :price
+            a.inputs :shop
+          end
+      end
       
       input :model
       input :data_width

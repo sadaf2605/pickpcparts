@@ -1,0 +1,7 @@
+<div class="owl-carousel">
+  <% pictures.each do |picture|%>
+  <div class="item" style="width:317px;">
+    <%= image_tag picture.image.url %>
+  </div>
+  <% end %>
+</div>

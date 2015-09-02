@@ -1,12 +1,9 @@
-
-
-
-
-
-
 <div class="col-md-8">
 
   <p id="notice"><%= notice %></p>
+
+  <%= render "product_carousel", pictures:@cooler.product.pictures %>
+
   <h3>Specification of <%= @cooler.part_no %>:</h3>
   <table class="parts" class="display" cellspacing="0" width="100%">
     <thead>

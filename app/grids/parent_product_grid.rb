@@ -9,7 +9,7 @@ class ParentProductGrid
       end
       
       if url_columns.include? c.name.to_sym
-        column(c.name,:mandatory =>true, :url => lambda {|model| "#{self.scope.to_s.pluralize}/#{model.id}" })
+        column(c.name,:mandatory =>true, :url => lambda {|model| "#{self.scope.to_s.downcase.pluralize}/#{model.id}" })
       else
         column(c.name,:mandatory => if mandatory_columns.include? c.name.to_sym then true else false end)
       end

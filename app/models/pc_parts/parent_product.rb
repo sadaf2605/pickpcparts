@@ -54,10 +54,22 @@ class ParentProduct < ActiveRecord::Base
           self.product.update_attributes(ProductsController.product_params(params))
         end
 
+
+        unless params[:product][:pictures_attributes].nil?
+         self.product.pictures =[]
+           pictures=params[:product][:pictures_attributes]
+           if pictures.length>0
+              pictures.sort.map{|k,v| v }.each  do |a|
+                self.product.pictures << Picture.create(image: a[:image])
+              end
+           end
+         end
+        
+
+
+
         unless params[:product][:market_statuses_attributes].nil?
          self.product.market_statuses =[]
-
-
            market_statuses=params[:product][:market_statuses_attributes]
            if market_statuses.length>0
               market_statuses.sort.map{|k,v| v }.each  do |a|
@@ -65,6 +77,5 @@ class ParentProduct < ActiveRecord::Base
               end
            end
          end
-
-    end
+        end
 end

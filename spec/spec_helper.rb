@@ -1,10 +1,12 @@
+
+
 require 'support/shared_example/child_product_shared_examples'
 require 'support/shared_example/child_product_controller_shared_examples'
+require 'support/shared_example/global_navbar_shared_examples'
 
-
-if ENV['HEADLESS'] == 'true'
+#if ENV['HEADLESS'] == 'true'
 #  require 'rubygems'
-
+  
   require 'headless'
   headless = Headless.new
   headless.start
@@ -13,7 +15,9 @@ if ENV['HEADLESS'] == 'true'
     headless.destroy
     exit exit_status if exit_status
   end
-end
+#end
+
+
 
 
 

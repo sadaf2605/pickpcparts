@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902153656) do
+ActiveRecord::Schema.define(version: 20150902205222) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -262,6 +262,10 @@ ActiveRecord::Schema.define(version: 20150902153656) do
     t.integer  "product_id"
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.string "image"
+  end
+
   create_table "power_supplies", force: :cascade do |t|
     t.string   "power_supply_type"
     t.string   "wattage"
@@ -282,6 +286,11 @@ ActiveRecord::Schema.define(version: 20150902153656) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "market_status_id"
+  end
+
+  create_table "product_pictures", force: :cascade do |t|
+    t.integer "picture_id"
+    t.integer "product_id"
   end
 
   create_table "products", force: :cascade do |t|
