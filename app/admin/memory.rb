@@ -60,7 +60,7 @@ ActiveAdmin.register Memory do
     def create
       @memory = Memory.new(memory_params)
 #      @memory.memory_type= MemorySlot.find_by_name(params[:memory][:memory_slot_str]) || MemorySlot.create({:name => params[:memory][:memory_slot_str]})
-      @memory.build_with_market_status(params)
+      @memory.build_with_market_status(params[:memory])
       
          
       @memory.memory_type= MemorySlot.find_by_id(params[:memory][:memory_slot_id])

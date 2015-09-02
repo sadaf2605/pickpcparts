@@ -56,16 +56,22 @@ FactoryGirl.define do
     name "LGA1150"
   end
   
+    trait :without_product do
+      product nil
+    end
+    trait :with_market_status do
+      association :product, factory: :product_with_single_market_status
+    end
 
   
   factory :cpu, :class => Cpu do
   #  association :product, factory: :product
-   
     #association :cpu_socket, factory: :cpu_socket
     after(:build) do |s|
       s.cpu_socket  = CpuSocket.first  || create(:cpu_socket)
     end
-     
+    association :product, factory: :product     
+    
     model "Core i5-4690K"
     data_width "64-bit"
     speed "3.5GHz"
@@ -79,16 +85,9 @@ FactoryGirl.define do
     hyper_threading false
     integrated_graphics "Intel HD Graphics 4600"
 
-    trait :with_product do
-      association :product, factory: :product
-    end
-    trait :with_market_status do
-      association :product, factory: :product_with_single_market_status
-    end
 
-    factory :cpu_with_product,    traits: [:with_product]
+    factory :cpu_without_product,    traits: [:without_product]
     factory :cpu_with_market_status,    traits: [:with_market_status]
-
 
 #    factory :cpu_with_product, traits[:with_product]
 
@@ -97,9 +96,122 @@ FactoryGirl.define do
 #    end 
 
 #    factory :cpu_with_single_product_market_status, traits[:product_with_single_market_status]
+  end
+
+  
+  factory :cooler, class: Cooler do
+    association :product, factory: :product
+    
+    liquid_cooled ""
+    radiator_size ""
+    noise_level ""
+    fan_rpm ""
+
+    factory :cooler_without_product, traits: [:without_product]
+    factory :cooler_with_market_status, traits: [:with_market_status]
 
   end
-  
+
+  factory :memory, class: Memory do
+    association :product, factory: :product
+    
+    speed ""
+    size ""
+    price_gb ""
+    cas ""
+    voltage ""
+    heat_spreader true
+    ecc true
+    registered true
+    color "blue"
+
+    #t.integer  "memory_slot_id"
+
+    factory :memory_without_product, traits: [:without_product]
+    factory :memory_with_market_status, traits: [:with_market_status]
+    
+  end
+
+  factory :motherboard, class: Motherboard do 
+    association :product, factory: :product
+
+    chipset ""
+    memory_type ""
+    max_memory ""
+    raid_support true
+    onboard_video ""
+    crossfire_support true
+    sli_support true
+    sata_6_gbs 2
+    onboard_ethernet ""
+    onboard_usb_3_headers true
+    memory_slot_num 2
+
+    factory :motherboard_without_product, traits: [:without_product]
+    factory :motherboard_with_market_status, traits: [:with_market_status]
+
+
+
+#    t.integer  "cpu_socket_id"
+#    t.integer  "memory_slot_id"
+#    t.integer  "form_factor_id"
+
+  end
+
+  factory :storage, :class => Storage do 
+    association :product, factory: :product
+
+    capacity ""
+    interface ""
+    cache ""
+    form_factor ""
+    ssd_controller ""
+    nand_flash_type ""
+    gb_1 ""
+    price_gb ""
+
+    factory :storage_without_product, traits: [:without_product]
+    factory :storage_with_market_status, traits: [:with_market_status]
+
+  end
+
+  factory :video_card, :class => VideoCard do 
+    association :product, factory: :product    
+    interface ""
+    chipset ""
+    memory_size ""
+    memory_type ""
+    core_clock ""
+    tdp ""
+    fan true
+    sli_support true
+    dvi_d_dual_link 1
+    display_port 1
+    hdmi 1
+    length 1.4
+    crossfire_support true
+
+    factory :video_card_without_product, traits: [:without_product]
+    factory :video_card_with_market_status, traits: [:with_market_status]
+
+  end
+
+  factory :power_supply, :class => PowerSupply do
+    association :product, factory: :product
+
+    power_supply_type ""
+    wattage ""
+    fans 2
+    modular true
+    efficiency_certification ""
+    efficiency ""
+    output ""
+    pci_express_6_plus_2_pin_connectors ""
+
+    factory :power_supply_without_product, traits: [:without_product]
+    factory :power_supply_with_market_status, traits: [:with_market_status]
+
+  end
 
 
   factory :form_factor, :class => FormFactor do
@@ -125,6 +237,10 @@ FactoryGirl.define do
     length 9.37
     width 8.07
     height 14.88
+
+    factory :cpu_case_without_product, traits: [:without_product]
+    factory :cpu_case_with_market_status, traits: [:with_market_status]
+
   end
     
 end

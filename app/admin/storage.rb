@@ -47,7 +47,7 @@ ActiveAdmin.register Storage do
     def create
       @storage = Storage.new(storage_params)
 #      @storage.product = Product.create(product_params)
-      @storage.build_with_market_status(params)
+      @storage.build_with_market_status(params[:storage])
         respond_to do |format|
           if @storage.save
             format.html { redirect_to [:admin, @storage], notice: 'Cpu was successfully created.' }

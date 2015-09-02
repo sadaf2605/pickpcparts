@@ -56,9 +56,8 @@ permit_params :cpu
       @cpu = Cpu.new(cpu_params)
       
 #      @cpu.cpu_socket = CpuSocket.find(params[:cpu][:cpu_socket][:name])
-      unless params[:cpu][:product][:market_statuses_attributes].nil?
-        @cpu.build_with_market_status(params)
-      end
+      @cpu.build_with_market_status(params[:cpu])
+
 
         respond_to do |format|
           if @cpu.save
@@ -67,6 +66,8 @@ permit_params :cpu
             format.html { render :new }
           end
         end
+        rescue
+          redirect_to 
       end
 
 

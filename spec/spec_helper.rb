@@ -1,4 +1,6 @@
 require 'support/shared_example/child_product_shared_examples'
+require 'support/shared_example/child_product_controller_shared_examples'
+
 
 if ENV['HEADLESS'] == 'true'
 #  require 'rubygems'

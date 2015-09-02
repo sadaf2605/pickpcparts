@@ -53,7 +53,8 @@ ActiveAdmin.register VideoCard do
     def create
       @video_card = VideoCard.new(video_card_params)
 #      @video_card.product = Product.create(product_params)
-      @video_card.build_with_market_status(params)
+      @video_card.build_with_market_status(params[:video_card])
+      
         respond_to do |format|
           if @video_card.save
             format.html { redirect_to [:admin, @video_card], notice: 'Video Card was successfully created.' }

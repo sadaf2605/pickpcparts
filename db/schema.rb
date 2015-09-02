@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831204333) do
+ActiveRecord::Schema.define(version: 20150902153656) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -120,8 +120,6 @@ ActiveRecord::Schema.define(version: 20150831204333) do
   end
 
   create_table "coolers", force: :cascade do |t|
-    t.string   "manufacturer"
-    t.string   "part_no"
     t.boolean  "liquid_cooled"
     t.string   "radiator_size"
     t.string   "noise_level"
@@ -209,8 +207,6 @@ ActiveRecord::Schema.define(version: 20150831204333) do
   end
 
   create_table "memories", force: :cascade do |t|
-    t.string   "manufacturer"
-    t.string   "part_no"
     t.string   "speed"
     t.string   "size"
     t.string   "price_gb"
@@ -222,7 +218,6 @@ ActiveRecord::Schema.define(version: 20150831204333) do
     t.string   "color"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.string   "memory"
     t.integer  "memory_slot_id"
     t.integer  "product_id"
   end
@@ -248,8 +243,6 @@ ActiveRecord::Schema.define(version: 20150831204333) do
   end
 
   create_table "motherboards", force: :cascade do |t|
-    t.string   "manufacturer"
-    t.string   "part_no"
     t.string   "chipset"
     t.string   "memory_type"
     t.string   "max_memory"
@@ -262,7 +255,6 @@ ActiveRecord::Schema.define(version: 20150831204333) do
     t.boolean  "onboard_usb_3_headers"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
-    t.string   "motherboard"
     t.integer  "cpu_socket_id"
     t.integer  "memory_slot_num"
     t.integer  "memory_slot_id"
@@ -271,8 +263,6 @@ ActiveRecord::Schema.define(version: 20150831204333) do
   end
 
   create_table "power_supplies", force: :cascade do |t|
-    t.string   "manufacturer"
-    t.string   "part_no"
     t.string   "power_supply_type"
     t.string   "wattage"
     t.integer  "fans"
@@ -318,8 +308,6 @@ ActiveRecord::Schema.define(version: 20150831204333) do
   end
 
   create_table "storages", force: :cascade do |t|
-    t.string   "manufacturer"
-    t.string   "part_no"
     t.string   "capacity"
     t.string   "interface"
     t.string   "cache"
@@ -362,8 +350,6 @@ ActiveRecord::Schema.define(version: 20150831204333) do
   end
 
   create_table "video_cards", force: :cascade do |t|
-    t.string   "manufacturer"
-    t.string   "part_no"
     t.string   "interface"
     t.string   "chipset"
     t.string   "memory_size"

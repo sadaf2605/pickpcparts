@@ -71,7 +71,7 @@ ActiveAdmin.register CpuCase do
         end
 
       
-      @cpu_case.build_with_market_status(params)
+      @cpu_case.build_with_market_status(params[:cpu_case])
       
       respond_to do |format|
         if @cpu_case.save

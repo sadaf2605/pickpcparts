@@ -71,7 +71,7 @@ ActiveAdmin.register Cooler do
           end
         end
         
-       @cooler.build_with_market_status(params)
+       @cooler.build_with_market_status(params[:cooler])
       
       
       respond_to do |format|

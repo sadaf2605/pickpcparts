@@ -4,12 +4,17 @@ require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
-require 'spec_helper'
-require 'support/database_cleaner'
-
 
 require 'factories'
 require 'support/factory_girl_nested_attributes'
+
+require 'devise'
+require 'support/database_cleaner'
+require 'spec_helper'
+
+
+
+
 
 
 # Add additional requires below this line. Rails is not loaded until this point!

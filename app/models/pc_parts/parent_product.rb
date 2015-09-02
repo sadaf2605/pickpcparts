@@ -46,15 +46,25 @@ class ParentProduct < ActiveRecord::Base
     end
        
     def build_with_market_status(params)
-         key=self.class.name.downcase
-         self.product=Product.create(ProductsController.product_params(params[key]))
+      key=self.class.name.downcase
+
+        if self.product.nil?
+          self.product=Product.create(ProductsController.product_params(params))
+        else
+          self.product.update_attributes(ProductsController.product_params(params))
+        end
+
+        unless params[:product][:market_statuses_attributes].nil?
          self.product.market_statuses =[]
-         
-         market_statuses=params[key][:product][:market_statuses_attributes]
-         if market_statuses.length>0
-            market_statuses.sort.map{|k,v| v }.each  do |a|
-              self.product.market_statuses << MarketStatus.create(MarketStatusController.market_status_params(a))
-            end
+
+
+           market_statuses=params[:product][:market_statuses_attributes]
+           if market_statuses.length>0
+              market_statuses.sort.map{|k,v| v }.each  do |a|
+                self.product.market_statuses << MarketStatus.create(MarketStatusController.market_status_params(a))
+              end
+           end
          end
+
     end
 end

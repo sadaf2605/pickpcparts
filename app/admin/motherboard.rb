@@ -91,7 +91,7 @@ controller do
     #@motherboard.form_factor =FormFactor.find_by_name(params[:motherboard][:form_factor_str]) || FormFactor.create({:name=> params[:motherboard][:form_factor_str]})
 #    @motherboard.form_factor = FormFactor.find_by_name(params[:motherboard][:form_factor][:name]) || FormFactor.create({:name=> params[:motherboard][:form_factor][:name]})
 #    @motherboard.product = Product.create(product_params)
-    @motherboard.build_with_market_status(params)
+    @motherboard.build_with_market_status(params[:motherboard])
     respond_to do |format|
       if @motherboard.save
         format.html { redirect_to [:admin,@motherboard], notice: 'Motherboard was successfully created.' }

@@ -1,8 +1,5 @@
 # spec/controllers/admin/organizations_controller_spec.rb
 require 'rails_helper'
-require 'spec_helper'
-require 'devise'
-load 'spec/support/shared_example/child_product_controller_shared_examples.rb'
 
 
 include Devise::TestHelpers
@@ -18,9 +15,11 @@ describe Admin::CpusController, :type => :controller do
   end
  
 
-  it_should_behave_like "a child product controller", Cpu do
+  it_should_behave_like "a child product controller", Cpu,:cpu do
+    let(:params_with_product){ {:cpu => FactoryGirl.nested_attributes(:cpu)} }
     let(:params_with_market_status){ {:cpu => FactoryGirl.nested_attributes(:cpu_with_market_status)} }
-    let(:params_with_product){ {:cpu => FactoryGirl.nested_attributes(:cpu_with_product)} }
+
+    let(:params_without_product){{:cpu => FactoryGirl.nested_attributes(:cpu_without_product)}}
   end
     
   

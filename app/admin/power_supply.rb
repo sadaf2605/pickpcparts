@@ -58,7 +58,7 @@ ActiveAdmin.register PowerSupply do
     def create
       @power_supply = PowerSupply.new(power_supply_params)
 #      @power_supply.product = Product.create(product_params)
-      @power_supply.build_with_market_status(params)
+      @power_supply.build_with_market_status(params[:power_supply])
         respond_to do |format|
           if @power_supply.save
             format.html { redirect_to [:admin, @power_supply], notice: 'Power Supply was successfully created.' }
