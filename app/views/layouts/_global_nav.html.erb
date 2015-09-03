@@ -34,31 +34,52 @@
 			<div class="col-md-12 text-center">
               <div class="col-sm-1">
                 <%= link_to cpus_path, :class=> "menu-parts-icon" do %>
-                	<%= image_tag "https://pcpartpicker.com/static/forever/img/nav-cpu.png", alt: "CPU"%>
+                	<%= image_tag cpu_menu_icon, alt: "CPU"%>
 	                <p>CPU</p>
                 <% end %>
                  
               </div>
               <div class="col-sm-1">
-                <a href="/coolers" class="menu-parts-icon"><img src="https://pcpartpicker.com/static/forever/img/nav-cpucooler.png" alt="CPU Cooler">CPU Cooler</a>
+                <a href="/coolers" class="menu-parts-icon">
+                  <%=image_tag cooler_menu_icon, alt: "CPU Cooler" %>
+                  <p>CPU Cooler</p>
+                </a>
               </div>
               <div class="col-sm-1">
-                <a href="/motherboards" class="menu-parts-icon"><img src="https://pcpartpicker.com/static/forever/img/nav-motherboard.png" alt="Motherboard">Mother- board</a>
+                <a href="/motherboards" class="menu-parts-icon">
+                <%=image_tag motherboard_menu_icon, alt: "Motherboard" %>
+                <p>Mother- board</p>
+                </a>
               </div>
               <div class="col-sm-1">
-                <a href="/memories" class="menu-parts-icon"><img src="https://pcpartpicker.com/static/forever/img/nav-memory.png" alt="Memory">Memory</a>
+                <a href="/memories" class="menu-parts-icon">
+                  <%=image_tag memory_menu_icon, alt: "Memory" %>
+                  <p>Memory</p>
+                </a>
               </div>
               <div class="col-sm-1">
-                <a href="/storages" class="menu-parts-icon"><img src="https://pcpartpicker.com/static/forever/img/nav-ssd.png" alt="Storage">Storage</a>
+                <a href="/storages" class="menu-parts-icon">
+                  <%=image_tag storage_menu_icon, alt: "Storage" %>
+                  <p>Storage</p>
+                </a>
               </div>
               <div class="col-sm-1">
-                <a href="/video_cards" class="menu-parts-icon"><img src="https://pcpartpicker.com/static/forever/img/nav-videocard.png" alt="Video Card">Video Card</a>
+                <a href="/video_cards" class="menu-parts-icon">
+                  <%=image_tag video_card_menu_icon, alt: "Storage" %>
+                  <p>Video Card</p>
+                </a>
               </div>
               <div class="col-sm-1">
-                <a href="/power_supplies" class="menu-parts-icon"><img src="https://pcpartpicker.com/static/forever/img/nav-powersupply.png" alt="Power Supply">Power Supply</a>
+                <a href="/power_supplies" class="menu-parts-icon">
+                  <%=image_tag power_supply_menu_icon, alt: "Storage" %>
+                  <p>Power Supply</p>
+                </a>
               </div>
               <div class="col-sm-1">
-                <a href="/cpu_cases" class="menu-parts-icon"><img src="https://pcpartpicker.com/static/forever/img/nav-case.png" alt="Case">Case</a>
+                <a href="/cpu_cases" class="menu-parts-icon">
+                  <%=image_tag cpu_case_menu_icon, alt: "Storage" %>
+                  <p>Case</p>
+                </a>
               </div>
           </div>
 

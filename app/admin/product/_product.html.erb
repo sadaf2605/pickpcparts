@@ -1,0 +1,21 @@
+      
+      f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
+          p.input :manufacturer
+          p.input :part_no
+
+          p.has_many :pictures, for: [:pictures,  p.object.pictures || Picture.new],allow_destroy: true do |i|
+            if i.object.new_record?
+              i.input :image 
+            else
+              i.input :image,:input_html => {:disabled => true }, 
+                             :hint => image_tag(i.object.image.url, width:"100px")
+            end
+          end
+
+          p.input :avatar, :as => :file
+
+          p.has_many :market_statuses, for: [:market_statuses,  p.object.market_statuses || MarketStatus.new],allow_destroy: true do |a|
+            a.input :price
+            a.inputs :shop
+          end
+      end

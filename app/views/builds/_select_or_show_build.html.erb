@@ -158,14 +158,14 @@
   <tbody>
 
   
-  <% [	{part:"cpu",        icon:"http://media.memoryexpress.com/Assets/ContentPages/TechZone/TZ_Quickmount-Icon.png"},
-  		{part:"motherboard",icon:"https://cdn1.iconfinder.com/data/icons/computer-hardware-4/512/CPU-512.png"},
-  		{part:"cooler",     icon:"https://cdn2.iconfinder.com/data/icons/gears-wheels-blades/512/computer_cooler-512.png"},
-  		{part:"memory",     icon:"http://media.memoryexpress.com/Assets/ContentPages/TechZone/TZ_Memory-Icon.png"},
-  		{part:"storage",    icon:"https://cdn0.iconfinder.com/data/icons/huge-basic-icons-part-3/512/Hard_disk.png"},
-  		{part:"video_card", icon:"https://cdn3.iconfinder.com/data/icons/glypho-computers-andother-tech/64/computer-graphic-card-512.png"},
-  		{part:"cpu_case",   icon:"https://cdn2.iconfinder.com/data/icons/computer-hardware-3/175/Layer_14-01-512.png"},
-  		{part:"power_supply", icon:"https://cdn2.iconfinder.com/data/icons/pixel-perfect-at-24px-volume-7/24/Untitled-2-128.png"}
+  <% [	{part:"cpu",        icon:cpu_build_icon},
+  		{part:"motherboard",icon:motherboard_build_icon},
+  		{part:"cooler",     icon:cooler_build_icon},
+  		{part:"memory",     icon:memory_build_icon},
+  		{part:"storage",    icon:storage_build_icon},
+  		{part:"video_card", icon:video_card_build_icon},
+  		{part:"cpu_case",   icon:cpu_case_build_icon},
+  		{part:"power_supply", icon: power_supply_build_icon}
   	 ].each do |product| 
   	%>
   		<%part=product[:part]%>

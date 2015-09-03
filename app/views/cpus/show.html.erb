@@ -2,7 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= render "product_carousel", pictures:@cpu.product.pictures %>
+<%= render "layouts/product_carousel", pictures:@cpu.product.pictures %>
 
 
 <h3>Specification of <%= @cpu.model %>:</h3>
@@ -79,5 +79,5 @@
 </div>
 
 <div class="col-md-4 add_build_col">
-<%=render 'layouts/add_to_build', :form_link=>add_cpu_path(@cpu), :product => @cpu.product %>
+<%=render 'layouts/add_to_build', :form_link=>add_cpu_path(@cpu), :product => @cpu.product,:blank_product_icon => cpu_blank_icon %>
 </div>

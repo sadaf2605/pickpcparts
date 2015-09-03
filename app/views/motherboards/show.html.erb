@@ -2,7 +2,7 @@
 <div class="col-md-8">
 
   <p id="notice"><%= notice %></p>
-<%= render "product_carousel", pictures:@motherboard.product.pictures %>
+<%= render "layouts/product_carousel", pictures:@motherboard.product.pictures %>
 
   <h3>Specification of <%= @motherboard.part_no %>:</h3>
   <table class="parts" class="display" cellspacing="0" width="100%">
@@ -82,5 +82,5 @@
 </div>
 
 <div class="col-md-4 add_build_col">
-<%=render 'layouts/add_to_build', :form_link=>add_motherboard_path(@motherboard), :product => @motherboard.product %>
+<%=render 'layouts/add_to_build', :form_link=>add_motherboard_path(@motherboard), :product => @motherboard.product,blank_product_icon: motherboard_blank_icon %>
 </div>

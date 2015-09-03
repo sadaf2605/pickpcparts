@@ -1,7 +1,7 @@
 <div class="col-md-8">
 
   <p id="notice"><%= notice %></p>
-  <%= render "product_carousel", pictures:@memory.product.pictures %>
+  <%= render "layouts/product_carousel", pictures:@memory.product.pictures %>
 
   <h3>Specification of <%= @memory.part_no %>:</h3>
   <table class="parts" class="display" cellspacing="0" width="100%">
@@ -68,5 +68,5 @@
 </div>
 
 <div class="col-md-4 add_build_col">
-<%=render 'layouts/add_to_build', :form_link=>add_memory_path(@memory), :product => @memory.product %>
+<%=render 'layouts/add_to_build', :form_link=>add_memory_path(@memory), :product => @memory.product,blank_product_icon: memory_blank_icon %>
 </div>

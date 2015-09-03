@@ -26,12 +26,11 @@
 	<div class="col-md-7 feat animatedParent" data-sequence="100">
 		<div  id="featured_post" class="thumbnail hvr-box-shadow-outset">
 			<div class="animated bounceInLeft" data-id='1'>
-				<div class="panel-heading animated bounceInLeft" data-id='1'><i class="fa fa-star" style="font-size: 20px;"></i> <span class="pull-right">This Week's featured builds!%></span></div>
+				<div class="panel-heading animated bounceInLeft" data-id='1'><i class="fa fa-star" style="font-size: 20px;"></i> <span class="pull-right">Featured builds!</span></div>
 					
 					<% if @feat_posts.empty? %>
 						<p>Yet, we don't have any featured post!</p>				
 					<% end %>
-					<%= @feat_posts.length %>
 				  <%bounceseq=0%>
 				  <% for post in @feat_posts %>
 				    <div class="hvr-box-shadow-outset featured_posts" style="z-index: <%= 991-bounceseq %>; position: relative">

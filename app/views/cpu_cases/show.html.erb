@@ -3,7 +3,7 @@
 <div class="col-md-8">
 
   <p id="notice"><%= notice %></p>
-  <%= render "product_carousel", pictures:@cpu_case.product.pictures %>
+  <%= render "layouts/product_carousel", pictures:@cpu_case.product.pictures %>
 
   <h3>Specification of <%= @cpu_case.part_no %>:</h3>
   <table class="parts" class="display" cellspacing="0" width="100%">
@@ -75,5 +75,5 @@
 </div>
 
 <div class="col-md-4 add_build_col">
-<%=render 'layouts/add_to_build', :form_link=>add_cpu_case_path(@cpu_case) %>
+<%=render 'layouts/add_to_build', :form_link=>add_cpu_case_path(@cpu_case),:product => @cpu_case.product,blank_product_icon: cpu_case_blank_icon %>
 </div>

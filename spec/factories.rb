@@ -108,12 +108,18 @@ FactoryGirl.define do
 
   
   factory :cooler, class: Cooler do
-    association :product, factory: :product
+    association :product, factory: :product, manufacturer: "Cooler Master"
+
+    after(:build) do c
+      CpuSocket.all.each do |s|
+        c.cpu_sockets << s
+      end
+    end
     
-    liquid_cooled ""
-    radiator_size ""
-    noise_level ""
-    fan_rpm ""
+    liquid_cooled "No"
+    radiator_size "Sleeve"
+    noise_level "9.0 - 36.0 dbA"
+    fan_rpm "600 - 2000 RPM"
 
     factory :cooler_without_product, traits: [:without_product]
     factory :cooler_with_market_status, traits: [:with_market_status]

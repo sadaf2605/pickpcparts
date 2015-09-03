@@ -17,27 +17,12 @@ ActiveAdmin.register Storage do
   form do |f|
     
     
-    f.inputs do      
-        f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
-          p.input :manufacturer
-          p.input :part_no 
-          p.input :avatar, :as => :file, :hint => image_tag(f.object.product.avatar) if not f.object.product.nil?
+    f.inputs do  
+      parts_inputs_for(Storage,f){
+
+      }    
       
-            p.has_many :market_statuses, for: [:market_statuses,  p.object.market_statuses || MarketStatus.new],allow_destroy: true do |a|
-              a.input :price
-              a.inputs :shop
-            end
-          end
-      
-      input :capacity
-      input :interface
-      input :cache
-      
-      input :form_factor
-      input :ssd_controller
-      input :nand_flash_type
-      input :gb_1
-      input :price_gb
+
     end
     actions
   end

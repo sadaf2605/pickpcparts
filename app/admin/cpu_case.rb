@@ -2,55 +2,15 @@ ActiveAdmin.register CpuCase do
   menu parent: "Parts", priority: 7
 
 
-  show do
-    attributes_table_for cpu_case do
-      row :manufacturer
-      row :color
-      row :includes_power_supply
-      row :external_5_25_bays
-      row :internal_2_5_bays
-      row :internal_3_5_bays
-      row :motherboard_compatibility_str do
-        cpu_case.motherboard_compatibility.join(" , ")
-     end
-      row :front_panel_usb_3_0
-      row :ports
-      row :maximum_video_card_length
-      row :length
-      row :width
-      row :height
-    end
-  end
+ 
 
 
   form do |f|
     inputs do
         
-        f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
-          p.input :manufacturer
-          p.input :part_no 
-          p.input :avatar, :as => :file, :hint => image_tag(f.object.product.avatar) if not f.object.product.nil?
-      
-            p.has_many :market_statuses, for: [:market_statuses,  p.object.market_statuses || MarketStatus.new],allow_destroy: true do |a|
-              a.input :price
-              a.inputs :shop
-            end
-          end
-     
-      
-      input :color
-      input :includes_power_supply
-      input :external_5_25_bays
-      input :internal_2_5_bays
-      input :internal_3_5_bays
-      input :motherboard_compatibility
-#      input :motherboard_compatibility_str, :input_html => { :value => if f.object.motherboard_compatibility then f.object.motherboard_compatibility.join(" , ") else "" end }
-      input :front_panel_usb_3_0
-      input :ports
-      input :maximum_video_card_length
-      input :length
-      input :width
-      input :height
+    parts_inputs_for(CpuCase,f){
+    
+      }
     end
     actions
   end

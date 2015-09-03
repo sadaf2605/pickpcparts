@@ -1,7 +1,11 @@
   <div class="add_build">
   	<div class="panel-heading" style="text-align: left"> <i class="fa fa-plug" style="font-size: 20px;"></i> <span class="pull-right">Add to build!</span></div>
   		<a href="#" class="thumbnail">
-			<%= image_tag product.avatar%> 
+			<% unless product.avatar.blank? %>
+				<%= image_tag product.avatar %>
+			<% else %>
+				<%= image_tag blank_product_icon %>
+			<% end %> 
 	    </a>
 		
 			

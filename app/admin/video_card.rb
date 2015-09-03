@@ -20,30 +20,9 @@ ActiveAdmin.register VideoCard do
     
     
     f.inputs do      
-            f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
-          p.input :manufacturer
-          p.input :part_no 
-          p.input :avatar, :as => :file, :hint => image_tag(f.object.product.avatar) if not f.object.product.nil?
-      
-            p.has_many :market_statuses, for: [:market_statuses,  p.object.market_statuses || MarketStatus.new],allow_destroy: true do |a|
-              a.input :price
-              a.inputs :shop
-            end
-          end
-      
-      input :interface
-      input :chipset
-      
-      input :memory_size
-      input :memory_type
-      input :core_clock
-      input :tdp
-      input :fan
-      input :sli_support
-      input :dvi_d_dual_link
-      input :display_port
-      input :hdmi
-      input :length
+      parts_inputs_for(VideoCard,f){
+       
+      }
     end
     actions
   end

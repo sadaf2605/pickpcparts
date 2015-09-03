@@ -1,6 +1,8 @@
 ActiveAdmin.register Cpu do
   menu parent: "Parts", priority: 1
 
+  require "helper/active_admin_helper"
+  
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -14,43 +16,11 @@ ActiveAdmin.register Cpu do
 #   permitted
 # end
 permit_params :cpu
-
-  form(:html => { :multipart => true })  do |f|
-    
-    
+  form(:html => { :multipart => true })  do |f| 
     f.inputs do
-      f.inputs :cpu_socket, heading: 'Themes', allow_destroy: true, new_record: true
-#      f.semantic_fields_for [:cpu_socket, f.object.cpu_socket || CpuSocket.new], heading: 'Themes', allow_destroy: true, new_record: true do |a|
-#          a.input :name,:label=>"Socket", :as => :select, :collection => CpuSocket.all.collect {|cpu_socket| [cpu_socket.name, cpu_socket.id] }
-#      end
-
-      
-      f.semantic_fields_for [:product, f.object.product || Product.new] do |p|
-          p.input :manufacturer
-          p.input :part_no
-
-          p.has_many :pictures, for: [:pictures,  p.object.pictures || Picture.new],allow_destroy: true do |i|
-            i.input :image,:as => :file
-            #i.input :image
-          end
-
-          p.input :avatar, :as => :file
-
-          p.has_many :market_statuses, for: [:market_statuses,  p.object.market_statuses || MarketStatus.new],allow_destroy: true do |a|
-            a.input :price
-            a.inputs :shop
-          end
-      end
-      
-      input :model
-      input :data_width
-      input :speed
-      input :cores
-      input :l1_cache
-      input :l2_cache
-      input :l3_cache
-      input :lithography
-      input :thermal_design_power
+      parts_inputs_for(Cpu,f){
+        input :cpu_socket, heading: 'Themes', allow_destroy: true, new_record: true
+      }
     end
     actions
   end
@@ -84,13 +54,5 @@ permit_params :cpu
   end
 
 
- show do
-    attributes_table do
-      row :manufacturer do
-        cpu.product.manufacturer
-      end
-    end
-    active_admin_comments
-  end
   
 end
