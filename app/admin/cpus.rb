@@ -29,22 +29,23 @@ permit_params :cpu
 
   controller do
     def create
+
       @cpu = Cpu.new(cpu_params)
-      
+
 #      @cpu.cpu_socket = CpuSocket.find(params[:cpu][:cpu_socket][:name])
       @cpu.build_with_market_status(params[:cpu])
-
 
         respond_to do |format|
           if @cpu.save
             format.html { redirect_to [:admin, @cpu], notice: 'Cpu was successfully created.' }
           else
+#            puts @cpu
             format.html { render :new }
+
           end
         end
-        rescue
-          redirect_to 
       end
+
 
 
     def cpu_params

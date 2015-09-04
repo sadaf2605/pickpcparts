@@ -68,8 +68,10 @@ FactoryGirl.define do
   #  association :product, factory: :product
     #association :cpu_socket, factory: :cpu_socket
     after(:build) do |s|
-
-      s.cpu_socket = CpuSocket.all[ Cpu.count % CpuSocket.count] || create(:cpu_socket)
+      unless CpuSocket.count ==0
+        s.cpu_socket = CpuSocket.all[ Cpu.count % CpuSocket.count]
+      end
+      s.cpu_socket ||= create(:cpu_socket)
    
     end
     association :product, factory: :product     

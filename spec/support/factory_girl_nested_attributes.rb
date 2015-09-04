@@ -58,16 +58,18 @@ class NestedAttributesStrategy
     
     attrs
   end
-
+ 
+ $except=[:pictures]
+ 
   def nested_reflections_has_many(instance)
     instance.class.reflections.values.select do |ref|
-      ref.macro == :has_many && instance.respond_to?("#{ref.name}_attributes=")
+      ref.macro == :has_many && !$except.include?(ref.name) && instance.respond_to?("#{ref.name}_attributes=")
     end
   end
   
   def nested_reflections_belongs_to(instance)  
     instance.class.reflections.values.select do |ref|
-      ref.macro == :belongs_to && instance.respond_to?("#{ref.name}")
+      ref.macro == :belongs_to && !$except.include?(ref.name) && instance.respond_to?("#{ref.name}")
     end
   end
 

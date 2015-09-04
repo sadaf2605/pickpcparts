@@ -18,7 +18,8 @@ ActiveAdmin.register_page "featuredpost" do
   
   content do    
     
-    render "product_form"
+    render "admin/featuredpost/refresh_product_form"
+
     div do
       @featured_post = FeaturedPost.new
       @featured_post.blog_posts=BlogPost.where({is_featured:true})

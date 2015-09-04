@@ -18,6 +18,7 @@ FactoryGirl.create(:admin_user)
 5.times do
 	FactoryGirl.create(:cpu_socket)
 end
+
 20.times do
 	FactoryGirl.create(:cpu)
 end
