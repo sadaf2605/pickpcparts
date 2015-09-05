@@ -39,7 +39,7 @@ FactoryGirl.define do
   end
 
   factory :product, :class => Product do
-    manufacturer "Intel"
+    sequence(:manufacturer){|n| ["Intel","AMD"][n%2]}
     
     trait :market_status do
 
@@ -64,33 +64,36 @@ FactoryGirl.define do
     end
 
   
-  factory :cpu, :class => Cpu do
+  factory :cpu_basic, :class => Cpu do
   #  association :product, factory: :product
     #association :cpu_socket, factory: :cpu_socket
-    after(:build) do |s|
-      unless CpuSocket.count ==0
-        s.cpu_socket = CpuSocket.all[ Cpu.count % CpuSocket.count]
-      end
-      s.cpu_socket ||= create(:cpu_socket)
    
-    end
     association :product, factory: :product     
-    
-    sequence(:model){|n| "Core i5-469#{n}K"} 
-    
-    sequence(:data_width){|n| ["64-bit","32-bit"][n%2]}
 
-    sequence(:speed){|n| "3.#{n}GHz"} 
-     
-    cores 4
-    l1_cache "4 x 32KB Instruction 4 x 32KB Data" 
-    l2_cache "4 x 256KB"
-    l3_cache "1 x 6MB"
-    lithography "22 nm"
-    thermal_design_power "88 Watts"
-    includes_cpu_cooler true
-    hyper_threading false
-    integrated_graphics "Intel HD Graphics 4600"
+    factory :cpu do
+      
+      after(:build) do |s|
+        unless CpuSocket.count == 0
+          s.cpu_socket = CpuSocket.all[ Cpu.count % CpuSocket.count]
+        end
+        s.cpu_socket ||= create(:cpu_socket)
+      end
+      sequence(:model){|n| "Core i5-469#{n}K"} 
+    
+      sequence(:data_width){|n| ["64-bit","32-bit"][n%2]}
+
+      sequence(:speed){|n| "3.#{n}GHz"} 
+       
+      cores 4
+      l1_cache "4 x 32KB Instruction 4 x 32KB Data" 
+      l2_cache "4 x 256KB"
+      l3_cache "1 x 6MB"
+      lithography "22 nm"
+      thermal_design_power "88 Watts"
+      includes_cpu_cooler true
+      hyper_threading false
+      integrated_graphics "Intel HD Graphics 4600"
+    end
 
     trait :without_socket do
       socket =nil      
@@ -109,19 +112,21 @@ FactoryGirl.define do
   end
 
   
-  factory :cooler, class: Cooler do
+  factory :cooler_basic, class: Cooler do
     association :product, factory: :product, manufacturer: "Cooler Master"
 
-    after(:build) do c
-      CpuSocket.all.each do |s|
-        c.cpu_sockets << s
-      end
-    end
+    factory :cooler do
+
     
-    liquid_cooled "No"
-    radiator_size "Sleeve"
-    noise_level "9.0 - 36.0 dbA"
-    fan_rpm "600 - 2000 RPM"
+      cpu_sockets { [create(:cpu_socket),create(:cpu_socket)]}
+
+      
+      
+      liquid_cooled false
+      radiator_size "Sleeve"
+      noise_level "9.0 - 36.0 dbA"
+      fan_rpm "600 - 2000 RPM"
+    end
 
     factory :cooler_without_product, traits: [:without_product]
     factory :cooler_with_market_status, traits: [:with_market_status]

@@ -32,21 +32,41 @@ permit_params :cpu
 
       @cpu = Cpu.new(cpu_params)
 
-#      @cpu.cpu_socket = CpuSocket.find(params[:cpu][:cpu_socket][:name])
+#      @cpu.cpu_socket. = CpuSocket.find_by_name(params[:cpu][:cpu_socket][:name])
+      #puts params[:cpu][:cpu_socket][:name]
+      
       @cpu.build_with_market_status(params[:cpu])
 
-        respond_to do |format|
-          if @cpu.save
-            format.html { redirect_to [:admin, @cpu], notice: 'Cpu was successfully created.' }
-          else
-#            puts @cpu
-            format.html { render :new }
+      respond_to do |format|
+        if @cpu.save
+          format.html { redirect_to [:admin, @cpu], notice: 'Cpu was successfully created.' }
+        else
+          puts params
+          puts @cpu.cpu_socket
 
-          end
+          format.html { render :new }
+
         end
       end
+    end
 
 
+    def update
+
+      @cpu = Cpu.find(params[:id])
+      #@cpu.product()
+      @cpu.product.update(ProductsController.product_params(params[:cpu]))
+#      @cpu.cpu_socket= CpuSocket.find_by_name(params[:cpu][:cpu_socket][:name]) 
+    
+      respond_to do |format|
+        if  @cpu.update_attributes(cpu_params)
+         # puts @cpu.produ
+          format.html { redirect_to [:admin, @cpu], notice: 'Cpu was successfully updated.' }
+        else
+          format.html { render :new }
+        end
+      end
+    end
 
     def cpu_params
       params.require(:cpu).permit(:product, :cpu_socket, :model, :data_width, :speed, :cores, :l1_cache, :l2_cache, :l3_cache, :lithography, :thermal_design_power, :includes_cpu_cooler, :hyper_threading, :integrated_graphics, :cpu_socket_id)

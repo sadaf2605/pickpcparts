@@ -3,7 +3,7 @@ class Cpu < ParentProduct
   has_many :builds, :through => :cpu_builds  
   belongs_to :cpu_socket
 
-#  validates :cpu_socket , :presence => true , presence: true
+#  validates :cpu_socket ,presence: true
 
   
   

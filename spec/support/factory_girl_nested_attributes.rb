@@ -14,14 +14,18 @@ class NestedAttributesStrategy
  
   #  Then you can use it anywhere you find useful:
   #   FactoryGirl.nested_attributes(:model_name)
-  
+  def initialize()
+    $except=[:pictures]
+    $include_id=[:cpu_socket_id]
+  end
+
+
   def association(runner)
     runner.run
   end
 
   def result(evaluation)
 
-    
     evaluation.object.tap do |instance|
     
       evaluation.notify(:after_build, instance) 
@@ -42,7 +46,7 @@ class NestedAttributesStrategy
     @created_model << instance.class
     
     attrs = instance.attributes.delete_if do |k, _|
-      %w(id type created_at updated_at).include?(k) or k.end_with? ("_id")
+      ( %w(id type created_at updated_at).include?(k) or k.end_with?("_id") ) 
     end
     
     nested_reflections_has_many(instance).each do |ref|
@@ -54,13 +58,23 @@ class NestedAttributesStrategy
       attrs.merge!("#{ref.name}" => attributes(instance.send(ref.name)))
     end
     
+    nested_reflections_has_and_belongs_to_many(instance).each do |ref|
+      attrs.merge!("#{ref.name.to_s.singularize}_ids" => instance.send(ref.name).each.map do |nested_obj|
+        nested_obj.id.to_s
+      end)
+    end
+    
     instance.delete 
     
     attrs
   end
  
- $except=[:pictures]
- 
+  def nested_reflections_has_and_belongs_to_many(instance)
+    instance.class.reflections.values.select do |ref|
+      ref.macro == :has_and_belongs_to_many
+    end
+  end
+
   def nested_reflections_has_many(instance)
     instance.class.reflections.values.select do |ref|
       ref.macro == :has_many && !$except.include?(ref.name) && instance.respond_to?("#{ref.name}_attributes=")

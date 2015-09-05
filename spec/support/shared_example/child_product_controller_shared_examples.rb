@@ -5,9 +5,7 @@ RSpec.shared_examples "a child product controller" do |child_product_class, chil
   describe "on #{child_product_class.name} create" do
     context "when there is product" do     
       context "with single market status"do    
-        subject{
-          puts params_with_market_status
-          post :create, params_with_market_status}
+        subject{post :create, params_with_market_status}
 
         it "creates #{child_product_class.name} successfully" do
           expect{subject}.to change(child_product_class,:count).by(1)
@@ -24,6 +22,7 @@ RSpec.shared_examples "a child product controller" do |child_product_class, chil
         context "when shop is valid" do 
           context "when price is valid" do
             it "creates market status" do
+              
               expect{subject}.to change(MarketStatus,:count).by(1)
             end
           end
@@ -55,11 +54,39 @@ RSpec.shared_examples "a child product controller" do |child_product_class, chil
           expect(subject).to redirect_to :action => :show,
                                          :id => assigns(child_product_name).id
         end
+      end
+    end
+  end
 
+  describe "on #{child_product_class.name} update" do
+    
+    before :each do
+        @child_product = FactoryGirl.create(update_factory_name)
+    end
+
+
+    context "when we update" do
+      subject!{put :update, { id: @child_product.id }.merge(params_with_product)  }
+      
+      context "internal columns"
+        it "it updates all successfully" do
+          @child_product.reload
+          params_with_market_status[child_product_name].keys.each do |k|
+            expect(@child_product.send(k)).to eq(params_with_product[child_product_name][k]) unless params_with_product[child_product_name][k].class==Hash
+          end
+        end
+      end
+
+      context "product" do  
+        subject!{put :update, {id: @child_product.id}.merge(params_with_product)}
+        
+        it "it updates manufacturer successfully" do
+          @child_product.product.reload
+          expect(@child_product.product.manufacturer).to eq(params_with_product[child_product_name]["product"]["manufacturer"])
+        end
       end
 
     end
-
+  
   end
 
-end

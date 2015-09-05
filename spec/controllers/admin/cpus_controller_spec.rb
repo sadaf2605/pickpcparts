@@ -16,20 +16,16 @@ describe Admin::CpusController, :type => :controller do
  
 
   it_should_behave_like "a child product controller", Cpu,:cpu do
-    let(:params_with_product){ {:cpu => FactoryGirl.nested_attributes(:cpu)} }
-    let(:params_with_market_status){ {:cpu => FactoryGirl.nested_attributes(:cpu_with_market_status)} }
+    let(:update_factory_name){:cpu}
+
+    let(:params_with_product){ {:cpu => FactoryGirl.nested_attributes(:cpu) } }
+    let(:params_with_market_status){ {:cpu => FactoryGirl.nested_attributes(:cpu_with_market_status) } }
 
     let(:params_without_product){{:cpu => FactoryGirl.nested_attributes(:cpu_without_product)}}
+
   end
   
-  describe "individual properties" do
-    context "on create" do 
-      it "should not create without socket" do 
-        expect(FactoryGirl.build(:cpu_without_socket)).to be_invalid
-      end
-    end
-  end
-  
+    
 
   describe "index" do
 #    it 'returns posts when I create posts' do
@@ -37,8 +33,49 @@ describe Admin::CpusController, :type => :controller do
 #      get :index
 #      expect(assigns(:cpus)).to eq( [cpu] )      
 #    end
-  end      
   end
+
+  describe "create" do
+    context "when there is socket" do
+      let(:cpu_attribute){FactoryGirl.nested_attributes(:cpu)}
+      
+      it "creates with cpu socket successfully" do
+        
+        cpu_socket = FactoryGirl.create(:cpu_socket)
+#        post :create,{"cpu"=>{"product"=>{"manufacturer"=>"", "part_no"=>""}, "cpu_socket_id"=>cpu_socket.id.to_s, "model"=>"", "data_width"=>"", "speed"=>"", "cores"=>"", "l1_cache"=>"", "l2_cache"=>"", "l3_cache"=>"", "lithography"=>"", "thermal_design_power"=>"", "includes_cpu_cooler"=>"0", "hyper_threading"=>"0", "integrated_graphics"=>""}}
+
+attt={"product"=>{"manufacturer"=>"", "part_no"=>""}, "cpu_socket_id"=>cpu_socket.id.to_s, "model"=>"", "data_width"=>"", "speed"=>"", "cores"=>"", "l1_cache"=>"", "l2_cache"=>"", "l3_cache"=>"", "lithography"=>"", "thermal_design_power"=>"", "includes_cpu_cooler"=>"0", "hyper_threading"=>"0", "integrated_graphics"=>""}
+        post :create,{"cpu"=>attt}
+
+        #post :create, {:cpu => FactoryGirl.nested_attributes(:cpu).stringify_keys.merge("cpu_socket_id"=> cpu_socket.id.to_s) }
+        expect(Cpu.last.cpu_socket.name).to eq(cpu_socket.name)
+     #   expect(Cpu.last.cpu_socket_id).to eq(cpu_socket.id)
+      end
+    end
+  end
+
+  describe "update" do
+    context "when update socket" do
+      before(:each){
+        @cpu=FactoryGirl.create(:cpu)
+      }
+
+      it "updates socket" do
+
+        cpu_socket = FactoryGirl.create(:cpu_socket)
+        attributes=FactoryGirl.attributes_for(:cpu)
+        put :update, {id:@cpu}.merge({:cpu => FactoryGirl.nested_attributes(:cpu).stringify_keys.merge("cpu_socket_id"=> cpu_socket.id.to_s) })
+        @cpu.reload
+
+      # expect(@cpu.cpu_socket.name).to eq(cpu_socket.name)
+        expect(@cpu.cpu_socket_id).to eq(cpu_socket.id)
+
+      end
+    end
+  end
+
+end
+
 
 
 #RSpec.controller C

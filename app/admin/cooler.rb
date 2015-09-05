@@ -6,8 +6,8 @@ ActiveAdmin.register Cooler do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
+   permit_params :cooler,:product, :cpu_socket_ids
+ #
   # or
   #
   # permit_params do
@@ -41,9 +41,13 @@ ActiveAdmin.register Cooler do
 #        @cooler.product = Product.create(product_params)
 #      end
         @cooler.cpu_sockets=[]
-        params[:cooler][:cpu_socket_ids].each if not params[:cooler][:cpu_socket_ids].nil? do |id|
+        
+        cpu_sockets=params["cooler"]["cpu_socket_ids"]
+        cpu_sockets||=[]
+        cpu_sockets.each do |id|
+            logger.debug params["cooler"]["cpu_socket_ids"]
           if not id == ""
-            @cooler.cpu_sockets << CpuSocket.find_by_id(id) 
+            @cooler.cpu_sockets << CpuSocket.find_by_id(id.to_i) 
           end
         end
         
@@ -57,7 +61,9 @@ ActiveAdmin.register Cooler do
           format.html { render :new }
         end
       end
-end
+    end
+
+
     def cooler_params
       params.require(:cooler).permit(:manufacturer, :part_no, :liquid_cooled, :radiator_size, :noise_level, :fan_rpm, :cpu_socket_ids)
     end
