@@ -9,7 +9,7 @@ ActiveAdmin.register CpuCase do
     inputs do
         
     parts_inputs_for(CpuCase,f){
-    
+        input :form_factors
       }
     end
     actions
@@ -23,13 +23,16 @@ ActiveAdmin.register CpuCase do
 #        @cpu_case.motherboard_compatibility << FormFactor.find_or_create_by(name: form_factor)
 #      end
 
-      @cpu_case.motherboard_compatibility=[]
-       params[:cpu_case][:motherboard_compatibility_ids].each if not params[:cpu_case][:motherboard_compatibility_ids].nil? do |id|
-          if not id == ""
-            @cpu_case.motherboard_compatibility << FormFactor.find_by_id(id) 
+      @cpu_case.form_factors=[]
+      
+      if not params[:cpu_case][:form_factor_ids].nil?
+         params[:cpu_case][:form_factor_ids].each  do |id|
+          puts params[:cpu_case][:form_factor_ids]
+            if not id == ""
+              @cpu_case.form_factors << FormFactor.find_by_id(id.to_i) 
+            end
           end
-        end
-
+      end
       
       @cpu_case.build_with_market_status(params[:cpu_case])
       
@@ -44,8 +47,29 @@ ActiveAdmin.register CpuCase do
       end
     end
 
+    def update
+      @cpu_case = CpuCase.find(params[:id])
+      @cpu_case.product.update(ProductsController.product_params(params[:cpu_case]))
+      @cpu_case.build_with_market_status(params[:cpu_case])
+       
+
+      @cpu_case.form_factors=[]
+
+       params[:cpu_case][:form_factors_ids].each if not params[:cpu_case][:form_factors_ids].nil? do |id|
+          if not id == ""
+            @cpu_case.form_factors << FormFactor.find_by_id(id) 
+          end
+        end
+
+
+      if @cpu_case.update_attributes(cpu_case_params)
+        super
+      end
+
+    end
+
     def cpu_case_params
-      params.require(:cpu_case).permit(:manufacturer, :part_no, :cpu_type, :color, :includes_power_supply, :external_5_25_bays, :internal_2_5_bays, :internal_3_5_bays, :front_panel_usb_3_0, :ports, :maximum_video_card_length, :dimensions, :width,:height, :length)
+      params.require(:cpu_case).permit(:form_factor_ids,:manufacturer, :part_no, :cpu_type, :color, :includes_power_supply, :external_5_25_bays, :internal_2_5_bays, :internal_3_5_bays, :front_panel_usb_3_0, :ports, :maximum_video_card_length, :dimensions, :width,:height, :length)
     end
     
 

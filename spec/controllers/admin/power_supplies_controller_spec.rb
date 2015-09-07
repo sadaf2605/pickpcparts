@@ -18,6 +18,9 @@ RSpec.describe Admin::PowerSuppliesController, type: :controller do
     let(:params_with_market_status){ {:power_supply => FactoryGirl.nested_attributes(:power_supply_with_market_status)} }
 
     let(:params_without_product){{:power_supply => FactoryGirl.nested_attributes(:power_supply_without_product)}}
+
+    let(:child_product_with_market_status){ FactoryGirl.create(:power_supply_with_market_status)}
+    let(:update_factory_name){ :power_supply }
   end
 
 end

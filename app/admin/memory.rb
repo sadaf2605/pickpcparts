@@ -38,8 +38,8 @@ ActiveAdmin.register Memory do
       @memory.product.update(ProductsController.product_params(params[:memory]))
       @memory.build_with_market_status(params[:memory])
 
-      @memory.memory_type= MemorySlot.find_by_id(params[:memory][:memory_slot_id])
 
+      @memory.memory_type= MemorySlot.find_by_id(params[:memory][:memory_slot_id])
 
       if @memory.update_attributes(memory_params)
         super

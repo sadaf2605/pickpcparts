@@ -268,25 +268,33 @@ FactoryGirl.define do
       sequence(:name){ |n| ["Mini ITX","Pico-ITX","Pico-ITX"][n % (FormFactor.count+1)]}
   end
  
-  factory :cpu_case, :class => CpuCase do
+   factory :cpu_case_form_factor_membership, :class => FormFactor do
+      association :cpu_case, factory: :cpu_case
+      association :form_factor, factory: :form_factor
+  end
+
+  factory :cpu_case_basic, :class => CpuCase do
     association :product, factory: :product
     
-    #association :form_factor, factory: :form_factor
-    after(:build) do |s|
-      s.form_factor  = FormFactor.first  || create(:form_factor)
-    end
+    factory :cpu_case do
+      #association :form_factor, factory: :form_factor
+      after(:build) do |c|
+        c.form_factors =[create(:form_factor)] 
+        #create(:cpu_case_form_factor_membership) { [create(:form_factor),create(:form_factor)]}
+      end
 
-    color "black"
-    includes_power_supply false
-    external_5_25_bays 1
-    internal_2_5_bays 1
-    internal_3_5_bays 3
-    front_panel_usb_3_0_ports true
-    maximum_video_card_length "13.50\""
-    case_type "Mini ITX Tower"
-    length 9.37
-    width 8.07
-    height 14.88
+      color "black"
+      includes_power_supply false
+      external_5_25_bays 1
+      internal_2_5_bays 1
+      internal_3_5_bays 3
+      front_panel_usb_3_0_ports true
+      maximum_video_card_length "13.50\""
+      case_type "Mini ITX Tower"
+      length 9.37
+      width 8.07
+      height 14.88
+    end
 
     factory :cpu_case_without_product, traits: [:without_product]
     factory :cpu_case_with_market_status, traits: [:with_market_status]

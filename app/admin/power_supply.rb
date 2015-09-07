@@ -68,6 +68,18 @@ ActiveAdmin.register PowerSupply do
         end
       end
 
+    def update
+      @power_supply = PowerSupply.find(params[:id])
+      @power_supply.product.update(ProductsController.product_params(params[:power_supply]))
+      @power_supply.build_with_market_status(params[:power_supply])
+
+
+      if @power_supply.update_attributes(power_supply_params)
+        super
+      end
+
+    end
+
 
     def power_supply_params
       params.require(:power_supply).permit(:manufacturer, :part_no, :power_supply_type, :wattage, :fans, :modular, :efficiency_certification, :efficiency, :output, :pci_express_6_plus_2_pin_connectors)

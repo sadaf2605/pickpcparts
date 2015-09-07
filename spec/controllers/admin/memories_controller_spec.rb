@@ -21,6 +21,7 @@ RSpec.describe Admin::MemoriesController, type: :controller do
     let(:params_without_product){{:memory => FactoryGirl.nested_attributes(:memory_without_product)}}
 
     let(:child_product_with_market_status){ FactoryGirl.create(:memory_with_market_status)}
+    
   end
 
   describe "individual propertie" do
@@ -45,16 +46,16 @@ RSpec.describe Admin::MemoriesController, type: :controller do
       context "memory type" do
         
 
-        it "creates memory type" do
+        it "updates memory type" do
 
           @memory= FactoryGirl.create(:memory)
           memory_slot = FactoryGirl.create(:memory_slot)
 
           attributes=FactoryGirl.nested_attributes(:memory)
 
-          put :update, ({"id" => @memory.id}).merge({:memory => attributes.merge("memory_slot_id"=> memory_slot.id.to_s) })
-
-          expect(@memory.memory_type).to be(memory_slot) 
+          put :update, ({"id" => @memory.id}).merge({:memory => attributes.merge({:memory_slot_id=> memory_slot.id.to_s}) })
+          @memory.reload
+          expect(@memory.memory_type).to eql(memory_slot) 
         end
 
       end
