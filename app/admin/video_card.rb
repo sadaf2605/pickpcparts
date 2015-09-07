@@ -42,12 +42,20 @@ ActiveAdmin.register VideoCard do
           end
         end
       end
+
+    def update
+      @video_card = VideoCard.find(params[:id])
+      @video_card.product.update(ProductsController.product_params(params[:video_card]))
+      @video_card.build_with_market_status(params[:video_card])
+  
+      if @video_card.update_attributes(video_card_params)
+        super
+      end
+    end
+
       
      def video_card_params
         params.require(:video_card).permit(:manufacturer, :part_no, :interface, :chipset, :memory_size, :memory_type, :core_clock, :tdp, :fan, :sli_support, :crossfire_support, :dvi_d_dual_link, :display_port, :hdmi)
-      end
-      def product_params
-        params[:video_card][:product].permit(:manufacturer, :part_no)
       end
   end
 

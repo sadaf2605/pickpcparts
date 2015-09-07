@@ -19,6 +19,11 @@ RSpec.describe Admin::VideoCardsController, type: :controller do
     let(:params_with_market_status){ {:video_card => FactoryGirl.nested_attributes(:video_card_with_market_status)} }
 
     let(:params_without_product){{:video_card => FactoryGirl.nested_attributes(:video_card_without_product)}}
+
+
+       let(:update_factory_name){ :video_card }
+ 
+      let(:child_product_with_market_status){ FactoryGirl.create(:video_card_with_market_status)}
   end
 
 
