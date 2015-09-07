@@ -33,21 +33,28 @@ ActiveAdmin.register Storage do
       @storage = Storage.new(storage_params)
 #      @storage.product = Product.create(product_params)
       @storage.build_with_market_status(params[:storage])
-        respond_to do |format|
-          if @storage.save
-            format.html { redirect_to [:admin, @storage], notice: 'Cpu was successfully created.' }
-          else
-            format.html { render renderer_for(:edit) }
-          end
+      respond_to do |format|
+        if @storage.save
+          format.html { redirect_to [:admin, @storage], notice: 'Cpu was successfully created.' }
+        else
+          format.html { render renderer_for(:edit) }
         end
       end
+    end
+
+    def update
+      @storage = Storage.find(params[:id])
+      @storage.product.update(ProductsController.product_params(params[:storage]))
+      @storage.build_with_market_status(params[:storage])
+  
+      if @storage.update_attributes(storage_params)
+        super
+      end
+    end
       
-      def storage_params
-        params.require(:storage).permit(:manufacturer, :part_no, :capacity, :interface, :cache, :form_factor, :ssd_controller, :nand_flash_type, :gb_1, :price_gb)
-      end
-      def product_params
-        params[:storage][:product].permit(:manufacturer, :part_no)
-      end
+    def storage_params
+      params.require(:storage).permit(:manufacturer, :part_no, :capacity, :interface, :cache, :form_factor, :ssd_controller, :nand_flash_type, :gb_1, :price_gb)
+    end
   end
 
 

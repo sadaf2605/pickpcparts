@@ -18,5 +18,10 @@ RSpec.describe Admin::StoragesController, type: :controller do
     let(:params_with_market_status){ {:storage => FactoryGirl.nested_attributes(:storage_with_market_status)} }
 
     let(:params_without_product){{:storage => FactoryGirl.nested_attributes(:storage_without_product)}}
+
+
+       let(:update_factory_name){ :storage }
+ 
+      let(:child_product_with_market_status){ FactoryGirl.create(:storage_with_market_status)}
   end
 end
