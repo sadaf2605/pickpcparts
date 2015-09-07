@@ -19,7 +19,7 @@ permit_params :cpu
   form(:html => { :multipart => true })  do |f| 
     f.inputs do
       parts_inputs_for(Cpu,f){
-        input :cpu_socket, heading: 'Themes', allow_destroy: true, new_record: true
+        input :cpu_socket, :hint => add_remove_links(new_admin_cpu_socket_path,admin_cpu_sockets_path,"socket")
       }
     end
     actions
@@ -54,18 +54,14 @@ permit_params :cpu
     def update
 
       @cpu = Cpu.find(params[:id])
-      #@cpu.product()
       @cpu.product.update(ProductsController.product_params(params[:cpu]))
-#      @cpu.cpu_socket= CpuSocket.find_by_name(params[:cpu][:cpu_socket][:name]) 
-    
-      respond_to do |format|
-        if  @cpu.update_attributes(cpu_params)
-         # puts @cpu.produ
-          format.html { redirect_to [:admin, @cpu], notice: 'Cpu was successfully updated.' }
-        else
-          format.html { render :new }
-        end
+      @cpu.build_with_market_status(params[:cpu])
+      
+
+      if @cpu.update_attributes(cpu_params)
+        super
       end
+      
     end
 
     def cpu_params

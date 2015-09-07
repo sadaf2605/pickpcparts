@@ -23,6 +23,8 @@ describe Admin::CpusController, :type => :controller do
 
     let(:params_without_product){{:cpu => FactoryGirl.nested_attributes(:cpu_without_product)}}
 
+    let(:child_product_with_market_status){ FactoryGirl.create(:cpu_with_market_status)}
+
   end
   
     
@@ -49,7 +51,7 @@ attt={"product"=>{"manufacturer"=>"", "part_no"=>""}, "cpu_socket_id"=>cpu_socke
 
         #post :create, {:cpu => FactoryGirl.nested_attributes(:cpu).stringify_keys.merge("cpu_socket_id"=> cpu_socket.id.to_s) }
         expect(Cpu.last.cpu_socket.name).to eq(cpu_socket.name)
-     #   expect(Cpu.last.cpu_socket_id).to eq(cpu_socket.id)
+     #   expect(Cpu.last.cpu_socket_id).to eaq(cpu_socket.id)
       end
     end
   end

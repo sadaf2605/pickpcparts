@@ -133,20 +133,32 @@ FactoryGirl.define do
 
   end
 
-  factory :memory, class: Memory do
-    association :product, factory: :product
-    
-    speed ""
-    size ""
-    price_gb ""
-    cas ""
-    voltage ""
-    heat_spreader true
-    ecc true
-    registered true
-    color "blue"
+  factory :memory_slot, class: MemorySlot do 
+    sequence(:name){|n| ["204-pin SO-DIMM", "214-pin MicroDIMM","240-pin DIMM","244-pin MiniDIMM","260-pin SO-DIMM","260-pin SO-DIMM","288-pin DIMM"][n % (MemorySlot.count+1)]}
+  end
 
-    #t.integer  "memory_slot_id"
+  factory :memory_basic, class: Memory do
+    association :product, factory: :product
+
+    factory :memory do
+
+      after(:build) do
+        unless MemorySlot.count == 0
+          memory_type = MemorySlot.all[ Memory.count % MemorySlot.count]
+        end
+        memory_type ||= create(:memory_slot)
+      end
+
+      speed ""
+      size ""
+      price_gb ""
+      cas ""
+      voltage ""
+      heat_spreader true
+      ecc true
+      registered true
+      color "blue"
+    end
 
     factory :memory_without_product, traits: [:without_product]
     factory :memory_with_market_status, traits: [:with_market_status]

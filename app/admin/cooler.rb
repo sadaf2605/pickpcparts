@@ -20,7 +20,7 @@ ActiveAdmin.register Cooler do
   form(:html => { :multipart => true })  do |f|
     f.inputs do
       parts_inputs_for(Cooler,f){
-        input :cpu_sockets
+        input :cpu_sockets, :hint => add_remove_links(new_admin_cpu_socket_path,admin_cpu_sockets_path,"socket")
       }
 
     end
@@ -47,7 +47,7 @@ ActiveAdmin.register Cooler do
         cpu_sockets.each do |id|
             logger.debug params["cooler"]["cpu_socket_ids"]
           if not id == ""
-            @cooler.cpu_sockets << CpuSocket.find_by_id(id.to_i) 
+            @cooler.cpu_sockets << CpuSocket.find_by_id(id.to_i)
           end
         end
         
@@ -61,6 +61,25 @@ ActiveAdmin.register Cooler do
           format.html { render :new }
         end
       end
+    end
+
+    def update 
+      @cooler = Cooler.find(params[:id])
+      @cooler.product.update(ProductsController.product_params(params[:cooler]))
+      @cooler.build_with_market_status(params[:cooler])
+      
+      @cooler.cpu_sockets=[]
+      params["cooler"]["cpu_socket_ids"].each do |id|
+          if not id == ""
+            @cooler.cpu_sockets << CpuSocket.find_by_id(id.to_i)
+          end
+        end
+
+
+      if @cooler.update_attributes(cooler_params)
+        super
+      end
+
     end
 
 

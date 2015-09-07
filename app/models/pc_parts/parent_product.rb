@@ -56,11 +56,17 @@ class ParentProduct < ActiveRecord::Base
 
 
         unless params[:product][:pictures_attributes].nil?
-         self.product.pictures =[]
+         self.product.pictures ||= []
            pictures=params[:product][:pictures_attributes]
            if pictures.length>0
               pictures.sort.map{|k,v| v }.each  do |a|
-                self.product.pictures << Picture.create(image: a[:image])
+                if a["_destroy"]=="1" 
+                  Picture.find(a["id"]).destroy
+                elsif a["_destroy"]=="0" 
+                  Picture.find(a["id"]).update_attributes(image: a[:image])
+                else
+                  self.product.pictures << Picture.create(image: a[:image])
+                end
               end
            end
          end
@@ -69,11 +75,17 @@ class ParentProduct < ActiveRecord::Base
 
 
         unless params[:product][:market_statuses_attributes].nil?
-         self.product.market_statuses =[]
+         self.product.market_statuses ||= []
            market_statuses=params[:product][:market_statuses_attributes]
            if market_statuses.length>0
               market_statuses.sort.map{|k,v| v }.each  do |a|
-                self.product.market_statuses << MarketStatus.create(MarketStatusController.market_status_params(a))
+                if a["_destroy"]=="1" 
+                  MarketStatus.find(a["id"]).destroy
+                elsif a["_destroy"]=="0"
+                  MarketStatus.find(a["id"]).update_attributes(MarketStatusController.market_status_params(a))
+                else
+                  self.product.market_statuses << MarketStatus.create(MarketStatusController.market_status_params(a))
+                end
               end
            end
          end

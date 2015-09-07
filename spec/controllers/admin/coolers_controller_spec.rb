@@ -20,6 +20,8 @@ RSpec.describe Admin::CoolersController, type: :controller do
 
     let(:params_without_product){{:cooler => FactoryGirl.nested_attributes(:cooler_without_product)}}
 
+    let(:child_product_with_market_status){ FactoryGirl.create(:cpu_with_market_status)}
+
   end
 
   describe "create" do 
@@ -32,9 +34,30 @@ RSpec.describe Admin::CoolersController, type: :controller do
       end
 
       it "adds all cpu sockets to its supporting list" do
-        Cooler.last.cpu_sockets do |cpu_socket|
-          expect(cpu_socket.id).to include(attr["cpu_socket_ids"])
-        end 
+          expect(Cooler.last.cpu_sockets.map {|x| x.id.to_s}).to include(*attr["cpu_socket_ids"]) 
+      end
+
+    end
+  end
+
+  describe "update" do
+    before(:each){
+      @cooler=FactoryGirl.create(:cooler)
+    } 
+
+    let(:attr){FactoryGirl.nested_attributes(:cooler)}
+    subject!{
+      put :update, {id:@cooler}.merge( cooler: attr) 
+      @cooler.reload
+  }
+
+    context "when update cpu sockets" do
+
+      it "updates successfully" do
+        
+          @cooler.cpu_sockets.reload
+          expect(@cooler.cpu_sockets.map {|x| x.id.to_s}).to include(*attr["cpu_socket_ids"])
+         
       end
 
     end

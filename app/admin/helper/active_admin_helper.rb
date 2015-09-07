@@ -10,3 +10,7 @@
         	input a
       	end
     end
+
+    def add_remove_links(add_path,remove_path,item)
+		link_to(sanitize('<i class="fa fa-plus"></i>'),add_path, :class => "button", title: "add #{item} to this list" ) + link_to(sanitize('<i class="fa fa-minus"></i>'), remove_path, :class => "button",title:"Remove #{item} from this list" )
+	end
