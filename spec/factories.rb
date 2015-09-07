@@ -165,20 +165,37 @@ FactoryGirl.define do
     
   end
 
-  factory :motherboard, class: Motherboard do 
+  factory :motherboard_basic, class: Motherboard do 
     association :product, factory: :product
 
-    chipset ""
-    memory_type ""
-    max_memory ""
-    raid_support true
-    onboard_video ""
-    crossfire_support true
-    sli_support true
-    sata_6_gbs 2
-    onboard_ethernet ""
-    onboard_usb_3_headers true
-    memory_slot_num 2
+    factory :motherboard do
+      after(:build) do
+         unless FormFactor.count == 0
+          form_factor = FormFactor.all[ Motherboard.count % FormFactor.count+1]
+        end
+        form_factor ||= create(:memory_slot)
+      end
+
+      after(:build) do
+        unless CpuSocket.count == 0
+          cpu_socket = CpuSocket.all[Motherboard.count % CpuSocket.count+1]
+        end
+        cpu_socket ||= create(:cpu_socket)
+      end
+
+
+      chipset ""
+      memory_type ""
+      max_memory ""
+      raid_support true
+      onboard_video ""
+      crossfire_support true
+      sli_support true
+      sata_6_gbs 2
+      onboard_ethernet ""
+      onboard_usb_3_headers true
+      memory_slot_num 2
+    end
 
     factory :motherboard_without_product, traits: [:without_product]
     factory :motherboard_with_market_status, traits: [:with_market_status]
@@ -248,7 +265,7 @@ FactoryGirl.define do
 
 
   factory :form_factor, :class => FormFactor do
-      name "Mini ITX"
+      sequence(:name){ |n| ["Mini ITX","Pico-ITX","Pico-ITX"][n % (FormFactor.count+1)]}
   end
  
   factory :cpu_case, :class => CpuCase do

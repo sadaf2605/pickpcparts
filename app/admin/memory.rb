@@ -34,7 +34,6 @@ ActiveAdmin.register Memory do
  
 
     def update
-      puts params 
       @memory = Memory.find(params[:id])
       @memory.product.update(ProductsController.product_params(params[:memory]))
       @memory.build_with_market_status(params[:memory])
