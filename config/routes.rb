@@ -41,7 +41,7 @@ match "/admin/featuredpost" => 'admin/featuredpost#add_event', via: :post, as: "
     end
 
     scope :remove do
-      post 'cpu//:cpu_id'                 => 'builds#remove_cpu',           :as => 'remove_cpu'
+      post 'cpu/:cpu_id'                 => 'builds#remove_cpu',           :as => 'remove_cpu'
       post 'motherboard/:motherboard_id'  => 'builds#remove_motherboard',   :as => 'remove_motherboard'
       post 'cooler/:cooler_id'            => 'builds#remove_cooler',        :as => 'remove_cooler'
       post 'memory/:memory_id'            => 'builds#remove_memory',        :as => 'remove_memory'

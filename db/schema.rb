@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907164127) do
+ActiveRecord::Schema.define(version: 20150908125932) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -145,8 +145,9 @@ ActiveRecord::Schema.define(version: 20150907164127) do
   create_table "cpu_case_builds", force: :cascade do |t|
     t.integer  "cpu_case_id"
     t.integer  "build_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "market_status_id"
   end
 
   create_table "cpu_case_form_factor_memberships", force: :cascade do |t|
