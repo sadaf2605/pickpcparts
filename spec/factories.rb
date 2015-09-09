@@ -303,5 +303,9 @@ FactoryGirl.define do
     factory :cpu_case_with_market_status, traits: [:with_market_status]
 
   end
+
+
+    factory :build, :class => Build do
+    end
     
 end

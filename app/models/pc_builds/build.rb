@@ -29,7 +29,6 @@ class Build < ActiveRecord::Base
 		if cpu
 			self.cpus<<cpu
 			save
-			logger.debug self.cpus +"here I am"
 		end
 	end
 
@@ -113,7 +112,7 @@ class Build < ActiveRecord::Base
 			save
 		end
 	end
-	 def remove_power_supply(power_supply)
+  def remove_power_supply(power_supply)
     PowerSupplyBuild.where("power_supply_id = ? AND build_id = ?", power_supply.id, self.id).first.delete
     save
   end

@@ -42,29 +42,41 @@ class BuildsController < ApplicationController
 
 
   def action_missing(m, *args, &block)
-    if m.starts_with? "add_"
-      k=(m.split "_", 2) [1]
-      @current_build = get_current_build
-      qty=params[:qty]      
-      Integer(qty).times do
-        build= (Object.const_get "#{k.camelize}Build").create({(k+"_id").to_sym => params[(k+"_id").to_sym], :market_status_id => params[:market_status]})
-        eval("@current_build.#{k}_builds << build")
+    if m.include? "_"
+  
+      current_build = get_current_build()
+      k=(m.split "_", 2) [1]  
+
+      if m.starts_with? "add_"
+        qty=params[:qty]        
+        Integer(qty).times do
+          add(current_build, k)
+        end
+      elsif m.starts_with? "remove_"
+        remove(current_build, k)
       end
-      @current_build.save
-      session[:build_token]=@current_build.token
+
+      session[:build_token]=current_build.token
       redirect_to current_build_url
-    elsif m.starts_with? "remove_"
-      k=(m.split "_") [1]
-      @current_build = get_current_build
-      p=(Object.const_get "#{k.camelize}") .find(params[("#{k}_id").to_sym])
-      @current_build.send("remove_#{k}",p)
-      session[:build_token]=@current_build.token
-      @current_build.save
-      redirect_to current_build_url
+    
     else
       super
     end
 
+  end
+
+  def add(build,k)
+    part= (Object.const_get "#{k.camelize}Build").create({(k+"_id").to_sym => params[(k+"_id").to_sym], :market_status_id => params[:market_status]})
+#    build.send("add_#{k}",part)
+    build.send("#{k}_builds").push(part)
+    build.save
+  end
+
+  def remove(build,k)
+    p=(Object.const_get "#{k.camelize}") .find(params[("#{k}_id").to_sym])
+    build.send("remove_#{k}",p)
+#    build.send("remove_#{k}",p)
+#    build.save
   end
 
 
@@ -153,13 +165,13 @@ class BuildsController < ApplicationController
 
   private
   def get_current_build
-    builds = Build.find_by_token(session[:build_token])
-    if not builds
+    build = Build.find_by_token(session[:build_token])
+    if not build
       build=Build.new
       build.token=rand(36**8).to_s(36)
       return build
     end
-    return builds
+    return build
   end
 
 
