@@ -85,6 +85,7 @@ group :development, :test do
   gem "rspec-rails"
   gem 'rspec-activemodel-mocks'
   gem 'factory_girl'
+  gem 'formastic_factory_girl_strategy', github: 'sadaf2605/formastic_factory_girl_strategy'
   
   gem 'headless'
   

@@ -1,6 +1,32 @@
 
 RSpec.shared_examples "a child product controller" do |child_product_class, child_product_name|
   
+  describe "on #{child_product_class.name} index" do
+
+    it "shows index page " do
+      part = FactoryGirl.create(update_factory_name) 
+      get :index
+      expect(assigns(child_product_name.to_s.pluralize.to_sym)).to eq([part])
+    end
+  end
+
+  describe "on #{child_product_class.name} new" do
+    it "shows index page " do
+      get :new
+      expect(response).to render_template(:new)
+    end
+  end
+
+  describe "on #{child_product_class.name} view" do
+
+    it "shows index page " do
+      part = FactoryGirl.create(update_factory_name) 
+      get :show, id: part
+
+      expect(assigns(child_product_name)).to eq(part)
+    end
+  end
+
 
   describe "on #{child_product_class.name} create" do
     context "when there is product" do     

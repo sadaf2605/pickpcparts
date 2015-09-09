@@ -1,3 +1,6 @@
+FormasticFactoryGirlStrategy.except :pictures
+FormasticFactoryGirlStrategy.except :cpu_socket_id
+
 FactoryGirl.define do   
   sequence(:random_price) do |n|
     @random_rankings ||= (1..10).to_a.shuffle
