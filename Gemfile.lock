@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/sadaf2605/formastic_factory_girl_strategy.git
-  revision: de3c99aa8f5ea4353267275eccbdade10d1728fc
+  revision: 905a061ce2f2a5bd42dc0bf04081da7bf89fec5b
   specs:
     formastic_factory_girl_strategy (0.0.1)
       rails (~> 4.2.0)
@@ -381,3 +381,6 @@ DEPENDENCIES
   will_paginate
   wkhtmltopdf-binary
   yui-compressor
+
+BUNDLED WITH
+   1.10.6

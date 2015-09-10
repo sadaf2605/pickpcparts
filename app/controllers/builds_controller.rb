@@ -67,16 +67,12 @@ class BuildsController < ApplicationController
 
   def add(build,k)
     part= (Object.const_get "#{k.camelize}Build").create({(k+"_id").to_sym => params[(k+"_id").to_sym], :market_status_id => params[:market_status]})
-#    build.send("add_#{k}",part)
-    build.send("#{k}_builds").push(part)
-    build.save
+    build.send("add_#{k}",part)
   end
 
   def remove(build,k)
     p=(Object.const_get "#{k.camelize}") .find(params[("#{k}_id").to_sym])
     build.send("remove_#{k}",p)
-#    build.send("remove_#{k}",p)
-#    build.save
   end
 
 

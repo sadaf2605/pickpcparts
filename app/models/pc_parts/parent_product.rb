@@ -26,19 +26,33 @@ class ParentProduct < ActiveRecord::Base
   end
  
     
+    def method_missing(m, *args, &block)
+      
+      if m.to_s.include? "supports"
+        method = "supports_#{self.class.name.downcase}"
+
+        if args[0].methods.include? method.to_sym
+          return args[0].send(method,self) 
+        else
+          return "[incompatible]#{m.to_s.split("supports")[0]} is not attached"
+        end
+      end
+
+      super
+    end
   
     
     def report(build)
        report=[]
        
-       x_supports_methods = self.class.instance_methods.select{|f| f.to_s.start_with?("supports_")}.map{|item| item.to_s.split "supports_" }.flatten.reject{|f| f.eql?""}
+       x_supports_methods = self.methods.select{|f| f.to_s.start_with?("supports_")}.map{|item| item.to_s.split "supports_" }.flatten.reject{|f| f.eql?""}
+       
        
        x_supports_methods.each do |x_supports_method|
 #         if build.class.instance_methods.include? x_supports_method.to_s.pluralize
+        
            build.send(x_supports_method.to_s.pluralize).each do |build_part|
-             logger.debug "calling #{self}.supports_#{x_supports_method}  with #{build_part}"
-             report << send("supports_#{x_supports_method}", build_part)
-             logger.debug "#{send("supports_#{x_supports_method}", build_part)}"
+             report << self.send("supports_#{x_supports_method}", build_part)
            end
  #        end
        end

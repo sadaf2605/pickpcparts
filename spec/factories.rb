@@ -307,5 +307,10 @@ FactoryGirl.define do
 
     factory :build, :class => Build do
     end
+
+    factory :cpu_build, :class => CpuBuild do
+    end
+    factory :cooler_build, :class => CoolerBuild do
+    end
     
 end

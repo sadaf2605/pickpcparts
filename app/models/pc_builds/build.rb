@@ -27,7 +27,7 @@ class Build < ActiveRecord::Base
 
   def add_cpu(cpu)
 		if cpu
-			self.cpus<<cpu
+			self.cpu_builds.push(cpu)
 			save
 		end
 	end
@@ -40,7 +40,7 @@ class Build < ActiveRecord::Base
 
   def add_motherboard(motherboard)
 		if motherboard
-			self.motherboards<<motherboard
+			self.motherboard_builds.push(motherboard)
 			save
 		end
 	end
@@ -52,7 +52,7 @@ class Build < ActiveRecord::Base
 
   def add_cooler(cooler)
 		if cooler
-			self.coolers<<cooler
+			self.cooler_builds.push(cooler)
 			save
 		end
 	end
@@ -64,7 +64,7 @@ class Build < ActiveRecord::Base
 
   def add_memory(memory)
 		if memory
-			self.memories<<memory
+			self.memory_builds.push(memory)
 			save
 		end
 	end
@@ -75,7 +75,7 @@ class Build < ActiveRecord::Base
 
 	def add_storage(storage)
 		if storage
-			self.storages<<storage
+			self.storage_builds.push(storage)
 			save
 		end
 	end
@@ -86,7 +86,7 @@ class Build < ActiveRecord::Base
 
   def add_video_card(video_card)
 		if video_card
-			self.video_cards<<video_card
+			self.video_card_builds.push(video_card)
 			save
 		end
 	end
@@ -97,7 +97,7 @@ class Build < ActiveRecord::Base
   
   def add_cpu_case(cpu_case)
 		if cpu_case
-			self.cpu_cases<<cpu_case
+			self.cpu_case_builds.push(cpu_case)
 			save
 		end
 	end
@@ -108,7 +108,7 @@ class Build < ActiveRecord::Base
 
   def add_power_supply(power_supply)
 		if power_supply
-			self.power_supplies<<power_supply
+			self.power_supply_builds<<power_supply
 			save
 		end
 	end
