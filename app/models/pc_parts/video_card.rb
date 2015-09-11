@@ -2,7 +2,7 @@ class VideoCard < ParentProduct
 	has_many :video_card_builds
 	has_many :builds, :through => :video_card_builds
   
-	def supports_case(cpu_case)
+	def supports_cpu_case(cpu_case)
 		if cpu_case.nil? || self.length.nil?
 			return "[Uncopatible] No cpu case attached!"
 		elsif cpu_case.length >= self.length
