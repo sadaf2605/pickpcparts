@@ -314,4 +314,6 @@ FactoryGirl.define do
     end
     factory :motherboard_build, :class => MotherboardBuild do
     end
+    factory :memory_build, :class => MemoryBuild do
+    end
 end

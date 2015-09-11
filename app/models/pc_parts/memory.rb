@@ -8,7 +8,7 @@ class Memory < ParentProduct
 
 	def supports_motherboard(motherboard)
 		if motherboard.nil?
-			return "[uncompatible] no motherboard attached"
+			return msg_not_attached("Motherboard")
 		else
 			return motherboard.supports_memory(self)
 		end

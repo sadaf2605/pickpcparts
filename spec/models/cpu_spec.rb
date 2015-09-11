@@ -5,16 +5,14 @@ RSpec.describe Cpu, type: :model do
 
 
   describe "compatibility report with a valid cpu" do
-    it_should_behave_like "a report", :cooler, "Socket" do
-
-      subject!() do
+      let(:static_part){
         cpu=FactoryGirl.create(:cpu)
         cpu.cpu_socket = FactoryGirl.create(:cpu_socket)
-        @build = FactoryGirl.create(:build)
-        cpu_build = FactoryGirl.create(:cpu_build, cpu: cpu )
-        @build.add_cpu(cpu_build)
         cpu
-      end
+      }
+
+    it_should_behave_like "a report",:cpu, :cooler, "Socket" do
+
       let(:same_component){
         FactoryGirl.create(:cooler, cpu_sockets: [subject.cpu_socket])
       }
@@ -27,16 +25,8 @@ RSpec.describe Cpu, type: :model do
 
     end
 
-    it_should_behave_like "a report", :motherboard,"Sockets" do
-
-      subject!() do
-        cpu=FactoryGirl.create(:cpu_basic)
-        cpu.cpu_socket = FactoryGirl.create(:cpu_socket)
-        @build = FactoryGirl.create(:build)
-        cpu_build = FactoryGirl.create(:cpu_build, cpu: cpu )
-        @build.add_cpu(cpu_build)
-        cpu
-      end
+    it_should_behave_like "a report",:cpu, :motherboard,"Sockets" do
+      
       let(:same_component){
         FactoryGirl.create(:motherboard_basic, cpu_socket: subject.cpu_socket)
       }

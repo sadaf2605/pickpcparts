@@ -1,12 +1,19 @@
-RSpec.shared_examples "a report" do |with_part, test_component|
+RSpec.shared_examples "a report" do |static_part_name,test_part_name, test_component|
 
 
 
+      subject!() do  
+        @build = FactoryGirl.create(:build)
+        part_build = FactoryGirl.create("#{static_part_name}_build".to_sym, static_part_name => static_part )
+        eval("@build.add_#{static_part_name}(part_build)")
+        static_part
+      end
 
-      context "when #{with_part} is in the build" do
+
+      context "when #{test_part_name} is in the build" do
         before :each do
-          part_build = FactoryGirl.create(:"#{with_part}_build", with_part => part )
-          eval("@build.add_#{with_part}(part_build)")          
+          part_build = FactoryGirl.create(:"#{test_part_name}_build", test_part_name => part )
+          eval("@build.add_#{test_part_name}(part_build)")          
         end
 
         context "when #{test_component} matches" do

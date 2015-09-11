@@ -31,9 +31,9 @@ class Motherboard < ParentProduct
 
 	def supports_memory(memory)
 		if memory_slot==memory.memory_type
-		  return "[compatible] motherboard and memory are compatible, both supports #{memory_slot}"
+		  return msg_memory_type_supported("Motherboard","Memory",memory_slot)
 		else
-		  return "[uncompatible] motherboard and memory are uncompatible, motherboard has a memory slot of #{memory_slot} and memory supports #{memory.memory_type}"
+		  return msg_memory_type_not_supported("motherboard",memory_slot, "Memory",memory.memory_type)
 		end
 	end
 
