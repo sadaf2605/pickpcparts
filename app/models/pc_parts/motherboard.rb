@@ -52,17 +52,16 @@ class Motherboard < ParentProduct
 	def supports_storage(storage)
 		# todo it only checks sata port, need to support PATA as well
 		
-		if self.sata_6_gbs > 0
-		  return "[compatible] motherboard has sata port"
+		if sata_6_gbs > 0
+			if storage.interface == "SATA 6 Gb/s"
+				 return msg_supports_sata_port("Motherboard","Storage")
+			else
+				 return msg_not_supports_sata_port("Motherboard","Storage")
+			end
 		else
-		  return "[uncompatible] motherboard does not have any sata port"
+		  return msg_not_supports_sata_port("Storage","Motherboard")
 		end
 		
-		if storage.interface == "SATA 6 Gb/s"
-		  return "[compatible] motherboard supports SATA 6Gb/s"
-		else
-		  return "[uncompatible] motherboard does not support SATA 6Gb/s"
-		end
 	end
 
 	def supports_video_card(video_card)

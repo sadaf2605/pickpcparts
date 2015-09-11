@@ -28,4 +28,11 @@ module BuildMsg
       "#{incompatible} #{supported_part} supports socket #{supported_memory_type} but #{unsupported_part} supports socket #{unsupported_memory_type}."
   	end
 
+  	def msg_supports_sata_port(part1,part2)
+  		  "#{compatible} #{part1} and #{part2} supports SATA port."
+  	end
+  	def msg_not_supports_sata_port(support,unsupport)
+  		  "#{incompatible} #{support} supports SATA port but #{unsupport} does not support SATA port."
+  	end
+
 end

@@ -213,15 +213,17 @@ FactoryGirl.define do
 
   factory :storage, :class => Storage do 
     association :product, factory: :product
+    factory :storage_basic do
+      capacity ""
+      interface ""
+      cache ""
+      form_factor ""
+      ssd_controller ""
+      nand_flash_type ""
+      gb_1 ""
+      price_gb ""      
+    end
 
-    capacity ""
-    interface ""
-    cache ""
-    form_factor ""
-    ssd_controller ""
-    nand_flash_type ""
-    gb_1 ""
-    price_gb ""
 
     factory :storage_without_product, traits: [:without_product]
     factory :storage_with_market_status, traits: [:with_market_status]
@@ -315,5 +317,7 @@ FactoryGirl.define do
     factory :motherboard_build, :class => MotherboardBuild do
     end
     factory :memory_build, :class => MemoryBuild do
+    end
+    factory :storage_build, :class => StorageBuild do
     end
 end
