@@ -312,5 +312,6 @@ FactoryGirl.define do
     end
     factory :cooler_build, :class => CoolerBuild do
     end
-    
+    factory :motherboard_build, :class => MotherboardBuild do
+    end
 end

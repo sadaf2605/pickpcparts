@@ -1,6 +1,7 @@
 class ParentProduct < ActiveRecord::Base
   self.abstract_class = true
-  
+  include  BuildMsg
+
   belongs_to :product, dependent: :destroy
   
   validates :product, :presence => true

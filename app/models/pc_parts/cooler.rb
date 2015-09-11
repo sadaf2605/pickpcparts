@@ -7,30 +7,30 @@ class Cooler < ParentProduct
 	
       def supports_cpu(cpu)
         if cpu.nil?
-          return "[incompatable] No cpu attached!"
-        elsif self.cpu_sockets.include? cpu.cpu_socket
-          return "[compatible] CPU socket "+cpu.cpu_socket.name+" supports cooler!"
+          return msg_not_attached("Cpu")
+        elsif cpu_sockets.include? cpu.cpu_socket
+          return msg_socket_supported("Cooler","Cpu",cpu.cpu_socket) 
         else
-          return "[incompatible] Cooler supports socket #{self.cpu_sockets} but cpu is of #{cpu.cpu_socket.name}"
+          return msg_socket_not_supported("Cooler", cpu_sockets, "Cpu", cpu.cpu_socket) 
         end
       end
     
-      def supports_cases(pc_cases)
+      def supports_cpu_case(pc_cases)
         if pc_cases.nil?
-          return "[incompatible] No pc cases attached!" 
+          return msg_not_attached("Cpu Case")
         else          #todo
           #raise "not implemented"
-          return "[compatable] Not implemented!"
+          return msg_not_checked("Cpu Case","Cooler")
         end
       end
     
       def supports_motherboard(motherboard)
         if motherboard.nil?
-          return "[incompatible] No motherboard attached!"
+          return msg_not_attached("Motherboard")
         elsif self.cpu_sockets.include? motherboard.cpu_socket
-          return "[compatable] Cpu socket "+self.cpu_sockets.name+" supports motherboard"
+          return msg_socket_supported("Cooler","Motherboard",motherboard.cpu_socket)
         else
-          return "[incompatible] Cooler supports socket #{self.cpu_sockets} but motherboard is of #{motherboard.cpu_socket.name}"
+          return msg_socket_not_supported("Cooler", cpu_sockets, "Motherboard", motherboard.cpu_socket)
         end
         
       end

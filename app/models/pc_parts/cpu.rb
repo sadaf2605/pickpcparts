@@ -13,11 +13,11 @@ class Cpu < ParentProduct
   
   def supports_motherboard(motherboard)
     if motherboard.nil?
-      return "[incompatible] Motherboard is not attached"
+      return msg_not_attached("Motherboard")
     elsif motherboard.cpu_socket == self.cpu_socket
-      return "[compatible] Motherboard supports CPU socket #{self.cpu_socket.name}"
+      return msg_socket_supported("Cpu","Motherboard",self.cpu_socket)
     else
-      return "[incompatible] Cpu supports socket #{cpu_socket.name} but Motherboard supports socket #{motherboard.cpu_socket.name}."
+      return msg_socket_not_supported("Cpu",cpu_socket,"Motherboard", motherboard.cpu_socket)
     end
   end  
 end
