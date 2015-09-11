@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Motherboard, type: :model do
+	  it_should_behave_like "a child product", :motherboard, Motherboard
+
 	  describe "compatibility report with a valid motherboard" do
 	      let(:static_part){
 	        m_board=FactoryGirl.create(:motherboard_basic)

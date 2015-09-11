@@ -46,7 +46,7 @@ class ParentProduct < ActiveRecord::Base
     def report(build)
        report=[]
        
-       x_supports_methods = self.methods.select{|f| f.to_s.start_with?("supports_")}.map{|item| item.to_s.split "supports_" }.flatten.reject{|f| f.eql?""}
+       x_supports_methods = self.methods.select{|f| f.to_s.start_with?("supports_")}.map{|item| item.to_s["supports_".length..-1] }
        
        
        x_supports_methods.each do |x_supports_method|
