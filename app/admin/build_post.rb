@@ -32,9 +32,9 @@ ActiveAdmin.register BuildPost do
         @blog=BuildPost.new(blog_post_params)
         
         post=Blogit::Post.new
-        post.title = params[:blog_post][:post][:title]
-        post.body = params[:blog_post][:post][:body]
-        post.description = params[:blog_post][:post][:body]
+        post.title = params[:build_post][:post][:title]
+        post.body = params[:build_post][:post][:body]
+        post.description = params[:build_post][:post][:body]
         post.blogger = current_admin_user
         post.save
         
@@ -49,7 +49,7 @@ ActiveAdmin.register BuildPost do
         end
       end
       def blog_post_params
-        params.require(:blog_post).permit(:post,:avatar,:build_id)
+        params.require(:build_post).permit(:post,:avatar,:build_id)
       end
     end
   end
