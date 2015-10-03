@@ -7,7 +7,8 @@
               </div>
           </span>
 		
-          <input id="build-url" type="text" class="input-group-addon form-control build-url" value="<%=request.base_url%>/builds/<%=@current_build.token%>" aria-describedby="basic-addon2"  style="margin-top: 1px" readonly>
+          <input id="build-url" type="text" class="input-group-addon form-control build-url" value="<%=request.base_url%>/builds/<%=@current_build.token%>" aria-describedby="basic-addon2"  style="margin-top: 1px" readonly data-intro="It is the link of your build, which you can share with your friends." data-position="right">
+
           <span id="copy-url" class="input-group-addon share-button-group">
               <a class=" btn btn-block btn-vk btn-social share-button " title="Copy to clipboard">
                 <i class="fa fa-files-o"></i>
@@ -144,7 +145,7 @@
       </style>
 
 
-<table class="table table-condensed">
+<table class="table table-condensed" >
   <thead>
   <tr>
   	<th class="com-md-1"></th>
@@ -155,7 +156,7 @@
   </tr>
   </thead>
 
-  <tbody>
+  <tbody  data-intro="Add componenets and build your dream PC!" data-position="right">
 
   
   <% [	{part:"cpu",        icon:cpu_build_icon},

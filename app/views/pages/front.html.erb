@@ -4,7 +4,7 @@
 		  	<%= render 'layouts/carousel' %>
 		</div>
 	</div>
-	<div class="col-md-5 feat animatedParent">
+	<div class="col-md-5 feat animatedParent" >
 		
 	        <div class="thumbnail animated bounceInDown" data-id='1'>
 	        	<div class="thumbnail hvr-box-shadow-outset">
@@ -50,7 +50,7 @@
 									<%end%>
 								</div>
 						        <div class="col-md-9 caption">
-						        	<h4><%= link_to(post.blogit_post.title, blogit.post_path(post.blogit_post.id)) %></h4>
+						        	<h4><%= link_to(post.title, blog_path(post)) %></h4>
 							        <p><%= truncate(post.blogit_post.body, :length => 150, :omission => '... (continued)') %> </p>
 							     </div>
 					     	</div>

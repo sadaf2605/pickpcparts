@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
   resources :coolers
-  resources :blog_posts
+  resources :blog, :controller=>"build_posts"
+
+  get 'featured_builds' =>'build_posts#featured_builds'
 
   resources :featured_blog_posts
 
   resources :products
-  get 'blog/posts/:id' => "blog_posts#show"
-  mount Blogit::Engine => "/blog" , :as => 'blogit'
+
+
+#  mount Blogit::Engine => "/blog" , :as => 'blogit'
   
   devise_for :admin_users, ActiveAdmin::Devise.config
 match "/admin/featuredpost" => 'admin/featuredpost#add_event', via: :post, as: "featured_posts"

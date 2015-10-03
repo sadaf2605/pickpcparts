@@ -6,6 +6,7 @@ class BuildsController < ApplicationController
 
   def current_build
     @current_build = get_current_build()
+    @step=1
     respond_to do |format|
       format.html
     end
@@ -89,6 +90,7 @@ class BuildsController < ApplicationController
     @build.cooler.cpu_sockets
     
     @consistancies,@conflicts = @build.concistency_check()
+
 
 
   end

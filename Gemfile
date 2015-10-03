@@ -48,6 +48,8 @@ gem 'therubyracer'
 
 group :assets do
   gem 'less'
+    gem "chardinjs-rails"
+    
 end
 
 gem "blogit", '1.0.0.rc1'

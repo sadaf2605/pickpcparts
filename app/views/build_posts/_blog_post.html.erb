@@ -1,0 +1,16 @@
+<div class="row" style="padding-top:30px;">
+    <div class="col-md-3">
+      <% unless blog_post.avatar.blank? %>
+        <%=image_tag blog_post.avatar %> 
+      <% else %>
+        <%=image_tag blank_img %> 
+      <% end %>
+    </div>
+    <div class="col-md-9">
+
+      <h1 style="margin-top:0px;"> <%= link_to blog_post.title,  blog_path(blog_post) %> </h1>
+
+      <div style="font-size:17px;"> <%= truncate(blog_post.body, length: 500){ link_to "continue", blog_path(blog_post) } %> </div>
+
+    </div>
+</div>

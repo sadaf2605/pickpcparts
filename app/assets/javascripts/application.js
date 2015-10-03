@@ -20,9 +20,14 @@
 //= require css3-animate-it
 //= require clipboard
 //= require jquery-ui/autocomplete
+//= require chardinjs
 //= require_tree .
 
 $(document).ready(function() {
+
+	
+
+
    	drop=null;
    	
     	$('.dropdown').click(function(e) {
@@ -152,3 +157,5 @@ $(document).ready(function() {
 			        how: 'append'
 			    });
 		   	}
+
+

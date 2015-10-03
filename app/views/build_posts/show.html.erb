@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<% unless @blog_post.avatar.blank? %>
+	 <%=image_tag @blog_post.avatar %> 
+<% else %>
+	 <%=image_tag blank_img %> 
+<% end %>
+
+<h1><%=@blog_post.title%></h1>
+<p><%=@blog_post.body%></p>
+
+<% unless @blog_post.build.nil? %>
+  <%= render  'builds/select_or_show_build',  :@current_build => @blog_post.build %>
+<% end %>

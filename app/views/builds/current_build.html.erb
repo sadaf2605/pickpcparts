@@ -12,10 +12,16 @@
 
 <div>
   <h3>Consistancy report</h3>
-  <div style="color:green">
-        <h4>Reports(<%= @current_build.reports.count %>):</h4>
+  <div style="color:green"  data-intro="Here we will show if your build is ok or not!" data-position="bottom">
+        <h4>Reports(<%= @current_build.reports.count %>)</h4>
         <% @current_build.reports.each do |report| %>
               <li><%=report%></li>
         <%end%>
   </div>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('body').chardinJs('start');
+	});
+</script>
