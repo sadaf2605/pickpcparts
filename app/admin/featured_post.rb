@@ -22,12 +22,12 @@ ActiveAdmin.register_page "featuredpost" do
 
     div do
       @featured_post = FeaturedPost.new
-      @featured_post.blog_posts=BuildPost.where({is_featured:true})
+      @featured_post.build_posts=BuildPost.where({is_featured:true})
       @featured_post.save
       
       form :method=> "post" do |f|
         active_admin_form_for @featured_post do |f|
-          f.has_many :blog_posts, for: [:blog_posts,  f.object.blog_posts || BlogPost.new], allow_destroy: true do |a|
+          f.has_many :build_posts, for: [:build_posts,  f.object.build_posts || BuildPost.new], allow_destroy: true do |a|
             a.input :blogit_post, :input_html => { :disabled => a.object.new_record? ?false:true}
             a.input :priority,     :input_html => {:maxlength => 30, :style => "width:auto", :value=>a.object.priority.nil? ? 0 :a.object.priority}
           end
@@ -38,7 +38,7 @@ ActiveAdmin.register_page "featuredpost" do
   end    
   
   page_action :add_event, method: :post do
-    blogit_posts=params["featured_post"]["blog_posts_attributes"]
+    blogit_posts=params["featured_post"]["build_posts_attributes"]
                             .values.map{|s| { :blogit_post_id =>s["blogit_post_id"],
                                               :id             =>s["id"] ? s["id"] : s["i/nd"] ,
                                               :priority       =>s["priority"],
@@ -82,6 +82,6 @@ class FakeActiveRecord < ActiveRecord::Base
 end
 class FeaturedPost < FakeActiveRecord
   column :rank
-  has_many :blog_posts  
-  accepts_nested_attributes_for :blog_posts
+  has_many :build_posts  
+  accepts_nested_attributes_for :build_posts
 end
