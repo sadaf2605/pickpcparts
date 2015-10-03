@@ -1,4 +1,4 @@
-ActiveAdmin.register BlogPost do
+ActiveAdmin.register BuildPost do
 
 
   # See permitted parameters documentation:

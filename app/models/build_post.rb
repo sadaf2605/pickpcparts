@@ -1,4 +1,4 @@
-class BlogPost < ActiveRecord::Base
+class BuildPost < ActiveRecord::Base
 
   belongs_to :blogit_post, class_name: "Blogit::Post", :dependent => :delete
   belongs_to :build
@@ -12,5 +12,9 @@ class BlogPost < ActiveRecord::Base
   def to_s
     self.blogit_post.title unless self.blogit_post.nil?
   end
+
+    def method_missing(meth, *args, &block)
+      self.blogit_post.send(meth)
+    end
 
 end

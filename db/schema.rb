@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908125932) do
+ActiveRecord::Schema.define(version: 20151003100941) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -46,16 +46,6 @@ ActiveRecord::Schema.define(version: 20150908125932) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
-  create_table "blog_posts", force: :cascade do |t|
-    t.string   "avatar"
-    t.integer  "build_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "blogit_post_id"
-    t.boolean  "is_featured"
-    t.integer  "priority"
-  end
-
   create_table "blogit_comments", force: :cascade do |t|
     t.string   "name",       null: false
     t.string   "email",      null: false
@@ -87,6 +77,16 @@ ActiveRecord::Schema.define(version: 20150908125932) do
     t.integer  "integer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "build_posts", force: :cascade do |t|
+    t.string   "avatar"
+    t.integer  "build_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "blogit_post_id"
+    t.boolean  "is_featured"
+    t.integer  "priority"
   end
 
   create_table "builds", force: :cascade do |t|
@@ -274,6 +274,11 @@ ActiveRecord::Schema.define(version: 20150908125932) do
 
   create_table "pictures", force: :cascade do |t|
     t.string "image"
+  end
+
+  create_table "post_of_the_weeks", force: :cascade do |t|
+    t.date    "date"
+    t.integer "build_post_id"
   end
 
   create_table "power_supplies", force: :cascade do |t|
