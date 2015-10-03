@@ -29,7 +29,7 @@ ActiveAdmin.register BuildPost do
 
     controller do
       def create
-        @blog=BlogPost.new(blog_post_params)
+        @blog=BuildPost.new(blog_post_params)
         
         post=Blogit::Post.new
         post.title = params[:blog_post][:post][:title]
