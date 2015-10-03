@@ -22,7 +22,7 @@ ActiveAdmin.register_page "featuredpost" do
 
     div do
       @featured_post = FeaturedPost.new
-      @featured_post.blog_posts=BlogPost.where({is_featured:true})
+      @featured_post.blog_posts=BuildPost.where({is_featured:true})
       @featured_post.save
       
       form :method=> "post" do |f|
@@ -45,7 +45,7 @@ ActiveAdmin.register_page "featuredpost" do
                                               :_destroy       =>s["_destroy"]} }
     blogit_posts.each do |blog_hash|
           if blog_hash[:id]
-            b=BlogPost.find(blog_hash[:id].to_i)
+            b=BuildPost.find(blog_hash[:id].to_i)
             if blog_hash[:_destroy] && blog_hash[:_destroy].to_s=="1"
               b.is_featured=false
             end
@@ -53,7 +53,7 @@ ActiveAdmin.register_page "featuredpost" do
           end
           
           if blog_hash[:blogit_post_id]
-            b=BlogPost.find_by_blogit_post_id(blog_hash[:blogit_post_id].to_i)
+            b=BuildPost.find_by_blogit_post_id(blog_hash[:blogit_post_id].to_i)
             b.is_featured=true
           end
         b.priority =blog_hash[:priority].to_i
