@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
   resources :coolers
-  resources :blog, :controller=>"build_posts"
 
-  get 'featured_builds' =>'build_posts#featured_builds'
+  get 'featured' => 'build_posts#featured_builds'
+
+  resources :blog, :controller=>"build_posts"
+      
+  
+  
 
   resources :featured_blog_posts
 

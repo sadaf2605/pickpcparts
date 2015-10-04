@@ -8,13 +8,6 @@ class BuildPostsController < Blogit::PostsController
     @blog_posts=BuildPost.all()
   end
 
-  def featured_builds
-  	@blog_posts=BuildPost.all()
-    respond_to do |format|
-      format.html
-    end
-  end
-
   private
 
     def blog_post_params
