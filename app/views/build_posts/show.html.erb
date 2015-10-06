@@ -10,5 +10,7 @@
 <p><%=@blog_post.body%></p>
 
 <% unless @blog_post.build.nil? %>
-  <%= render  'builds/select_or_show_build',  :@current_build => @blog_post.build %>
+  <%= render  @blog_post.build %>
 <% end %>
+
+<%= render 'layouts/fb_comments', url: "http://developers.facebook.com/docs/plugins/comments/" %>

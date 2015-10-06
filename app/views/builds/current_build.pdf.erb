@@ -18,22 +18,7 @@
               </a>
           </span>
           
-          <script>
-			document.getElementById('copy-url').addEventListener('click', function() {
-			
-			  clipboard.copy({
-			    'text/plain': document.getElementById('build-url').value,
-			  }).then(
-			    function(){console.log('success'); },
-			    function(err){console.log('failure', err);
-			  });
-			
-			});
 
-			$(".build-url").click(function () {
-			   $(this).select();
-			});
-          </script>
           <span class="input-group-addon share-button-group">
               <a class=" btn btn-block btn-pinterest btn-social share-button btn-social-left">
           		<i class="fa fa-file-pdf-o"></i>
@@ -48,56 +33,6 @@
               </div>
           </span>
 
-          <style>
-            	  .share-button-group{
-            	  	padding:0 0 0 0;
-            	  	padding-left: 0px;
-            	  	padding-right: 0px;
-            	  	margin: 0px;
-            	  	border-top-color: white !important;
-            	  	border-bottom-color: white !important;
-            	  	            	  	border-top-width: 1px;
-            	  	border-bottom-width: 1px;
-            	  	}
-            	  	.input-group-addon{
-            	  		border-color: transparent;
-            	  	}
-                  .share-button{
-                  	height: 33px; 
-                  	width:31px;
-                  	}
-                  .btn-social{
-                  	border-radius: 0px;
-                  	border: 0;
-                  	}
-                  .btn-social-left{
-                  	border-radius: 4px;
-                  	border-top-left-radius: 0px;
-                  	border-bottom-left-radius: 0px;
-                  	}
-                  .btn-social-right{
-                  	border-radius: 4px;
-                  	border-top-right-radius: 0px;
-                  	border-bottom-right-radius: 0px;
-                  	}
-                  	.build-url{
-                  		box-sizing:border-box;
-						  -moz-box-sizing:border-box;
-						  -webkit-box-sizing:border-box;
-						
-                  		border-top-width:1px;
-                  		border-bottom-width:1px;
-                  		border-top-color:#4A83C1;
-                  		border-bottom-color:#4A83C1;
-
-  outline: none;
-  border: none !important;
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
-  box-shadow: none !important;
-
-                  	}
-            </style>
 
 
           <span class="input-group-addon share-button-group">
@@ -128,3 +63,79 @@
         <%end%>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+          <style>
+                .share-button-group{
+                  padding:0 0 0 0;
+                  padding-left: 0px;
+                  padding-right: 0px;
+                  margin: 0px;
+                  border-top-color: white !important;
+                  border-bottom-color: white !important;
+                                    border-top-width: 1px;
+                  border-bottom-width: 1px;
+                  }
+                  .input-group-addon{
+                    border-color: transparent;
+                  }
+                  .share-button{
+                    height: 33px; 
+                    width:31px;
+                    }
+                  .btn-social{
+                    border-radius: 0px;
+                    border: 0;
+                    }
+                  .btn-social-left{
+                    border-radius: 4px;
+                    border-top-left-radius: 0px;
+                    border-bottom-left-radius: 0px;
+                    }
+                  .btn-social-right{
+                    border-radius: 4px;
+                    border-top-right-radius: 0px;
+                    border-bottom-right-radius: 0px;
+                    }
+                    .build-url{
+                      box-sizing:border-box;
+              -moz-box-sizing:border-box;
+              -webkit-box-sizing:border-box;
+            
+                      border-top-width:1px;
+                      border-bottom-width:1px;
+                      border-top-color:#4A83C1;
+                      border-bottom-color:#4A83C1;
+
+  outline: none;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+
+                    }
+            </style>
+          <script>
+      document.getElementById('copy-url').addEventListener('click', function() {
+      
+        clipboard.copy({
+          'text/plain': document.getElementById('build-url').value,
+        }).then(
+          function(){console.log('success'); },
+          function(err){console.log('failure', err);
+        });
+      
+      });
+
+      $(".build-url").click(function () {
+         $(this).select();
+      });
+          </script>

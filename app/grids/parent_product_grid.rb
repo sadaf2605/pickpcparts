@@ -2,8 +2,10 @@ class ParentProductGrid
   include Datagrid
   
   def self.scope_and_columns(url_columns,mandatory_columns)
-    
-    self.scope.columns.select {|s| !s.name.to_s.end_with? "_at" }.each do |c|
+    filters=self.scope.columns.select {|s| !s.name.to_s.end_with? "_at" and s.name != "id" }
+    #filters.delete("id")
+
+    filters.each do |c|
 
       if c.type == :integer
           filter(c.name,:integer,:range => true)

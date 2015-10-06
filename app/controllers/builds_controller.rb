@@ -5,27 +5,24 @@ class BuildsController < ApplicationController
 
 
   def current_build
-    @current_build = get_current_build()
+    @build = get_current_build()
     @step=1
     respond_to do |format|
       format.html
     end
   end
 
-
-
-
-
-  # GET /builds
-  # GET /builds.json
-  def index
-    @builds = Build.all
+  def new_build
+    session[:build_token]=nil
+    redirect_to current_build_url
   end
+
+
  
   
 
   def token_build
-    @current_build=Build.find_by_token(params[:token])
+    @build=Build.find_by_token(params[:token])
     respond_to do |format|
       format.html { render :template => "builds/current_build" }
       format.pdf {
@@ -95,10 +92,7 @@ class BuildsController < ApplicationController
 
   end
 
-  # GET /builds/new
-  def new
-    @build = Build.new
-  end
+ 
 
   # GET /builds/1/edit
   def edit

@@ -1,0 +1,59 @@
+
+
+
+
+<table class="table table-condensed" >
+  <thead>
+  <tr>
+  	<th class="com-md-1"></th>
+    <th class="com-md-3">Component</th>
+    <th class="com-md-3">Selection</th>
+    <th class="com-md-2">Price</th>
+    <th class="com-md-3">Shop</th>
+  </tr>
+  </thead>
+
+  <tbody  data-intro="Add componenets and build your dream PC!" data-position="right">
+
+  
+  <% [	{part:"cpu",        icon:cpu_build_icon},
+  		{part:"motherboard",icon:motherboard_build_icon},
+  		{part:"cooler",     icon:cooler_build_icon},
+  		{part:"memory",     icon:memory_build_icon},
+  		{part:"storage",    icon:storage_build_icon},
+  		{part:"video_card", icon:video_card_build_icon},
+  		{part:"cpu_case",   icon:cpu_case_build_icon},
+  		{part:"power_supply", icon: power_supply_build_icon}
+  	 ].each do |product| 
+  	%>
+  		<%part=product[:part]%>
+  		<%icon=product[:icon]%>
+  		
+  	<tr>
+
+      	<td class="col-md-1 text-center"> <%= image_tag icon, :class=>"table-part-icon" %></td><td class="col-md-3"> <%= link_to part, eval("#{part.pluralize}_url") %></td>
+
+    	<td class="col-md-3">
+    		
+      		<% if build.send("#{part.pluralize}").blank? %>
+      			<% if  session[:build_token]==build.token %>
+            		<%= link_to "add #{part}", eval("#{part.pluralize}_url"), {:class =>"btn btn-xs btn-primary"} %>
+            	<% end %>
+      		<% end %>
+      
+      		<% build.send("#{part.pluralize}").each do |p| %>
+      			<li class="parts_list">
+      	 			<%= link_to p.product.part_no , eval("#{part}_path(p)") %>
+          			<%= link_to eval("remove_#{part}_path(p)"), :method => :post do %><i class="fa fa-times cross"></i><% end %>
+      			</li>
+      		<% end %>	  
+    	</td>
+
+    	<td class="col-md-2"><% build.send("#{part}_builds").each do |build| %><li> <%=build.market_status.price if build.market_status %> </li><%end%></td>
+    	<td class="col-md-3"><% build.send("#{part}_builds").each do |build| %><li> <%=build.market_status.shop.name if build.market_status%></li><%end%></td>
+	</tr>
+  <%end%>
+
+
+  </tbody>
+</table>

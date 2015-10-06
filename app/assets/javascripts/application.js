@@ -10,10 +10,12 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+
 //= require turbolinks
+//= require jquery
 //= require bootstrap
+
+//= require jquery_ujs
 //= require owl.carousel
 //= require jquery.dataTables
 //= require cocoon
@@ -21,7 +23,7 @@
 //= require clipboard
 //= require jquery-ui/autocomplete
 //= require chardinjs
-//= require_tree .
+
 
 $(document).ready(function() {
 
@@ -159,3 +161,18 @@ $(document).ready(function() {
 		   	}
 
 
+
+
+		$( "#copy-url" ).click(function() {
+
+			select_and_focus("#build-url");
+			copy_to_clip_board("#build-url");
+			update_text_status(".status-area");
+
+		});
+		$('#build-url').click( function() {
+			select_and_focus("#build-url");
+			copy_to_clip_board("#build-url");
+			update_text_status(".status-area");
+
+		});

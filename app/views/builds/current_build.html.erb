@@ -5,23 +5,34 @@
   <h3>Current Build</h3>
 
 
+<%unless @build.new_record? %>
+<%= render "build_navbar", build: @build %>
+  
+<%end%>
 
 
-
-    <%= render 'select_or_show_build' %>
+    <%= render @build %>
 
 <div>
   <h3>Consistancy report</h3>
   <div style="color:green"  data-intro="Here we will show if your build is ok or not!" data-position="bottom">
-        <h4>Reports(<%= @current_build.reports.count %>)</h4>
-        <% @current_build.reports.each do |report| %>
+        <h4>Reports(<%= @build.reports.count %>)</h4>
+        <% @build.reports.each do |report| %>
               <li><%=report%></li>
         <%end%>
   </div>
 </div>
+<%= render 'layouts/fb_comments', url: "http://developers.facebook.com/docs/plugins/comments/" %>
+
+
 
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('body').chardinJs('start');
+
+    $( "body" ).click(function() {
+      $('body').chardinJs('stop')
+    });
+    
 	});
 </script>

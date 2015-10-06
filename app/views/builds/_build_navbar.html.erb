@@ -1,0 +1,57 @@
+    <div style="margin-bottom:10px;">
+        <div class="input-group">
+                  
+          <span class="input-group-addon share-button-group">
+              <a class=" btn btn-block btn-facebook btn-social share-button btn-social-left" target="_blank" href="<%= "#{request.base_url}/builds/new" %>" title="Create New">
+              <i class="fa fa-plus-square"></i>
+
+              </a>
+          </span>
+
+         <span class="input-group-addon share-button-group">
+              <div class=" btn btn-block build-share btn-social btn-social-right">
+              Permalink:
+              </div>
+          </span>
+    
+          <input id="build-url" type="text" class="input-group-addon form-control build-url" value="<%=request.base_url%>/builds/<%=build.token%>" aria-describedby="basic-addon2"  style="margin-top: 1px" readonly data-intro="It is the link of your build, which you can share with your friends." data-position="right">
+
+          <span id="copy-url" class="input-group-addon share-button-group">
+              <a class=" btn btn-block btn-vk btn-social share-button " title="Copy to clipboard">
+                <i class="fa fa-files-o"></i>
+              </a>
+          </span>
+  
+          <span class="input-group-addon share-button-group">
+              <a class=" btn btn-block btn-pinterest btn-social share-button btn-social-left" target="_blank" href="<%= "#{request.base_url}/builds/#{build.token}.pdf" %>" title="Save as PDF">
+              <i class="fa fa-file-pdf-o"></i>
+              </a>
+          </span>
+
+
+          <span class="input-group-addon" style="padding:10px;width: 10px; background-color: white;"></span>
+          <span class="input-group-addon share-button-group">
+              <div class="btn btn-block build-share btn-social btn-social-right">
+              Share:
+              </div>
+          </span>
+
+
+          <span class="input-group-addon share-button-group">
+              <a class=" btn btn-block btn-facebook btn-social share-button" href=<%="https://www.facebook.com/sharer/sharer.php?u=#{request.base_url}/builds/#{build.token}"%> target="_blank" title="Share on Facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+          </span>
+                <span class="input-group-addon share-button-group">
+              <a class=" btn btn-block btn-twitter btn-social share-button" href=<%="https://twitter.com/share?url=#{request.base_url}/builds/#{build.token}" %> target="_blank" title="Share on Twitter">
+                <i class="fa fa-twitter"></i>
+              </a>
+          </span>
+          <span class="input-group-addon share-button-group">
+          <a class=" btn btn-block btn-google btn-social share-button btn-social-left" href=<%= "https://plus.google.com/share?url=#{request.base_url}/builds/#{build.token}"%> target="_blank" title="Share on Google Plus">
+            <i class="fa fa-google"></i>
+          </a>
+          </span>
+        </div>
+                  <span class="status-area pull-right"><span>
+    </div>

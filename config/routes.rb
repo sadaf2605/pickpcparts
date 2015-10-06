@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   resources :coolers
 
-  get 'featured' => 'build_posts#featured_builds'
-
   resources :blog, :controller=>"build_posts"
       
   
@@ -34,6 +32,8 @@ match "/admin/featuredpost" => 'admin/featuredpost#add_event', via: :post, as: "
   
   scope :builds do
     get 'current' => 'builds#current_build', :as=>'current_build'
+    get 'new' => 'builds#new_build', :as=>'new_build'
+
     get ':token' => 'builds#token_build', :as=>'token_build'
     
     scope :add do
