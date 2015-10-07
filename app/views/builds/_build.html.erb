@@ -36,7 +36,7 @@
     	<td class="col-md-3">
     		
       		<% if build.send("#{part.pluralize}").blank? %>
-      			<% if  session[:build_token]==build.token %>
+      			<% if  session[:build_token]==build.token or build.new_record? %>
             		<%= link_to "add #{part}", eval("#{part.pluralize}_url"), {:class =>"btn btn-xs btn-primary"} %>
             	<% end %>
       		<% end %>

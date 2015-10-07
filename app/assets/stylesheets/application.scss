@@ -310,3 +310,47 @@ a.btn{
 
     
       }
+
+      p{
+        font-size:15px;
+      }
+      h4{
+      margin-bottom: 10px !important;
+      }
+
+       .step-list {
+      margin-left: 6px;
+      margin-right: 6px;
+  }
+  
+  .steps {
+    border: 3px solid white;
+      padding:4px;
+      color: white;
+  }
+  .same-height .col-md-6{
+    padding:0px;
+  }
+   
+  
+  
+  .step-list img{ max-height:45px; width:auto}
+  .footer
+{
+    padding-top:15px;
+    padding-bottom:15px;
+
+    background-color: #4A83C1;
+    color: white;
+
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+.footer a{
+  color: white;
+}
+
+.contact-table td{
+          width:0% !important;
+        }

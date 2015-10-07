@@ -16,34 +16,6 @@
   <div class="col-md-7">
 
     <%= yield %>
-    <style>
- .step-list {
-    	margin-left: 6px;
-    	margin-right: 6px;
-	}
-	
-	.steps {
-		border: 3px solid white;
-	    padding:4px;
-	    color: white;
-	}
-	.same-height .col-md-6{
-		padding:0px;
-	}
-   
-	
-	
-	.step-list img{ max-height:45px; width:auto}
-	.footer
-{
-    height: 50px;
-    background-color: #4A83C1;;
-
-    left: 0;
-    right: 0;
-    width: 100%;
-}
-    </style>
   </div>
   
 	
@@ -68,9 +40,7 @@
 
 </div>
 </body>
- 	<div class="footer">
- 		<div class="text-center">© www.pcpartsbd.com</div>
- 	</div>
+ 	<%= render 'layouts/footer'%>
  	<script>
  	    $(document).ready(function(){
  	    	window.setTimeout(function(){

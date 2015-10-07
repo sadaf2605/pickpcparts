@@ -18,8 +18,10 @@
 
 		          
 		          <div class="caption">
-		            <h3><%= @week_post.title%></h3>
-		            <p><%= truncate(@week_post.body, :length => 150, :omission => '... (continued)') %></p>
+		            <h4><%= link_to @week_post.title, blog_path(@week_post)%></h4>
+		            <p>
+		            <%=truncate(@week_post.body, :length => 150) { link_to "Continue", blog_path(@week_post) }%>
+		            </p>
 		            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
 		          </div>
 		        <%else%>
@@ -51,7 +53,8 @@
 								</div>
 						        <div class="col-md-9 caption">
 						        	<h4><%= link_to(post.title, blog_path(post)) %></h4>
-							        <p><%= truncate(post.blogit_post.body, :length => 150, :omission => '... (continued)') %> </p>
+
+							        <p><%=truncate(post.body, :length => 150) { link_to "Continue", blog_path(post) }%></p>
 							     </div>
 					     	</div>
 					  	</div>
