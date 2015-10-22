@@ -1,4 +1,4 @@
-class CpusGrid <ParentProductGrid
+class CpusGrid < PcPartGrid
   
   scope do
     Cpu

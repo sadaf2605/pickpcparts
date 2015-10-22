@@ -1,4 +1,4 @@
-class ParentProductGrid
+class PcPartGrid
   include Datagrid
   
   def self.scope_and_columns(url_columns,mandatory_columns)

@@ -1,0 +1,23 @@
+	        <div class="thumbnail animated bounceInDown" data-id='1'>
+	        	<div class="thumbnail hvr-box-shadow-outset">
+	        		  	<div class="panel-heading panel-heading animated bounceInDown" data-id='2'> <i class="fa fa-bolt" style="font-size: 20px;"></i> <span class="pull-right">This Week's Pick!</span></div>
+	        	<%unless week_post.nil?%>
+	        	<% if week_post.avatar.blank? %>
+	        		<img alt="100%x200" src="<%=blank_img%>" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+	        	<% else %>
+	        		<img alt="100%x200" src="<%= @week_post.avatar %>" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+	        	<%end%>
+
+		          
+		          <div class="caption">
+		            <h4><%= link_to week_post.title, blog_path(@week_post)%></h4>
+		            <p>
+		            <%=truncate(week_post.body, :length => 150) { link_to "Continue", blog_path(week_post) }%>
+		            </p>
+		            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+		          </div>
+		        <%else%>
+		        <p>Yet, we don't have a post of the week!</p>
+		        <%end%>
+	        </div>
+	     </div>

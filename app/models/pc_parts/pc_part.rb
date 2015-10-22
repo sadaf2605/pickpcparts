@@ -1,4 +1,4 @@
-class ParentProduct < ActiveRecord::Base
+class PcPart < ActiveRecord::Base
   self.abstract_class = true
   include  BuildMsg
 

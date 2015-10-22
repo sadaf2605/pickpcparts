@@ -1,4 +1,4 @@
-class StoragesGrid <ParentProductGrid
+class StoragesGrid <PcPartGrid
   scope do
     Storage
   end

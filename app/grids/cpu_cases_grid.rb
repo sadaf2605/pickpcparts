@@ -1,4 +1,4 @@
-class CpuCasesGrid < ParentProductGrid
+class CpuCasesGrid < PcPartGrid
   scope do
     CpuCase
   end

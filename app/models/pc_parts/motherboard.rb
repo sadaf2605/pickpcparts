@@ -1,4 +1,4 @@
-class Motherboard < ParentProduct
+class Motherboard < PcPart
   belongs_to :product
   
 	has_many :motherboard_builds

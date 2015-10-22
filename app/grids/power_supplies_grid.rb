@@ -1,4 +1,4 @@
-class PowerSuppliesGrid < ParentProductGrid
+class PowerSuppliesGrid < PcPartGrid
   scope do
     PowerSupply
   end 

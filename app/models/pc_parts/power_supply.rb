@@ -1,4 +1,4 @@
-class PowerSupply < ParentProduct
+class PowerSupply < PcPart
 
   has_many :power_supply_builds
   has_many :builds, :through => :power_supply_builds, class_name: Build

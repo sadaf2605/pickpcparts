@@ -1,4 +1,4 @@
-class CoolersGrid <ParentProductGrid
+class CoolersGrid <PcPartGrid
   
   scope do
     Cooler

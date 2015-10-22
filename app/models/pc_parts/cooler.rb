@@ -1,4 +1,4 @@
-class Cooler < ParentProduct
+class Cooler < PcPart
   has_many :cooler_builds
   has_many :builds, :through => :cooler_builds
 

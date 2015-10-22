@@ -1,4 +1,4 @@
-class CpuCase < ParentProduct
+class CpuCase < PcPart
   has_many :cpu_case_builds
 	has_many :builds, :through => :cpu_case_builds
 	has_many :cpu_case_form_factor_membership

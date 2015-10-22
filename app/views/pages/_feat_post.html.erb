@@ -1,0 +1,33 @@
+		<div  id="featured_post" class="thumbnail hvr-box-shadow-outset">
+			<div class="animated bounceInLeft" data-id='1'>
+				<div class="panel-heading animated bounceInLeft" data-id='1'><i class="fa fa-star" style="font-size: 20px;"></i> <span class="pull-right">Featured builds!</span></div>
+					
+					<% if feat_posts.empty? %>
+						<p>Yet, we don't have any featured post!</p>				
+					<% else %>
+					  <%bounceseq=0%>
+					  <% for post in feat_posts %>
+					    <div class="hvr-box-shadow-outset featured_posts" style="z-index: <%= 991-bounceseq %>; position: relative">
+							<div class="col-md-12 thumbnail animated bounceInLeft" data-id='<%=bounceseq+2%>'>
+								<div class="col-md-3 feat-thumb">
+
+									<% if post.avatar.blank? %>
+									<img data-src="holder.js/100%x200" alt="100%x200" src="<%=blank_img%>" data-holder-rendered="true" style="width: 100%; display: block;">
+									<%else%>
+									<img data-src="holder.js/100%x200" alt="100%x200" src="<%=post.avatar%>" data-holder-rendered="true" style="width: 100%; display: block;"> 
+									<%end%>
+								</div>
+						        <div class="col-md-9 caption">
+						        	<h4><%= link_to(post.title, blog_path(post)) %></h4>
+
+							        <p><%=truncate(post.body, :length => 150) { link_to "Continue", blog_path(post) }%></p>
+							     </div>
+					     	</div>
+					  	</div>
+					  <% bounceseq=bounceseq+1%>
+					  <% end %>
+					<% end %> 
+			        
+			   </div>
+			</div>
+		

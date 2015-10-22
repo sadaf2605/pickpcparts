@@ -1,4 +1,4 @@
-class MotherboardsGrid<ParentProductGrid
+class MotherboardsGrid<PcPartGrid
   scope do
     Motherboard
   end

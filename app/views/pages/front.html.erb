@@ -5,66 +5,12 @@
 		</div>
 	</div>
 	<div class="col-md-5 feat animatedParent" >
-		
-	        <div class="thumbnail animated bounceInDown" data-id='1'>
-	        	<div class="thumbnail hvr-box-shadow-outset">
-	        		  	<div class="panel-heading panel-heading animated bounceInDown" data-id='2'> <i class="fa fa-bolt" style="font-size: 20px;"></i> <span class="pull-right">This Week's Pick!</span></div>
-	        	<%unless @week_post.nil?%>
-	        	<% if @week_post.avatar.blank? %>
-	        		<img alt="100%x200" src="<%=blank_img%>" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
-	        	<% else %>
-	        		<img alt="100%x200" src="<%= @week_post.avatar %>" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
-	        	<%end%>
-
-		          
-		          <div class="caption">
-		            <h4><%= link_to @week_post.title, blog_path(@week_post)%></h4>
-		            <p>
-		            <%=truncate(@week_post.body, :length => 150) { link_to "Continue", blog_path(@week_post) }%>
-		            </p>
-		            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-		          </div>
-		        <%else%>
-		        <p>Yet, we don't have a post of the week!</p>
-		        <%end%>
-	        </div>
-	     </div>
+		<%= render 'pages/week_post', week_post: @week_post%>
 	</div>
 		
 	<div class="col-md-7 feat animatedParent" data-sequence="100">
-		<div  id="featured_post" class="thumbnail hvr-box-shadow-outset">
-			<div class="animated bounceInLeft" data-id='1'>
-				<div class="panel-heading animated bounceInLeft" data-id='1'><i class="fa fa-star" style="font-size: 20px;"></i> <span class="pull-right">Featured builds!</span></div>
-					
-					<% if @feat_posts.empty? %>
-						<p>Yet, we don't have any featured post!</p>				
-					<% else %>
-					  <%bounceseq=0%>
-					  <% for post in @feat_posts %>
-					    <div class="hvr-box-shadow-outset featured_posts" style="z-index: <%= 991-bounceseq %>; position: relative">
-							<div class="col-md-12 thumbnail animated bounceInLeft" data-id='<%=bounceseq+2%>'>
-								<div class="col-md-3 feat-thumb">
-
-									<% if post.avatar.blank? %>
-									<img data-src="holder.js/100%x200" alt="100%x200" src="<%=blank_img%>" data-holder-rendered="true" style="width: 100%; display: block;">
-									<%else%>
-									<img data-src="holder.js/100%x200" alt="100%x200" src="<%=post.avatar%>" data-holder-rendered="true" style="width: 100%; display: block;"> 
-									<%end%>
-								</div>
-						        <div class="col-md-9 caption">
-						        	<h4><%= link_to(post.title, blog_path(post)) %></h4>
-
-							        <p><%=truncate(post.body, :length => 150) { link_to "Continue", blog_path(post) }%></p>
-							     </div>
-					     	</div>
-					  	</div>
-					  <% bounceseq=bounceseq+1%>
-					  <% end %>
-					<% end %> 
-			        
-			   </div>
-			</div>
-		</div>
+		<%= render 'pages/feat_post', feat_posts: @feat_posts%>
+	</div>
 
 
 </div>

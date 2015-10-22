@@ -1,4 +1,4 @@
-class MemoriesGrid<ParentProductGrid
+class MemoriesGrid< PcPartGrid
 
   scope do
     Memory

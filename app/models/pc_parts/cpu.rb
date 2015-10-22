@@ -1,4 +1,4 @@
-class Cpu < ParentProduct
+class Cpu < PcPart
   has_many :cpu_builds
   has_many :builds, :through => :cpu_builds  
   belongs_to :cpu_socket

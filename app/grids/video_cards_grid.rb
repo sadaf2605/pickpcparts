@@ -1,4 +1,4 @@
-class VideoCardsGrid < ParentProductGrid
+class VideoCardsGrid < PcPartGrid
   scope do
     VideoCard
   end
