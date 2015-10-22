@@ -37,11 +37,11 @@ module IconUrls
 
 
 	def cpu_build_icon
-		"https://cdn1.iconfinder.com/data/icons/computer-hardware-4/512/CPU-512.png"
+		"http://cdn1.iconfinder.com/data/icons/computer-hardware-4/512/CPU-512.png"
 	end
 	
 	def cooler_build_icon
-		"https://cdn2.iconfinder.com/data/icons/gears-wheels-blades/512/computer_cooler-512.png"
+		"http://cdn2.iconfinder.com/data/icons/gears-wheels-blades/512/computer_cooler-512.png"
 
 	end
 
@@ -53,19 +53,19 @@ module IconUrls
 		"http://media.memoryexpress.com/Assets/ContentPages/TechZone/TZ_Memory-Icon.png"
 	end
 	def storage_build_icon
-		"https://cdn0.iconfinder.com/data/icons/huge-basic-icons-part-3/512/Hard_disk.png"
+		"http://cdn0.iconfinder.com/data/icons/huge-basic-icons-part-3/512/Hard_disk.png"
 	end
 	
 	def video_card_build_icon
-		"https://cdn3.iconfinder.com/data/icons/glypho-computers-andother-tech/64/computer-graphic-card-512.png"
+		"http://cdn3.iconfinder.com/data/icons/glypho-computers-andother-tech/64/computer-graphic-card-512.png"
 	end
 
 	def power_supply_build_icon
-		"https://cdn2.iconfinder.com/data/icons/pixel-perfect-at-24px-volume-7/24/Untitled-2-128.png"
+		"http://cdn2.iconfinder.com/data/icons/pixel-perfect-at-24px-volume-7/24/Untitled-2-128.png"
 	end
 
 	def cpu_case_build_icon
-		"https://cdn2.iconfinder.com/data/icons/computer-hardware-3/175/Layer_14-01-512.png"
+		"http://cdn2.iconfinder.com/data/icons/computer-hardware-3/175/Layer_14-01-512.png"
 	end
 
 

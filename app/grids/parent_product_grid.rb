@@ -10,7 +10,7 @@ class ParentProductGrid
       if c.type == :integer
           filter(c.name,:integer,:range => true)
       else
-        filter(c.name, self.scope.columns_hash[c.name].type) do |value|
+        filter(c.name, c.type) do |value|
             where("#{c.name} LIKE '%#{value}%'")      
         end
       end

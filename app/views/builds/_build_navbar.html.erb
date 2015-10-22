@@ -1,12 +1,7 @@
     <div style="margin-bottom:10px;">
         <div class="input-group">
                   
-          <span class="input-group-addon share-button-group">
-              <a class=" btn btn-block btn-facebook btn-social share-button btn-social-left" target="_blank" href="<%= "#{request.base_url}/builds/new" %>" title="Create New">
-              <i class="fa fa-plus-square"></i>
 
-              </a>
-          </span>
 
          <span class="input-group-addon share-button-group">
               <div class=" btn btn-block build-share btn-social btn-social-right">
@@ -25,6 +20,12 @@
           <span class="input-group-addon share-button-group">
               <a class=" btn btn-block btn-pinterest btn-social share-button btn-social-left" target="_blank" href="<%= "#{request.base_url}/builds/#{build.token}.pdf" %>" title="Save as PDF">
               <i class="fa fa-file-pdf-o"></i>
+              </a>
+          </span>
+          <span class="input-group-addon share-button-group">
+              <a class=" btn btn-block btn-facebook btn-social share-button btn-social-left" target="_blank" href="<%= "#{request.base_url}/builds/new" %>" title="Create New">
+              <i class="fa fa-refresh"></i>
+
               </a>
           </span>
 

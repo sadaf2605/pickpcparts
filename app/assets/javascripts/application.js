@@ -26,11 +26,7 @@
 
 
 $(document).ready(function() {
-
-	
-
-
-   	drop=null;
+	  	drop=null;
    	
     	$('.dropdown').click(function(e) {
 	    	if($(e.target).hasClass("dropdown-toggle") ){
@@ -51,6 +47,56 @@ $(document).ready(function() {
     	
 	    	$(drop).find('.dropdown-menu').first().stop(true, true).slideUp(400);
 	});
+
+
+
+	
+			select_and_focus=function(build_url){
+				url_input=$(build_url)
+				var carat = url_input.val().length; 
+				url_input.focus(); 
+				url_input[0].setSelectionRange(0,carat);
+			}
+			
+			copy_to_clip_board=function(build_url){
+				  clipboard.copy({
+				    'text/plain': $(build_url).value,
+				  }).then(
+				    function(){console.log('success'); },
+				    function(err){console.log('failure', err);
+				  });
+				
+				};
+			
+			update_text_status=function(status_area){
+		   	   $(status_area).flash_message({
+			        text: 'Copied to clipboard!',
+			        how: 'append'
+			    });
+		   	}
+
+
+
+
+		$( "#copy-url" ).click(function() {
+
+			select_and_focus("#build-url");
+			copy_to_clip_board("#build-url");
+			update_text_status(".status-area");
+
+		});
+		$('#build-url').click( function() {
+			alert("build url");
+			select_and_focus("#build-url");
+			copy_to_clip_board("#build-url");
+			update_text_status(".status-area");
+
+		});
+
+	
+
+
+ 
 
 	$( "#search" ).autocomplete({
       source: function( request, response ) {
@@ -136,43 +182,3 @@ $(document).ready(function() {
 
 
 
-			select_and_focus=function(build_url){
-				url_input=$(build_url)
-				var carat = url_input.val().length; 
-				url_input.focus(); 
-				url_input[0].setSelectionRange(0,carat);
-			}
-			
-			copy_to_clip_board=function(build_url){
-				  clipboard.copy({
-				    'text/plain': $(build_url).value,
-				  }).then(
-				    function(){console.log('success'); },
-				    function(err){console.log('failure', err);
-				  });
-				
-				};
-			
-			update_text_status=function(status_area){
-		   	   $(status_area).flash_message({
-			        text: 'Copied to clipboard!',
-			        how: 'append'
-			    });
-		   	}
-
-
-
-
-		$( "#copy-url" ).click(function() {
-
-			select_and_focus("#build-url");
-			copy_to_clip_board("#build-url");
-			update_text_status(".status-area");
-
-		});
-		$('#build-url').click( function() {
-			select_and_focus("#build-url");
-			copy_to_clip_board("#build-url");
-			update_text_status(".status-area");
-
-		});
