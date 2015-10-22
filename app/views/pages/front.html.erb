@@ -13,7 +13,7 @@
 	        	<% if @week_post.avatar.blank? %>
 	        		<img alt="100%x200" src="<%=blank_img%>" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
 	        	<% else %>
-	        		<img alt="100%x200" src="@week_post.avatar" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+	        		<img alt="100%x200" src="<%= @week_post.avatar %>" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
 	        	<%end%>
 
 		          
