@@ -1,0 +1,2 @@
+class OpticalDrive < PcPart
+end

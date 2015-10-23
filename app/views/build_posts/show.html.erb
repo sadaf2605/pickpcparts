@@ -1,16 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<% unless @blog_post.avatar.blank? %>
-	 <%=image_tag @blog_post.avatar %> 
-<% else %>
-	 <%=image_tag blank_img %> 
-<% end %>
+<div class="col-md-12">
+	<div class="col-md-3">
+		<% unless @blog_post.avatar.blank? %>
+			 <%=image_tag @blog_post.avatar, style:"width:100%" %> 
+		<% else %>
+			 <%=image_tag blank_img, style:"width:100%" %> 
+		<% end %>
+	</div>
+	<div class="col-md-9">
+		<h1><%=@blog_post.title%></h1>
+	</div>
+	<div class="col-md-12">
+		<p><%=@blog_post.body%></p>
 
-<h1><%=@blog_post.title%></h1>
-<p><%=@blog_post.body%></p>
+		<% unless @blog_post.build.nil? %>
+	  		<%= render  @blog_post.build %>
+		<% end %>
 
-<% unless @blog_post.build.nil? %>
-  <%= render  @blog_post.build %>
-<% end %>
-
-<%= render 'layouts/fb_comments', url: "http://developers.facebook.com/docs/plugins/comments/" %>
+		<%= render 'layouts/fb_comments', url: "http://developers.facebook.com/docs/plugins/comments/" %>
+	</div>
+</div>

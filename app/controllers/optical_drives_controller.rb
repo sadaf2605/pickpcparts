@@ -1,0 +1,4 @@
+class OpticalDrivesController < ParentProductController
+
+end
+

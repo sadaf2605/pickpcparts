@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003100941) do
+ActiveRecord::Schema.define(version: 20151023124453) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -199,6 +199,30 @@ ActiveRecord::Schema.define(version: 20151003100941) do
     t.integer  "product_id"
   end
 
+  create_table "displays", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "screen_size"
+    t.string   "recommended_resolution"
+    t.boolean  "widescreen"
+    t.string   "aspect_ratio"
+    t.string   "viewing_angle"
+    t.string   "display_colors"
+    t.string   "brightness"
+    t.string   "contrast_ratio"
+    t.string   "response_time"
+    t.string   "refresh_rate"
+    t.boolean  "ips"
+    t.boolean  "led"
+    t.boolean  "built_in_speakers"
+    t.integer  "dvi_d_dual_link"
+    t.integer  "displayport"
+    t.integer  "hdmi"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "displays", ["product_id"], name: "index_displays_on_product_id"
+
   create_table "drop_table_cpu_case_form_factor_memberships", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -270,6 +294,26 @@ ActiveRecord::Schema.define(version: 20151003100941) do
     t.integer  "memory_slot_id"
     t.integer  "form_factor_id"
     t.integer  "product_id"
+  end
+
+  create_table "optical_drives", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "form_factor"
+    t.string   "interface"
+    t.string   "cache"
+    t.string   "cd_dash_rom_speed"
+    t.string   "cd_dash_r_speed"
+    t.string   "cd_dash_rw_speed"
+    t.string   "dvd_dash_rom_speed"
+    t.string   "dvd_plus_r_speed"
+    t.string   "dvd_plus_r_dual_layer_Speed"
+    t.string   "dvd_plus_rw_speed"
+    t.string   "dvd_dash_r_speed"
+    t.string   "dvd_dash_r_dual_layer_speed"
+    t.string   "dvd_dash_rw_speed"
+    t.string   "dvd_ram_speed"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "pictures", force: :cascade do |t|

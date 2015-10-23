@@ -1,6 +1,6 @@
 class BuildPostsController < Blogit::PostsController
  # helper Blogit::Engine.routes.url_helpers
- #  layout "front_page"
+   layout "front_page"
   def show
     @blog_post=BuildPost.find(params[:id].to_i)
   end

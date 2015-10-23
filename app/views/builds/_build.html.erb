@@ -1,6 +1,9 @@
 
 
 
+<%unless build.new_record? %>
+  <%= render "builds/build_navbar", build: build %>
+<%end%>
 
 <table class="table table-condensed" >
   <thead>
@@ -13,7 +16,7 @@
   </tr>
   </thead>
 
-  <tbody  data-intro="Add componenets and build your dream PC!" data-position="right">
+  <tbody  data-intro="Add componenets of your dream PC and share your part list with friends!" data-position="right">
 
   
   <% [	{part:"cpu",        icon:cpu_build_icon},

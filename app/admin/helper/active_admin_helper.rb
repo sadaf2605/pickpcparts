@@ -1,5 +1,7 @@
 
 	def parts_inputs_for(m,form)
+
+		# views/admin/_product.html.erb
     	render "admin/product", f:form
 
     	yield

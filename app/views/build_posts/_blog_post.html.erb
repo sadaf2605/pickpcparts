@@ -1,9 +1,9 @@
 <div class="row" style="padding-top:30px;">
     <div class="col-md-3">
       <% unless blog_post.avatar.blank? %>
-        <%=image_tag blog_post.avatar %> 
+        <%=image_tag blog_post.avatar, style:"width:100%" %> 
       <% else %>
-        <%=image_tag blank_img %> 
+        <%=image_tag blank_img, style:"width:100%" %> 
       <% end %>
     </div>
     <div class="col-md-9">
