@@ -23,7 +23,12 @@ class Build < ActiveRecord::Base
 
   has_many :power_supply_builds
   has_many :power_supplies, :through => :power_supply_builds
+
+  has_many :optical_drive_builds
+  has_many :optical_drives, :through => :optical_drive_builds #,:class_name => :OpticalDrive
     
+  has_many :display_builds
+  has_many :displays, :through => :display_builds
 
   def add_cpu(cpu)
 		if cpu
@@ -114,6 +119,17 @@ class Build < ActiveRecord::Base
 	end
   def remove_power_supply(power_supply)
     PowerSupplyBuild.where("power_supply_id = ? AND build_id = ?", power_supply.id, self.id).first.delete
+    save
+  end
+  
+  def add_optical_drive(optical_drive)
+		if optical_drive
+			self.optical_drive_builds.push(optical_drive)
+			save
+		end
+	end
+  def remove_optical_drive(optical_drive)
+    OpticalDriveBuild.where("optical_drive_id = ? AND build_id = ?", optical_drive.id, self.id).first.delete
     save
   end
 

@@ -30,7 +30,9 @@ module IconUrls
 	def cpu_case_blank_icon
 		"https://cdn2.iconfinder.com/data/icons/computer-hardware-3/175/Layer_14-01-512.png"
 	end
-
+	def optical_drive_blank_icon
+		"http://cdn4.iconfinder.com/data/icons/devine_icons/128/PNG/Folder%20and%20Places/CD-DVD%20Drive-2.png"
+	end
 
 
 
@@ -68,8 +70,12 @@ module IconUrls
 		"http://cdn2.iconfinder.com/data/icons/computer-hardware-3/175/Layer_14-01-512.png"
 	end
 
-
-
+	def optical_drive_build_icon
+		"http://cdn4.iconfinder.com/data/icons/devine_icons/128/PNG/Folder%20and%20Places/CD-DVD%20Drive-2.png"
+	end
+	def display_build_icon
+		"http://cdn2.iconfinder.com/data/icons/electronics/512/Flat_Screen_TV-128.png"
+	end
 
 
 
@@ -106,7 +112,13 @@ module IconUrls
 		"https://pcpartpicker.com/static/forever/img/nav-case.png"
 	end
 
+	def optical_drive_menu_icon
+		"http://cdn4.iconfinder.com/data/icons/devine_icons/128/PNG/Folder%20and%20Places/CD-DVD%20Drive-2.png"
+	end
 
+	def display_menu_icon
+		"http://cdn2.iconfinder.com/data/icons/electronics/512/Flat_Screen_TV-128.png"
+	end
 
 
 

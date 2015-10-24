@@ -26,7 +26,10 @@
   		{part:"storage",    icon:storage_build_icon},
   		{part:"video_card", icon:video_card_build_icon},
   		{part:"cpu_case",   icon:cpu_case_build_icon},
-  		{part:"power_supply", icon: power_supply_build_icon}
+  		{part:"power_supply", icon: power_supply_build_icon},
+      {part:"optical_drive", icon: optical_drive_build_icon},
+      {part:"display", icon: display_build_icon},
+
   	 ].each do |product| 
   	%>
   		<%part=product[:part]%>
@@ -37,7 +40,8 @@
       	<td class="col-md-1 text-center"> <%= image_tag icon, :class=>"table-part-icon" %></td><td class="col-md-3"> <%= link_to part, eval("#{part.pluralize}_url") %></td>
 
     	<td class="col-md-3">
-    		
+    		 
+
       		<% if build.send("#{part.pluralize}").blank? %>
       			<% if  session[:build_token]==build.token or build.new_record? %>
             		<%= link_to "add #{part}", eval("#{part.pluralize}_url"), {:class =>"btn btn-xs btn-primary"} %>

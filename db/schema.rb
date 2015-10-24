@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023124453) do
+ActiveRecord::Schema.define(version: 20151024063212) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -199,6 +199,13 @@ ActiveRecord::Schema.define(version: 20151023124453) do
     t.integer  "product_id"
   end
 
+  create_table "display_builds", force: :cascade do |t|
+    t.integer  "display_id"
+    t.integer  "build_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "displays", force: :cascade do |t|
     t.integer  "product_id"
     t.string   "screen_size"
@@ -294,6 +301,14 @@ ActiveRecord::Schema.define(version: 20151023124453) do
     t.integer  "memory_slot_id"
     t.integer  "form_factor_id"
     t.integer  "product_id"
+  end
+
+  create_table "optical_drive_builds", force: :cascade do |t|
+    t.integer  "optical_drive_id"
+    t.integer  "build_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "market_status_id"
   end
 
   create_table "optical_drives", force: :cascade do |t|

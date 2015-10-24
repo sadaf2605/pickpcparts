@@ -46,17 +46,19 @@ match "/admin/featuredpost" => 'admin/featuredpost#add_event', via: :post, as: "
       post 'video_card/:video_card_id'      => 'builds#add_video_card',   :as => 'add_video_card'
       post 'cpu_case/:cpu_case_id'          => 'builds#add_cpu_case',     :as => 'add_cpu_case'
       post 'power_supply/:power_supply_id'  => 'builds#add_power_supply', :as => 'add_power_supply'
+      post 'optical_drive/:optical_drive_id'=> 'builds#add_optical_drive',:as => 'add_optical_drive'
     end
 
     scope :remove do
-      post 'cpu/:cpu_id'                 => 'builds#remove_cpu',           :as => 'remove_cpu'
-      post 'motherboard/:motherboard_id'  => 'builds#remove_motherboard',   :as => 'remove_motherboard'
-      post 'cooler/:cooler_id'            => 'builds#remove_cooler',        :as => 'remove_cooler'
-      post 'memory/:memory_id'            => 'builds#remove_memory',        :as => 'remove_memory'
-      post 'storage/:storage_id'          => 'builds#remove_storage',       :as => 'remove_storage'        
-      post 'video_card/:video_card_id'    => 'builds#remove_video_card',    :as => 'remove_video_card'
-      post 'cpu_case/:cpu_case_id'        => 'builds#remove_cpu_case',      :as => 'remove_cpu_case'
-      post 'power_supply/:power_supply_id'=> 'builds#remove_power_supply',  :as => 'remove_power_supply'
+      post 'cpu/:cpu_id'                    => 'builds#remove_cpu',           :as => 'remove_cpu'
+      post 'motherboard/:motherboard_id'    => 'builds#remove_motherboard',   :as => 'remove_motherboard'
+      post 'cooler/:cooler_id'              => 'builds#remove_cooler',        :as => 'remove_cooler'
+      post 'memory/:memory_id'              => 'builds#remove_memory',        :as => 'remove_memory'
+      post 'storage/:storage_id'            => 'builds#remove_storage',       :as => 'remove_storage'        
+      post 'video_card/:video_card_id'      => 'builds#remove_video_card',    :as => 'remove_video_card'
+      post 'cpu_case/:cpu_case_id'          => 'builds#remove_cpu_case',      :as => 'remove_cpu_case'
+      post 'power_supply/:power_supply_id'  => 'builds#remove_power_supply',  :as => 'remove_power_supply'
+      post 'optical_drive/:optical_drive_id'=> 'builds#remove_optical_drive', :as => 'remove_optical_drive'
     end 
 
   end

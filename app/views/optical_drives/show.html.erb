@@ -1,0 +1,31 @@
+
+
+<div class="col-md-8">
+
+  <p id="notice"><%= notice %></p>
+  <%= render "layouts/product_carousel", pictures:@optical_drive.product.pictures %>
+
+  <h3>Specification of <%= @optical_drive %>:</h3>
+  <table class="parts" class="display" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+
+      <th>Feature</th>
+      <th>Specifications</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+      <td>Manufacturer:</td>
+      <td><%=  @optical_drive.product.manufacturer   %></td>
+    </tr>
+
+    <tbody>
+  </table>
+</div>
+
+<div class="col-md-4 add_build_col">
+<%=render 'layouts/add_to_build', :form_link=>add_optical_drive_path(@optical_drive), :product =>@optical_drive.product, blank_product_icon: optical_drive_blank_icon %>
+</div>
