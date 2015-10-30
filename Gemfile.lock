@@ -8,13 +8,6 @@ GIT
       railties (>= 3.1)
       sass-rails
 
-GIT
-  remote: git://github.com/sadaf2605/formastic_factory_girl_strategy.git
-  revision: 905a061ce2f2a5bd42dc0bf04081da7bf89fec5b
-  specs:
-    formastic_factory_girl_strategy (0.0.1)
-      rails (~> 4.2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -148,6 +141,8 @@ GEM
     ffi (1.9.10)
     font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
+    formastic_factory_girl_strategy (0.0.1)
+      rails (~> 4.2.0)
     formtastic (3.1.3)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.4.1)
@@ -188,6 +183,9 @@ GEM
     mini_portile (0.6.2)
     minitest (5.8.0)
     multi_json (1.11.2)
+    nested_attr (0.0.1.2)
+      factory_girl
+      rails
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -355,12 +353,13 @@ DEPENDENCIES
   draper
   factory_girl
   font-awesome-rails (~> 4.3.0.0)
-  formastic_factory_girl_strategy!
+  formastic_factory_girl_strategy
   headless
   jbuilder (~> 2.0)
   jquery-datatables-rails!
   jquery-rails
   less
+  nested_attr
   pdfkit
   pg
   pundit

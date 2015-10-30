@@ -1,6 +1,8 @@
 # spec/controllers/admin/organizations_controller_spec.rb
 require 'rails_helper'
 
+require 'nested_attr'
+
 
 include Devise::TestHelpers
 
@@ -18,10 +20,10 @@ describe Admin::CpusController, :type => :controller do
   it_should_behave_like "a child product controller", Cpu,:cpu do
     let(:update_factory_name){:cpu}
 
-    let(:params_with_product){ {:cpu => FactoryGirl.nested_attributes(:cpu) } }
-    let(:params_with_market_status){ {:cpu => FactoryGirl.nested_attributes(:cpu_with_market_status) } }
+    let(:params_with_product){ {:cpu => NestedAttr.nested_attr_for(:cpu,has_many=[:market_statuses]) } }
+    let(:params_with_market_status){ {:cpu => NestedAttr.nested_attr_for(:cpu_with_market_status,has_many=[:market_statuses]) } }
 
-    let(:params_without_product){{:cpu => FactoryGirl.nested_attributes(:cpu_without_product)}}
+    let(:params_without_product){{:cpu => NestedAttr.nested_attr_for(:cpu_without_product,has_many=[:market_statuses])}}
 
     let(:child_product_with_market_status){ FactoryGirl.create(:cpu_with_market_status)}
 
@@ -39,14 +41,14 @@ describe Admin::CpusController, :type => :controller do
 
   describe "create" do
     context "when there is socket" do
-      let(:cpu_attribute){FactoryGirl.nested_attributes(:cpu)}
+      let(:cpu_attribute){NestedAttr.nested_attr_for(:cpu)}
       
       it "creates with cpu socket successfully" do
         
         cpu_socket = FactoryGirl.create(:cpu_socket)
 #        post :create,{"cpu"=>{"product"=>{"manufacturer"=>"", "part_no"=>""}, "cpu_socket_id"=>cpu_socket.id.to_s, "model"=>"", "data_width"=>"", "speed"=>"", "cores"=>"", "l1_cache"=>"", "l2_cache"=>"", "l3_cache"=>"", "lithography"=>"", "thermal_design_power"=>"", "includes_cpu_cooler"=>"0", "hyper_threading"=>"0", "integrated_graphics"=>""}}
 
-attt={"product"=>{"manufacturer"=>"", "part_no"=>""}, "cpu_socket_id"=>cpu_socket.id.to_s, "model"=>"", "data_width"=>"", "speed"=>"", "cores"=>"", "l1_cache"=>"", "l2_cache"=>"", "l3_cache"=>"", "lithography"=>"", "thermal_design_power"=>"", "includes_cpu_cooler"=>"0", "hyper_threading"=>"0", "integrated_graphics"=>""}
+        attt={"product"=>{"manufacturer"=>"", "part_no"=>""}, "cpu_socket_id"=>cpu_socket.id.to_s, "model"=>"", "data_width"=>"", "speed"=>"", "cores"=>"", "l1_cache"=>"", "l2_cache"=>"", "l3_cache"=>"", "lithography"=>"", "thermal_design_power"=>"", "includes_cpu_cooler"=>"0", "hyper_threading"=>"0", "integrated_graphics"=>""}
         post :create,{"cpu"=>attt}
 
         #post :create, {:cpu => FactoryGirl.nested_attributes(:cpu).stringify_keys.merge("cpu_socket_id"=> cpu_socket.id.to_s) }
@@ -65,11 +67,11 @@ attt={"product"=>{"manufacturer"=>"", "part_no"=>""}, "cpu_socket_id"=>cpu_socke
       it "updates socket" do
 
         cpu_socket = FactoryGirl.create(:cpu_socket)
-        attributes=FactoryGirl.attributes_for(:cpu)
-        put :update, {id:@cpu}.merge({:cpu => FactoryGirl.nested_attributes(:cpu).stringify_keys.merge("cpu_socket_id"=> cpu_socket.id.to_s) })
+        
+        put :update, {id:@cpu}.merge({:cpu => NestedAttr.nested_attr_for(:cpu).stringify_keys.merge("cpu_socket_id"=> cpu_socket.id.to_s) })
         @cpu.reload
 
-      # expect(@cpu.cpu_socket.name).to eq(cpu_socket.name)
+
         expect(@cpu.cpu_socket_id).to eq(cpu_socket.id)
 
       end

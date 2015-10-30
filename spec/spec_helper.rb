@@ -5,8 +5,8 @@ require 'support/shared_example/child_product_controller_shared_examples'
 require 'support/shared_example/global_navbar_shared_examples'
 
 require 'support/shared_example/part_report_shared_example'
-#if ENV['HEADLESS'] == 'true'
-#  require 'rubygems'
+if ENV['HEADLESS'] == 'true'
+  require 'rubygems'
   
   require 'headless'
   headless = Headless.new
@@ -16,7 +16,7 @@ require 'support/shared_example/part_report_shared_example'
     headless.destroy
     exit exit_status if exit_status
   end
-#end
+end
 
 
 

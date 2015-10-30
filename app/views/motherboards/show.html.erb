@@ -4,7 +4,7 @@
   <p id="notice"><%= notice %></p>
 <%= render "layouts/product_carousel", pictures:@motherboard.product.pictures %>
 
-  <h3>Specification of <%= @motherboard.part_no %>:</h3>
+  <h3>Specification of <%= @motherboard.product.part_no %>:</h3>
   <table class="parts" class="display" cellspacing="0" width="100%">
     <thead>
     <tr>
@@ -26,11 +26,11 @@
     </tr>
     <tr>
       <td>Form factor: </td>
-      <td><%= @motherboard.form_factor.name  %></td>
+      <td><%= @motherboard.form_factor.name if @motherboard.form_factor  %></td>
     </tr>
     <tr>
       <td>Socket: </td>
-      <td><%= @motherboard.cpu_socket.name  %></td>
+      <td><%= @motherboard.cpu_socket.name if @motherboard.cpu_socket %></td>
     </tr>
     <tr>
       <td>Chipset:</td>
@@ -38,7 +38,7 @@
     </tr>
     <tr>
       <td> Memory slots:</td>
-      <td><%= @motherboard.memory_slot.name  %></td>
+      <td><%= @motherboard.memory_slot.name if @motherboard.memory_slot  %></td>
     </tr>
     <tr>
       <td> Memory type: </td>

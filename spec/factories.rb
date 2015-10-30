@@ -1,5 +1,5 @@
-FormasticFactoryGirlStrategy.except :pictures
-FormasticFactoryGirlStrategy.except :cpu_socket_id
+#FormasticFactoryGirlStrategy.except :pictures
+#FormasticFactoryGirlStrategy.except :cpu_socket_id
 
 FactoryGirl.define do   
   sequence(:random_price) do |n|
@@ -22,7 +22,7 @@ FactoryGirl.define do
     description "this is super duper cool body this is super duper cool body this is super duper cool body." 
   end
   
-  factory  :blog_post, :class => BlogPost do
+  factory  :blog_post, :class => BuildPost do
     association :blogit_post, factory: :blogit_post
     is_featured true
   end
